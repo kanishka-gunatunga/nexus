@@ -49,7 +49,6 @@ export default function Home() {
     const stats = [
         {value: 39, label: "Countries", suffix: "+"},
         {value: 76, label: "Global Partner Offices"},
-        {value: 95, label: "Paperless by 2025", suffix: "%"},
     ];
 
 
@@ -86,7 +85,7 @@ export default function Home() {
             src: "/forwarding_service.png",
             alt: "Freight forwarding service",
             label: "Air & Sea Freight",
-            description: `Be it express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport, we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.`,
+            description: `Be it express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.`,
         },
         {
             src: "/Customs_Clearance.png",
@@ -200,15 +199,41 @@ export default function Home() {
 
                 <Quote/>
 
-                <section className="relative py-6 z-30 sm:py-8 bg-[#F6F6F6]">
+                <section className="relative py-6 md:-top-20 lg:-top-0 z-40 sm:py-8">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-3">
+                        {/*<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-3">*/}
+                        {/*    {values.map((value, index) => (*/}
+                        {/*        <div*/}
+                        {/*            key={index}*/}
+                        {/*            className="flex flex-col items-center sm:items-start text-center sm:text-left"*/}
+                        {/*        >*/}
+                        {/*            <div className="mb-4 sm:mb-6">*/}
+                        {/*                <Image*/}
+                        {/*                    src={value.icon}*/}
+                        {/*                    alt={`${value.title} icon`}*/}
+                        {/*                    width={48}*/}
+                        {/*                    height={48}*/}
+                        {/*                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"*/}
+                        {/*                />*/}
+                        {/*            </div>*/}
+                        {/*            <h3 className="text-[#225395] font-semibold text-base sm:text-lg lg:text-xl italic mb-2">*/}
+                        {/*                {value.title}*/}
+                        {/*            </h3>*/}
+                        {/*            <p className="text-[#0C2D59] font-medium text-xs sm:text-sm lg:text-sm whitespace-pre-line">*/}
+                        {/*                {value.subtitle}*/}
+                        {/*            </p>*/}
+                        {/*        </div>*/}
+                        {/*    ))}*/}
+                        {/*</div>*/}
+
+                        <div
+                            className="flex overflow-x-auto lg:mx-auto lg:grid lg:grid-cols-5 gap-4 lg:gap-1 pb-4 lg:pb-0 snap-x snap-mandatory scrollbar-hide touch-pan-x lg:justify-items-center">
                             {values.map((value, index) => (
                                 <div
                                     key={index}
-                                    className="flex flex-col items-center sm:items-start text-center sm:text-left"
+                                    className="flex flex-col items-center lg:items-start text-center lg:text-left min-w-[150px] lg:min-w-0 snap-center px-2"
                                 >
-                                    <div className="mb-4 sm:mb-6">
+                                    <div className="mb-0.5 sm:mb-1 lg:mb-2">
                                         <Image
                                             src={value.icon}
                                             alt={`${value.title} icon`}
@@ -217,10 +242,10 @@ export default function Home() {
                                             className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
                                         />
                                     </div>
-                                    <h3 className="text-[#225395] font-semibold text-base sm:text-lg lg:text-xl italic mb-2">
+                                    <h3 className="text-[#225395] font-semibold text-base sm:text-lg lg:text-xl italic">
                                         {value.title}
                                     </h3>
-                                    <p className="text-[#0C2D59] font-medium text-xs sm:text-sm lg:text-sm whitespace-pre-line">
+                                    <p className="text-[#0C2D59] font-medium text-[10px] lg:text-xs leading-4 whitespace-pre-line">
                                         {value.subtitle}
                                     </p>
                                 </div>
@@ -231,7 +256,7 @@ export default function Home() {
             </section>
 
             <div className="py-4 sm:py-6 lg:py-8">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-8 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
                         <div className="relative">
                             <div
@@ -247,10 +272,10 @@ export default function Home() {
                                 />
                             </div>
                             <div
-                                className="absolute text-center rounded-[10px] -bottom-4 sm:-bottom-5 lg:-bottom-6 left-4 sm:left-5 lg:left-6 bg-[#225395] text-white px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 shadow-lg"
+                                className="absolute text-center rounded-[10px] -bottom-4 sm:-bottom-5 lg:-bottom-6 left-4 sm:left-5 lg:left-6 bg-[#225395] text-white px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 lg:py-3 shadow-lg"
                             >
                                 <div className="text-center">
-                                    <p className="text-sm sm:text-base lg:text-lg font-semibold mb-1 sm:mb-2">
+                                    <p className="text-sm sm:text-base lg:text-lg font-semibold mb-0.5 sm:mb-1">
                                         Team with
                                     </p>
                                     <p className="text-3xl sm:text-5xl lg:text-6xl font-bold">
@@ -259,7 +284,7 @@ export default function Home() {
                                     <p className="text-lg sm:text-xl lg:text-3xl font-semibold">
                                         Years
                                     </p>
-                                    <p className="text-xs sm:text-sm lg:text-sm mt-1 sm:mt-2">
+                                    <p className="text-xs sm:text-sm lg:text-sm mt-0.5 sm:mt-1">
                                         Industry
                                         <br/>
                                         Experience
@@ -269,11 +294,11 @@ export default function Home() {
                         </div>
 
                         <div className="flex flex-col">
-                            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-8 text-center lg:text-left">
+                            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-8 text-left">
                                 Why Nexus Logix
                             </h2>
                             <div
-                                className="space-y-4 sm:space-y-5 lg:space-y-6 text-sm sm:text-base lg:text-lg text-[#676767] font-medium leading-[25px] text-center lg:text-left">
+                                className="space-y-4 sm:space-y-5 lg:space-y-6 text-sm sm:text-base lg:text-base text-[#676767] font-medium leading-[25px] text-left">
                                 <p>
                                     Established in Australia by a group of logistics professionals,
                                     each with over 25+ years of experience across Australia, Oceania,
@@ -296,11 +321,11 @@ export default function Home() {
                                     extension of your office.
                                 </p>
                             </div>
-                            <p className="text-[#225395] text-lg sm:text-xl lg:text-2xl font-medium mt-4 sm:mt-6 lg:mt-8 text-center lg:text-left">
+                            <p className="text-[#225395] text-lg sm:text-xl lg:text-2xl font-medium mt-4 sm:mt-6 lg:mt-8 text-left">
                                 - This is the Nexus Way
                             </p>
                             <button
-                                className="bg-[#071940] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-medium mt-4 sm:mt-6 lg:mt-8  rounded-[10px] hover:bg-blue-950 flex items-center w-fit mx-auto lg:mx-0 hover:scale-105 transition-all duration-300"
+                                className="bg-[#071940] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-medium mt-4 sm:mt-6 lg:mt-8  rounded-[10px] hover:bg-blue-950 flex items-left lg:items-center w-fit mx-0 hover:scale-105 transition-all duration-300"
                             >
                                 Explore More
                             </button>
@@ -311,14 +336,15 @@ export default function Home() {
 
             <div className="relative bg-[#0F2043] text-white py-6 sm:py-8 lg:py-16">
                 <div
-                    className="absolute bg-[url('/x.png')] -top-15 bg-no-repeat bg-cover inset-0 w-full sm:w-1/3 lg:w-[20%] opacity-5"
+                    className="absolute bg-[url('/x.png')] h-[200px] sm:h-[300px] md:h-[500px] md:-top-25 -top-5  bg-no-repeat bg-contain inset-0 w-full sm:w-1/3 lg:w-[400px] lg:h-[400px] lg:-top-15 opacity-5"
                 />
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col items-center gap-6 sm:gap-8 lg:flex-row lg:justify-between">
-                        <h2 className="text-xl sm:text-2xl lg:text-5xl font-semibold text-[#FFFFFF] text-start leading-tight sm:leading-[48px] lg:leading-[57px]">
-                            Connecting<br className="hidden sm:block"/> you worldwide...
+                <div className="relative max-w-7xl mx-0 lg:mx-auto px-8 lg:px-12">
+                    <div
+                        className="flex flex-col items-start lg:items-center gap-2 lg:gap-8 lg:flex-row lg:justify-between">
+                        <h2 className="text-xl sm:text-2xl lg:text-5xl font-semibold text-[#FFFFFF] text-left leading-tight sm:leading-[48px] lg:leading-[57px]">
+                            Connecting<br className="hidden lg:block"/> you worldwide...
                         </h2>
-                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-12 text-center sm:text-left">
+                        <div className="flex flex-row justify-between gap-4 sm:gap-6 lg:gap-12 text-left">
                             {stats.map((stat, index) => (
                                 <div key={index} className="group">
                                     <p className="text-xl sm:text-2xl lg:text-6xl font-semibold text-[#FFFFFF] mb-2 group-hover:scale-105 transition-transform duration-300">
@@ -346,55 +372,146 @@ export default function Home() {
                                     </p>
                                 </div>
                             ))}
+                            <div>
+                                <p className="text-xl sm:text-2xl lg:text-6xl font-semibold text-[#559000] mb-2 group-hover:scale-105 transition-transform duration-300">
+                                    CO₂
+                                </p>
+                                <p className="text-xs sm:text-sm lg:text-xl text-[#559000]">
+                                    Track & Trace
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            {/*<div className="bg-[#F6F6F6] relative z-10 py-6 sm:py-8 lg:py-16 poppins">*/}
+            {/*    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">*/}
+            {/*        <div*/}
+            {/*            className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">*/}
+            {/*            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold text-[#162F65] text-center mb-4 sm:mb-0 leading-tight mx-auto sm:mx-0">*/}
+            {/*                Comprehensive*/}
+            {/*                <br className="hidden sm:block"/> Solutions*/}
+            {/*            </h2>*/}
+            {/*            <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-xl leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">*/}
+            {/*                Whether it&#39;s retail, manufacturing, mining, automotive, or any other*/}
+            {/*                industry, our specialists understand each one&#39;s unique challenges,*/}
+            {/*                constraints, and regulations. In particular, we understand the value*/}
+            {/*                of proactive, swift communication, and we strive to keep our customers*/}
+            {/*                in the loop at all times - you&#39;ll notice this difference immediately*/}
+            {/*                and we&#39;ll earn your trust within the first month. Our dedicated teams*/}
+            {/*                work with you, as an extension of your office, to deliver compliant,*/}
+            {/*                tailored solutions that scale with your business.*/}
+            {/*            </p>*/}
+            {/*        </div>*/}
+
+            {/*        <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-10">*/}
+            {/*            <div id="main-card"*/}
+            {/*                className="bg-[#002453] relative w-full lg:w-2/3 rounded-lg text-center transition-colors duration-300">*/}
+            {/*                <div*/}
+            {/*                    className="absolute bg-[url('/x.png')] opacity-5 bg-no-repeat bg-cover bottom-0 inset-0 items-center h-full"/>*/}
+            {/*                <div*/}
+            {/*                    className="relative p-4 sm:p-6 lg:p-8 flex flex-col items-center justify-between h-full">*/}
+            {/*                    <div>*/}
+            {/*                        <p className="text-left font-medium pt-2 lg:pt-10 px-6 text-sm sm:text-base lg:text-[22px] text-[#FFFFFF] leading-[30px] whitespace-pre-line">*/}
+            {/*                            {activeService.description}*/}
+            {/*                        </p>*/}
+            {/*                    </div>*/}
+
+            {/*                    <div className="flex flex-row gap-2 group items-center pt-4 sm:pt-6 lg:pt-8">*/}
+            {/*                        <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 mb-2 flex-shrink-0 transition-transform duration-300 ease-in-out" width="81"*/}
+            {/*                             height="82" viewBox="0 0 81 82" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
+            {/*                            <circle cx="40.5" cy="41" r="37.7635" stroke="white" strokeWidth="5.47297"/>*/}
+            {/*                            <path*/}
+            {/*                                className="origin-center group-hover:rotate-45 transition-transform duration-300 ease-in-out"*/}
+            {/*                                d="M50.7383 33.4925C50.7693 32.847 50.5433 32.2156 50.1099 31.7363C49.6764 31.257 49.0708 30.9689 48.4254 30.935L34.6517 30.2429C34.3319 30.2269 34.0121 30.274 33.7105 30.3815C33.4089 30.489 33.1314 30.6549 32.894 30.8697C32.4143 31.3034 32.1266 31.9099 32.0942 32.5558C32.0617 33.2016 32.2872 33.8339 32.7209 34.3136C33.1547 34.7932 33.7612 35.0809 34.4070 35.1133L42.3021 35.51L29.3090 47.26C28.8294 47.6937 28.5418 48.3001 28.5093 48.9459C28.4769 49.5916 28.7023 50.2238 29.1360 50.7034C29.5697 51.183 30.1761 51.4706 30.8219 51.5031C31.4676 51.5355 32.0998 51.3101 32.5794 50.8764L45.5725 39.1264L45.1759 47.0215C45.1598 47.3413 45.2069 47.6612 45.3144 47.9628C45.4220 48.2644 45.5878 48.5418 45.8026 48.7793C46.0174 49.0168 46.2768 49.2097 46.5661 49.3469C46.8554 49.4841 47.1689 49.5630 47.4887 49.5791C47.8085 49.5952 48.1283 49.5481 48.4299 49.4405C48.7315 49.3330 49.0090 49.1671 49.2465 48.9523C49.4840 48.7376 49.6768 48.4781 49.8141 48.1888C49.9513 47.8995 50.0302 47.5860 50.0463 47.2662L50.7383 33.4925Z"*/}
+            {/*                                fill="white"/>*/}
+            {/*                        </svg>*/}
+
+            {/*                        <h3 className="text-sm sm:text-base lg:text-[36px] text-white font-medium">*/}
+            {/*                            {activeService.label}*/}
+            {/*                        </h3>*/}
+            {/*                    </div>*/}
+
+            {/*                </div>*/}
+            {/*            </div>*/}
+
+            {/*            <div*/}
+            {/*                className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">*/}
+            {/*                {services.map((item, index) => (*/}
+            {/*                    <div*/}
+            {/*                        key={index}*/}
+            {/*                        className="relative group cursor-pointer"*/}
+            {/*                        onMouseEnter={() => setActiveService(item)}*/}
+            {/*                        onClick={() => setActiveService(item)}*/}
+            {/*                    >*/}
+            {/*                        <div className="relative w-full h-40 sm:h-48 lg:h-56 rounded-lg overflow-hidden">*/}
+            {/*                            <Image*/}
+            {/*                                src={item.src}*/}
+            {/*                                alt={item.alt}*/}
+            {/*                                fill*/}
+            {/*                                className="object-cover transition-transform duration-300 group-hover:scale-105"*/}
+            {/*                            />*/}
+            {/*                            <div*/}
+            {/*                                className={`absolute inset-0 transition-all duration-300 ${activeService.label === item.label ? 'bg-[#002B64]/70' : 'bg-gradient-to-t from-[#002B64]/40 to-[#00255700]/10'}`}*/}
+            {/*                            />*/}
+            {/*                            <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-medium text-xs sm:text-sm lg:text-lg">*/}
+            {/*                                {item.label}*/}
+            {/*                            </p>*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                ))}*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
             <div className="bg-[#F6F6F6] relative z-10 py-6 sm:py-8 lg:py-16 poppins">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div
-                        className="flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
-                        <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold text-[#162F65] text-center sm:text-left mb-4 sm:mb-0 leading-tight">
+                        className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
+                        <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-tight mx-auto sm:mx-0">
                             Comprehensive
                             <br className="hidden sm:block"/> Solutions
                         </h2>
-                        <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-xl leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
+                        <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-base leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
                             Whether it&#39;s retail, manufacturing, mining, automotive, or any other
                             industry, our specialists understand each one&#39;s unique challenges,
                             constraints, and regulations. In particular, we understand the value
                             of proactive, swift communication, and we strive to keep our customers
                             in the loop at all times - you&#39;ll notice this difference immediately
-                            and we&#39;ll earn your trust within the first month. Our dedicated teams
+                            and we&#x27;ll earn your trust within the first month. Our dedicated teams
                             work with you, as an extension of your office, to deliver compliant,
                             tailored solutions that scale with your business.
                         </p>
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-10">
-                        <div
-                            className="bg-[#002453] relative w-full lg:w-2/3 rounded-lg text-center transition-colors duration-300">
+                        <div id="main-card"
+                             className="bg-[#002453] relative w-full lg:w-2/3 rounded-lg text-center transition-colors duration-300">
                             <div
-                                className="absolute bg-[url('/x.png')] opacity-10 bg-no-repeat bg-cover bottom-0 inset-0 items-center h-full"/>
+                                className="absolute bg-[url('/x.png')] opacity-5 bg-no-repeat bg-cover bottom-0 inset-0 items-center h-full"/>
                             <div
                                 className="relative p-4 sm:p-6 lg:p-8 flex flex-col items-center justify-between h-full">
                                 <div>
-                                    <p className="text-center font-medium pt-2 lg:pt-10 text-sm sm:text-base lg:text-[22px] text-[#FFFFFF] leading-relaxed whitespace-pre-line">
+                                    <p className="text-left font-medium pt-2 lg:pt-10 px-6 text-sm sm:text-base lg:text-xl text-[#FFFFFF] leading-[30px] whitespace-pre-line">
                                         {activeService.description}
                                     </p>
                                 </div>
 
-                                <div className="flex flex-row gap-2 group items-center pt-4 sm:pt-6 lg:pt-8">
-                                    <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 mb-2 flex-shrink-0 transition-transform duration-300 ease-in-out" width="81"
-                                         height="82" viewBox="0 0 81 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <div className="flex flex-row gap-2 group justify-start items-center pt-4 sm:pt-6 lg:pt-8">
+                                    <svg
+                                        className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 mb-2 flex-shrink-0 transition-transform duration-300 ease-in-out"
+                                        width="81"
+                                        height="82" viewBox="0 0 81 82" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="40.5" cy="41" r="37.7635" stroke="white" strokeWidth="5.47297"/>
                                         <path
-                                            className="origin-center group-hover:rotate-45 transition-transform duration-300 ease-in-out"
+                                            className="origin-center transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-45" // Added scale-110 for a more pronounced effect without layout shift
                                             d="M50.7383 33.4925C50.7693 32.847 50.5433 32.2156 50.1099 31.7363C49.6764 31.257 49.0708 30.9689 48.4254 30.935L34.6517 30.2429C34.3319 30.2269 34.0121 30.274 33.7105 30.3815C33.4089 30.489 33.1314 30.6549 32.894 30.8697C32.4143 31.3034 32.1266 31.9099 32.0942 32.5558C32.0617 33.2016 32.2872 33.8339 32.7209 34.3136C33.1547 34.7932 33.7612 35.0809 34.4070 35.1133L42.3021 35.51L29.3090 47.26C28.8294 47.6937 28.5418 48.3001 28.5093 48.9459C28.4769 49.5916 28.7023 50.2238 29.1360 50.7034C29.5697 51.183 30.1761 51.4706 30.8219 51.5031C31.4676 51.5355 32.0998 51.3101 32.5794 50.8764L45.5725 39.1264L45.1759 47.0215C45.1598 47.3413 45.2069 47.6612 45.3144 47.9628C45.4220 48.2644 45.5878 48.5418 45.8026 48.7793C46.0174 49.0168 46.2768 49.2097 46.5661 49.3469C46.8554 49.4841 47.1689 49.5630 47.4887 49.5791C47.8085 49.5952 48.1283 49.5481 48.4299 49.4405C48.7315 49.3330 49.0090 49.1671 49.2465 48.9523C49.4840 48.7376 49.6768 48.4781 49.8141 48.1888C49.9513 47.8995 50.0302 47.5860 50.0463 47.2662L50.7383 33.4925Z"
                                             fill="white"/>
                                     </svg>
 
-                                    <h3 className="text-sm sm:text-base lg:text-[36px] text-white font-medium">
+                                    <h3 className="text-sm sm:text-base text-left leading-[35px] lg:text-[36px] text-white font-medium">
                                         {activeService.label}
                                     </h3>
                                 </div>
@@ -421,7 +538,7 @@ export default function Home() {
                                         <div
                                             className={`absolute inset-0 transition-all duration-300 ${activeService.label === item.label ? 'bg-[#002B64]/70' : 'bg-gradient-to-t from-[#002B64]/40 to-[#00255700]/10'}`}
                                         />
-                                        <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-medium text-xs sm:text-sm lg:text-lg">
+                                        <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-normal text-xs sm:text-sm lg:text-lg">
                                             {item.label}
                                         </p>
                                     </div>
@@ -432,16 +549,16 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="bg-[#F6F6F6] py-6 sm:py-8">
+            <div className="bg-[#F6F6F6] py-6 sm:py-8 poppins">
                 <div className="px-4 sm:px-6 lg:px-8">
                     {sections.map((section, index) => (
                         <div
                             key={index}
-                            className="relative bg-[#F6F6F6] mb-8 sm:mb-12 last:mb-0"
+                            className="relative bg-[#F6F6F6] mb-2 sm:mb-12 last:mb-0"
                         >
                             {index === 0 && (
                                 <div
-                                    className="absolute inset-0 bg-[url('/x.png')] bg-no-repeat bg-cover w-full sm:w-1/2 lg:w-1/2 -top-70 min-h-10"
+                                    className="absolute inset-0 bg-[url('/x.png')] bg-no-repeat hidden md:block md:w-[400px] md:h-[600px] bg-contain lg:w-[850px] lg:h-[850px] -top-10 lg:-top-44"
                                 />
                             )}
                             <div
@@ -452,19 +569,20 @@ export default function Home() {
                                 <div className="w-full md:w-3/5 flex flex-col justify-between">
                                     <div>
                                         <h2
-                                            className="font-bold text-xl sm:text-2xl lg:text-5xl text-[#162F65] max-w-3xl text-center md:text-left"
+                                            className="font-semibold text-xl sm:text-2xl lg:text-[40px] text-[#162F65] max-w-3xl text-center md:text-left"
                                         >
                                             {section.title}
                                         </h2>
                                         <p
-                                            className="text-xs sm:text-sm lg:text-xl font-medium mt-4 sm:mt-6 lg:mt-12 text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line"
+                                            className={`text-xs sm:text-sm lg:text-base font-medium ${
+                                                section.reverse ?  "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
                                         >
                                             {section.description}
                                         </p>
                                         <div className="mt-4 sm:mt-6 lg:mt-8 text-center md:text-left">
                                             <Link href="#">
                                                 <button
-                                                    className="bg-[#071940] cursor-pointer text-white text-sm sm:text-base lg:text-xl font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+                                                    className="bg-[#071940] cursor-pointer text-white text-sm sm:text-base lg:text-lg font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                                                 >
                                                     {section.buttonTitle}
                                                 </button>
@@ -487,14 +605,14 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="bg-[#F6F6F6] py-4 sm:py-6 lg:py-12">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-[#F6F6F6] py-2 sm:py-4 lg:py-6">
+                <div className="">
                     <div
-                        className="flex flex-col lg:flex-row justify-between gap-4 sm:gap-6 lg:gap-8 items-center sm:items-start">
-                        <h2 className="text-xl sm:text-2xl lg:text-5xl text-[#0F2043] font-semibold text-center sm:text-left mb-4 sm:mb-6 leading-[50px] max-w-xl">
+                        className="flex flex-col px-4 sm:px-6 mb-2 lg:mb-8 lg:px-8 max-w-7xl mx-auto lg:flex-row justify-between gap-2 lg:gap-8 items-center md:items-start">
+                        <h2 className="text-xl sm:text-2xl lg:text-5xl text-[#0F2043] font-semibold text-center sm:text-left mb-1 leading-[50px] max-w-xl">
                             Success Stories from Our Clients
                         </h2>
-                        <p className="text-[#676767] text-sm sm:text-base lg:text-xl font-medium text-center sm:text-left mb-6 sm:mb-8 lg:mb-12 max-w-2xl leading-[30px]">
+                        <p className="text-[#676767] text-sm sm:text-base lg:text-lg font-medium text-center md:text-left mb-6 sm:mb-8 lg:mb-12 max-w-2xl leading-[25px]">
                             For over 25+ years, we&#39;ve moved cargo (and some mountains) to achieve outstanding
                             successes for our customers.
                         </p>
@@ -503,7 +621,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="py-6 lg-10">
+            <div className="pb-14">
                 <LinkedinSection/>
             </div>
 

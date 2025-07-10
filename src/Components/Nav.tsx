@@ -41,8 +41,8 @@ const Nav = () => {
                             <Image
                                 src="/Logo-Nexus.png"
                                 alt="Nexus Logo"
-                                width={60}
-                                height={60}
+                                width={120}
+                                height={120}
                                 className="h-12 sm:h-16 lg:h-25 w-auto"
                             />
                         </Link>

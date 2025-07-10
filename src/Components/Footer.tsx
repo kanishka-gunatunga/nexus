@@ -371,19 +371,19 @@
 //                             <div className="space-y-2">
 //                                 <a
 //                                     href="#"
-//                                     className="block text-white hover:text-[#bbbbbb] transition-colors"
+//                                     className="block text-white hover:text-[#e6b333] transition-colors"
 //                                 >
 //                                     Home
 //                                 </a>
 //                                 <a
 //                                     href="#"
-//                                     className="block text-white hover:text-[#bbbbbb] transition-colors"
+//                                     className="block text-white hover:text-[#e6b333] transition-colors"
 //                                 >
 //                                     Why Nexus
 //                                 </a>
 //                                 <a
 //                                     href="#"
-//                                     className="block text-white hover:text-[#bbbbbb] transition-colors"
+//                                     className="block text-white hover:text-[#e6b333] transition-colors"
 //                                 >
 //                                     Leadership Team
 //                                 </a>
@@ -395,19 +395,19 @@
 //                             <div className="space-y-2 mt-12">
 //                                 <a
 //                                     href="#"
-//                                     className="block text-white hover:text-[#bbbbbb] transition-colors"
+//                                     className="block text-white hover:text-[#e6b333] transition-colors"
 //                                 >
 //                                     Insights
 //                                 </a>
 //                                 <a
 //                                     href="#"
-//                                     className="block text-white hover:text-[#bbbbbb] transition-colors"
+//                                     className="block text-white hover:text-[#e6b333] transition-colors"
 //                                 >
 //                                     Contact Us
 //                                 </a>
 //                                 <a
 //                                     href="#"
-//                                     className="block text-white hover:text-[#bbbbbb] transition-colors"
+//                                     className="block text-white hover:text-[#e6b333] transition-colors"
 //                                 >
 //                                     Track and Trace
 //                                 </a>
@@ -422,25 +422,25 @@
 //                             <div className="space-y-2">
 //                                 <a
 //                                     href="#"
-//                                     className="block text-white hover:text-[#bbbbbb] transition-colors"
+//                                     className="block text-white hover:text-[#e6b333] transition-colors"
 //                                 >
 //                                     Air & Sea Freight
 //                                 </a>
 //                                 <a
 //                                     href="#"
-//                                     className="block text-white hover:text-[#bbbbbb] transition-colors"
+//                                     className="block text-white hover:text-[#e6b333] transition-colors"
 //                                 >
 //                                     Road & Rail Transport
 //                                 </a>
 //                                 <a
 //                                     href="#"
-//                                     className="block text-white hover:text-[#bbbbbb] transition-colors"
+//                                     className="block text-white hover:text-[#e6b333] transition-colors"
 //                                 >
 //                                     Customs Clearance & Border Processing
 //                                 </a>
 //                                 <a
 //                                     href="#"
-//                                     className="block text-white hover:text-[#bbbbbb] transition-colors"
+//                                     className="block text-white hover:text-[#e6b333] transition-colors"
 //                                 >
 //                                     Integrated Logistics & Special Projects
 //                                 </a>
@@ -476,11 +476,11 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <footer className="bg-[#222222] text-white font-poppins">
+        <footer className="bg-[#222222] text-white relative poppins overflow-hidden">
             <div className="relative">
                 {/* Background pattern */}
                 <div
-                    className="absolute bg-[url('/x.png')] bg-no-repeat bg-cover inset-0 w-full sm:w-3/5 lg:w-2/5 opacity-30"
+                    className="absolute bg-[url('/x.png')] bg-no-repeat -top-25 bg-contain overflow-hidden inset-0 w-full sm:w-3/5 lg:w-[550px] h-[800] opacity-5"
                 />
                 {/*<div className="absolute left-0 top-0 opacity-5">*/}
                 {/*    <Image*/}
@@ -492,11 +492,12 @@ const Footer = () => {
                 {/*    />*/}
                 {/*</div>*/}
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 lg:py-8">
                     {/* Top section */}
-                    <div className="flex flex-col items-center lg:flex-row lg:justify-between mb-8 sm:mb-10 lg:mb-12">
+                    <div
+                        className="flex flex-col items-center lg:flex-row lg:justify-between mt-6 mb-6 sm:mb-8 lg:mb-10">
                         <div className="mb-6 sm:mb-8 lg:mb-0 lg:mr-12 text-center lg:text-left">
-                            <p className="text-base sm:text-lg lg:text-2xl font-medium max-w-2xl sm:max-w-3xl poppins">
+                            <p className="text-sm sm:text-base lg:text-lg font-medium max-w-2xl sm:max-w-3xl poppins">
                                 Tell us your requirement and one of our experts will be in
                                 touch to learn more about your business and draw up a solution
                                 that addresses your unique needs
@@ -513,7 +514,7 @@ const Footer = () => {
 
                     {/* Content grid */}
                     <div
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-2 sm:mb-4 lg:mb-6">
                         {/* Logo and description */}
                         <div className="lg:col-span-1 text-center sm:text-left">
                             <Image
@@ -532,25 +533,25 @@ const Footer = () => {
 
                         {/* Links */}
                         <div>
-                            <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-center sm:text-left">
+                            <h4 className="text-base sm:text-xl lg:text-2xl font-bold mb-4 sm:mb-6 text-center sm:text-left">
                                 Links
                             </h4>
                             <div className="space-y-2 text-center sm:text-left">
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-sm sm:text-base"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Home
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-sm sm:text-base"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Why Nexus
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-sm sm:text-base"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Leadership Team
                                 </a>
@@ -562,19 +563,19 @@ const Footer = () => {
                             <div className="space-y-2 mt-0 sm:mt-12 text-center sm:text-left">
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-sm sm:text-base"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Insights
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-sm sm:text-base"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Contact Us
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-sm sm:text-base"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Track and Trace
                                 </a>
@@ -583,31 +584,31 @@ const Footer = () => {
 
                         {/* Services */}
                         <div>
-                            <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-center sm:text-left">
+                            <h4 className="text-base sm:text-xl lg:text-2xl font-bold mb-4 sm:mb-6 text-center sm:text-left">
                                 Services
                             </h4>
                             <div className="space-y-2 text-center sm:text-left">
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-sm sm:text-base"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Air & Sea Freight
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-sm sm:text-base"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Road & Rail Transport
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-sm sm:text-base"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Customs Clearance & Border Processing
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-sm sm:text-base"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Integrated Logistics & Special Projects
                                 </a>
@@ -623,11 +624,11 @@ const Footer = () => {
                     <div
                         className="flex flex-col sm:flex-row items-center justify-between text-[#162F65] text-center sm:text-left">
                         <div className="mb-2 sm:mb-0">
-                            <span className="text-sm sm:text-base lg:text-xl">
+                            <span className="text-sm sm:text-base lg:text-lg">
                                 © nexusglobal @2025. All Rights Reserved.
                             </span>
                         </div>
-                        <div className="text-sm sm:text-base lg:text-xl">
+                        <div className="text-sm sm:text-base lg:text-lg">
                             <span>Terms and Condition | Privacy Policy</span>
                         </div>
                     </div>
