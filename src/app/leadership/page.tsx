@@ -59,30 +59,30 @@ const teamMembers = [
     {
         id: 7,
         name: "Guha Shanka",
-        title: "Director, Business Development",
+        title: "Chief Marketing Officer",
         description:
-            "Known for her speed, precision, and relentless follow-up, Amber flips the script on the belief that you must chase for updates. She keeps suppliers and carriers in constant communication so you can enjoy seamless service and regular updates with no prompting from your end.\n\nSay hi to Amber and she'll keep you updated with no headache",
+            "With over 20 years working across leading Japanese and multinational conglomerates, Guha strives to implement our deeply rooted customer-first philosophy. He consistently challenges the notion that that logistics providers don’t understand client needs, by putting client success at the heart of every strategic move and every day-to-day interaction. \n\nReach out to Guha about any questions you may have",
         image: "/Guha Shanka.png",
     },
     {
         id: 8,
         name: "Chamath Kumarasinghe",
-        title: "Portfolio Manager, Imports",
+        title: "Chief Financial Officer",
         description:
-            "Known for her speed, precision, and relentless follow-up, Amber flips the script on the belief that you must chase for updates. She keeps suppliers and carriers in constant communication so you can enjoy seamless service and regular updates with no prompting from your end.\n\nSay hi to Amber and she'll keep you updated with no headache",
+            "Chamath works every day to ensure that logistics and finance do not exist in separate silos. With sharp analytical precision and strategic foresight honed across APAC and Oceania, he ensures that we make prudent fiscal decisions that deliver ultimate value to our customers.",
         image: "/Chamath Kumarasinghe.png",
     },
-    {
-        id: 9,
-        name: "Amber Weber",
-        title: "Portfolio Manager, Exports",
-        description:
-            "Known for her speed, precision, and relentless follow-up, Amber flips the script on the belief that you must chase for updates. She keeps suppliers and carriers in constant communication so you can enjoy seamless service and regular updates with no prompting from your end.\n\nSay hi to Amber and she'll keep you updated with no headache",
-        image: "/No Name.png",
-    },
+    // {
+    //     id: 9,
+    //     name: "Amber Weber",
+    //     title: "Portfolio Manager, Exports",
+    //     description:
+    //         "Known for her speed, precision, and relentless follow-up, Amber flips the script on the belief that you must chase for updates. She keeps suppliers and carriers in constant communication so you can enjoy seamless service and regular updates with no prompting from your end.\n\nSay hi to Amber and she'll keep you updated with no headache",
+    //     image: "/No Name.png",
+    // },
 ];
 
-export default function Index() {
+const LeadershipPage = () => {
 
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -93,8 +93,8 @@ export default function Index() {
                 <Nav/>
 
                 <div id="hero-section"
-                     className="relative mx-auto -top-10 lg:-top-20 max-w-screen-4xl z-30">
-                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px]">
+                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
+                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
                         <Image
                             src="/img_2.png"
                             alt="Nexus X Logo"
@@ -114,7 +114,7 @@ export default function Index() {
 
             </div>
             <div id="member-section"
-                 className="relative -top-20">
+                 className="relative -top-22 lg:-top-50">
                 <div className="">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="max-w-3xl mb-4">
@@ -126,6 +126,45 @@ export default function Index() {
                                 </p>
                             </div>
                         </div>
+                        {/*<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">*/}
+                        {/*    {teamMembers.map((member) => (*/}
+                        {/*        <div*/}
+                        {/*            key={member.id}*/}
+                        {/*            className="relative w-full h-80 sm:h-96 lg:h-[416px] flip-card-container"*/}
+                        {/*        >*/}
+                        {/*            <div className="flip-card-inner rounded-md shadow-lg">*/}
+                        {/*                <div*/}
+                        {/*                    className="flip-card-front bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden">*/}
+                        {/*                    <Image*/}
+                        {/*                        src={member.image}*/}
+                        {/*                        alt={member.name}*/}
+                        {/*                        layout="fill"*/}
+                        {/*                        objectFit="cover"*/}
+                        {/*                        quality={80}*/}
+                        {/*                        className="absolute inset-0 z-0"*/}
+                        {/*                    />*/}
+                        {/*                    <div*/}
+                        {/*                        className="absolute inset-0 text-start z-10 flex flex-col justify-end p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">*/}
+                        {/*                        <h3 className="text-white text-xl sm:text-2xl font-bold mb-1">*/}
+                        {/*                            {member.name}*/}
+                        {/*                        </h3>*/}
+                        {/*                        <p className="text-gray-300 text-sm sm:text-base font-medium">*/}
+                        {/*                            {member.title}*/}
+                        {/*                        </p>*/}
+                        {/*                    </div>*/}
+                        {/*                </div>*/}
+
+                        {/*                <div*/}
+                        {/*                    className="flip-card-back relative bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-[url('/img.png')] bg-no-repeat bg-cover bg-center">*/}
+                        {/*                    <p className="text-[#464646] text-xs relative sm:text-sm lg:text-base leading-relaxed whitespace-pre-line text-center">*/}
+                        {/*                        {member.description}*/}
+                        {/*                    </p>*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    ))}*/}
+                        {/*</div>*/}
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
                             {teamMembers.map((member) => (
                                 <div
@@ -145,10 +184,10 @@ export default function Index() {
                                             />
                                             <div
                                                 className="absolute inset-0 text-start z-10 flex flex-col justify-end p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                                                <h3 className="text-white text-xl sm:text-2xl font-bold mb-1">
+                                                <h3 className="text-white text-lg sm:text-xl font-bold mb-0.5"> {/* Adjusted from text-xl sm:text-2xl */}
                                                     {member.name}
                                                 </h3>
-                                                <p className="text-gray-300 text-sm sm:text-base font-medium">
+                                                <p className="text-gray-300 text-xs sm:text-sm font-medium"> {/* Adjusted from text-sm sm:text-base */}
                                                     {member.title}
                                                 </p>
                                             </div>
@@ -156,7 +195,7 @@ export default function Index() {
 
                                         <div
                                             className="flip-card-back relative bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-[url('/img.png')] bg-no-repeat bg-cover bg-center">
-                                            <p className="text-[#464646] text-xs relative sm:text-sm lg:text-base leading-relaxed whitespace-pre-line text-center">
+                                            <p className="text-[#464646] text-xs relative sm:text-xs lg:text-sm leading-tight whitespace-pre-line text-left"> {/* Adjusted from text-xs sm:text-sm lg:text-base and leading-relaxed to leading-tight */}
                                                 {member.description}
                                             </p>
                                         </div>
@@ -169,16 +208,16 @@ export default function Index() {
                 </div>
             </div>
 
-            <div className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
+            <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden">
                 <div className="absolute inset-0">
                     <Image
-                        src="/airport.png"
+                        src="/leader-banner.png"
                         alt="Airport"
                         width={1000}
                         height={400}
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/40"></div>
+                    <div className="absolute inset-0 bg-black/90"></div>
                 </div>
 
                 <div
@@ -194,10 +233,10 @@ export default function Index() {
                     </button>
                 </div>
 
-                <div
-                    className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 text-white text-sm sm:text-base lg:text-lg font-light">
-                    Sydney Airport
-                </div>
+                {/*<div*/}
+                {/*    className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 text-white text-sm sm:text-base lg:text-lg font-light">*/}
+                {/*    Sydney Airport*/}
+                {/*</div>*/}
             </div>
 
             <div className="py-6 lg:py-12">
@@ -206,3 +245,5 @@ export default function Index() {
         </div>
     );
 }
+
+export default LeadershipPage;
