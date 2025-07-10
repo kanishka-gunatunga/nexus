@@ -464,7 +464,7 @@ export default function Home() {
                                         <div className="mt-4 sm:mt-6 lg:mt-8 text-center md:text-left">
                                             <Link href="#">
                                                 <button
-                                                    className="bg-[#162F65] cursor-pointer text-white text-sm sm:text-base lg:text-xl font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+                                                    className="bg-[#071940] cursor-pointer text-white text-sm sm:text-base lg:text-xl font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                                                 >
                                                     {section.buttonTitle}
                                                 </button>
