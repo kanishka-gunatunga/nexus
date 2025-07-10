@@ -18,7 +18,7 @@ const teamMembers = [
     },
     {
         id: 2,
-        name: "Josie",
+        name: "Josie Murgadas",
         title: "Commercial Manager, Exports",
         description:
             "Josie, our door-to-door specialist with 30+ years navigating global suppliers and customs, consistently disproves the notion that imports are uncontrollable. Her expert coordination means she not only reacts to problems - but actively prevents them before they arise.\n\nReach out to Josie and discover smarter ways to import",
