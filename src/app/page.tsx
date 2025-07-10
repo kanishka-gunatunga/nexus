@@ -167,7 +167,7 @@ export default function Home() {
                             business, so you enjoy peace of mind, and responsive service.
                         </p>
                         <button
-                            className="bg-[#162F65] text-white
+                            className="bg-[#071940] text-white
                                    px-6 py-2 mobile:px-8 mobile:py-3 text-sm font-medium  rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                         >
                             Explore More
@@ -190,7 +190,7 @@ export default function Home() {
                             business, so you enjoy peace of mind, and responsive service.
                         </p>
                         <button
-                            className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+                            className="bg-[#071940] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                         >
                             Explore More
                         </button>
@@ -325,7 +325,7 @@ export default function Home() {
                                 - This is the Nexus Way
                             </p>
                             <button
-                                className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-medium mt-4 sm:mt-6 lg:mt-8  rounded-[10px] hover:bg-blue-950 flex items-left lg:items-center w-fit mx-0 hover:scale-105 transition-all duration-300"
+                                className="bg-[#071940] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-medium mt-4 sm:mt-6 lg:mt-8  rounded-[10px] hover:bg-blue-950 flex items-left lg:items-center w-fit mx-0 hover:scale-105 transition-all duration-300"
                             >
                                 Explore More
                             </button>
@@ -582,7 +582,7 @@ export default function Home() {
                                         <div className="mt-4 sm:mt-6 lg:mt-8 text-center md:text-left">
                                             <Link href="#">
                                                 <button
-                                                    className="bg-[#162F65] cursor-pointer text-white text-sm sm:text-base lg:text-lg font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+                                                    className="bg-[#071940] cursor-pointer text-white text-sm sm:text-base lg:text-lg font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                                                 >
                                                     {section.buttonTitle}
                                                 </button>

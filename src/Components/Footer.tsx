@@ -539,19 +539,19 @@ const Footer = () => {
                             <div className="space-y-2 text-center sm:text-left">
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#e6b333] transition-colors text-xs sm:text-sm"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Home
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#e6b333] transition-colors text-xs sm:text-sm"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Why Nexus
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#e6b333] transition-colors text-xs sm:text-sm"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Leadership Team
                                 </a>
@@ -563,19 +563,19 @@ const Footer = () => {
                             <div className="space-y-2 mt-0 sm:mt-12 text-center sm:text-left">
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#e6b333] transition-colors text-xs sm:text-sm"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Insights
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#e6b333] transition-colors text-xs sm:text-sm"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Contact Us
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#e6b333] transition-colors text-xs sm:text-sm"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Track and Trace
                                 </a>
@@ -590,25 +590,25 @@ const Footer = () => {
                             <div className="space-y-2 text-center sm:text-left">
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#e6b333] transition-colors text-xs sm:text-sm"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Air & Sea Freight
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#e6b333] transition-colors text-xs sm:text-sm"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Road & Rail Transport
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#e6b333] transition-colors text-xs sm:text-sm"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Customs Clearance & Border Processing
                                 </a>
                                 <a
                                     href="#"
-                                    className="block text-white hover:text-[#e6b333] transition-colors text-xs sm:text-sm"
+                                    className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Integrated Logistics & Special Projects
                                 </a>
