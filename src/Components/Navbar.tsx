@@ -49,11 +49,11 @@ const Navbar = () => {
 
                     <div className="hidden lg:flex items-center space-x-4">
                         <button
-                            className="bg-[#e6b333] text-[#282828] hover:bg-[#e6b333]/90 px-8 py-2 text-sm rounded-lg font-normal">
+                            className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] px-8 py-2 text-sm rounded-lg font-normal">
                             Track and Trace
                         </button>
                         <button
-                            className="bg-[#e6b333] text-[#282828] hover:bg-[#e6b333]/90 px-8 py-2 text-sm rounded-lg font-normal">
+                            className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] px-8 py-2 text-sm rounded-lg font-normal">
                             Contact Us
                         </button>
                     </div>
