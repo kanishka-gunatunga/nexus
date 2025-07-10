@@ -87,7 +87,7 @@ const Nav = () => {
                         <Link href="#"
                               className="hidden xl:block">
                             <button
-                                className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] px-4 sm:px-6 lg:px-8 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-sm rounded-lg font-normal transition-colors"
+                                className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] hover:text-white px-4 sm:px-6 lg:px-8 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-sm rounded-lg font-normal transition-colors"
                             >
                                 Track and Trace
                             </button>
@@ -97,7 +97,7 @@ const Nav = () => {
                     <div
                         className="hidden lg:flex items-center space-x-3 lg:space-x-4 order-3">
                         <button
-                            className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] px-4 sm:px-6 lg:px-8 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-sm rounded-lg font-normal transition-colors"
+                            className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] hover:text-white px-4 sm:px-6 lg:px-8 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-sm rounded-lg font-normal transition-colors"
                         >
                             Contact Us
                         </button>
