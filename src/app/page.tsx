@@ -11,7 +11,7 @@ import Nav from "@/Components/Nav";
 
 export default function Home() {
 
-    const images = ["/plane1.png"];
+    const images = ["/plane1.png", "/slid1.png","/slid2.png","/slid3.png","/slid4.png"];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
