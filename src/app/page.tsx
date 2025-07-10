@@ -12,7 +12,10 @@ import Nav from "@/Components/Nav";
 export default function Home() {
 
     const images = ["/plane1.png", "/slid1.png","/slid2.png","/slid3.png","/slid4.png"];
+    const mobileImages = ["/img_5.png", "/img_6.png","/img_7.png","/img_8.png","/img_9.png"];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -23,6 +26,16 @@ export default function Home() {
 
         return () => clearInterval(interval);
     }, [images.length]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentMobileImageIndex((prevIndex) =>
+                (prevIndex + 1) % mobileImages.length
+            );
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [mobileImages.length]);
 
 
     const sections = [
@@ -117,8 +130,8 @@ export default function Home() {
                 <div className="absolute hidden lg:block inset-0">
                     <div className="absolute flex flex-row justify-end right-0 w-full h-full">
                         <Image
-                            key={images[currentImageIndex]}
-                            src={images[currentImageIndex]}
+                            key={images[currentMobileImageIndex]}
+                            src={images[currentMobileImageIndex]}
                             alt="Airplane"
                             width={400}
                             height={1200}
@@ -144,8 +157,9 @@ export default function Home() {
                 <div id="hero-background-image"
                      className="relative w-full h-[400px] mobile:h-[500px] sm:h-[600px] md:h-[800px] -mt-20 lg:hidden overflow-hidden">
                     <Image
-                        src="/img_5.png"
-                        alt="Nexus X Logo"
+                        key={mobileImages[currentImageIndex]}
+                        src={mobileImages[currentImageIndex]}
+                        alt="Airplane"
                         width={1000}
                         height={400}
                         className="w-full h-full object-cover absolute inset-0"
