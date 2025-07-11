@@ -141,7 +141,7 @@ export default function Home() {
                 settings: {
                     slidesToShow: 1,
                     centerPadding: '200px',
-                    dots: true,
+                    dots: false,
                 }
             },
             {
@@ -149,7 +149,7 @@ export default function Home() {
                 settings: {
                     slidesToShow: 1,
                     centerPadding: '120px',
-                    dots: true,
+                    dots: false,
                 }
             },
             {
@@ -157,7 +157,7 @@ export default function Home() {
                 settings: {
                     slidesToShow: 1,
                     centerPadding: '35px',
-                    dots: true,
+                    dots: false,
                 }
             }
         ]
@@ -176,18 +176,18 @@ export default function Home() {
                             alt="Airplane"
                             width={400}
                             height={1200}
-                            className="w-full sm:w-auto h-[400px] sm:h-[500px] lg:h-[620px] object-contain relative z-40"
+                            className="w-full xl:w-auto lg:-top-20 xl:-top-0 sm:w-auto h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[620px] object-contain relative z-40"
                         />
                     </div>
 
-                    <div className="absolute -left-50 -top-10 inset-0 flex items-center">
+                    <div className="absolute -left-50 lg:-top-35 xl:-top-10 inset-0 flex items-center">
                         <div className="w-full h-full flex justify-center">
                             <Image
                                 src="/x1.png"
                                 alt="Nexus X Logo"
                                 width={600}
                                 height={600}
-                                className="w-full sm:w-auto h-[600px] sm:h-[800px] lg:h-[970px] object-contain z-30"
+                                className="lg:w-[800px] xl:w-full sm:w-auto h-[600px] sm:h-[800px] lg:h-[970px] object-contain z-30"
                             />
                         </div>
                     </div>
@@ -233,14 +233,14 @@ export default function Home() {
 
                 <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
                     <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
-                        <h1 className="text-2xl sm:text-3xl lg:text-[45px] font-bold text-[#114284] leading-tight mb-4 sm:mb-6">
+                        <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-tight mb-4 sm:mb-6">
                             Supply Chains
                             <br/>
                             Never Sleep.
                             <br/>
                             Neither Do We.
                         </h1>
-                        <p className="text-sm sm:text-base lg:text-xl text-[#676767] font-medium mb-6 sm:mb-8 max-w-md leading-relaxed">
+                        <p className="text-sm sm:text-base lg:text-base xl:text-xl text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-relaxed">
                             As your agile logistics partner, we operate as an extension of your
                             business, so you enjoy peace of mind, and responsive service.
                         </p>
@@ -521,7 +521,7 @@ export default function Home() {
             {/*    </div>*/}
             {/*</div>*/}
 
-            <div className="bg-[#F6F6F6] relative z-10 py-6 sm:py-8 lg:py-16 poppins">
+            <div className="bg-[#F6F6F6] relative z-10 py-4 sm:py-8 lg:py-16 poppins">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div
                         className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
@@ -556,7 +556,7 @@ export default function Home() {
                                     </div>
 
                                     <div
-                                        className="flex flex-row gap-2 group justify-start items-center pt-4 sm:pt-6 lg:pt-8">
+                                        className="flex flex-row gap-2 group justify-start items-center pt-4 sm:pt-6 lg:pt-8 w-full">
                                         <svg
                                             className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 mb-2 flex-shrink-0 transition-transform duration-300 ease-in-out"
                                             width="81"
@@ -611,7 +611,7 @@ export default function Home() {
                         <Slider {...settings}>
                             {services.map((item, index) => (
                                 <div key={index}
-                                     className="px-2 py-4">
+                                     className="px-2 py-4 flex flex-col items-center">
                                     <div
                                         className={`relative group cursor-pointer rounded-lg overflow-hidden transition-all duration-300
                                             ${activeService.label === item.label
@@ -619,7 +619,7 @@ export default function Home() {
                                             : 'scale-[0.9]'
                                         }`}
 
-                                        style={{height: activeService.label === item.label ? '280px' : '270px'}}
+                                        style={{height: activeService.label === item.label ? '280px' : '270px',width: '100%'}}
                                     >
 
                                         {activeService.label !== item.label && (
@@ -650,8 +650,8 @@ export default function Home() {
                                                         {item.description}
                                                     </p>
                                                     <div
-                                                        className="flex flex-row gap-2 group justify-center items-center pt-4 sm:pt-6">
-                                                        <svg className="w-8 h-8 flex-shrink-0" width="81" height="82"
+                                                        className="flex flex-row gap-2 group justify-start items-center pt-4 sm:pt-6 w-full px-6">
+                                                        <svg className="w-8 h-8 text-left flex-shrink-0" width="81" height="82"
                                                              viewBox="0 0 81 82" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <circle cx="40.5" cy="41" r="37.7635" stroke="white"
@@ -672,6 +672,9 @@ export default function Home() {
                                             </p>
                                         )}
                                     </div>
+                                    <p className="mt-4 text-center font-medium text-base text-[#002453] whitespace-nowrap">
+                                        {item.label}
+                                    </p>
                                 </div>
                             ))}
                         </Slider>
