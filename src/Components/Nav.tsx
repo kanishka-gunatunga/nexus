@@ -342,8 +342,49 @@ const Nav = () => {
                     </div>
 
                     {/* Logo */}
-                    <div
-                        className="flex-shrink-0 order-2 lg:order-none absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:transform-none">
+                    {/*<div*/}
+                    {/*    className="flex-shrink-0 order-2 lg:order-none absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:transform-none">*/}
+                    {/*    <Link href="/">*/}
+                    {/*        <Image*/}
+                    {/*            src="/Logo-Nexus.png"*/}
+                    {/*            alt="Nexus Logo"*/}
+                    {/*            width={120}*/}
+                    {/*            height={120}*/}
+                    {/*            className="h-12 sm:h-16 lg:h-20 w-auto"*/}
+                    {/*            priority*/}
+                    {/*        />*/}
+                    {/*    </Link>*/}
+                    {/*</div>*/}
+
+                    {/*<div*/}
+                    {/*    className="flex-shrink-0 order-2 lg:order-none lg:relative lg:left-0 lg:transform-none md:flex md:justify-center"*/}
+                    {/*>*/}
+                    {/*    <Link href="/">*/}
+                    {/*        <Image*/}
+                    {/*            src="/Logo-Nexus.png"*/}
+                    {/*            alt="Nexus Logo"*/}
+                    {/*            width={120}*/}
+                    {/*            height={120}*/}
+                    {/*            className="h-12 sm:h-16 lg:h-20 w-auto"*/}
+                    {/*            priority*/}
+                    {/*        />*/}
+                    {/*    </Link>*/}
+                    {/*</div>*/}
+
+                    {/*<div className="flex-shrink-0 order-2 flex justify-center absolute left-1/2 -translate-x-1/2 lg:order-none lg:relative lg:left-0 lg:transform-none md:flex md:justify-center">*/}
+                    {/*    <Link href="/">*/}
+                    {/*        <Image*/}
+                    {/*            src="/Logo-Nexus.png"*/}
+                    {/*            alt="Nexus Logo"*/}
+                    {/*            width={120}*/}
+                    {/*            height={120}*/}
+                    {/*            className="h-12 sm:h-16 lg:h-20 w-auto"*/}
+                    {/*            priority*/}
+                    {/*        />*/}
+                    {/*    </Link>*/}
+                    {/*</div>*/}
+
+                    <div className="flex-shrink-0 order-2 flex justify-center lg:order-none lg:flex lg:justify-center">
                         <Link href="/">
                             <Image
                                 src="/Logo-Nexus.png"
