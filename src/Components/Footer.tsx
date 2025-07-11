@@ -480,7 +480,7 @@ const Footer = () => {
             <div className="relative">
                 {/* Background pattern */}
                 <div
-                    className="absolute bg-[url('/x.png')] bg-no-repeat -top-25 bg-contain overflow-hidden inset-0 w-full sm:w-3/5 lg:w-[550px] h-[800] opacity-5"
+                    className="absolute bg-[url('/x.png')] bg-no-repeat -top-5 sm:-top-6 lg:-top-25 bg-contain overflow-hidden inset-0 w-full sm:w-3/5 lg:w-[550px] h-[800] opacity-5"
                 />
                 {/*<div className="absolute left-0 top-0 opacity-5">*/}
                 {/*    <Image*/}
@@ -510,7 +510,7 @@ const Footer = () => {
                         </button>
                     </div>
 
-                    <hr className="border-white/20 mb-8 sm:mb-10 lg:mb-12"/>
+                    <hr className="border-white mb-8 sm:mb-10 lg:mb-12"/>
 
                     {/* Content grid */}
                     <div
