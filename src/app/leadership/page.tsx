@@ -88,7 +88,7 @@ const LeadershipPage = () => {
 
     return (
         <div className="min-h-screen bg-[#F6F6F6] poppins">
-            <div className="relative block">
+            <div className="relative max-w-7xl mx-auto block">
 
                 <Nav/>
 
@@ -126,7 +126,8 @@ const LeadershipPage = () => {
                                 </p>
                             </div>
                         </div>
-                        {/*<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">*/}
+
+                        {/*<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">*/}
                         {/*    {teamMembers.map((member) => (*/}
                         {/*        <div*/}
                         {/*            key={member.id}*/}
@@ -145,10 +146,10 @@ const LeadershipPage = () => {
                         {/*                    />*/}
                         {/*                    <div*/}
                         {/*                        className="absolute inset-0 text-start z-10 flex flex-col justify-end p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">*/}
-                        {/*                        <h3 className="text-white text-xl sm:text-2xl font-bold mb-1">*/}
+                        {/*                        <h3 className="text-white text-lg sm:text-xl font-bold mb-0.5"> /!* Adjusted from text-xl sm:text-2xl *!/*/}
                         {/*                            {member.name}*/}
                         {/*                        </h3>*/}
-                        {/*                        <p className="text-gray-300 text-sm sm:text-base font-medium">*/}
+                        {/*                        <p className="text-gray-300 text-xs sm:text-sm font-medium"> /!* Adjusted from text-sm sm:text-base *!/*/}
                         {/*                            {member.title}*/}
                         {/*                        </p>*/}
                         {/*                    </div>*/}
@@ -156,7 +157,7 @@ const LeadershipPage = () => {
 
                         {/*                <div*/}
                         {/*                    className="flip-card-back relative bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-[url('/img.png')] bg-no-repeat bg-cover bg-center">*/}
-                        {/*                    <p className="text-[#464646] text-xs relative sm:text-sm lg:text-base leading-relaxed whitespace-pre-line text-center">*/}
+                        {/*                    <p className="text-[#464646] text-xs relative sm:text-xs lg:text-sm leading-tight whitespace-pre-line text-left"> /!* Adjusted from text-xs sm:text-sm lg:text-base and leading-relaxed to leading-tight *!/*/}
                         {/*                        {member.description}*/}
                         {/*                    </p>*/}
                         {/*                </div>*/}
@@ -165,15 +166,15 @@ const LeadershipPage = () => {
                         {/*    ))}*/}
                         {/*</div>*/}
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-7xl mx-auto">
                             {teamMembers.map((member) => (
                                 <div
                                     key={member.id}
-                                    className="relative w-full h-80 sm:h-96 lg:h-[416px] flip-card-container"
+                                    className="relative w-full max-w-86 mx-auto sm:max-w-full h-80 sm:h-96 lg:h-[416px] flip-card-container"
+                                    style={{ boxSizing: 'border-box' }}
                                 >
-                                    <div className="flip-card-inner rounded-md shadow-lg">
-                                        <div
-                                            className="flip-card-front bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden">
+                                    <div className="flip-card-inner rounded-md shadow-lg w-full h-full">
+                                        <div className="flip-card-front bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden w-full h-full">
                                             <Image
                                                 src={member.image}
                                                 alt={member.name}
@@ -182,20 +183,18 @@ const LeadershipPage = () => {
                                                 quality={80}
                                                 className="absolute inset-0 z-0"
                                             />
-                                            <div
-                                                className="absolute inset-0 text-start z-10 flex flex-col justify-end p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                                                <h3 className="text-white text-lg sm:text-xl font-bold mb-0.5"> {/* Adjusted from text-xl sm:text-2xl */}
+                                            <div className="absolute inset-0 text-start z-10 flex flex-col justify-end p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                                                <h3 className="text-white text-lg sm:text-xl font-bold mb-0.5">
                                                     {member.name}
                                                 </h3>
-                                                <p className="text-gray-300 text-xs sm:text-sm font-medium"> {/* Adjusted from text-sm sm:text-base */}
+                                                <p className="text-gray-300 text-xs sm:text-sm font-medium">
                                                     {member.title}
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div
-                                            className="flip-card-back relative bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-[url('/img.png')] bg-no-repeat bg-cover bg-center">
-                                            <p className="text-[#464646] text-xs relative sm:text-xs lg:text-sm leading-tight whitespace-pre-line text-left"> {/* Adjusted from text-xs sm:text-sm lg:text-base and leading-relaxed to leading-tight */}
+                                        <div className="flip-card-back relative bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-[url('/img.png')] bg-no-repeat bg-cover bg-center w-full h-full">
+                                            <p className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight whitespace-pre-line text-left">
                                                 {member.description}
                                             </p>
                                         </div>
@@ -203,6 +202,7 @@ const LeadershipPage = () => {
                                 </div>
                             ))}
                         </div>
+
                     </div>
                     <Quote/>
                 </div>
