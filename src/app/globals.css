@@ -41,6 +41,7 @@
 
 .flip-card-container {
     perspective: 1000px; /* Establishes the 3D perspective */
+    -webkit-perspective: 1000px;
 }
 
 .flip-card-inner {
@@ -50,10 +51,12 @@
     text-align: center;
     transition: transform 0.7s; /* Smooth transition for the flip */
     transform-style: preserve-3d; /* Ensures children are rendered in 3D space */
+    -webkit-transform-style: preserve-3d;
 }
 
 .flip-card-container:hover .flip-card-inner {
     transform: rotateY(180deg); /* Flips the card on hover */
+    -webkit-transform: rotateY(180deg);
 }
 
 .flip-card-front,
@@ -68,6 +71,7 @@
 
 .flip-card-back {
     transform: rotateY(180deg); /* Initially rotate the back side to be hidden */
+    -webkit-transform: rotateY(180deg);
 }
 
 
