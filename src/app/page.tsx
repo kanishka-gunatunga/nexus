@@ -15,8 +15,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
 
-    const images = ["/plane1.png", "/slid1.png", "/slid2.png", "/slid3.png", "/slid4.png"];
-    const mobileImages = ["/img_5.png", "/img_6.png", "/img_7.png", "/img_8.png", "/img_9.png"];
+    const images = ["/plane1.png", "/slid1.png", "/slid2.png", "/slid3.png", "/slid4.png", "/slid5.png"];
+    const mobileImages = ["/img_5.png", "/img_6.png", "/img_7.png", "/img_8.png", "/img_9.png", "/img_10.png"];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
