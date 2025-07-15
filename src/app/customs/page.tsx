@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import {
   ChevronUp,
   ChevronDown,
-  ChevronRight,
   Truck,
   Ship,
   Plane,
@@ -92,9 +91,11 @@ const CustomsPage = () => {
             {/* Left Column - Image */}
             <div className="order-2 lg:order-1 flex flex-col h-full">
               <div className="relative flex-1">
-                <img
+                <Image
                   src="/customs_img1.png"
                   alt="Business professionals working on customs documentation"
+                  width={800} // Replace with an appropriate width
+                  height={600} // Replace with an appropriate height
                   className="w-full h-full object-cover rounded-lg"
                 />
               </div>
@@ -104,7 +105,7 @@ const CustomsPage = () => {
             <div className="order-1 lg:order-2 flex flex-col h-full">
               <p className="text-gray-600 text-base sm:text-lg mb-4 lg:mb-2 leading-relaxed">
                 Navigating customs regulations and border processes in Australia
-                and abroad can be complex, but it doesn't have to slow your
+                and abroad can be complex, but it doesn&apos;t have to slow your
                 supply chain. Our customs specialists manage every aspect - from
                 HS classification and duty optimisation to documentation and
                 compliance - ensuring your goods move across borders quickly,
@@ -190,7 +191,7 @@ const CustomsPage = () => {
           {/* Bottom Section - Tight to Image */}
           <div className="mt-6">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Customs doesn't have to be a block...
+              Customs doesn&apos;t have to be a block...
             </h3>
             <p className="text-gray-600 text-base sm:text-lg mb-6 leading-relaxed max-w-4xl">
               If you and your goods arrive with a good plan and in compliance
@@ -257,9 +258,11 @@ const CustomsPage = () => {
             </div>
 
             <div className="relative">
-              <img
+              <Image
                 src="/api/placeholder/500/400"
                 alt="Supply chain consultation"
+                width={500}
+                height={400}
                 className="w-full h-80 object-cover rounded-lg shadow-lg"
               />
             </div>
@@ -321,7 +324,7 @@ const CustomsPage = () => {
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
             <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-              Trusted Partners, 
+              Trusted Partners,
               <br />
               Reliable Freight Solutions
             </h2>
@@ -341,7 +344,6 @@ const CustomsPage = () => {
       <div className="py-4">
         <LinkedinSection />
       </div>
-
     </div>
   );
 };

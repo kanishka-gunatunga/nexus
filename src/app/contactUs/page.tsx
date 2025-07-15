@@ -83,9 +83,9 @@ export default function ContactPage() {
           <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
             <div className="text-left px-4">
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
-                DON'T HESITATE
-                <br />
-                TO CONTACT US
+                DON&apos;T HESITATE
+  <br />
+  TO CONTACT US
               </h1>
             </div>
           </div>
@@ -106,7 +106,7 @@ export default function ContactPage() {
                 className="text-2xl lg:text-3xl font-bold mb-4"
                 style={{ color: "#162F65" }}
               >
-                We're here to help.
+                We&apos;re here to help.
               </h1>
               <p className="text-gray-700 mb-2">
                 Tell us as much as you can... Nothing is too complex for us...

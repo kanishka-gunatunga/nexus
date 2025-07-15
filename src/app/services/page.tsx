@@ -1,10 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Nav from "@/Components/Nav";
 import LinkedinSection from "@/Components/LinkedinSection";
-import { ArrowUpRight } from "lucide-react";
 import Quote from "@/Components/Quote";
 
 interface Service {
@@ -15,7 +13,7 @@ interface Service {
 }
 
 const ServicesPage = () => {
-  const [activeService, setActiveService] = useState<Service | null>(null);
+  // const [activeService, setActiveService] = useState<Service | null>(null);
 
   const services: Service[] = [
     {
@@ -89,15 +87,15 @@ const ServicesPage = () => {
             {/* Description Section */}
             <div className="max-w-[851px] w-full">
               <p className="text-gray-600 text-lg leading-relaxed">
-                Whether it's retail, manufacturing, mining, automotive, or any
-                other industry, our specialists understand each one's unique
-                challenges, constraints, and regulations. In particular, we
-                understand the value of proactive, swift communication, and we
-                strive to keep our customers in the loop at all times — you'll
-                notice this difference immediately and we'll earn your trust
-                within the first month. Our dedicated teams work with you, as an
-                extension of your office, to deliver compliant, tailored
-                solutions that scale with your business.
+                Whether it&apos;s retail, manufacturing, mining, automotive, or
+                any other industry, our specialists understand each one&apos;s
+                unique challenges, constraints, and regulations. In particular,
+                we understand the value of proactive, swift communication, and
+                we strive to keep our customers in the loop at all times —
+                you&apos;ll notice this difference immediately and we&apos;ll
+                earn your trust within the first month. Our dedicated teams work
+                with you, as an extension of your office, to deliver compliant,
+                tailored solutions that scale with your business.
               </p>
             </div>
           </div>
@@ -111,8 +109,8 @@ const ServicesPage = () => {
             <div
               key={index}
               className="relative group cursor-pointer"
-              onMouseEnter={() => setActiveService(item)}
-              onClick={() => setActiveService(item)}
+              // onMouseEnter={() => setActiveService(item)}
+              // onClick={() => setActiveService(item)}
             >
               <div className="relative w-full h-[380px] sm:h-[420px] lg:h-[500px] rounded-lg overflow-hidden bg-[#162F65CC]/80">
                 {/* Background Image */}
