@@ -7,6 +7,7 @@ import Nav from "@/Components/Nav";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
+import Quote from "@/Components/Quote";
 
 
 
@@ -144,7 +145,7 @@ const integratedLogistics = () => {
                 {/*    Sydney Airport*/}
                 {/*</div>*/}
             </div>
-
+            <Quote />
             <div className="py-6 lg:py-12">
                 <LinkedinSection />
             </div>
