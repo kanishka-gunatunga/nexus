@@ -425,7 +425,7 @@ const Nav = () => {
                             Leadership Team
                         </Link>
                         <Link
-                            href="#"
+                            href="/services"
                             className="text-base sm:text-lg lg:text-xl font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
                         >
                             Services
@@ -479,7 +479,7 @@ const Nav = () => {
                             Leadership Team
                         </Link>
                         <Link
-                            href="#"
+                            href="/services"
                             className="block px-3 py-2 text-base font-medium text-[#282828] hover:text-[#082049] hover:bg-gray-100 rounded-md transition-colors w-full text-center"
                             onClick={() => setIsMenuOpen(false)}
                         >

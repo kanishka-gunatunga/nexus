@@ -568,7 +568,7 @@ const Footer = () => {
                                     Insights
                                 </a>
                                 <a
-                                    href="#"
+                                    href="/contactUs"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Contact Us
