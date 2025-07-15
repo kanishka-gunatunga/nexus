@@ -589,7 +589,7 @@ const Footer = () => {
                             </h4>
                             <div className="space-y-2 text-center sm:text-left">
                                 <a
-                                    href="#"
+                                    href="/air-and-sea-freight"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Air & Sea Freight
