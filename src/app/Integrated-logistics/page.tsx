@@ -1,12 +1,10 @@
 "use client"
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
-import Quote from "@/Components/Quote";
 import React from "react";
 // import Link from "next/link";
 import Nav from "@/Components/Nav";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
-import { tr } from "framer-motion/client";
 import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 
