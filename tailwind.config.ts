@@ -27,8 +27,10 @@ module.exports = {
                 // cusYellow:"#FAE27C",
                 cusYellowLight: "#FEFCE8",
             },
+            fontFamily: {
+                poppins: ['var(--font-poppins)', 'sans-serif'],
+            },
         },
-
     },
     plugins: [],
 };
