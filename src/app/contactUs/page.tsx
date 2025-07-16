@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { Phone, Mail, MapPin, ChevronDown } from "lucide-react";
+import { ChevronDown, Twitter, Facebook, Youtube } from "lucide-react";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
 
@@ -31,11 +31,12 @@ export default function ContactPage() {
     address: "",
     city: "",
     province: "",
-    topic: "Air & Sea Freight Services",
+    topic: "HS Classifications & Duty Optimisation",
     message: "",
   });
 
   const [isTopicOpen, setIsTopicOpen] = useState<boolean>(false);
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -45,20 +46,92 @@ export default function ContactPage() {
       ...prev,
       [name]: value,
     }));
+
+    // Clear error on input change
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  };
+
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required.";
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required.";
+    }
+
+    if (!formData.companyEmail.trim()) {
+      newErrors.companyEmail = "Email is required.";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.companyEmail)) {
+      newErrors.companyEmail = "Invalid email address.";
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required.";
+    } else if (!/^[\d\s()+-]+$/.test(formData.phone)) {
+      newErrors.phone = "Invalid phone number.";
+    }
+
+    if (!formData.companyName.trim()) {
+      newErrors.companyName = "Company name is required.";
+    }
+
+    if (
+      formData.website.trim() &&
+      !/^https?:\/\/\S+\.\S+$/.test(formData.website)
+    ) {
+      newErrors.website = "Invalid website URL.";
+    }
+
+    if (!formData.address.trim()) {
+      newErrors.address = "Address is required.";
+    }
+
+    if (!formData.city.trim()) {
+      newErrors.city = "City is required.";
+    }
+
+    if (!formData.province.trim()) {
+      newErrors.province = "Province is required.";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required.";
+    }
+
+    setErrors(newErrors);
+
+    // Return true if no errors
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission here
+    if (validateForm()) {
+      console.log("Form submitted:", formData);
+      // You can submit your form here
+    } else {
+      console.log("Validation failed!");
+    }
   };
 
   const topics = [
-    "Air & Sea Freight Services",
-    "Logistics Solutions",
-    "Supply Chain Management",
-    "Customs Clearance",
-    "Warehousing Services",
+    "HS Classifications & Duty Optimisation",
+    "Manage refund claims",
+    "Duty Drawbacks and Rebates",
+    "Australian Trusted Trader Application",
+    "Get Started with a supply chain Audit",
+    "Customs and Border Processing ",
+    "Supply Chain Consultancy & Audits",
+    "3PL & Warehousing",
+    "Fullment & E-Commerce Services",
+    "Inventory Management & Optimisation",
+    "Special Project Transport",
     "Other",
   ];
 
@@ -84,8 +157,8 @@ export default function ContactPage() {
             <div className="text-left px-4">
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
                 DON&apos;T HESITATE
-  <br />
-  TO CONTACT US
+                <br />
+                TO CONTACT US
               </h1>
             </div>
           </div>
@@ -93,7 +166,7 @@ export default function ContactPage() {
       </div>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 lg:-mt-28">
+      <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 lg:-mt-28 poppins">
         {/* Top Section - Contact Form */}
         <div className="flex flex-col lg:flex-row  overflow-hidden">
           {/* Left Panel - Contact Info */}
@@ -108,7 +181,7 @@ export default function ContactPage() {
               >
                 We&apos;re here to help.
               </h1>
-              <p className="text-gray-700 mb-2">
+              <p className="text-gray-700 mb-2 text-[#0F2043]">
                 Tell us as much as you can... Nothing is too complex for us...
               </p>
               <p className="text-gray-700 mb-2">
@@ -116,12 +189,16 @@ export default function ContactPage() {
               </p>
 
               {/* Contact Methods */}
-              <div className="space-y-6 mb-8">
+              <div className="space-y-6 mb-8 lg:mt-26 sm:mt-4 mt-4">
                 <div className="flex items-start space-x-3">
-                  <Phone
-                    className="w-5 h-5 mt-1"
-                    style={{ color: "#162F65" }}
+                  <Image
+                    src="/call_icon.png"
+                    alt="Phone Icon"
+                    width={20}
+                    height={20}
+                    className="mt-1"
                   />
+
                   <div>
                     <h3
                       className="font-semibold mb-1"
@@ -134,7 +211,14 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <Mail className="w-5 h-5 mt-1" style={{ color: "#162F65" }} />
+                  <Image
+                    src="/mail_icon.png"
+                    alt="mail Icon"
+                    width={20}
+                    height={20}
+                    className="mt-1"
+                  />
+
                   <div>
                     <h3
                       className="font-semibold mb-1"
@@ -147,10 +231,14 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <MapPin
-                    className="w-5 h-5 mt-1"
-                    style={{ color: "#162F65" }}
+                  <Image
+                    src="/location_icon.png"
+                    alt="location Icon"
+                    width={20}
+                    height={20}
+                    className="mt-1"
                   />
+
                   <div>
                     <h3
                       className="font-semibold mb-1"
@@ -167,35 +255,66 @@ export default function ContactPage() {
             </div>
 
             {/* Social Media Icons - Bottom Left */}
-            <div className="absolute bottom-8 left-8 flex space-x-3">
-              <div className="w-8 h-8 rounded-full bg-transparent border-2 border-gray-500 flex items-center justify-center">
-                <svg
-                  className="w-4 h-4 text-gray-600"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-              </div>
-              <div className="w-8 h-8 rounded-full bg-transparent border-2 border-gray-500 flex items-center justify-center">
-                <span className="text-gray-600 text-xs font-bold">G+</span>
-              </div>
-              <div className="w-8 h-8 rounded-full bg-transparent border-2 border-gray-500 flex items-center justify-center">
-                <span className="text-gray-600 text-sm font-bold">f</span>
-              </div>
-              <div className="w-8 h-8 rounded-full bg-transparent border-2 border-gray-500 flex items-center justify-center">
-                <svg
-                  className="w-4 h-4 text-gray-600"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 0a10 10 0 100 20 10 10 0 000-20zM7.003 5.404H9.67V6.59c.406-.719 1.295-1.186 2.652-1.186 2.837 0 3.334 1.498 3.334 3.442v3.96h-2.777V9.696c0-1.187-.253-1.855-1.278-1.855-1.301 0-1.598.967-1.598 1.855v3.111H7.003V5.404z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
+            <div className="absolute bottom-4 sm:bottom-4 md:bottom-4 lg:bottom-8 left-8 flex space-x-3">
+              {/* Twitter */}
+              <a
+                href="https://www.facebook.com/YourPage"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/x_icon.png"
+                  alt="Facebook"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
+              </a>
+
+              {/* Google+ */}
+              <a
+                href="https://www.instagram.com/YourProfile"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/linkedin_icon.png"
+                  alt="Instagram"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
+              </a>
+
+              {/* Facebook */}
+              <a
+                href="https://www.linkedin.com/company/YourCompany"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/facebook_icon.png"
+                  alt="LinkedIn"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
+              </a>
+
+              {/* Instagram */}
+              <a
+                href="https://www.youtube.com/YourChannel"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/instagram_icon.png"
+                  alt="YouTube"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
+              </a>
             </div>
           </div>
 
@@ -212,31 +331,37 @@ export default function ContactPage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-gray-700 mb-2">
-                      First Name
-                    </label>
+                    <label className="block text-black mb-2">First Name</label>
                     <input
                       type="text"
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2"
+                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
+                    {errors.firstName && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.firstName}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-2">
-                      Last Name
-                    </label>
+                    <label className="block text-black mb-2">Last Name</label>
                     <input
                       type="text"
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2"
+                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
+                    {errors.firstName && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.lastName}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-2">
+                    <label className="block text-black mb-2">
                       Company Email Address
                     </label>
                     <input
@@ -244,19 +369,29 @@ export default function ContactPage() {
                       name="companyEmail"
                       value={formData.companyEmail}
                       onChange={handleInputChange}
-                      className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2"
+                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
+                    {errors.firstName && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.companyEmail}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-2">Phone</label>
+                    <label className="block text-black mb-2">Phone</label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+61(2)234-5678"
-                      className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2 placeholder-gray-500"
+                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
                     />
+                    {errors.firstName && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.phone}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -271,7 +406,7 @@ export default function ContactPage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-gray-700 mb-2">
+                    <label className="block text-black mb-2">
                       Company Name
                     </label>
                     <input
@@ -279,53 +414,74 @@ export default function ContactPage() {
                       name="companyName"
                       value={formData.companyName}
                       onChange={handleInputChange}
-                      className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2"
+                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
+                    {errors.firstName && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.companyName}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-2">
-                      Website URL
-                    </label>
+                    <label className="block text-black mb-2">Website URL</label>
                     <input
                       type="url"
                       name="website"
                       value={formData.website}
                       onChange={handleInputChange}
-                      className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2"
+                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
+                    {errors.firstName && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.website}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="mt-6">
-                  <label className="block text-gray-700 mb-2">Address</label>
+                  <label className="block text-black mb-2">Address</label>
                   <input
                     type="text"
                     name="address"
                     value={formData.address}
                     onChange={handleInputChange}
-                    className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2"
+                    className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                   />
+                  {errors.address && (
+                    <p className="text-red-600 text-sm mt-1">
+                      {errors.address}
+                    </p>
+                  )}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                   <div>
-                    <label className="block text-gray-700 mb-2">City</label>
+                    <label className="block text-black mb-2">City</label>
                     <input
                       type="text"
                       name="city"
                       value={formData.city}
                       onChange={handleInputChange}
-                      className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2"
+                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
+                    {errors.city && (
+                      <p className="text-red-600 text-sm mt-1">{errors.city}</p>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-2">Province</label>
+                    <label className="block text-black mb-2">Province</label>
                     <input
                       type="text"
                       name="province"
                       value={formData.province}
                       onChange={handleInputChange}
                       placeholder="+61(2)234-5678"
-                      className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2 placeholder-gray-500"
+                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
                     />
+                    {errors.province && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.province}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -342,9 +498,9 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={() => setIsTopicOpen(!isTopicOpen)}
-                    className="w-full flex items-center justify-between border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2 text-left"
+                    className="w-full flex items-center justify-between border-b-2 border-black focus:border-blue-500 outline-none pb-2 text-left"
                   >
-                    <span className="text-gray-700">{formData.topic}</span>
+                    <span className="text-black">{formData.topic}</span>
                     <ChevronDown
                       className={`w-5 h-5 transition-transform ${
                         isTopicOpen ? "rotate-180" : ""
@@ -352,7 +508,7 @@ export default function ContactPage() {
                     />
                   </button>
                   {isTopicOpen && (
-                    <div className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg z-10 mt-1">
+                    <div className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg z-10 mt-1 max-h-48 overflow-y-auto">
                       {topics.map((topic, index) => (
                         <button
                           key={index}
@@ -373,22 +529,25 @@ export default function ContactPage() {
 
               {/* Message */}
               <div className="mb-8">
-                <label className="block text-gray-700 mb-2">Message</label>
+                <label className="block text-black mb-2">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="Write your message"
-                  rows={6}
-                  className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none pb-2 resize-none placeholder-gray-500"
+                  rows={2}
+                  className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2 resize-none placeholder-[#676767]"
                 />
+                {errors.message && (
+                  <p className="text-red-600 text-sm mt-1">{errors.message}</p>
+                )}
               </div>
 
               {/* Privacy Policy */}
               <div className="mb-8">
                 <div className="flex items-start space-x-2">
                   <input type="checkbox" id="privacy" className="mt-1" />
-                  <label htmlFor="privacy" className="text-sm text-gray-600">
+                  <label htmlFor="privacy" className="text-sm text-[#676767]">
                     Our privacy policy contains detailed information about our
                     handling of personal information.
                   </label>

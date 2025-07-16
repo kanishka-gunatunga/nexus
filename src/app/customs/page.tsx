@@ -1,15 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import {
-  ChevronUp,
-  ChevronDown,
-} from "lucide-react";
+import { ChevronUp, ChevronDown } from "lucide-react";
 import Nav from "@/Components/Nav";
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
 import Quote from "@/Components/Quote";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
+import Link from "next/link";
 
 const CustomsPage = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -28,17 +26,17 @@ const CustomsPage = () => {
 
   const serviceContents = {
     "Pre-Entry/Exit Strategy & Planning":
-      "Strategic planning and preparation services to ensure smooth customs clearance and minimize delays before your goods arrive at the border.",
+      "We work with you to develop tailored import/export plans that maximise duty savings, accurately identify tariff classifications, and proactively address potential clearance issues before they arise.",
     "Entry/Exit Processing & Documentation":
-      "Complete handling of all entry and exit documentation requirements, ensuring compliance with regulations and efficient processing.",
+      "Our team handles the complete lodgement of import and export declarations, electronic documentation, and cargo release coordination, removing the hassle for you.",
     "HS Classification & Duty Optimization":
-      "Expert classification of goods under the Harmonized System and optimization of duty structures to minimize costs while maintaining compliance.",
+      "By applying precise product classification and comprehensive tariff analysis, we minimise your duties and reduce the risk of penalties.",
     "Post-Entry/Exit Compliance & Optimization":
-      "Ongoing compliance monitoring and optimization services to ensure continued adherence to regulations and identify cost-saving opportunities.",
+      "We review and amend declarations as needed, manage refund claims, and ensure your operations remain fully compliant amid changing regulations.",
     "Duty Drawbacks & Rebates":
-      "Identification and processing of duty drawback opportunities and rebates to recover costs and improve your bottom line.",
+      "Recover duties paid on exported goods efficiently through our streamlined drawback claims process, improving your cash flow.",
     "Australian Trusted Trader Support":
-      "Comprehensive support for Australian Trusted Trader program participation, including application assistance and ongoing compliance management.",
+      "Receive expert assistance throughout the accreditation process, compliance checks, and audit preparation, helping your business benefit from faster clearance and reduced border inspections.",
   };
 
   const toggleDropdown = (service: string) => {
@@ -90,7 +88,7 @@ const CustomsPage = () => {
             <div className="order-2 lg:order-1 flex flex-col h-full">
               <div className="relative flex-1">
                 <Image
-                  src="/customs_img1.png"
+                  src="/customs_img1.svg"
                   alt="Business professionals working on customs documentation"
                   width={800} // Replace with an appropriate width
                   height={600} // Replace with an appropriate height
@@ -101,7 +99,7 @@ const CustomsPage = () => {
 
             {/* Right Column - Content */}
             <div className="order-1 lg:order-2 flex flex-col h-full">
-              <p className="text-gray-600 text-base sm:text-lg mb-4 lg:mb-2 leading-relaxed">
+              <p className="text-xs sm:text-sm lg:text-base font-medium text-[#676767] leading-[25px] mb-4 lg:mb-2">
                 Navigating customs regulations and border processes in Australia
                 and abroad can be complex, but it doesn&apos;t have to slow your
                 supply chain. Our customs specialists manage every aspect - from
@@ -111,10 +109,10 @@ const CustomsPage = () => {
               </p>
 
               <div className="mb-6 lg:mb-2 bg-white rounded-lg p-6 flex-0">
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#162F65] mb-2">
                   Customs and Border Processing
                 </h3>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="text-xs sm:text-sm lg:text-base font-medium text-[#676767] leading-[25px]">
                   Planning and being ready to engage with customs and border
                   authorities is essential for fast clearance and minimizing
                   delays. Our teams begin their work long before your goods
@@ -191,14 +189,16 @@ const CustomsPage = () => {
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Customs doesn&apos;t have to be a block...
             </h3>
-            <p className="text-gray-600 text-base sm:text-lg mb-6 leading-relaxed max-w-4xl">
+            <p className="text-xs sm:text-sm lg:text-base font-medium text-[#676767] leading-[25px] mb-6 max-w-4xl">
               If you and your goods arrive with a good plan and in compliance
               with local regulations. We make that happen by simplifying
               compliance and reducing inspection delays.
             </p>
-            <button className="bg-[#162F65] text-white px-6 sm:px-8 h-[43.78px] rounded-lg hover:bg-blue-800 transition-colors duration-200 text-base sm:text-lg font-semibold">
-              Simplify Customs with Us
-            </button>
+            <Link href="/contactUs">
+              <button className="bg-[#162F65] text-white px-6 sm:px-8 h-[43.78px] rounded-lg hover:bg-blue-800 transition-colors duration-200 text-base sm:text-lg font-semibold">
+                Simplify Customs with Us
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -228,8 +228,9 @@ const CustomsPage = () => {
             paragraph1="Our comprehensive audits uncover inefficiencies across your entire supply chain from procurement to last-mile delivery. We provide actionable insights and customised roadmaps that cut costs and improve service quality. We also guide you through the process of becoming an Australian Trusted Trader (ATT), unlocking benefits such as reduced red tape at the border, priority goods processing, duty deferral options, and a dedicated Australian Border Force account manager."
             subtitle="Audits are more than box-ticking exercises..."
             paragraph2="We turn audit insights into immediate ROI, delivering cost savings and enhanced performance from day one."
+            paragraph3=""
             buttonText="Get Started with a Supply Chain Audit"
-            buttonLink="/sea-freight-quote"
+            buttonLink="/contactUs"
             imageSrc="/customs_img2.png"
             reverse={true}
           />
@@ -247,7 +248,7 @@ const CustomsPage = () => {
         <div className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
           <div className="absolute inset-0">
             <Image
-              src="/services-banner2.png"
+              src="/customs_banner.svg"
               alt="Airport"
               width={1000}
               height={400}

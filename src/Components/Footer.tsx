@@ -595,13 +595,13 @@ const Footer = () => {
                                     Air & Sea Freight
                                 </a>
                                 <a
-                                    href="#"
+                                    href="/road-and-rail"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Road & Rail Transport
                                 </a>
                                 <a
-                                    href="#"
+                                    href="/customs"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Customs Clearance & Border Processing
