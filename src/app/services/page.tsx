@@ -75,29 +75,23 @@ const ServicesPage = () => {
 
       {/* Comprehensive Solutions Section */}
       <div className="lg:-mt-28 lg:pb-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-start gap-[32px]">
-            {/* Title Section */}
-            <div className="max-w-[516px] w-full">
-              <h2 className="text-4xl lg:text-5xl font-bold text-blue-900 leading-tight">
-                Comprehensive Solutions
-              </h2>
-            </div>
-
-            {/* Description Section */}
-            <div className="max-w-[851px] w-full">
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Whether it&apos;s retail, manufacturing, mining, automotive, or
-                any other industry, our specialists understand each one&apos;s
-                unique challenges, constraints, and regulations. In particular,
-                we understand the value of proactive, swift communication, and
-                we strive to keep our customers in the loop at all times —
-                you&apos;ll notice this difference immediately and we&apos;ll
-                earn your trust within the first month. Our dedicated teams work
-                with you, as an extension of your office, to deliver compliant,
-                tailored solutions that scale with your business.
-              </p>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-tight mx-auto sm:mx-0">
+              Comprehensive
+              <br className="hidden sm:block" /> Solutions
+            </h2>
+            <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-base leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
+              Whether it&#39;s retail, manufacturing, mining, automotive, or any
+              other industry, our specialists understand each one&#39;s unique
+              challenges, constraints, and regulations. In particular, we
+              understand the value of proactive, swift communication, and we
+              strive to keep our customers in the loop at all times - you&#39;ll
+              notice this difference immediately and we&#x27;ll earn your trust
+              within the first month. Our dedicated teams work with you, as an
+              extension of your office, to deliver compliant, tailored solutions
+              that scale with your business.
+            </p>
           </div>
         </div>
       </div>
@@ -112,7 +106,8 @@ const ServicesPage = () => {
               // onMouseEnter={() => setActiveService(item)}
               // onClick={() => setActiveService(item)}
             >
-              <div className="relative w-full h-[380px] sm:h-[420px] lg:h-[500px] rounded-lg overflow-hidden bg-[#162F65CC]/80">
+              {/* Enforce a consistent height for all cards */}
+              <div className="relative w-full h-[520px] sm:h-[580px] lg:h-[580px] rounded-lg overflow-hidden bg-[#162F65CC]/80 flex flex-col">
                 {/* Background Image */}
                 <Image
                   src={item.src}
@@ -128,18 +123,19 @@ const ServicesPage = () => {
                 <div className="absolute bg-[url('/x.png')] opacity-5 bg-no-repeat bg-contain inset-0 w-full h-full" />
 
                 {/* Content */}
+                {/* Use flex-col and justify-between to push the label to the bottom */}
                 <div className="relative p-6 lg:p-8 flex flex-col justify-between h-full text-white">
-                  {/* Description */}
-                  <div className="flex-1 flex items-start">
-                    <p className="text-left font-medium text-sm sm:text-base lg:text-lg leading-relaxed whitespace-pre-line">
+                  {/* Description - Use flex-grow to make it fill available space */}
+                  <div className="flex-grow">
+                    <p className="text-left font-medium pt-2 lg:pt-10 px-6 text-sm sm:text-base lg:text-xl text-[#FFFFFF] leading-[30px] whitespace-pre-line">
                       {item.description}
                     </p>
                   </div>
 
-                  {/* Title and Arrow */}
+                  {/* Title and Arrow - This will stay at the bottom due to justify-between */}
                   <div className="flex flex-row gap-3 justify-start items-center mt-6">
                     <svg
-                      className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex-shrink-0"
+                      className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 mb-2 flex-shrink-0 transition-transform duration-300 ease-in-out"
                       width="81"
                       height="82"
                       viewBox="0 0 81 82"
@@ -155,12 +151,12 @@ const ServicesPage = () => {
                       />
                       <path
                         className="origin-center transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-45"
-                        d="M50.7383 33.4925C50.7693 32.847 50.5433 32.2156 50.1099 31.7363C49.6764 31.257 49.0708 30.9689 48.4254 30.935L34.6517 30.2429C34.3319 30.2269 34.0121 30.274 33.7105 30.3815C33.4089 30.489 33.1314 30.6549 32.894 30.8697C32.4143 31.3034 32.1266 31.9099 32.0942 32.5558C32.0617 33.2016 32.2872 33.8339 32.7209 34.3136C33.1547 34.7932 33.7612 35.0809 34.407 35.1133L42.3021 35.51L29.309 47.26C28.8294 47.6937 28.5418 48.3001 28.5093 48.9459C28.4769 49.5916 28.7023 50.2238 29.136 50.7034C29.5697 51.183 30.1761 51.4706 30.8219 51.5031C31.4676 51.5355 32.0998 51.3101 32.5794 50.8764L45.5725 39.1264L45.1759 47.0215C45.1598 47.3413 45.2069 47.6612 45.3144 47.9628C45.422 48.2644 45.5878 48.5418 45.8026 48.7793C46.0174 49.0168 46.2768 49.2097 46.5661 49.3469C46.8554 49.4841 47.1689 49.563 47.4887 49.5791C47.8085 49.5952 48.1283 49.5481 48.4299 49.4405C48.7315 49.333 49.009 49.1671 49.2465 48.9523C49.484 48.7376 49.6768 48.4781 49.8141 48.1888C49.9513 47.8995 50.0302 47.586 50.0463 47.2662L50.7383 33.4925Z"
+                        d="M50.7383 33.4925C50.7693 32.847 50.5433 32.2156 50.1099 31.7363C49.6764 31.257 49.0708 30.9689 48.4254 30.935L34.6517 30.2429C34.3319 30.2269 34.0121 30.274 33.7105 30.3815C33.4089 30.489 33.1314 30.6549 32.894 30.8697C32.4143 31.3034 32.1266 31.9099 32.0942 32.5558C32.0617 33.2016 32.2872 33.8339 32.7209 34.3136C33.1547 34.7932 33.7612 35.0809 34.4070 35.1133L42.3021 35.51L29.3090 47.26C28.8294 47.6937 28.5418 48.3001 28.5093 48.9459C28.4769 49.5916 28.7023 50.2238 29.1360 50.7034C29.5697 51.183 30.1761 51.4706 30.8219 51.5031C31.4676 51.5355 32.0998 51.3101 32.5794 50.8764L45.5725 39.1264L45.1759 47.0215C45.1598 47.3413 45.2069 47.6612 45.3144 47.9628C45.4220 48.2644 45.5878 48.5418 45.8026 48.7793C46.0174 49.0168 46.2768 49.2097 46.5661 49.3469C46.8554 49.4841 47.1689 49.5630 47.4887 49.5791C47.8085 49.5952 48.1283 49.5481 48.4299 49.4405C48.7315 49.3330 49.0090 49.1671 49.2465 48.9523C49.4840 48.7376 49.6768 48.4781 49.8141 48.1888C49.9513 47.8995 50.0302 47.5860 50.0463 47.2662L50.7383 33.4925Z"
                         fill="white"
                       />
                     </svg>
 
-                    <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-left font-medium leading-tight">
+                    <h3 className="text-sm sm:text-base text-left leading-[35px] lg:text-[36px] text-white font-medium">
                       {item.label}
                     </h3>
                   </div>

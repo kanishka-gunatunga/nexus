@@ -10,7 +10,7 @@ export default function ServiceCardRow() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <div className="bg-[#f5f7fa] py-6 px-4">
+    <div className="bg-[#F6F6F6] py-6 px-4">
       <h3 className="text-[#162F65] text-lg font-semibold mb-4 font-poppins">
         These services may also be of interest to you.
       </h3>
