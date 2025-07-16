@@ -49,7 +49,8 @@ export default function PhotoDescriptionSection({
           {title}
         </h2>
 
-        <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
+        {/* <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left"> */}
+        <p className="font-poppins font-medium text-xs sm:text-sm lg:text-base text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph1}
         </p>
 
@@ -57,7 +58,8 @@ export default function PhotoDescriptionSection({
           {subtitle}
         </p>
 
-        <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
+        {/* <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left"> */}
+        <p className="font-poppins font-medium text-xs sm:text-sm lg:text-base text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph2}
         </p>
 

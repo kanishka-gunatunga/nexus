@@ -22,7 +22,7 @@ const Navbar = () => {
                     {/* Navigation - Hidden on mobile */}
                     <nav className="hidden lg:flex items-center space-x-8 xl:space-x-12">
                         <Link
-                            href="#"
+                            href="/whyNexus"
                             className="text-xl font-semibold text-[#282828] hover:text-[#082049] transition-colors"
                         >
                             Why Nexus
