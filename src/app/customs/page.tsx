@@ -3,10 +3,6 @@ import React, { useState } from "react";
 import {
   ChevronUp,
   ChevronDown,
-  Truck,
-  Ship,
-  Plane,
-  FileText,
 } from "lucide-react";
 import Nav from "@/Components/Nav";
 import Image from "next/image";
