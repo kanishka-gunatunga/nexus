@@ -46,7 +46,7 @@ const airAndSeaFreight = () => {
 
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <HeroTitleAndParagraph
                     title="Air & Sea Freight Services"

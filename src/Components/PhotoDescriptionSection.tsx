@@ -28,7 +28,7 @@ export default function PhotoDescriptionSection({
 }: Props) {
   return (
     <div
-      className={`bg-transparent p-6 md:p-10 flex flex-col md:flex-row gap-10 ${
+      className={`bg-transparent px-0 py-6 md:py-10 flex flex-col md:flex-row gap-10 ${
         reverse ? 'md:flex-row-reverse' : ''
       }`}
     >
@@ -46,7 +46,7 @@ export default function PhotoDescriptionSection({
 
       {/* Text Content */}
       <div className="flex-1 flex flex-col justify-center">
-        <h2 className="font-poppins font-semibold text-[33px] text-[#162F65] mb-4">
+        <h2 className="font-poppins font-semibold text-[33px]  text-[#162F65] mb-4">
           {title}
         </h2>
 
