@@ -7,6 +7,7 @@ import Nav from "@/Components/Nav";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
+import Quote from "@/Components/Quote";
 
 
 
@@ -45,7 +46,7 @@ const airAndSeaFreight = () => {
 
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <HeroTitleAndParagraph
                     title="Air & Sea Freight Services"
@@ -105,7 +106,7 @@ const airAndSeaFreight = () => {
             <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden" style={{ marginTop: '100px' }}>
                 <div className="absolute inset-0">
                     <Image
-                        src="/services/bottom-banner.png"
+                        src="/services/sea-bottom-banner.png"
                         alt="Airport"
                         width={1000}
                         height={400}
@@ -132,7 +133,7 @@ const airAndSeaFreight = () => {
                 {/*    Sydney Airport*/}
                 {/*</div>*/}
             </div>
-
+            <Quote />
             <div className="py-6 lg:py-12">
                 <LinkedinSection />
             </div>

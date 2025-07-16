@@ -7,6 +7,7 @@ import Nav from "@/Components/Nav";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
+import Quote from "@/Components/Quote";
 
 
 
@@ -42,7 +43,7 @@ const integratedLogistics = () => {
 
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <HeroTitleAndParagraph
                     title="Integrated Logistics & Special Projects"
@@ -106,7 +107,7 @@ const integratedLogistics = () => {
                         buttonText="Book an Unusual Move"
                         buttonLink="/air-freight-quote"
                         imageSrc="/services/special-project.png"
-                        reverse={false}
+                        reverse={true}
                     />
                 </div>
             </div>
@@ -144,7 +145,7 @@ const integratedLogistics = () => {
                 {/*    Sydney Airport*/}
                 {/*</div>*/}
             </div>
-
+            <Quote />
             <div className="py-6 lg:py-12">
                 <LinkedinSection />
             </div>
