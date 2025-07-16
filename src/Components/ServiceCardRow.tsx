@@ -39,10 +39,10 @@ export default function ServiceCardRow() {
         </Link>
 
         {/* Card 2 */}
-        <Link href="/road-rail-transport">
+        <Link href="/road-and-rail">
           <div
             className={`flex flex-col items-center justify-center text-center p-4  rounded-md w-full h-full transition shadow-md ${
-              isActive('/road-rail-transport')
+              isActive('/road-and-rail')
                 ? 'bg-[#162F65] text-white'
                 : 'bg-white text-black hover:bg-[#e6f0ff]'
             }`}
@@ -83,10 +83,10 @@ export default function ServiceCardRow() {
         </Link>
 
         {/* Card 4 */}
-        <Link href="/customs-clearance">
+        <Link href="/customs">
           <div
             className={`flex flex-col items-center justify-center text-center p-4  rounded-md w-full h-full transition shadow-md ${
-              isActive('/customs-clearance')
+              isActive('/customs')
                 ? 'bg-[#162F65] text-white'
                 : 'bg-white text-black hover:bg-[#e6f0ff]'
             }`}

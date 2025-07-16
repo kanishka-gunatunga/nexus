@@ -8,6 +8,7 @@ type Props = {
   paragraph1: string;
   subtitle: string;
   paragraph2: string;
+  paragraph3: string;
   buttonText: string;
   buttonLink: string;
   imageSrc: string;
@@ -20,6 +21,7 @@ export default function PhotoDescriptionSection({
   paragraph1,
   subtitle,
   paragraph2,
+  paragraph3,
   buttonText,
   buttonLink,
   imageSrc,
@@ -52,14 +54,19 @@ export default function PhotoDescriptionSection({
         <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph1}
         </p>
+        <p className="font-poppins font-medium text-[20px] text-[#676767] mb-6 leading-relaxed">
+          {paragraph3}
+        </p>
 
-        <p className="font-poppins font-medium text-[22px] text-[#162F65] mb-2">
+        <p className="font-poppins font-medium text-[24px] text-[#162F65] mb-2">
           {subtitle}
         </p>
 
         <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph2}
         </p>
+
+        
 
         <Link href={buttonLink}>
           <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-[#1d3d87] transition duration-300">
