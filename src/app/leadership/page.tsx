@@ -96,7 +96,7 @@ const LeadershipPage = () => {
                      className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
                     <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
                         <Image
-                            src="/lead-banner.png"
+                            src="/leadership.svg"
                             alt="Nexus X Logo"
                             width={1000}
                             height={400}
@@ -211,8 +211,8 @@ const LeadershipPage = () => {
             <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden">
                 <div className="absolute inset-0">
                     <Image
-                        // src="/leader-banner.png"
-                        src="/leadership.svg"
+                        src="/leader-banner.png"
+                        // src="/leadership.svg"
                         alt="Airport"
                         width={1000}
                         height={400}
