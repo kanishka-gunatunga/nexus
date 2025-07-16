@@ -3,15 +3,13 @@ import React, { useState } from "react";
 import {
   ChevronUp,
   ChevronDown,
-  Truck,
-  Ship,
-  Plane,
-  FileText,
 } from "lucide-react";
 import Nav from "@/Components/Nav";
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
 import Quote from "@/Components/Quote";
+import ServiceCardRow from "@/Components/ServiceCardRow";
+import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 
 const CustomsPage = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -79,7 +77,7 @@ const CustomsPage = () => {
       </div>
 
       {/* Customs and Border Processing Section */}
-      <section className="py-16 lg:py-24 bg-[#F6F6F6] poppins relative">
+      <section className="lg:-mt-47 py-16 lg:py-24 bg-[#F6F6F6] poppins relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#162F65] mb-6 lg:mb-8">
             Customs and
@@ -223,90 +221,26 @@ const CustomsPage = () => {
       </section>
 
       {/* Supply Chain Consultancy Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Supply Chain Consultancy
-                <br />& Audits
-              </h2>
-              <p className="text-gray-600 mb-8">
-                Our comprehensive audits uncover inefficiencies across your
-                supply chain, from procurement to final delivery. We provide
-                actionable insights and customised roadmaps that cut costs and
-                improve service quality. We leverage our local expertise and
-                global network including the Australian Trusted Trader (ATT),
-                unlocking benefits such as reduced red tape at the border,
-                priority goods processing, and mutual recognition with
-                international Authorised Economic Operator programs.
-              </p>
-
-              <div className="bg-blue-100 p-6 rounded-lg mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  Audits are more than box-ticking exercises...
-                </h3>
-                <p className="text-gray-600">
-                  We turn audit insights into immediate ROI, delivering cost
-                  savings and enhanced performance from day one.
-                </p>
-              </div>
-
-              <button className="bg-blue-900 text-white px-6 py-3 rounded hover:bg-blue-800">
-                Get Started with a Supply Chain Audit
-              </button>
-            </div>
-
-            <div className="relative">
-              <Image
-                src="/api/placeholder/500/400"
-                alt="Supply chain consultation"
-                width={500}
-                height={400}
-                className="w-full h-80 object-cover rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
+          <PhotoDescriptionSection
+            title="Supply Chain Consultancy & Audits"
+            paragraph1="Our comprehensive audits uncover inefficiencies across your entire supply chain from procurement to last-mile delivery. We provide actionable insights and customised roadmaps that cut costs and improve service quality. We also guide you through the process of becoming an Australian Trusted Trader (ATT), unlocking benefits such as reduced red tape at the border, priority goods processing, duty deferral options, and a dedicated Australian Border Force account manager."
+            subtitle="Audits are more than box-ticking exercises..."
+            paragraph2="We turn audit insights into immediate ROI, delivering cost savings and enhanced performance from day one."
+            buttonText="Get Started with a Supply Chain Audit"
+            buttonLink="/sea-freight-quote"
+            imageSrc="/customs_img2.png"
+            reverse={true}
+          />
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            These services may also be of interest to you.
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-blue-900 text-white p-6 rounded-lg text-center">
-              <Ship className="h-12 w-12 mx-auto mb-4 text-orange-400" />
-              <h3 className="text-xl font-semibold mb-2">SEA & AIR FREIGHT</h3>
-            </div>
-
-            <div className="bg-gray-100 p-6 rounded-lg text-center">
-              <Truck className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">
-                ROAD & RAIL TRANSPORT
-              </h3>
-            </div>
-
-            <div className="bg-gray-100 p-6 rounded-lg text-center">
-              <FileText className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">
-                INTEGRATED LOGISTICS
-              </h3>
-            </div>
-
-            <div className="bg-gray-100 p-6 rounded-lg text-center">
-              <Plane className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">
-                SUPPLY CHAIN & CONSULTING
-              </h3>
-            </div>
-          </div>
-        </div>
-        <Quote />
-      </section>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ServiceCardRow />
+      </div>
+      <Quote />
 
       {/* CTA Section */}
       <section className="relative py-4 lg:py-2">
