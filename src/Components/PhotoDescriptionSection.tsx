@@ -30,32 +30,30 @@ export default function PhotoDescriptionSection({
 }: Props) {
   return (
     <div
-      className={`bg-transparent p-6 md:p-10 flex flex-col md:flex-row gap-10 ${
-        reverse ? 'md:flex-row-reverse' : ''
+      className={`bg-transparent px-0 py-6 md:py-10 flex flex-col lg:flex-row gap-10 ${
+        reverse ? 'lg:flex-row-reverse' : ''
       }`}
     >
       {/* Image */}
-      <div className="flex-1">
+      <div className="flex-1 flex justify-center items-center">
         <Image
           src={imageSrc}
           alt={imageAlt}
           width={620}
           height={460}
-          className='rounded-[10px] w-full h-auto object-cover'
-          // className="rounded-[10px] w-[620px] h-[460px] object-cover"
+          className="rounded-[10px] sm:w-full md:w-full lg:max-w-[620px] h-auto lg:max-h-[460px] object-cover"
         />
       </div>
 
       {/* Text Content */}
       <div className="flex-1 flex flex-col justify-center">
-        <h2 className="font-poppins font-semibold text-[35px] text-[#162F65] mb-4">
+        <h2 className="font-poppins font-semibold text-[33px]  text-[#162F65] mb-4">
           {title}
         </h2>
 
-        <p className="font-poppins font-medium text-[20px] text-[#676767] mb-4 leading-relaxed">
+        <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph1}
         </p>
-
         <p className="font-poppins font-medium text-[20px] text-[#676767] mb-6 leading-relaxed">
           {paragraph3}
         </p>
@@ -64,7 +62,7 @@ export default function PhotoDescriptionSection({
           {subtitle}
         </p>
 
-        <p className="font-poppins font-medium text-[20px] text-[#676767] mb-6 leading-relaxed">
+        <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph2}
         </p>
 
