@@ -211,7 +211,8 @@ const LeadershipPage = () => {
             <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden">
                 <div className="absolute inset-0">
                     <Image
-                        src="/leader-banner.png"
+                        // src="/leader-banner.png"
+                        src="/leadership.svg"
                         alt="Airport"
                         width={1000}
                         height={400}
