@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { ChevronDown, Twitter, Facebook, Youtube } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
 
