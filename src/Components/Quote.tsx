@@ -5,7 +5,7 @@ const Quote = () => {
         <div>
             <button
                 aria-label="Get my quote"
-                className="fixed right-0 top-1/2 flex flex-col transform -translate-y-1/2 text-white font-semibold rounded-l-md tracking-widest text-xs sm:text-sm items-center transition z-50"
+                className="fixed right-0 top-1/2 flex flex-col transform -translate-y-1/2 text-white font-semibold rounded-l-md tracking-widest text-xs sm:text-sm transition z-50"
             >
                 <div
                     className="py-1 sm:py-2 px-2 sm:px-4 bg-[#E7E6DD] flex items-center justify-center"
