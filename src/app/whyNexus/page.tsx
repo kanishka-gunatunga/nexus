@@ -110,7 +110,7 @@ const airAndSeaFreight = () => {
 
                     {/* second row */}
                     <div className="flex flex-col sm:flex-row justify-between gap-4 my-8 px-4 sm:px-6 lg:px-8">
-                        <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8 w-full max-w-[22rem] sm:w-[100%] flex-1">
+                        <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8 w-full lg:max-w-[22rem] sm:w-[100%] flex-1">
                             <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Real Time Visibility
                             </h3>
