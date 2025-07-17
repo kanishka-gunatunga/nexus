@@ -426,28 +426,28 @@ const Nav = () => {
           </div>
 
           {/* Desktop Navigation - Hidden on small screens */}
-          <nav className="hidden lg:flex items-center space-x-6 lg:space-x-8 xl:space-x-12 order-2">
+          <nav className="hidden lg:flex items-center space-x-6 lg:space-x-8 xl:space-x-12 order-2 text-sm md:text-base xl:text-lg">
             <Link
               href="#"
-              className="text-base sm:text-lg lg:text-xl font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
+              className="font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
             >
               Why Nexus
             </Link>
             <Link
               href="/leadership"
-              className="text-base sm:text-lg lg:text-xl font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
+              className="font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
             >
               Leadership Team
             </Link>
             <Link
               href="/services"
-              className="text-base sm:text-lg lg:text-xl font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
+              className="font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
             >
               Services
             </Link>
             <Link
               href="#"
-              className="text-base sm:text-lg lg:text-xl font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
+              className="font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
             >
               Insights
             </Link>
