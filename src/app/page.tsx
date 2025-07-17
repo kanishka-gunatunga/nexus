@@ -166,28 +166,100 @@ export default function Home() {
 
     return (
         <div className="min-h-screen bg-[#F6F6F6] poppins">
-            <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[100vh] overflow-hidden">
+            <section className="relative mx-auto min-h-[70vh] sm:min-h-[80vh] lg:min-h-[100vh] overflow-hidden">
+
+                {/*<div className="absolute hidden lg:block inset-0">*/}
+                {/*    <div className="absolute flex flex-row justify-end right-0 w-full h-full">*/}
+                {/*        <Image*/}
+                {/*            key={images[currentMobileImageIndex]}*/}
+                {/*            src={images[currentMobileImageIndex]}*/}
+                {/*            alt="Airplane"*/}
+                {/*            width={400}*/}
+                {/*            height={1200}*/}
+                {/*            className="w-full xl:w-auto lg:-top-20 xl:-top-0 sm:w-auto h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[620px] object-contain relative z-40"*/}
+                {/*        />*/}
+                {/*    </div>*/}
+
+                {/*    /!*<div className="absolute flex flex-row justify-end right-0 w-full h-full">*!/*/}
+                {/*    /!*    <Image*!/*/}
+                {/*    /!*        key={images[currentMobileImageIndex]}*!/*/}
+                {/*    /!*        src={images[currentMobileImageIndex]}*!/*/}
+                {/*    /!*        alt="Airplane"*!/*/}
+                {/*    /!*        width={400}*!/*/}
+                {/*    /!*        height={1200}*!/*/}
+                {/*    /!*        className="w-full sm:w-[300px] md:w-[350px] lg:w-[600px] xl:w-[900px] h-[400px] sm:h-[500px] lg:h-[700px] xl:h-[620px] object-contain relative z-40 lg:-top-20 xl:-top-0"*!/*/}
+                {/*    /!*    />*!/*/}
+                {/*    /!*</div>*!/*/}
+
+                {/*    /!*<div className="absolute flex flex-row justify-end right-0 w-full h-full">*!/*/}
+                {/*    /!*    <Image*!/*/}
+                {/*    /!*        key={images[currentMobileImageIndex]}*!/*/}
+                {/*    /!*        src={images[currentMobileImageIndex]}*!/*/}
+                {/*    /!*        alt="Airplane"*!/*/}
+                {/*    /!*        width={400}*!/*/}
+                {/*    /!*        height={1200}*!/*/}
+                {/*    /!*        className="w-full sm:w-[300px] md:w-[450px] lg:w-[680px] xl:w-[850px] h-[300px] sm:h-[400px] md:h-[450px] lg:h-[600px] xl:h-[720px] object-contain relative z-40 lg:-top-20 xl:-top-10"*!/*/}
+                {/*    /!*    />*!/*/}
+                {/*    /!*</div>*!/*/}
+
+                {/*    <div className="absolute -left-50 lg:-top-35 xl:-top-10 inset-0 flex items-center">*/}
+                {/*        <div className="w-full h-full flex justify-center">*/}
+                {/*            <Image*/}
+                {/*                src="/x1.png"*/}
+                {/*                alt="Nexus X Logo"*/}
+                {/*                width={600}*/}
+                {/*                height={600}*/}
+                {/*                className="lg:w-[800px] xl:w-full sm:w-auto h-[600px] sm:h-[800px] lg:h-[970px] object-contain z-30"*/}
+                {/*            />*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+                {/*<div className="absolute hidden lg:block inset-0">*/}
+                {/*    <div className="absolute flex flex-row justify-end right-0 w-full hero-image h-full">*/}
+                {/*        <Image*/}
+                {/*            key={images[currentMobileImageIndex]}*/}
+                {/*            src={images[currentMobileImageIndex]}*/}
+                {/*            alt="Airplane"*/}
+                {/*            width={400}*/}
+                {/*            height={1200}*/}
+                {/*            className="w-full xl:w-auto lg:-top-20 xl:-top-0 sm:w-auto h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[620px] object-contain relative z-40"*/}
+                {/*        />*/}
+                {/*    </div>*/}
+
+                {/*    <div className="absolute xl:-left-[100px] left-20 lg:-top-35 xl:-top-10 inset-0 flex items-center logo-image">*/}
+                {/*        <div className="w-full h-full flex justify-center">*/}
+                {/*            <Image*/}
+                {/*                src="/x1.png"*/}
+                {/*                alt="Nexus X Logo"*/}
+                {/*                width={600}*/}
+                {/*                height={600}*/}
+                {/*                className="lg:w-[800px] xl:w-full sm:w-auto h-[600px] sm:h-[800px] lg:h-[970px] object-contain z-30"*/}
+                {/*            />*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 <div className="absolute hidden lg:block inset-0">
-                    <div className="absolute flex flex-row justify-end right-0 w-full h-full">
+                    <div className="absolute flex flex-row justify-end right-0 w-full h-full hero-image">
                         <Image
                             key={images[currentMobileImageIndex]}
                             src={images[currentMobileImageIndex]}
                             alt="Airplane"
                             width={400}
                             height={1200}
-                            className="w-full xl:w-auto lg:-top-20 xl:-top-0 sm:w-auto h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[620px] object-contain relative z-40"
+                            className="w-full xl:w-auto lg:-top-0 sm:w-auto h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[620px] object-contain relative z-40"
                         />
                     </div>
 
-                    <div className="absolute -left-50 lg:-top-35 xl:-top-10 inset-0 flex items-center">
+                    <div className="absolute -left-50 lg:-top-5 xl:-top-10 inset-0 flex items-center logo-image">
                         <div className="w-full h-full flex justify-center">
                             <Image
                                 src="/x1.png"
                                 alt="Nexus X Logo"
                                 width={600}
                                 height={600}
-                                className="lg:w-[800px] xl:w-full sm:w-auto h-[600px] sm:h-[800px] lg:h-[970px] object-contain z-30"
+                                className="lg:w-[800px] xl:w-full sm:w-auto h-[600px] sm:h-[800px] lg:h-[980px] object-contain z-30 logo-images"
                             />
                         </div>
                     </div>
@@ -233,19 +305,19 @@ export default function Home() {
 
                 <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
                     <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
-                        <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-tight mb-4 sm:mb-6">
+                        <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-tight mb-4 sm:mb-6 head-title">
                             Supply Chains
                             <br/>
                             Never Sleep.
                             <br/>
                             Neither Do We.
                         </h1>
-                        <p className="text-sm sm:text-base lg:text-base xl:text-xl text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-relaxed">
+                        <p className="text-sm sm:text-base lg:text-base xl:text-xl text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-relaxed head-para">
                             As your agile logistics partner, we operate as an extension of your
                             business, so you enjoy peace of mind, and responsive service.
                         </p>
                         <button
-                            className="bg-[#071940] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+                            className="bg-[#071940] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
                         >
                             Explore More
                         </button>
@@ -395,7 +467,7 @@ export default function Home() {
                 />
                 <div className="relative max-w-7xl mx-0 lg:mx-auto px-8 lg:px-12">
                     <div
-                        className="flex flex-col items-start lg:items-center gap-2 lg:gap-8 lg:flex-row lg:justify-between">
+                        className="flex flex-col items-start md:items-center gap-2 lg:gap-8 md:flex-row md:justify-between">
                         <h2 className="text-xl sm:text-2xl lg:text-5xl font-semibold text-[#FFFFFF] text-left leading-tight sm:leading-[48px] lg:leading-[57px]">
                             Connecting<br className="hidden lg:block"/> you worldwide...
                         </h2>

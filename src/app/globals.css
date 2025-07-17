@@ -217,3 +217,210 @@
 
 
 
+/*@media (max-width: 639px) {*/
+/*    .hero-image {*/
+/*        width: 100% !important;*/
+/*        height: 300px !important;*/
+/*    }*/
+/*    .logo-image {*/
+/*        width: 100% !important;*/
+/*        height: 400px !important;*/
+/*    }*/
+/*}*/
+
+/*!* Small devices (phones, 640px and up) *!*/
+/*@media (min-width: 640px) and (max-width: 767px) {*/
+/*    .hero-image {*/
+/*        width: 100% !important;*/
+/*        height: 400px !important;*/
+/*    }*/
+/*    .logo-image {*/
+/*        width: 100% !important;*/
+/*        height: 600px !important;*/
+/*    }*/
+/*}*/
+
+/*!* Medium devices (tablets, 768px and up) *!*/
+/*@media (min-width: 768px) and (max-width: 1023px) {*/
+/*    .hero-image {*/
+/*        width: auto !important;*/
+/*        height: 500px !important;*/
+/*    }*/
+/*    .logo-image {*/
+/*        width: auto !important;*/
+/*        height: 700px !important;*/
+/*    }*/
+/*}*/
+
+/*!* Large devices (desktops, 1024px and up) *!*/
+/*@media (min-width: 1024px) and (max-width: 1279px) {*/
+/*    .hero-image {*/
+/*        width: auto !important;*/
+/*        height: 600px !important;*/
+/*        top: -20px !important;*/
+/*    }*/
+/*    .logo-image {*/
+/*        width: 800px !important;*/
+/*        height: 900px !important;*/
+/*    }*/
+/*}*/
+
+/*!* Extra large devices (large desktops, 1280px and up) *!*/
+/*@media (min-width: 1280px) {*/
+/*    .hero-image {*/
+/*        width: auto !important;*/
+/*        height: 620px !important;*/
+/*        top: 0 !important;*/
+/*    }*/
+/*    .logo-image {*/
+/*        width: 100% !important;*/
+/*        height: 970px !important;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 1279px) and (min-width: 1200px) {*/
+/*    .hero-image {*/
+/*        width: auto !important;*/
+/*        height: 800px !important;*/
+/*        top: 0 !important;*/
+/*    }*/
+/*    .logo-image {*/
+/*        width: 100% !important;*/
+/*        height: 800px !important;*/
+/*    }*/
+/*}*/
+
+@media (min-width: 1400px) and (max-width: 1470px) {
+    .hero-image {
+        width: 650px !important;
+        height: 700px !important;
+        top: -15px !important;
+    }
+    .logo-image {
+        width: 115% !important;
+        height: 370px !important;
+        top: -70px !important;
+    }
+
+    .head-title {
+        font-size: 45px !important;
+    }
+
+    .head-para {
+        font-size: 20px !important;
+    }
+
+    .head-button {
+        font-size: 20px !important;
+    }
+}
+
+@media (min-width: 1350px) and (max-width: 1400px) {
+    .hero-image {
+        width: 600px !important;
+        height: auto !important;
+        top: -35px !important;
+    }
+    .logo-image {
+        width: 118% !important;
+        height: 100px !important;
+        top: -90px !important;
+    }
+
+    .head-title {
+        font-size: 40px !important;
+    }
+
+    .head-para {
+        font-size: 18px !important;
+        max-width: 400px !important;
+    }
+
+    .head-button {
+        font-size: 18px !important;
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1350px) {
+    .hero-image {
+        width: 600px !important;
+        height: auto !important;
+        top: -35px !important;
+    }
+    .logo-image {
+        width: 112% !important;
+        height: 100px !important;
+        top: -100px !important;
+    }
+
+    .head-title {
+        font-size: 36px !important;
+    }
+
+    .head-para {
+        font-size: 17px !important;
+        max-width: 380px !important;
+    }
+
+    .head-button {
+        font-size: 17px !important;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1300px) {
+    .hero-image {
+        width: 550px !important;
+        height: auto !important;
+        top: -60px !important;
+    }
+    .logo-images {
+        width: 110% !important;
+        height: 850px !important;
+    }
+
+    .logo-image {
+        top: -70px !important;
+    }
+
+    .head-title {
+        font-size: 32px !important;
+    }
+
+    .head-para {
+        font-size: 16px !important;
+        max-width: 350px !important;
+    }
+
+    .head-button {
+        font-size: 16px !important;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .hero-image {
+        width: 500px !important;
+        height: auto !important;
+        top: -80px !important;
+    }
+    .logo-images {
+        width: 120% !important;
+        height: 780px !important;
+    }
+
+    .logo-image {
+        top: -70px !important;
+    }
+
+    .head-title {
+        font-size: 30px !important;
+    }
+
+    .head-para {
+        font-size: 14px !important;
+        max-width: 250px !important;
+    }
+
+    .head-button {
+        font-size: 14px !important;
+    }
+}
