@@ -20,7 +20,7 @@ const ServicesPage = () => {
       label: "Air & Sea Freight",
       description:
         "Looking for express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport?\nWe optimize routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.",
-      src: "/air-sea-freight.png",
+      src: "/air-sea-freight.svg",
       alt: "Air and Sea Freight Services",
       link: "/air-and-sea-freight",
     },
@@ -28,7 +28,7 @@ const ServicesPage = () => {
       label: "Customs Clearance & Compliance",
       description:
         "Customs and compliance doesn't have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits - ensuring your goods clear swiftly and cost-effectively.",
-      src: "/Customs_Clearance.png",
+      src: "/Customs_Clearance.svg",
       alt: "Customs Clearance Services",
       link: "/customs",
     },
@@ -36,7 +36,7 @@ const ServicesPage = () => {
       label: "3PL, Warehousing & Special Projects",
       description:
         "From end-to-end supply chain management to specialized project transport for heavy-lift or out-of-gauge cargo, our integrated solutions and experienced consultants streamline warehousing, fulfilment, and special moves - providing a unique personalized approach for each client. We offer 3PL and Warehousing, Fulfilment and eCommerce, and Inventory Management and Optimization, all scalable and tailored to your unique requirements.",
-      src: "/warehousing.png",
+      src: "/warehousing.svg",
       alt: "Warehousing and 3PL Services",
       link: "/Integrated-logistics",
     },
@@ -44,7 +44,7 @@ const ServicesPage = () => {
       label: "Road & Rail Transport",
       description:
         "Navigating Australia's vast distances often requires more than one mode of transport, with local expertise at every stage. Our comprehensive road and rail services cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport across even the most challenging corridors.",
-      src: "/road-rail.png",
+      src: "/road-rail.svg",
       alt: "Road and Rail Transport Services",
       link: "/road-and-rail",
     },
@@ -115,8 +115,8 @@ const ServicesPage = () => {
                   fill
                   className="object-cover transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#002B64]/80 to-[#002B64]/40" />
-                <div className="absolute bg-[url('/x.png')] opacity-5 bg-no-repeat bg-contain inset-0 w-full h-full" />
+                <div className="absolute inset-0 bg-gradient-to-t" />
+                <div className="absolute bg-[url('/x.png')] opacity-3 bg-no-repeat bg-contain inset-0 w-full h-full" />
 
                 <div className="relative p-6 lg:p-8 flex flex-col justify-between h-full text-white overflow-hidden">
                   <div className="flex-grow overflow-auto pr-2">
