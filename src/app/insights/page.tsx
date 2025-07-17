@@ -260,7 +260,9 @@ const InsightsPage = () => {
                     </div>
                 </div>
             </div>
-            <LinkedinSection/>
+            <div className="-mt-15 lg:-mt-50">
+                <LinkedinSection/>
+            </div>
         </div>
     );
 }
