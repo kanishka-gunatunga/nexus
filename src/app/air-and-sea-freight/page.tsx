@@ -109,7 +109,7 @@ const airAndSeaFreight = () => {
             <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden" style={{ marginTop: '100px' }}>
                 <div className="absolute inset-0">
                     <Image
-                        src="/services/sea-bottom-banner.png"
+                        src="/services/sea-bottom-banner.svg"
                         alt="Airport"
                         width={1000}
                         height={400}

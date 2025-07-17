@@ -11,7 +11,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
+import Accordian from "@/Components/Accordian";
+
 
 const airAndSeaFreight = () => {
 
@@ -46,7 +47,7 @@ const airAndSeaFreight = () => {
 
             </div>
 
-            <div className="relative top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative top-0 lg:top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div className="bg-transparent px-4 py-6 md:py-10 flex flex-col lg:flex-row gap-6 items-center lg:items-end">
                     {/* Image Section */}
@@ -195,7 +196,7 @@ const airAndSeaFreight = () => {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto block mt-[100px] px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto block mt-[50px] lg:mt-[100px] px-4 sm:px-6 lg:px-8">
                 <Image
                     src={"/nexus-core.svg"}
                     alt="Nexus X Logo"
@@ -205,7 +206,7 @@ const airAndSeaFreight = () => {
                 />
             </div>
 
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 mt-[100px]">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 mt-[50px] lg:mt-[100px]">
                 <div className="w-full md:w-1/3 text-center md:text-left">
                     <h2 className="text-[32px] sm:text-[30px] md:text-[36px] lg:text-[48px] font-semibold text-[#6E7483] leading-tight">
                         Our customers&rsquo;
@@ -218,7 +219,7 @@ const airAndSeaFreight = () => {
                     </p>
                 </div>
 
-                <div className="w-full md:w-1/2 mt-8 md:mt-0">
+                <div className="w-full md:w-1/2 lg:mt-8 mt-0">
                     <Swiper
                         modules={[Navigation]}
                         navigation={{
@@ -292,7 +293,7 @@ const airAndSeaFreight = () => {
             </div>
 
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-[100px]">
+            <div className="max-w-7xl mx-auto px-8  sm:px-8 lg:px-8 mt-[50px] lg:mt-[100px]">
                 <div
                     className={`bg-transparent px-0 py-6 md:py-10 flex flex-col lg:flex-row gap-10  'lg:flex-row-reverse' : ''
                         }`}
@@ -310,12 +311,12 @@ const airAndSeaFreight = () => {
 
                     {/* Text Content */}
                     <div className="flex-1 flex flex-col justify-center">
-                        <h2 className="font-bold text-[55px] leading-[1.1] text-[#162F65] font-poppins">
+                        <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-[1.1] text-[#162F65] font-poppins">
                             Sustainability
                         </h2>
 
-                        <h2 className="mb-4 font-bold text-[55px] leading-[1.1] text-[#162F65] font-poppins">
-                         at Nexus Logix
+                        <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-[1.1] text-[#162F65] font-poppins">
+                            at Nexus Logix
                         </h2>
 
 
@@ -324,7 +325,7 @@ const airAndSeaFreight = () => {
                         </p>
 
                         {/* <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left"> */}
-                        <p className="font-poppins font-medium text-xs sm:text-sm lg:text-base text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
+                        <p className="font-poppins font-medium text-xs sm:text-sm lg:text-base text-[#676767] leading-relaxed text-justify md:text-left">
                             At Nexus Logix, sustainability is a conscious mindset that drives every decision we make. As a majority Australian-owned company with a global footprint, we are committed to reducing our environmental impact while empowering our customers to do the same. Our approach integrates green strategies at every level - from the partners we choose and the technology we invest in, to the everyday practices that guide our operations.
                         </p>
 
@@ -332,6 +333,42 @@ const airAndSeaFreight = () => {
 
 
                     </div>
+                </div>
+            </div>
+
+
+
+            <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8 mt-[50px] lg:mt-[100px]">
+                <div className="flex flex-row justify-center mb-12">
+                    <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-[1.1] text-[#162F65] font-poppins">
+                        Our Focus Areas
+                    </h2>
+                </div>
+                <Accordian
+
+                    image="/sus-accord.png"
+                    cards={[
+                        { title: 'Carbon-Conscious Freight Solutions', content: 'We prioritise cost- and carbon-efficient routing, consolidated loads, and collaborations with carriers that invest in low-emissions technologies.' },
+
+                    ]}
+                    accordionItems={[
+                        { title: 'Technology for Smarter Decisions', content: 'Our advanced supply chain visibility tools, digital documentation, and emissions transparency empower our customers to make informed decisions.' },
+                        { title: 'Responsible Partnerships', content: 'We proudly partner with global networks and suppliers that share our commitment to ESG values, ensuring ethical sourcing, strict compliance, and sustainability-led innovation.' },
+                        { title: 'Internal Green Practices', content: 'From transitioning to paperless operations to implementing energy-efficient office practices, we continuously embed sustainable habits into our culture and workflows.' },
+                        { title: 'Carbon Emissions Reporting', content: 'Using CargoWise ERP, we track estimated CO₂ outputs for every shipment and provide ISO 14083/GLEC-compliant reports. Detailed ESG dashboards, integration with specialist carbon accounting platforms, and tailored advisory support are also available.' },
+                    ]}
+                />
+            </div>
+
+            <div className="w-full bg-[#0F2043] mt-[50px] lg:mt-[100px]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <Image
+                        src={"/road-to.svg"}
+                        alt="Nexus X Logo"
+                        width={1000}
+                        height={400}
+                        className="object-cover"
+                    />
                 </div>
             </div>
 

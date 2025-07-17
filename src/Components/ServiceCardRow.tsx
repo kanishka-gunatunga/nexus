@@ -22,7 +22,7 @@ export default function ServiceCardRow() {
             className={`flex flex-col items-center justify-center text-center p-4 rounded-md w-full h-full transition shadow-md ${
               isActive('/air-and-sea-freight')
                 ? 'bg-[#162F65] text-white'
-                : 'bg-white text-black hover:bg-[#e6f0ff]'
+                : 'bg-white text-black hover:bg-[#162F65] hover:text-white'
             }`}
           >
             <Image
@@ -44,7 +44,7 @@ export default function ServiceCardRow() {
             className={`flex flex-col items-center justify-center text-center p-4  rounded-md w-full h-full transition shadow-md ${
               isActive('/road-and-rail')
                 ? 'bg-[#162F65] text-white'
-                : 'bg-white text-black hover:bg-[#e6f0ff]'
+                : 'bg-white text-black hover:bg-[#162F65] hover:text-white'
             }`}
           >
             <Image
@@ -66,7 +66,7 @@ export default function ServiceCardRow() {
             className={`flex flex-col items-center justify-center text-center p-4  rounded-md w-full h-full transition shadow-md ${
               isActive('/Integrated-logistics')
                 ? 'bg-[#162F65] text-white'
-                : 'bg-white text-black hover:bg-[#e6f0ff]'
+                : 'bg-white text-black hover:bg-[#162F65] hover:text-white'
             }`}
           >
             <Image
@@ -88,7 +88,7 @@ export default function ServiceCardRow() {
             className={`flex flex-col items-center justify-center text-center p-4  rounded-md w-full h-full transition shadow-md ${
               isActive('/customs')
                 ? 'bg-[#162F65] text-white'
-                : 'bg-white text-black hover:bg-[#e6f0ff]'
+                : 'bg-white text-black hover:bg-[#162F65] hover:text-white'
             }`}
           >
             <Image

@@ -122,7 +122,7 @@ const integratedLogistics = () => {
             <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden" style={{ marginTop: '100px' }}>
                 <div className="absolute inset-0">
                     <Image
-                        src="/services/bottom-banner.png"
+                        src="/services/bottom-banner.svg"
                         alt="Airport"
                         width={1000}
                         height={400}
@@ -144,10 +144,7 @@ const integratedLogistics = () => {
                     </button>
                 </div>
 
-                {/*<div*/}
-                {/*    className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 text-white text-sm sm:text-base lg:text-lg font-light">*/}
-                {/*    Sydney Airport*/}
-                {/*</div>*/}
+                
             </div>
             <Quote />
             <div className="py-6 lg:py-12">
