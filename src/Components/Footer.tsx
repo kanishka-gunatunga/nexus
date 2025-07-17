@@ -607,7 +607,7 @@ const Footer = () => {
                                     Customs Clearance & Border Processing
                                 </a>
                                 <a
-                                    href="#"
+                                    href="/Integrated-logistics"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Integrated Logistics & Special Projects
