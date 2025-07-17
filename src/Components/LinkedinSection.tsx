@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import React from "react";
 
@@ -18,13 +19,16 @@ const LinkedinSection = () => {
                         </p>
                     </div>
                     <div className="flex-shrink-0">
-                        <Image
-                            src="/linkedin.png"
-                            width={200}
-                            height={80}
-                            alt="Connect with us on LinkedIn"
-                            className="h-10 sm:h-12 lg:h-14 w-auto mx-auto lg:mx-0"
-                        />
+                        <a href="https://www.linkedin.com/company/nexus-logix" target="_blank"  className="cursor-pointer">
+                            <Image
+                                src="/linkedin.png"
+                                width={200}
+                                height={80}
+                                alt="Connect with us on LinkedIn"
+                                className="h-10 sm:h-12 lg:h-14 w-auto mx-auto lg:mx-0"
+                            />
+                        </a>
+
                     </div>
                 </div>
             </div>
