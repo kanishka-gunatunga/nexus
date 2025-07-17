@@ -514,7 +514,7 @@ const Footer = () => {
 
                     {/* Content grid */}
                     <div
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-2 sm:mb-4 lg:mb-6">
+                        className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-40 mb-2 sm:mb-4 lg:mb-6">
                         {/* Logo and description */}
                         <div className="lg:col-span-1 text-center sm:text-left">
                             <Image
@@ -555,12 +555,6 @@ const Footer = () => {
                                 >
                                     Leadership Team
                                 </a>
-                            </div>
-                        </div>
-
-                        {/* Additional Links */}
-                        <div>
-                            <div className="space-y-2 mt-0 sm:mt-12 text-center sm:text-left">
                                 <a
                                     href="#"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
@@ -581,6 +575,30 @@ const Footer = () => {
                                 </a>
                             </div>
                         </div>
+
+                        {/* Additional Links */}
+                        {/*<div>*/}
+                        {/*    <div className="space-y-2 mt-0 sm:mt-12 text-center sm:text-left">*/}
+                        {/*        <a*/}
+                        {/*            href="#"*/}
+                        {/*            className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"*/}
+                        {/*        >*/}
+                        {/*            Insights*/}
+                        {/*        </a>*/}
+                        {/*        <a*/}
+                        {/*            href="/contactUs"*/}
+                        {/*            className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"*/}
+                        {/*        >*/}
+                        {/*            Contact Us*/}
+                        {/*        </a>*/}
+                        {/*        <a*/}
+                        {/*            href="#"*/}
+                        {/*            className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"*/}
+                        {/*        >*/}
+                        {/*            Track and Trace*/}
+                        {/*        </a>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
 
                         {/* Services */}
                         <div>

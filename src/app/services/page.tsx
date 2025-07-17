@@ -4,50 +4,54 @@ import Image from "next/image";
 import Nav from "@/Components/Nav";
 import LinkedinSection from "@/Components/LinkedinSection";
 import Quote from "@/Components/Quote";
+import Link from "next/link";
 
 interface Service {
   label: string;
   description: string;
   src: string;
   alt: string;
+  link: string;
 }
 
 const ServicesPage = () => {
-  // const [activeService, setActiveService] = useState<Service | null>(null);
-
   const services: Service[] = [
     {
       label: "Air & Sea Freight",
       description:
         "Looking for express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport?\nWe optimize routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.",
-      src: "/air-sea-freight.png",
+      src: "/air-sea-freight.svg",
       alt: "Air and Sea Freight Services",
+      link: "/air-and-sea-freight",
     },
     {
       label: "Customs Clearance & Compliance",
       description:
         "Customs and compliance doesn't have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits - ensuring your goods clear swiftly and cost-effectively.",
-      src: "/Customs_Clearance.png",
+      src: "/Customs_Clearance.svg",
       alt: "Customs Clearance Services",
+      link: "/customs",
     },
     {
       label: "3PL, Warehousing & Special Projects",
       description:
         "From end-to-end supply chain management to specialized project transport for heavy-lift or out-of-gauge cargo, our integrated solutions and experienced consultants streamline warehousing, fulfilment, and special moves - providing a unique personalized approach for each client. We offer 3PL and Warehousing, Fulfilment and eCommerce, and Inventory Management and Optimization, all scalable and tailored to your unique requirements.",
-      src: "/warehousing.png",
+      src: "/warehousing.svg",
       alt: "Warehousing and 3PL Services",
+      link: "/Integrated-logistics",
     },
     {
       label: "Road & Rail Transport",
       description:
         "Navigating Australia's vast distances often requires more than one mode of transport, with local expertise at every stage. Our comprehensive road and rail services cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport across even the most challenging corridors.",
-      src: "/road-rail.png",
+      src: "/road-rail.svg",
       alt: "Road and Rail Transport Services",
+      link: "/road-and-rail",
     },
   ];
+
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
-      {/* Header Section */}
       <Nav />
 
       {/* Hero Section */}
@@ -59,8 +63,7 @@ const ServicesPage = () => {
           <Image
             src="/lead-banner.png"
             alt="Nexus X Logo"
-            width={1000}
-            height={400}
+            fill
             className="w-full h-full object-cover absolute inset-0"
           />
           <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
@@ -75,13 +78,13 @@ const ServicesPage = () => {
 
       {/* Comprehensive Solutions Section */}
       <div className="lg:-mt-28 lg:pb-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-tight mx-auto sm:mx-0">
               Comprehensive
               <br className="hidden sm:block" /> Solutions
             </h2>
-            <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-base leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
+            <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-base leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left text-justify">
               Whether it&#39;s retail, manufacturing, mining, automotive, or any
               other industry, our specialists understand each one&#39;s unique
               challenges, constraints, and regulations. In particular, we
@@ -100,39 +103,28 @@ const ServicesPage = () => {
       <section className="py-4 lg:py-6 mb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4 sm:px-6">
           {services.map((item, index) => (
-            <div
+            <Link
+              href={item.link}
               key={index}
               className="relative group cursor-pointer"
-              // onMouseEnter={() => setActiveService(item)}
-              // onClick={() => setActiveService(item)}
             >
-              {/* Enforce a consistent height for all cards */}
-              <div className="relative w-full h-[520px] sm:h-[580px] lg:h-[580px] rounded-lg overflow-hidden bg-[#162F65CC]/80 flex flex-col">
-                {/* Background Image */}
+              <div className="relative w-full min-h-[600px] h-full rounded-lg overflow-hidden bg-[#162F65CC]/80 flex flex-col">
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
                   className="object-cover transition-transform duration-300"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t" />
+                <div className="absolute bg-[url('/x.png')] opacity-3 bg-no-repeat bg-contain inset-0 w-full h-full" />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#002B64]/80 to-[#002B64]/40 transition-all duration-300" />
-
-                {/* Background Pattern */}
-                <div className="absolute bg-[url('/x.png')] opacity-5 bg-no-repeat bg-contain inset-0 w-full h-full" />
-
-                {/* Content */}
-                {/* Use flex-col and justify-between to push the label to the bottom */}
-                <div className="relative p-6 lg:p-8 flex flex-col justify-between h-full text-white">
-                  {/* Description - Use flex-grow to make it fill available space */}
-                  <div className="flex-grow">
-                    <p className="text-left font-medium pt-2 lg:pt-10 px-6 text-sm sm:text-base lg:text-xl text-[#FFFFFF] leading-[30px] whitespace-pre-line">
+                <div className="relative p-6 lg:p-8 flex flex-col justify-between h-full text-white overflow-hidden">
+                  <div className="flex-grow overflow-auto pr-2">
+                    <p className="text-left font-medium pt-2 lg:pt-10 px-2 sm:px-4 text-sm sm:text-base lg:text-xl text-[#FFFFFF] leading-[30px] whitespace-pre-line">
                       {item.description}
                     </p>
                   </div>
 
-                  {/* Title and Arrow - This will stay at the bottom due to justify-between */}
                   <div className="flex flex-row gap-3 justify-start items-center mt-6">
                     <svg
                       className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 mb-2 flex-shrink-0 transition-transform duration-300 ease-in-out"
@@ -155,14 +147,13 @@ const ServicesPage = () => {
                         fill="white"
                       />
                     </svg>
-
                     <h3 className="text-sm sm:text-base text-left leading-[35px] lg:text-[36px] text-white font-medium">
                       {item.label}
                     </h3>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <Quote />
@@ -171,17 +162,13 @@ const ServicesPage = () => {
       {/* CTA Section */}
       <section className="relative py-4 lg:py-2">
         <div className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="/services-banner2.png"
-              alt="Airport"
-              width={1000}
-              height={400}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/35"></div>
-          </div>
-
+          <Image
+            src="/services-banner2.svg"
+            alt="Airport"
+            fill
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/35"></div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
             <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
               In-Depth Analysis,
