@@ -10,7 +10,7 @@ import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import Link from "next/link";
 
 const CustomsPage = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  // const [isExpanded, setIsExpanded] = useState(false);
   const [activeService, setActiveService] = useState<string | null>(null);
 
   const services = [
