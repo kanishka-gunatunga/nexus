@@ -231,6 +231,16 @@
     }
 }
 
+@media (max-width: 400px){
+    .vision-section{
+        min-height: 500px !important;
+    }
+
+    .vision-section img{
+        min-height: 800px;
+    }
+}
+
 /*@media (max-width: 639px) {*/
 /*    .hero-image {*/
 /*        width: 100% !important;*/

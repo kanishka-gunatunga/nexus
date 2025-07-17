@@ -62,11 +62,11 @@ const airAndSeaFreight = () => {
                     </div>
                     {/* Text Section */}
                     <div className="w-full lg:w-[70%] flex flex-col justify-center">
-                        <h2 className="mb-4 font-bold text-[55px] leading-[1.1] text-[#162F65] font-poppins">
+                        <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-[1.1] text-[#162F65] font-poppins">
                             History &amp;
                         </h2>
 
-                        <h2 className="mb-4 font-bold text-[55px] leading-[1.1] text-[#162F65] font-poppins">
+                        <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-[1.1] text-[#162F65] font-poppins">
                             Inspiration
                         </h2>
                         <p
@@ -164,14 +164,14 @@ const airAndSeaFreight = () => {
 
             </div>
 
-            <div className="w-full bg-[#0F2043] relative flex min-h-[600px] sm:min-h-0 md:min-h-[400px]">
+            <div className="w-full bg-[#0F2043] relative flex min-h-[600px] sm:min-h-0 md:min-h-[400px] vision-section">
                 <div className="w-full flex">
                     <Image
                         src={"/x-croped.png"}
                         alt="Nexus X Logo"
                         width={1000}
                         height={400}
-                        className="lg:max-w-[400px] lg:max-h-[400px] w-full md:h-[400px] object-cover opacity-10"
+                        className="lg:max-w-[400px] lg:max-h-[400px] w-full md:h-[400px] object-cover opacity-10 vision-image"
                     />
                 </div>
 
@@ -179,11 +179,11 @@ const airAndSeaFreight = () => {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:pl-[190px] lg:pl-8  flex flex-col lg:flex-row justify-between items-center gap-8 vision-achievements">
                         <div className="flex flex-col mb-4 text-center lg:text-left w-full lg:w-1/3  mr:[0] lg:mr-[60px] ">
                             <h2
-                                className="text-white font-poppins font-semibold text-[55px] leading-tight font-poppins"
+                                className="text-white font-poppins font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-tight font-poppins"
                             >
                                 Vision
                             </h2>
-                            <h2 className="text-white font-poppins font-semibold text-[55px] leading-tight font-poppins">
+                            <h2 className="text-white font-poppins font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-tight font-poppins">
                                 Achievements
                             </h2>
                         </div>
