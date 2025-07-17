@@ -474,7 +474,6 @@ export default function ContactPage() {
                       name="province"
                       value={formData.province}
                       onChange={handleInputChange}
-                      placeholder="+61(2)234-5678"
                       className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
                     />
                     {errors.province && (

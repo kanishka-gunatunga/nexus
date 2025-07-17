@@ -11,9 +11,7 @@ import Link from "next/link";
 
 const CustomsPage = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [activeDropdowns, setActiveDropdowns] = useState<{
-    [key: string]: boolean;
-  }>({});
+  const [activeService, setActiveService] = useState<string | null>(null);
 
   const services = [
     "Pre-Entry/Exit Strategy & Planning",
@@ -40,11 +38,9 @@ const CustomsPage = () => {
   };
 
   const toggleDropdown = (service: string) => {
-    setActiveDropdowns((prev) => ({
-      ...prev,
-      [service]: !prev[service],
-    }));
+    setActiveService((prev) => (prev === service ? null : service));
   };
+
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
       {/* Header */}
@@ -92,7 +88,7 @@ const CustomsPage = () => {
                   alt="Business professionals working on customs documentation"
                   width={800} // Replace with an appropriate width
                   height={600} // Replace with an appropriate height
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full rounded-lg"
                 />
               </div>
             </div>
@@ -160,16 +156,16 @@ const CustomsPage = () => {
                       <span className="text-left text-base sm:text-lg font-semibold">
                         {service}
                       </span>
-                      {activeDropdowns[service] ? (
+                      {activeService === service ? (
                         <ChevronUp className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
                       ) : (
                         <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
                       )}
                     </button>
 
-                    {activeDropdowns[service] && (
+                    {activeService === service && (
                       <div className="px-4 sm:px-6 pb-4 sm:pb-6 animate-fadeIn">
-                        <div className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        <div className="text-xs sm:text-sm lg:text-base font-medium text-[#676767] leading-[25px]">
                           {
                             serviceContents[
                               service as keyof typeof serviceContents
