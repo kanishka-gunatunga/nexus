@@ -10,12 +10,11 @@ import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import Link from "next/link";
 
 const CustomsPage = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [activeDropdowns, setActiveDropdowns] = useState<{
-    [key: string]: boolean;
-  }>({});
+  // const [isExpanded, setIsExpanded] = useState(false);
+  const [activeService, setActiveService] = useState<string | null>(null);
 
   const services = [
+    "Technology for Smarter Decisions",
     "Pre-Entry/Exit Strategy & Planning",
     "Entry/Exit Processing & Documentation",
     "HS Classification & Duty Optimization",
@@ -25,6 +24,8 @@ const CustomsPage = () => {
   ];
 
   const serviceContents = {
+    "Technology for Smarter Decisions":
+      "Our advanced supply chain visibility tools, digital documentation, and emissions transparency empower our customers to make informed decisions.",
     "Pre-Entry/Exit Strategy & Planning":
       "We work with you to develop tailored import/export plans that maximise duty savings, accurately identify tariff classifications, and proactively address potential clearance issues before they arise.",
     "Entry/Exit Processing & Documentation":
@@ -40,11 +41,9 @@ const CustomsPage = () => {
   };
 
   const toggleDropdown = (service: string) => {
-    setActiveDropdowns((prev) => ({
-      ...prev,
-      [service]: !prev[service],
-    }));
+    setActiveService((prev) => (prev === service ? null : service));
   };
+
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
       {/* Header */}
@@ -86,20 +85,25 @@ const CustomsPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             {/* Left Column - Image */}
             <div className="order-2 lg:order-1 flex flex-col h-full">
-              <div className="relative flex-1">
+              <div className="relative flex-1 flex justify-center items-center">
                 <Image
                   src="/customs_img1.svg"
                   alt="Business professionals working on customs documentation"
-                  width={800} // Replace with an appropriate width
-                  height={600} // Replace with an appropriate height
-                  className="w-full h-full object-cover rounded-lg"
+                  width={800}
+                  height={600}
+                  className="
+        w-full h-full rounded-lg 
+        sm:h-auto md:h-auto 
+        sm:w-full md:w-full 
+        lg:h-full lg:w-full 
+      "
                 />
               </div>
             </div>
 
             {/* Right Column - Content */}
             <div className="order-1 lg:order-2 flex flex-col h-full">
-              <p className="text-xs sm:text-sm lg:text-base font-medium text-[#676767] leading-[25px] mb-4 lg:mb-2">
+              <p className="font-poppins font-medium text-[18px] text-[#676767] leading-relaxed mb-4 lg:mb-2">
                 Navigating customs regulations and border processes in Australia
                 and abroad can be complex, but it doesn&apos;t have to slow your
                 supply chain. Our customs specialists manage every aspect - from
@@ -112,7 +116,7 @@ const CustomsPage = () => {
                 <h3 className="text-xl sm:text-2xl font-semibold text-[#162F65] mb-2">
                   Customs and Border Processing
                 </h3>
-                <p className="text-xs sm:text-sm lg:text-base font-medium text-[#676767] leading-[25px]">
+                <p className="font-poppins font-medium text-[18px] text-[#676767] leading-relaxed">
                   Planning and being ready to engage with customs and border
                   authorities is essential for fast clearance and minimizing
                   delays. Our teams begin their work long before your goods
@@ -121,7 +125,7 @@ const CustomsPage = () => {
               </div>
 
               {/* Technology Section */}
-              <div className="bg-[#162F65] rounded-lg mb-2 flex-0">
+              {/* <div className="bg-[#162F65] rounded-lg mb-2 flex-0">
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
                   className="w-full flex items-center justify-between text-white hover:bg-blue-800 transition-colors duration-200 rounded px-4 sm:px-6 h-[66px]"
@@ -144,7 +148,7 @@ const CustomsPage = () => {
                     </div>
                   </div>
                 )}
-              </div>
+              </div> */}
 
               {/* Services List */}
               <div className="space-y-2 mb-2 flex-0">
@@ -155,21 +159,25 @@ const CustomsPage = () => {
                   >
                     <button
                       onClick={() => toggleDropdown(service)}
-                      className="w-full flex items-center justify-between px-4 sm:px-6 text-blue-900 hover:bg-gray-50 transition-colors duration-200 h-[66px]"
+                      className={`w-full flex items-center justify-between px-4 sm:px-6 transition-colors duration-200 h-[66px] rounded-lg ${
+                        activeService === service
+                          ? "bg-[#162F65] text-white"
+                          : "bg-white text-blue-900 hover:bg-gray-50"
+                      }`}
                     >
                       <span className="text-left text-base sm:text-lg font-semibold">
                         {service}
                       </span>
-                      {activeDropdowns[service] ? (
+                      {activeService === service ? (
                         <ChevronUp className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
                       ) : (
                         <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
                       )}
                     </button>
 
-                    {activeDropdowns[service] && (
+                    {activeService === service && (
                       <div className="px-4 sm:px-6 pb-4 sm:pb-6 animate-fadeIn">
-                        <div className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        <div className="font-poppins font-medium text-[18px] text-[#676767] leading-relaxed">
                           {
                             serviceContents[
                               service as keyof typeof serviceContents
@@ -189,13 +197,13 @@ const CustomsPage = () => {
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Customs doesn&apos;t have to be a block...
             </h3>
-            <p className="text-xs sm:text-sm lg:text-base font-medium text-[#676767] leading-[25px] mb-6 max-w-4xl">
+            <p className="font-poppins font-medium text-[18px] text-[#676767] leading-relaxed mb-6 max-w-4xl">
               If you and your goods arrive with a good plan and in compliance
               with local regulations. We make that happen by simplifying
               compliance and reducing inspection delays.
             </p>
             <Link href="/contactUs">
-              <button className="bg-[#162F65] text-white px-6 sm:px-8 h-[43.78px] rounded-lg hover:bg-blue-800 transition-colors duration-200 text-base sm:text-lg font-semibold">
+              <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-[#1d3d87] transition duration-300">
                 Simplify Customs with Us
               </button>
             </Link>

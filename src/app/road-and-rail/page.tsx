@@ -87,7 +87,7 @@ offer true end-to-end logistics?"
       >
         <div className="absolute inset-0">
           <Image
-            src="/roadAndRail_banner.png"
+            src="/roadAndRail_banner.svg"
             alt="Airport"
             width={1000}
             height={400}
