@@ -514,7 +514,7 @@ const Footer = () => {
 
                     {/* Content grid */}
                     <div
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 mb-2 sm:mb-4 lg:mb-6">
+                        className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-40 mb-2 sm:mb-4 lg:mb-6">
                         {/* Logo and description */}
                         <div className="lg:col-span-1 text-center sm:text-left">
                             <Image
