@@ -44,7 +44,7 @@ const TermsAndConditions = () => {
             <div className="cros-x-hero flex">
                 <div className="relative w-[70%] h-[200px] flex">
                     <div className="clip-path "></div>
-                    <Image src="/X-hero-new.png" alt="X" className="x1" />
+                    <Image src="/X-hero-new.png" alt="X" className="x1" height={500} width={500} />
                 </div>
                 <div className="absolute top-0 right-0 w-[100%] h-[200px] flex justify-end items-center">
                     <div className="w-[35%] h-[200px] relative">
