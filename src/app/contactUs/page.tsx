@@ -147,7 +147,7 @@ export default function ContactPage() {
       >
         <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
           <Image
-            src="/lead-banner.png"
+            src="/contactUs_hero_banner.svg"
             alt="Nexus X Logo"
             width={1000}
             height={400}
