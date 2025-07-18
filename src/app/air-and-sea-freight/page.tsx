@@ -33,10 +33,10 @@ const airAndSeaFreight = () => {
                         />
                         <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
                             <div className="text-left px-4">
-                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
+                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[53px] xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
                                     AIR & SEA
                                 </h1>
-                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
+                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[53px] xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
                                     FREIGHT SERVICES
                                 </h1>
                             </div>

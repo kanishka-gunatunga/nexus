@@ -644,11 +644,13 @@ const Footer = () => {
                         className="flex flex-col sm:flex-row items-center justify-between text-[#162F65] text-center sm:text-left">
                         <div className="mb-2 sm:mb-0">
                             <span className="text-sm sm:text-base lg:text-lg">
+
+                               
                                 © nexusglobal @2025. All Rights Reserved.
                             </span>
                         </div>
                         <div className="text-sm sm:text-base lg:text-lg">
-                            <span>Terms and Condition | Privacy Policy</span>
+                            <span><a href="/terms-and-conditions">Terms and Condition</a> | <a href="/privacy-policy">Privacy Policy</a></span>
                         </div>
                     </div>
                 </div>

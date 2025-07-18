@@ -547,7 +547,7 @@ export default function ContactPage() {
                 <div className="flex items-start space-x-2">
                   <input type="checkbox" id="privacy" className="mt-1" />
                   <label htmlFor="privacy" className="text-sm text-[#676767]">
-                    Our privacy policy contains detailed information about our
+                    Our <a href="/privacy-policy" className="underline">privacy policy</a> contains detailed information about our
                     handling of personal information.
                   </label>
                 </div>
