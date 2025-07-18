@@ -31,7 +31,7 @@ const InsightInner = () => {
             </div>
 
 
-            <div className="container relative -top-22 lg:-top-50 mx-auto px-4 py-8 lg:py-12 max-w-7xl">
+            <div className="container relative -top-22 lg:-top-50 mx-auto px-8 py-8 lg:py-12 max-w-7xl">
                 {/* Hero Section */}
                 <div className="space-y-6 lg:space-y-8">
                     {/* Main Title */}
@@ -40,16 +40,18 @@ const InsightInner = () => {
                     </h1>
 
                     {/* Subtitle */}
-                    <p className="text-[#162F65] text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed lg:leading-[32px] font-medium max-w-5xl">
+                    <p className="text-[#162F65] text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed lg:leading-[32px] font-medium max-w-5xl">
                         Stay ahead with expert opinions, market updates, and actionable
                         insights designed to drive smarter supply chain decisions.
                     </p>
 
                     {/* Hero Image */}
                     <div className="w-full max-w-5xl">
-                        <img
+                        <Image
                             src="/insights/truck.png"
                             alt="Truck on coastal highway representing smart logistics and automation"
+                            width={600}
+                            height={400}
                             className="w-full h-auto rounded-[10px] object-cover aspect-[2/1]"
                         />
                     </div>
@@ -105,37 +107,36 @@ const InsightInner = () => {
                     </h2>
 
                     {/* Cards Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4">
                         {[1, 2, 3, 4].map((index) => (
                             <div key={index} className="relative group">
                                 <div className="relative w-full h-44 rounded-[10px] overflow-hidden">
-                                    <img
+                                    <Image
                                         src="/insights/van.png"
                                         alt="Eco Freight logistics"
+                                        width={600}
+                                        height={600}
                                         className="w-full h-full object-cover"
                                     />
 
 
                                     {/* Text Overlay */}
-                                    <div className="absolute inset-0 bg-black/40">
+                                    <div className="absolute inset-0">
                                         <div
-                                            className="absolute bg-gradient-to-t from-[#002B64]/40 to-[#00255700]/10 inset-0"/>
-                                        <div className="absolute bottom-12 left-6 right-6">
-                                            <h3 className="text-white font-bold text-lg sm:text-xl leading-normal tracking-[0.6px] mb-3">
+                                            className="absolute bg-gradient-to-t from-[#002B64] to-[#00255700] inset-0"/>
+                                        <div className="absolute bottom-9 left-6 right-6">
+                                            <h3 className="text-white font-bold text-lg sm:text-xl leading-normal tracking-[0.6px]">
                                                 Eco Freight
                                             </h3>
                                             <p className="text-white text-xs leading-[12px] mb-4">
-                                                Sustainability is now a key focus in logistics. Electric
-                                                trucks low-emission ships, and green warehouse practices
-                                                are helping Australia move toward cleaner cargo
-                                                operations.
+                                                Sustainability is now a key focus in logistics. Electric trucks low-emission ships, and green warehouse practices are helping Australia move toward cleaner cargo operations.
                                             </p>
                                         </div>
 
                                         {/* Read More Button */}
                                         <div className="absolute bottom-4 left-6">
                                             <button
-                                                className="bg-white text-[#162F65] px-3 py-1.5 rounded-[9px] text-xs font-medium hover:bg-gray-50 transition-colors">
+                                                className="bg-white text-[#162F65] px-3 py-1.5 rounded-[10px] text-xs font-medium hover:scale-105 transition-all duration-300">
                                                 Read More
                                             </button>
                                         </div>
