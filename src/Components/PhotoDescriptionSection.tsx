@@ -55,7 +55,7 @@ export default function PhotoDescriptionSection({
         <p className="font-poppins font-medium text-xs sm:text-sm lg:text-base text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph1}
         </p>
-        <p className="font-poppins font-medium text-[20px] text-[#676767] mb-6 leading-relaxed">
+        <p className="font-poppins font-medium text-xs sm:text-sm lg:text-base text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph3}
         </p>
 
@@ -71,7 +71,7 @@ export default function PhotoDescriptionSection({
         
 
         <Link href={buttonLink}>
-          <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-[#1d3d87] transition duration-300">
+          <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
             {buttonText}
           </button>
         </Link>

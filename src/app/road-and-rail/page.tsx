@@ -7,6 +7,7 @@ import Nav from "@/Components/Nav";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
+import Quote from "@/Components/Quote";
 
 const roadAndRail = () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,6 +96,7 @@ offer true end-to-end logistics?"
           />
           {/* <div className="absolute inset-0 bg-black/90"></div> */}
         </div>
+        <Quote />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
           <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
