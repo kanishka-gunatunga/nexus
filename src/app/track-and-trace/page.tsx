@@ -7,7 +7,7 @@ import Quote from "@/Components/Quote";
 import Link from "next/link";
 
 const TrackAndTrace = () => {
-//   const [activeTab, setActiveTab] = useState("track");
+  //   const [activeTab, setActiveTab] = useState("track");
 
   const features = [
     {
@@ -61,7 +61,7 @@ const TrackAndTrace = () => {
         >
           <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
             <Image
-              src="/lead-banner.png"
+              src="/trackAndTrace_hero_banner.svg"
               alt="Nexus X Logo"
               width={1000}
               height={400}
@@ -78,9 +78,9 @@ const TrackAndTrace = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28">
         {/* Track Now Section */}
-        <div className="py-8 lg:py-8">
+        <div className="py-6 md:py-10">
           <h2 className="font-poppins font-bold text-[35px] lg:text-[55px] text-[#162F65] mb-8 lg:mb-16 leading-tight">
             Track Now
           </h2>
@@ -125,7 +125,7 @@ const TrackAndTrace = () => {
         </div>
 
         {/* Route Visualiser Section */}
-        <div className="py-8 lg:py-8">
+        <div className="py-6 md:py-10">
           <h2 className="font-poppins font-bold text-[35px] lg:text-[55px] text-[#162F65] mb-8 lg:mb-16 leading-tight">
             Route Visualiser
           </h2>
@@ -157,13 +157,13 @@ const TrackAndTrace = () => {
         </div>
 
         {/* Features Grid */}
-        <section className="py-8 lg:py-8">
+        <section className="py-6 md:py-10">
           <div className="max-w-7xl mx-auto">
             <div className="grid gap-6 sm:gap-8 md:grid-cols-1 lg:grid-cols-1">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-[#E3E3E3] rounded-[10px] p-6 sm:p-8"
+                  className="bg-[#E3E3E3] rounded-[10px] p-6 sm:p-8 transition-all duration-300 ease-in-out hover:bg-[#E7E6DD]"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-start gap-6 lg:gap-12">
                     {/* Icon Image */}
@@ -196,7 +196,7 @@ const TrackAndTrace = () => {
         </section>
 
         {/* Call to Action */}
-        <div className="py-8 lg:py-8">
+        <div className="py-6 md:py-10">
           <div className="bg-[#162F65] rounded-lg px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-12">
             <div className="max-w-4xl mx-auto flex flex-row items-center justify-center gap-3 sm:gap-4 text-left">
               {/* Icon Image */}
