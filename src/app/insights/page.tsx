@@ -4,6 +4,7 @@ import Image from "next/image";
 import Nav from "@/Components/Nav";
 import LinkedinSection from "@/Components/LinkedinSection";
 import React from "react";
+import Link from "next/link";
 
 const InsightsPage = () => {
     const trendingInsights = [
@@ -100,7 +101,7 @@ const InsightsPage = () => {
                 </h1>
                 {/* Subtitle */}
                 <div className="mb-8 lg:mb-16">
-                    <p className="text-[#162F65] text-lg md:text-xl lg:text-2xl leading-relaxed max-w-6xl">
+                    <p className="text-[#162F65] text-base md:text-lg lg:text-xl leading-relaxed max-w-6xl">
                         Stay ahead with expert opinions, market updates, and actionable
                         insights designed to drive smarter supply chain decisions.
                     </p>
@@ -117,19 +118,24 @@ const InsightsPage = () => {
                             className="w-full h-full object-cover"
                         />
                         <div
-                            className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 lg:p-8">
-                            <h2 className="text-white text-2xl md:text-3xl font-bold mb-4 tracking-wide">
+                            className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"
+                        />
+                        <div
+                            className="absolute inset-0 flex flex-col justify-end p-6 lg:p-8">
+                            <h2 className="text-white text-xl md:text-3xl font-bold mb-4 tracking-wide">
                                 Freight Hurdles
                             </h2>
-                            <p className="text-white text-xs md:text-sm mb-6 leading-6 max-w-2xl">
+                            <p className="text-white text-xs md:text-sm mb-6 leading-4 lg:leading-6 max-w-2xl">
                                 Australia&#39;s cargo industry faces challenges like fuel price
                                 hikes, port congestion, and supply chain disruptions. Forward
                                 planning and smart tech are essential to stay on track.
                             </p>
-                            <button
-                                className="bg-white text-[#162F65] px-4 py-2 rounded-lg text-sm font-medium w-fit hover:bg-gray-50 transition-colors">
-                                Read More
-                            </button>
+                            <Link href="/insights/train">
+                                <button
+                                    className="bg-white text-[#162F65] px-4 py-2 cursor-pointer rounded-lg text-xs lg:text-sm font-medium w-fit hover:scale-105 transition-all duration-300">
+                                    Read More
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -143,11 +149,10 @@ const InsightsPage = () => {
                                 className="w-full h-full object-cover"
                             />
                             <div
-                                className={`absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64]/40 to-[#00255700]/10'
-                                }`}
+                                className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"
                             />
                             <div
-                                className="absolute inset-0 bg-gradient-to-t flex flex-col justify-end p-4 lg:p-6">
+                                className="absolute inset-0 flex flex-col justify-end p-4 lg:p-6">
                                 <h3 className="text-white text-lg md:text-xl font-bold mb-2 tracking-wide">
                                     Eco Freight
                                 </h3>
@@ -167,7 +172,10 @@ const InsightsPage = () => {
                                 className="w-full h-full object-cover"
                             />
                             <div
-                                className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4 lg:p-6">
+                                className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"
+                            />
+                            <div
+                                className="absolute inset-0 flex flex-col justify-end p-4 lg:p-6">
                                 <h3 className="text-white text-lg md:text-xl font-bold mb-2 tracking-wide">
                                     Eco Freight
                                 </h3>
@@ -182,21 +190,23 @@ const InsightsPage = () => {
                 </div>
 
                 {/* Latest Insights Section */}
-                <div className="grid grid-cols-1 xl:grid-cols-4 gap-8 lg:gap-12">
+                <div className="grid grid-cols-1 xl:grid-cols-6 gap-8 lg:gap-12">
                     {/* Main Content */}
-                    <div className="xl:col-span-3">
+                    <div className="xl:col-span-4">
                         <h2 className="text-[#162F65] text-3xl md:text-4xl lg:text-5xl font-bold mb-8 lg:mb-12 tracking-wider">
                             Latest Insights
                         </h2>
 
-                        <div className="space-y-8 lg:space-y-12">
+                        <div className="space-y-8 grid sm:grid-cols-2 lg:grid-cols-1 lg:space-y-12">
                             {latestInsights.map((insight, index) => (
                                 <div
                                     key={index}
-                                    className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+                                    className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-86 sm:max-w-none mx-auto sm:mx-0 lg:gap-8"
                                 >
                                     <div className="md:col-span-1">
-                                        <img
+                                        <Image
+                                            width={600}
+                                            height={600}
                                             src={insight.image}
                                             alt={insight.title}
                                             className="w-full h-48 md:h-56 object-cover rounded-lg"
@@ -204,17 +214,19 @@ const InsightsPage = () => {
                                     </div>
                                     <div className="md:col-span-2 flex flex-col justify-between">
                                         <div>
-                                            <h3 className="text-[#162F65] text-xl md:text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 tracking-wide">
+                                            <h3 className="text-[#162F65] text-base md:text-lg lg:text-2xl font-bold mb-2 lg:mb-4 tracking-wide">
                                                 {insight.title}
                                             </h3>
-                                            <p className="text-[#676767] text-base lg:text-lg leading-relaxed mb-6 lg:mb-8">
+                                            <p className="text-[#676767] text-sm lg:text-base leading-[22px] mb-6 lg:mb-8">
                                                 {insight.description}
                                             </p>
                                         </div>
-                                        <button
-                                            className="bg-[#162F65] text-white px-6 py-3 rounded-xl text-sm lg:text-base font-medium w-fit hover:bg-blue-secondary transition-colors">
-                                            Read More
-                                        </button>
+                                        <Link href="/insights/train">
+                                            <button
+                                                className="bg-[#162F65] text-white px-6 py-3 cursor-pointer rounded-xl text-xs lg:text-sm font-medium w-fit hover:bg-blue-950 hover:scale-105 transition-all duration-300">
+                                                Read More
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             ))}
@@ -222,7 +234,7 @@ const InsightsPage = () => {
                     </div>
 
                     {/* Sidebar */}
-                    <div className="xl:col-span-1">
+                    <div className="xl:col-span-2">
                         <div className="bg-[#E7E6DD] rounded-xl p-6 lg:p-8 sticky top-8">
                             <h3 className="text-[#162F65] text-xl md:text-2xl lg:text-3xl font-medium mb-6 lg:mb-8 tracking-wide">
                                 Trending Insights
@@ -240,18 +252,23 @@ const InsightsPage = () => {
                             <div className="space-y-6 lg:space-y-8">
                                 {trendingInsights.map((item, index) => (
                                     <div key={index} className="flex gap-4">
-                                        <div className="w-6 h-14 bg-[#162F65] rounded-xl flex-shrink-0"></div>
-                                        <div className="flex-1">
+                                        <div
+                                            className="w-3 lg:w-6 h-14 bg-[#162F65] rounded-xl flex-shrink-0 -ml-7 lg:-ml-11"></div>
+                                        <div className="flex-1 px-5">
                                             <h4 className="text-[#162F65] text-base lg:text-lg font-medium mb-2 leading-tight">
                                                 {item.title}
                                             </h4>
                                             <p className="text-[#0F2043] text-sm lg:text-base leading-relaxed mb-3">
                                                 {item.description}
                                             </p>
-                                            <button
-                                                className="text-[#0F2043] text-sm underline hover:text-[#162F65] transition-colors">
-                                                View More
-                                            </button>
+                                            <div className="text-right">
+                                                <Link href="/insights/train">
+                                                    <button
+                                                        className="text-[#0F2043] self-end text-sm cursor-pointer underline hover:text-[#162F65] transition-colors">
+                                                        View More
+                                                    </button>
+                                                </Link>
+                                            </div>
                                         </div>
                                     </div>
                                 ))}
