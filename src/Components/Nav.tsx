@@ -304,6 +304,7 @@
 //
 // export default Nav;
 
+"use client"
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -446,7 +447,7 @@ const Nav = () => {
               Services
             </Link>
             <Link
-              href="#"
+              href="/insights"
               className="font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
             >
               Insights
