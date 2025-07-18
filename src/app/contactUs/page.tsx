@@ -557,7 +557,7 @@ export default function ContactPage() {
               <div className="text-right">
                 <button
                   onClick={handleSubmit}
-                  className="px-8 py-3 text-white font-semibold rounded-md hover:opacity-90 transition-opacity"
+                  className="px-8 py-3 text-white font-semibold rounded-md hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                   style={{ backgroundColor: "#162F65" }}
                 >
                   Submit My Request
