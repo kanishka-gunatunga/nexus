@@ -26,7 +26,7 @@ const TermsAndConditions = () => {
                             height={400}
                             className="w-full h-full object-cover absolute inset-0"
                         />
-                        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
+                        <div className="absolute inset-0 flex items-center left-10 lg:left-60">
                             <div className="text-left px-4">
                                 <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
                                     Terms and
@@ -41,20 +41,47 @@ const TermsAndConditions = () => {
 
             </div>
 
-            <div className="cros-x-hero flex">
-                <div className="relative w-[70%] h-[200px] flex">
+
+
+            <div className="cros-x-hero flex relative">
+                <div className="relative w-[70%] h-[200px] flex x-content-div">
                     <div className="clip-path "></div>
                     <Image src="/X-hero-new.png" alt="X" className="x1" height={500} width={500} />
                 </div>
-                <div className="absolute top-0 right-0 w-[100%] h-[200px] flex justify-end items-center">
-                    <div className="w-[35%] h-[200px] relative">
-                       
+                <div className="absolute top-0 right-0 w-[100%] h-[200px] flex justify-end items-center clip-path-2-div">
+                    <div className="w-[35%] h-[200px] right-image-div relative">
+                        {/* <img src="/hsity.png" alt="" /> */}
                         <div className="clip-path-2"></div>
                     </div>
                 </div>
+
+
+
+
+                {/* <div className="hero-title-div absolute h-[8rem] sm:h-[10rem] md:h-[12.5rem] lg:h-[14rem] xl:h-[16rem] flex flex-col justify-center hero-title-div ">
+                    <h2 className="hero-title-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">INTEGRATED LOGISTICS
+
+                    </h2>
+
+                    <h2 className="hero-title-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">& SPECIAL PROJECTS
+
+                    </h2>
+                </div> */}
+                <div className="absolute top-0 left-0 w-full">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[8rem] sm:h-[10rem] md:h-[12.5rem] lg:h-[14rem] xl:h-[16rem] flex flex-col justify-center">
+                        <h2 className="hero-title-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
+                            INTEGRATED LOGISTICS
+                        </h2>
+                        <h2 className="hero-title-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
+                            & SPECIAL PROJECTS
+                        </h2>
+                    </div>
+                </div>
+
+
             </div>
 
-            <div id="member-section"
+            <div
                 className="relative ">
                 <div className="">
                     <div className="max-w-7xl mx-auto px-8 sm:px-8 lg:px-8">
@@ -92,7 +119,7 @@ const TermsAndConditions = () => {
             <div className="py-6 lg:py-12">
                 <LinkedinSection />
             </div>
-        </div>
+        </div >
     );
 }
 
