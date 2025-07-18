@@ -569,7 +569,7 @@ const Footer = () => {
                                     Contact Us
                                 </Link>
                                 <Link
-                                    href="#"
+                                    href="/track-and-trace"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Track and Trace
