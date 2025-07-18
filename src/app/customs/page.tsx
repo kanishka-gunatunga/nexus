@@ -75,7 +75,7 @@ const CustomsPage = () => {
       </div>
 
       {/* Customs and Border Processing Section */}
-      <section className="lg:-mt-47 py-16 lg:py-24 bg-[#F6F6F6] poppins relative">
+      <section className="py-4 bg-[#F6F6F6] poppins relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#162F65] mb-6 lg:mb-8">
             Customs and
@@ -169,7 +169,7 @@ const CustomsPage = () => {
       </section>
 
       {/* Supply Chain Consultancy Section */}
-      <section className="py-4">
+      <section className="py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <PhotoDescriptionSection
             title="Supply Chain Consultancy & Audits"
