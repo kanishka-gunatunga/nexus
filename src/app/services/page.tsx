@@ -61,7 +61,7 @@ const ServicesPage = () => {
       >
         <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
           <Image
-            src="/lead-banner.png"
+            src="/services_hero_banner.svg"
             alt="Nexus X Logo"
             fill
             className="w-full h-full object-cover absolute inset-0"
@@ -101,14 +101,22 @@ const ServicesPage = () => {
 
       {/* Services Grid Section */}
       <section className="py-4 lg:py-6 mb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4 sm:px-6 items-stretch">
           {services.map((item, index) => (
             <Link
               href={item.link}
               key={index}
               className="relative group cursor-pointer"
             >
-              <div className="relative w-full min-h-[600px] h-full rounded-lg overflow-hidden bg-[#162F65CC]/80 flex flex-col">
+              <div
+                className="relative w-full flex flex-col overflow-hidden bg-[#162F65CC]/80 rounded-lg 
+  sm:min-h-[600px]
+          min-h-[400px] 
+          h-full"
+              >
+                {" "}
+                {/* kicks in when 2 columns appear */}
+                {/* Background image */}
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -117,15 +125,20 @@ const ServicesPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t" />
                 <div className="absolute bg-[url('/x.png')] opacity-3 bg-no-repeat bg-contain inset-0 w-full h-full" />
-
-                <div className="relative p-6 lg:p-8 flex flex-col justify-between h-full text-white overflow-hidden">
-                  <div className="flex-grow overflow-auto pr-2">
-                    <p className="text-left font-medium pt-2 lg:pt-10 px-2 sm:px-4 text-sm sm:text-base lg:text-xl text-[#FFFFFF] leading-[30px] whitespace-pre-line">
+                {/* Foreground content */}
+                <div className="relative p-6 lg:p-8 flex flex-col justify-between flex-1 text-white">
+                  {/* Description */}
+                  <div className="flex-1">
+                    <p
+                      className="text-left font-medium pt-2 lg:pt-10 px-2 sm:px-4 
+        text-sm sm:text-base lg:text-xl text-[#FFFFFF] leading-[30px] whitespace-pre-line"
+                    >
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="flex flex-row gap-3 justify-start items-center mt-6">
+                  {/* Label + Icon */}
+                  <div className="flex flex-row gap-3 items-center mt-6">
                     <svg
                       className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 mb-2 flex-shrink-0 transition-transform duration-300 ease-in-out"
                       width="81"
@@ -143,7 +156,7 @@ const ServicesPage = () => {
                       />
                       <path
                         className="origin-center transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-45"
-                        d="M50.7383 33.4925C50.7693 32.847 50.5433 32.2156 50.1099 31.7363C49.6764 31.257 49.0708 30.9689 48.4254 30.935L34.6517 30.2429C34.3319 30.2269 34.0121 30.274 33.7105 30.3815C33.4089 30.489 33.1314 30.6549 32.894 30.8697C32.4143 31.3034 32.1266 31.9099 32.0942 32.5558C32.0617 33.2016 32.2872 33.8339 32.7209 34.3136C33.1547 34.7932 33.7612 35.0809 34.4070 35.1133L42.3021 35.51L29.3090 47.26C28.8294 47.6937 28.5418 48.3001 28.5093 48.9459C28.4769 49.5916 28.7023 50.2238 29.1360 50.7034C29.5697 51.183 30.1761 51.4706 30.8219 51.5031C31.4676 51.5355 32.0998 51.3101 32.5794 50.8764L45.5725 39.1264L45.1759 47.0215C45.1598 47.3413 45.2069 47.6612 45.3144 47.9628C45.4220 48.2644 45.5878 48.5418 45.8026 48.7793C46.0174 49.0168 46.2768 49.2097 46.5661 49.3469C46.8554 49.4841 47.1689 49.5630 47.4887 49.5791C47.8085 49.5952 48.1283 49.5481 48.4299 49.4405C48.7315 49.3330 49.0090 49.1671 49.2465 48.9523C49.4840 48.7376 49.6768 48.4781 49.8141 48.1888C49.9513 47.8995 50.0302 47.5860 50.0463 47.2662L50.7383 33.4925Z"
+                        d="M50.7383 33.4925C50.7693 32.847 50.5433 32.2156 50.1099 31.7363C49.6764 31.257 49.0708 30.9689 48.4254 30.935L34.6517 30.2429C34.3319 30.2269 34.0121 30.274 33.7105 30.3815C33.4089 30.489 33.1314 30.6549 32.894 30.8697C32.4143 31.3034 32.1266 31.9099 32.0942 32.5558C32.0617 33.2016 32.2872 33.8339 32.7209 34.3136C33.1547 34.7932 33.7612 35.0809 34.407 35.1133L42.3021 35.51L29.309 47.26C28.8294 47.6937 28.5418 48.3001 28.5093 48.9459C28.4769 49.5916 28.7023 50.2238 29.136 50.7034C29.5697 51.183 30.1761 51.4706 30.8219 51.5031C31.4676 51.5355 32.0998 51.3101 32.5794 50.8764L45.5725 39.1264L45.1759 47.0215C45.1598 47.3413 45.2069 47.6612 45.3144 47.9628C45.422 48.2644 45.5878 48.5418 45.8026 48.7793C46.0174 49.0168 46.2768 49.2097 46.5661 49.3469C46.8554 49.4841 47.1689 49.563 47.4887 49.5791C47.8085 49.5952 48.1283 49.5481 48.4299 49.4405C48.7315 49.333 49.009 49.1671 49.2465 48.9523C49.484 48.7376 49.6768 48.4781 49.8141 48.1888C49.9513 47.8995 50.0302 47.586 50.0463 47.2662L50.7383 33.4925Z"
                         fill="white"
                       />
                     </svg>

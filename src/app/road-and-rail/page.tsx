@@ -23,7 +23,7 @@ const roadAndRail = () => {
         >
           <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
             <Image
-              src="/lead-banner.png"
+              src="/roadAndRail_hero_banner.svg"
               alt="Nexus X Logo"
               width={1000}
               height={400}
@@ -40,7 +40,7 @@ const roadAndRail = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28">
         <HeroTitleAndParagraph
           title="Road & Rail Transport"
           paragraph1="Wheels and tracks alone aren't enough to successfully navigate Australia's scale - you'll need strategy, strong partnerships, on-ground expertise, and industry experience."
