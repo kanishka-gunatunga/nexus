@@ -62,15 +62,15 @@ const airAndSeaFreight = () => {
                     </div>
                     {/* Text Section */}
                     <div className="w-full lg:w-[70%] flex flex-col justify-center">
-                        <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-[1.1] text-[#162F65] font-poppins">
+                        <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[60px] lg:text-[83px] leading-[1.1] text-[#162F65] font-poppins">
                             History &amp;
                         </h2>
 
-                        <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-[1.1] text-[#162F65] font-poppins">
+                        <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[60px] lg:text-[83px] leading-[1.1] text-[#162F65] font-poppins">
                             Inspiration
                         </h2>
                         <p
-                            className="text-[16px] text-[#676767] font-poppins font-medium text-justify sm:text-left"
+                            className="text-[16px] text-[#676767] font-poppins lg:text-paragraph "
                         >
                             Nexus Logix is an Australian freight forwarder and logistics provider, headquartered in Brisbane. Founded by a group of seasoned industry professionals who recognised an opportunity to blend deep regional knowledge with modern systems and global networks, Nexus Logix operates akin to a finely tuned Fl pit crew supporting -customers as they race ahead towards their goals. From day one, our mission has been clear: to be the steadfast partner that understands your business needs and moves your cargo with precision and care.
                         </p>
@@ -86,7 +86,7 @@ const airAndSeaFreight = () => {
                             <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Delightful Service
                             </h3>
-                            <p className="text-[16px] sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
                                 Transparent, genuine care that puts you first
                             </p>
                         </div>
@@ -94,7 +94,7 @@ const airAndSeaFreight = () => {
                             <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Competitive Pricing
                             </h3>
-                            <p className="text-[16px] sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
                                 Through strong global networks
                             </p>
                         </div>
@@ -102,7 +102,7 @@ const airAndSeaFreight = () => {
                             <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Local Expertise
                             </h3>
-                            <p className="text-[16px] sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
                                 Team with 25 years of Local Experience
                             </p>
                         </div>
@@ -114,7 +114,7 @@ const airAndSeaFreight = () => {
                             <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Real Time Visibility
                             </h3>
-                            <p className="text-[16px] sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
                                 Track every shipment with CargoWise Neo.
                             </p>
                         </div>
@@ -124,16 +124,16 @@ const airAndSeaFreight = () => {
                                 Sustainability
                             </h3>
 
-                            <span className="text-[16px] sm:text-[18px] md:text-[20px] text-gray-300">
+                            <span className="text-paragraph sm:text-[18px] md:text-[20px] text-gray-300">
                                 Track
                             </span>
                             <span className="mx-1"></span>
 
-                            <span className="text-[16px] sm:text-[18px] md:text-[20px] text-[#5DF706] ">
+                            <span className="text-paragraph sm:text-[18px] md:text-[20px] text-[#5DF706] ">
                                 Co2
                             </span>
                             <span className="mx-1"></span>
-                            <span className="text-[16px] sm:text-[18px] md:text-[20px] text-gray-300">
+                            <span className="text-paragraph sm:text-[18px] md:text-[20px] text-gray-300">
                                 emission of every shipment with CargoWise Neo.
                             </span>
                         </div>
@@ -142,7 +142,7 @@ const airAndSeaFreight = () => {
                             <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Supply Chain Audits
                             </h3>
-                            <p className="text-[16px] sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
                                 Identify gaps, cut costs, improve performance.
                             </p>
                         </div>
@@ -154,7 +154,7 @@ const airAndSeaFreight = () => {
                             <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65]">
                                 Powered by CargoWise
                             </h3>
-                            <p className="text-[16px] sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
                                 Manage Your Supply Chain with the World&rsquo;s Most trusted ERP
                             </p>
                         </div>
@@ -176,14 +176,14 @@ const airAndSeaFreight = () => {
                 </div>
 
                 <div className="absolute inset-0 flex items-center z-10 justify-center">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:pl-[190px] lg:pl-8  flex flex-col lg:flex-row justify-between items-center gap-8 vision-achievements">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6  lg:pl-8  flex flex-col lg:flex-row justify-between items-center gap-8 vision-achievements">
                         <div className="flex flex-col mb-4 text-center lg:text-left w-full lg:w-1/3  mr:[0] lg:mr-[60px] ">
                             <h2
-                                className="text-white font-poppins font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-tight font-poppins"
+                                className="text-white font-poppins font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[66px] leading-tight font-poppins"
                             >
                                 Vision
                             </h2>
-                            <h2 className="text-white font-poppins font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-tight font-poppins">
+                            <h2 className="text-white font-poppins font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[66px] leading-tight font-poppins">
                                 Achievements
                             </h2>
                         </div>
@@ -311,21 +311,21 @@ const airAndSeaFreight = () => {
 
                     {/* Text Content */}
                     <div className="flex-1 flex flex-col justify-center">
-                        <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-[1.1] text-[#162F65] font-poppins">
+                        <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[67px] leading-[1.1] text-[#162F65] font-poppins">
                             Sustainability
                         </h2>
 
-                        <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-[1.1] text-[#162F65] font-poppins">
+                        <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[67px] leading-[1.1] text-[#162F65] font-poppins">
                             at Nexus Logix
                         </h2>
 
 
-                        <p className="font-poppins font-medium text-[24px] text-[#162F65] mb-2">
+                        <p className="font-poppins font-semibold text-[24px] text-[#162F65] mb-2">
                             Moving Freight. Minimising Footprint. Or Moving Freight Towards a Greener Future or Moving Greener
                         </p>
 
                         {/* <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left"> */}
-                        <p className="font-poppins font-medium text-xs sm:text-sm lg:text-base text-[#676767] leading-relaxed text-justify md:text-left">
+                        <p className="font-poppins font-normal text-xs sm:text-sm lg:text-base text-[#676767] leading-relaxed text-justify md:text-left">
                             At Nexus Logix, sustainability is a conscious mindset that drives every decision we make. As a majority Australian-owned company with a global footprint, we are committed to reducing our environmental impact while empowering our customers to do the same. Our approach integrates green strategies at every level - from the partners we choose and the technology we invest in, to the everyday practices that guide our operations.
                         </p>
 
@@ -340,7 +340,7 @@ const airAndSeaFreight = () => {
 
             <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8 mt-[50px] lg:mt-[100px]">
                 <div className="flex flex-row justify-center mb-12">
-                    <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-[1.1] text-[#162F65] font-poppins">
+                    <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[67px] leading-[1.1] text-[#162F65] font-poppins">
                         Our Focus Areas
                     </h2>
                 </div>
