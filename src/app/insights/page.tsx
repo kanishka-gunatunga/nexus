@@ -193,7 +193,7 @@ const InsightsPage = () => {
                 <div className="grid grid-cols-1 xl:grid-cols-6 gap-8 lg:gap-12">
                     {/* Main Content */}
                     <div className="xl:col-span-4">
-                        <h2 className="text-[#162F65] text-3xl md:text-4xl lg:text-5xl font-bold mb-8 lg:mb-12 tracking-wider">
+                        <h2 className="text-[#162F65] text-3xl md:text-4xl lg:text-[41px] font-bold mb-8 lg:mb-12 tracking-wider">
                             Latest Insights
                         </h2>
 

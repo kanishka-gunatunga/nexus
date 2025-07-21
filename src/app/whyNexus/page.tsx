@@ -20,7 +20,7 @@ const airAndSeaFreight = () => {
 
     return (
         <div className="min-h-screen bg-[#F6F6F6] poppins">
-            <div className="relative max-w-7xl mx-auto block">
+            <div className="relative mx-auto block">
 
                 <Nav />
 
@@ -28,7 +28,7 @@ const airAndSeaFreight = () => {
                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
                     <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
                         <Image
-                            src="/leadership.svg"
+                            src="/why-nexus/banner.svg"
                             alt="Nexus X Logo"
                             width={1000}
                             height={400}
@@ -197,7 +197,7 @@ const airAndSeaFreight = () => {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto block mt-[50px] lg:mt-[100px] px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl hidden lg:block mx-auto mt-[50px] lg:mt-[100px] px-4 sm:px-6 lg:px-8">
                 <Image
                     src={"/nexus-core.svg"}
                     alt="Nexus X Logo"
@@ -205,6 +205,36 @@ const airAndSeaFreight = () => {
                     height={400}
                     className="w-full h-auto object-contain"
                 />
+            </div>
+
+            <div className="max-w-7xl block lg:hidden mx-auto mt-[50px] lg:mt-[100px] px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto mb-4 md:mb-10">
+                    <h2 className="text-[#737887] text-3xl ml-6 sm:text-4xl md:text-5xl font-bold mb-2 text-left leading-tight">
+                        Our Core Values
+                    </h2>
+                    <p className="text-gray-600 text-xs sm:text-sm text-left leading-relaxed">
+                        Every decision at Nexus Logix is anchored in our commitment to responsiveness,
+                        personalisation, precision, accountability, and a desire to function as an extension of your
+                        office. Much like an elite F1 pit crew supports its star driver, we&#39;ve transformed the intricacies
+                        of international logistics into comprehensive, customer-focused solutions just for you.
+                    </p>
+                </div>
+
+                {/* The Nexus Way - Australian Culture Section */}
+                <div className="max-w-4xl mx-auto">
+                    <h1 className="text-[#8c8c8c] text-5xl sm:text-7xl font-bold text-center leading-tight mb-2">
+                        The Nexus Way
+                    </h1>
+                    <h2 className="text-[#737887] mr-6 text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-right leading-tight">
+                        Australian Culture
+                    </h2>
+                    <p className="text-gray-600 text-xs sm:text-sm text-right leading-relaxed">
+                        Proudly homegrown, our approach is underpinned by the direct, resilient, and
+                        warm spirit synonymous with our local culture. Our clear communication,
+                        genuine relationships, and straightforward style reflect the rugged ingenuity of
+                        Australia – delivering consistency and excellence, lap after lap, race after race.
+                    </p>
+                </div>
             </div>
 
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 mt-[50px] lg:mt-[100px]">
@@ -312,16 +342,18 @@ const airAndSeaFreight = () => {
 
                     {/* Text Content */}
                     <div className="flex-1 flex flex-col justify-center">
-                        <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[67px] leading-[1.1] text-[#162F65] font-poppins">
+                        <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[60px] leading-[1.1] text-[#162F65] font-poppins mb-2">
                             Sustainability
-                        </h2>
-
-                        <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[67px] leading-[1.1] text-[#162F65] font-poppins">
+                            <br/>
                             at Nexus Logix
                         </h2>
 
+                        {/*<h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[67px] leading-[1.1] text-[#162F65] font-poppins">*/}
+                        {/*    at Nexus Logix*/}
+                        {/*</h2>*/}
 
-                        <p className="font-poppins font-semibold text-[24px] text-[#162F65] mb-2">
+
+                        <p className="font-poppins font-semibold text-xl text-[#162F65] leading-[26px] mb-2">
                             Moving Freight. Minimising Footprint. Or Moving Freight Towards a Greener Future or Moving Greener
                         </p>
 
@@ -341,7 +373,7 @@ const airAndSeaFreight = () => {
 
             <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8 mt-[50px] lg:mt-[100px]">
                 <div className="flex flex-row justify-center mb-12">
-                    <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[67px] leading-[1.1] text-[#162F65] font-poppins">
+                    <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[50px] leading-[1.1] text-[#162F65] font-poppins">
                         Our Focus Areas
                     </h2>
                 </div>
@@ -361,16 +393,60 @@ const airAndSeaFreight = () => {
                 />
             </div>
 
-            <div className="w-full bg-[#0F2043] mt-[50px] lg:mt-[100px]">
+            <div className="w-full hidden lg:block bg-[#0F2043] mt-[50px] lg:mt-[100px]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
                     <Image
-                        src={"/road-to.svg"}
+                        // src={"/road-to.svg"}
+                        src="/why-nexus/road.svg"
                         alt="Nexus X Logo"
-                        width={1000}
-                        height={400}
+                        width={1800}
+                        height={1200}
                         className="object-cover"
                     />
                 </div>
+            </div>
+
+            <div className="w-full block lg:hidden bg-[#0F2043] mt-[50px] lg:mt-[100px]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <Image
+                        src="/why-nexus/road-map.svg"
+                        alt="Nexus X Logo"
+                        width={800}
+                        height={1200}
+                        className="object-cover"
+                    />
+                </div>
+            </div>
+
+
+            <div className="relative h-64 sm:h-80 lg:h-96 mt-10 overflow-hidden">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/why-nexus/why-nexus-ribbon.png"
+                        // src="/leadership.svg"
+                        alt="Airport"
+                        width={1000}
+                        height={400}
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40"></div>
+                </div>
+
+                <div
+                    className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
+                    <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
+                        Australian Expertise, Global Strength
+                    </h2>
+                    <button
+                        className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
+                        View Services
+                    </button>
+                </div>
+
+                {/*<div*/}
+                {/*    className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 text-white text-sm sm:text-base lg:text-lg font-light">*/}
+                {/*    Sydney Airport*/}
+                {/*</div>*/}
             </div>
 
             <Quote />

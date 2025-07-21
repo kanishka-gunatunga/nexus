@@ -20,12 +20,27 @@ export default function Home() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
+    const [isFading, setIsFading] = useState(false);
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setCurrentImageIndex((prevIndex) =>
+    //             (prevIndex + 1) % images.length
+    //         );
+    //     }, 5000);
+    //
+    //     return () => clearInterval(interval);
+    // }, [images.length]);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) =>
-                (prevIndex + 1) % images.length
-            );
+            setIsFading(true); // Start fading out
+            setTimeout(() => {
+                setCurrentImageIndex((prevIndex) =>
+                    (prevIndex + 1) % images.length
+                );
+                setIsFading(false); // Start fading in
+            }, 500); // This duration should match your CSS transition duration
         }, 5000);
 
         return () => clearInterval(interval);
@@ -278,7 +293,7 @@ export default function Home() {
                             width={1200}
                             height={1600}
                             // className="w-full xl:w-auto lg:-top-0 sm:w-auto h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[620px] object-contain relative z-40"
-                            className="w-full xl:w-auto h-full object-contain relative z-40"
+                            className={`w-full xl:w-auto h-full object-contain relative z-40 duration-500 ease-in-out ${isFading ? 'opacity-0' : 'opacity-100'}`}
                             sizes="(max-width: 2560px) 750px, 900px"
                         />
                     </div>
@@ -455,7 +470,7 @@ export default function Home() {
                         </div>
 
                         <div className="flex flex-col">
-                            <h2 className="text-2xl sm:text-3xl lg:text-[50px] font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-6 text-left -mt-5">
+                            <h2 className="text-2xl sm:text-3xl -mt-0 lg:text-[50px] font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-6 text-left lg:-mt-5">
                                 Why Nexus Logix
                             </h2>
                             <div
@@ -631,7 +646,7 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div
                         className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
-                        <h2 className="text-2xl sm:text-3xl lg:text-[57px] font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-[72px] mx-auto sm:mx-0">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[50px] font-semibold text-[#162F65] text-center lg:text-left mb-1 sm:mb-0 lg:leading-[72px] mx-auto sm:mx-0">
                             Comprehensive
                             <br className="hidden sm:block"/> Solutions
                         </h2>
@@ -701,8 +716,11 @@ export default function Home() {
                                                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                                             />
                                             <div
-                                                className={`absolute inset-0 transition-all duration-300 ${activeService.label === item.label ? 'bg-[#002B64]/70' : 'bg-gradient-to-t from-[#002B64]/40 to-[#00255700]/10'}`}
+                                                className={`absolute inset-0 transition-all duration-300 ${activeService.label === item.label ? 'bg-[#002B64]/70' : 'bg-gradient-to-t from-[#002B64] to-[#00255700]/10'}`}
                                             />
+                                            {/*<div*/}
+                                            {/*    className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"*/}
+                                            {/*/>*/}
                                             <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-normal text-xs sm:text-sm lg:text-lg">
                                                 {item.label}
                                             </p>
