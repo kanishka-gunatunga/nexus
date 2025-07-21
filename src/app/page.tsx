@@ -56,7 +56,7 @@ export default function Home() {
             title: "Your Supply Chain is Now Visible, Measurable, and Transparent",
             description:
                 "50% of customers track their shipments - You can too! \n\nPowered by Neo, Nexus Logix delivers live tracking that shows your shipment's exact location on an interactive world map in real time. Get automated milestone alerts, 12-month performance stats, financial summaries, and detailed CO₂ emission data for every shipment all accessible on any device, right at your fingertips.",
-            imageSrc: "/CargoWise_neo.svg",
+            imageSrc: "/CargoWise_neo_logo.svg",
             imageAlt: "Cargo Tracking",
             reverse: true,
             buttonTitle: "Learn More"
