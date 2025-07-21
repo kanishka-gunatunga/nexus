@@ -28,7 +28,7 @@ const airAndSeaFreight = () => {
                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
                     <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
                         <Image
-                            src="/lead-banner.png"
+                            src="/leadership.svg"
                             alt="Nexus X Logo"
                             width={1000}
                             height={400}
@@ -49,7 +49,7 @@ const airAndSeaFreight = () => {
 
             <div className="relative top-0 lg:top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                <div className="bg-transparent px-4 py-6 md:py-10 flex flex-col lg:flex-row gap-6 items-center lg:items-end">
+                <div className="bg-transparent -mt-10 px-4 py-6 md:py-10 flex flex-col lg:flex-row gap-6 items-center lg:items-end">
                     {/* Image Section */}
                     <div className="w-full lg:w-[30%] flex justify-center">
                         <Image
@@ -61,7 +61,7 @@ const airAndSeaFreight = () => {
                         />
                     </div>
                     {/* Text Section */}
-                    <div className="w-full lg:w-[70%] flex flex-col justify-center">
+                    <div className="w-full flex flex-col justify-center">
                         <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[60px] lg:text-[83px] leading-[1.1] text-[#162F65] font-poppins">
                             History &amp;
                         </h2>
@@ -70,7 +70,7 @@ const airAndSeaFreight = () => {
                             Inspiration
                         </h2>
                         <p
-                            className="text-[16px] text-[#676767] font-poppins lg:text-paragraph "
+                            className="text-sm sm:text-base lg:text-[18px] text-[#676767] font-poppins"
                         >
                             Nexus Logix is an Australian freight forwarder and logistics provider, headquartered in Brisbane. Founded by a group of seasoned industry professionals who recognised an opportunity to blend deep regional knowledge with modern systems and global networks, Nexus Logix operates akin to a finely tuned Fl pit crew supporting -customers as they race ahead towards their goals. From day one, our mission has been clear: to be the steadfast partner that understands your business needs and moves your cargo with precision and care.
                         </p>

@@ -128,7 +128,7 @@ const InsightInner = () => {
                                             <h3 className="text-white font-bold text-lg sm:text-xl leading-normal tracking-[0.6px]">
                                                 Eco Freight
                                             </h3>
-                                            <p className="text-white text-xs leading-[12px] mb-4">
+                                            <p className="text-white text-[10px] leading-[12px] mb-4">
                                                 Sustainability is now a key focus in logistics. Electric trucks low-emission ships, and green warehouse practices are helping Australia move toward cleaner cargo operations.
                                             </p>
                                         </div>
