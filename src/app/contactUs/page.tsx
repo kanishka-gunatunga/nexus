@@ -176,15 +176,17 @@ export default function ContactPage() {
           >
             <div className="max-w-sm">
               <h1
-                className="text-2xl lg:text-3xl font-bold mb-4"
+                className="mb-4 font-poppins font-semibold text-[28px] leading-[40px] tracking-[0.03em] md:text-[32px] md:leading-[48px] lg:text-[39px] lg:leading-[60px]"
                 style={{ color: "#162F65" }}
               >
                 We&apos;re here to help.
               </h1>
-              <p className="text-gray-700 mb-2 text-[#0F2043]">
+
+              <p className="mb-2 font-poppins font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] text-justify text-[#0F2043]">
                 Tell us as much as you can... Nothing is too complex for us...
               </p>
-              <p className="text-gray-700 mb-2">
+
+              <p className="mb-2 font-poppins font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] text-justify text-[#0F2043]">
                 Commercial shipments only - no personal effects.
               </p>
 
@@ -201,12 +203,14 @@ export default function ContactPage() {
 
                   <div>
                     <h3
-                      className="font-semibold mb-1"
+                      className="font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] tracking-[0.013em] mb-1 font-poppins"
                       style={{ color: "#162F65" }}
                     >
                       Call Us
                     </h3>
-                    <p className="text-gray-700">+61 7 3737 4310</p>
+                    <p className="font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-justify text-[#162F65]">
+                      +61 7 3737 4310
+                    </p>
                   </div>
                 </div>
 
@@ -221,12 +225,14 @@ export default function ContactPage() {
 
                   <div>
                     <h3
-                      className="font-semibold mb-1"
+                      className="font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] tracking-[0.013em] mb-1 font-poppins"
                       style={{ color: "#162F65" }}
                     >
                       Send Us Mail
                     </h3>
-                    <p className="text-gray-700">enquiries@nexuslogix.com.au</p>
+                    <p className="font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-justify text-[#162F65]">
+                      enquiries@nexuslogix.com.au
+                    </p>
                   </div>
                 </div>
 
@@ -241,12 +247,12 @@ export default function ContactPage() {
 
                   <div>
                     <h3
-                      className="font-semibold mb-1"
+                      className="font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] tracking-[0.013em] mb-1 font-poppins"
                       style={{ color: "#162F65" }}
                     >
                       We Are Located
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-justify text-[#162F65]">
                       Level 38, 71 Eagle Street, Brisbane
                     </p>
                   </div>
@@ -324,14 +330,16 @@ export default function ContactPage() {
               {/* Contact Information */}
               <div className="mb-8">
                 <h2
-                  className="text-lg font-semibold mb-6"
+                  className="mb-6 font-poppins font-normal text-[18px] md:text-[22px] lg:text-[25px] leading-[25px] tracking-[0.013em]"
                   style={{ color: "#162F65" }}
                 >
                   Contact Information
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-black mb-2">First Name</label>
+                    <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
+                      First Name
+                    </label>
                     <input
                       type="text"
                       name="firstName"
@@ -346,7 +354,9 @@ export default function ContactPage() {
                     )}
                   </div>
                   <div>
-                    <label className="block text-black mb-2">Last Name</label>
+                    <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
+                      Last Name
+                    </label>
                     <input
                       type="text"
                       name="lastName"
@@ -361,7 +371,7 @@ export default function ContactPage() {
                     )}
                   </div>
                   <div>
-                    <label className="block text-black mb-2">
+                    <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Company Email Address
                     </label>
                     <input
@@ -378,14 +388,16 @@ export default function ContactPage() {
                     )}
                   </div>
                   <div>
-                    <label className="block text-black mb-2">Phone</label>
+                    <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
+                      Phone
+                    </label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+61(2)234-5678"
-                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
+                      className="w-full font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
                     />
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
@@ -399,14 +411,14 @@ export default function ContactPage() {
               {/* Company Information */}
               <div className="mb-8">
                 <h2
-                  className="text-lg font-semibold mb-6"
+                  className="mb-6 font-poppins font-normal text-[18px] md:text-[22px] lg:text-[25px] leading-[25px] tracking-[0.013em]"
                   style={{ color: "#162F65" }}
                 >
                   Company Information
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-black mb-2">
+                    <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Company Name
                     </label>
                     <input
@@ -423,7 +435,9 @@ export default function ContactPage() {
                     )}
                   </div>
                   <div>
-                    <label className="block text-black mb-2">Website URL</label>
+                    <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
+                      Website URL
+                    </label>
                     <input
                       type="url"
                       name="website"
@@ -439,7 +453,9 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="mt-6">
-                  <label className="block text-black mb-2">Address</label>
+                  <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
+                    Address
+                  </label>
                   <input
                     type="text"
                     name="address"
@@ -455,7 +471,9 @@ export default function ContactPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                   <div>
-                    <label className="block text-black mb-2">City</label>
+                    <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
+                      City
+                    </label>
                     <input
                       type="text"
                       name="city"
@@ -468,7 +486,9 @@ export default function ContactPage() {
                     )}
                   </div>
                   <div>
-                    <label className="block text-black mb-2">Province</label>
+                    <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
+                      Province
+                    </label>
                     <input
                       type="text"
                       name="province"
@@ -488,7 +508,7 @@ export default function ContactPage() {
               {/* Topic */}
               <div className="mb-8">
                 <h2
-                  className="text-lg font-semibold mb-6"
+                  className="mb-6 font-poppins font-normal text-[18px] md:text-[22px] lg:text-[25px] leading-[25px] tracking-[0.013em]"
                   style={{ color: "#162F65" }}
                 >
                   Topic
@@ -499,7 +519,9 @@ export default function ContactPage() {
                     onClick={() => setIsTopicOpen(!isTopicOpen)}
                     className="w-full flex items-center justify-between border-b-2 border-black focus:border-blue-500 outline-none pb-2 text-left"
                   >
-                    <span className="text-black">{formData.topic}</span>
+                    <span className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
+                      {formData.topic}
+                    </span>
                     <ChevronDown
                       className={`w-5 h-5 transition-transform ${
                         isTopicOpen ? "rotate-180" : ""
@@ -528,14 +550,16 @@ export default function ContactPage() {
 
               {/* Message */}
               <div className="mb-8">
-                <label className="block text-black mb-2">Message</label>
+                <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="Write your message"
                   rows={2}
-                  className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2 resize-none placeholder-[#676767]"
+                  className="w-full font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
                 />
                 {errors.message && (
                   <p className="text-red-600 text-sm mt-1">{errors.message}</p>
@@ -546,9 +570,16 @@ export default function ContactPage() {
               <div className="mb-8">
                 <div className="flex items-start space-x-2">
                   <input type="checkbox" id="privacy" className="mt-1" />
-                  <label htmlFor="privacy" className="text-sm text-[#676767]">
-                    Our <a href="/privacy-policy" className="underline">privacy policy</a> contains detailed information about our
-                    handling of personal information.
+                  <label
+                    htmlFor="privacy"
+                    className="font-poppins font-normal text-[12px] md:text-[14px] lg:text-[15px] leading-[25px] tracking-[0em] text-[#676767]"
+                  >
+                    Our{" "}
+                    <a href="/privacy-policy" className="underline">
+                      privacy policy
+                    </a>{" "}
+                    contains detailed information about our handling of personal
+                    information.
                   </label>
                 </div>
               </div>
@@ -557,7 +588,7 @@ export default function ContactPage() {
               <div className="text-right">
                 <button
                   onClick={handleSubmit}
-                  className="px-8 py-3 text-white font-semibold rounded-md hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+                  className="px-8 py-3 font-poppins font-medium text-[16px] md:text-[20px] lg:text-[25px] leading-[100%] tracking-[0em] text-white rounded-md hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                   style={{ backgroundColor: "#162F65" }}
                 >
                   Submit My Request
