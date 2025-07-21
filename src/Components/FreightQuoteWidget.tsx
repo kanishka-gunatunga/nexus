@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 interface FreightQuoteWidgetProps {
   isOpen: boolean;
@@ -168,7 +169,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 </label>
                 <p className="text-xs text-gray-400 mb-2">
                   Kindly use your company email address to <br /> your enquiry
-                  isn't marked as spam.
+                  isn&#39;t marked as spam.
                 </p>
                 <input
                   type="text"
@@ -417,10 +418,12 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   }`}
                 >
                   <div className="w-16 h-16 mb-2 flex items-center justify-center">
-                    <img
+                    <Image
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-contain filter invert"
+                      width={64}
+                      height={64}
+                      className="object-contain filter invert"
                     />
                   </div>
                   <div className="text-xs text-center text-gray-300 leading-tight">
@@ -434,10 +437,12 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
             {/* Company Logo/Info */}
             <div className="mt-12 pt-8 flex items-center gap-10">
               <div className="w-24 h-auto">
-                <img
+                <Image
                   src="/footer_logo.png"
                   alt="neXus Logo"
-                  className="w-full h-auto object-contain"
+                  width={96}
+                  height={40}
+                  className="object-contain"
                 />
               </div>
               <div className="text-sm text-gray-300 leading-tight">
