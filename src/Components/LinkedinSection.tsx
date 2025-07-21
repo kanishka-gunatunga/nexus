@@ -9,10 +9,10 @@ const LinkedinSection = () => {
                 <div
                     className="bg-[#E7E6DD] rounded-[10px] p-4 sm:p-6 lg:py-8 lg:px-12 flex flex-col items-center lg:flex-row lg:justify-between gap-6 sm:gap-8 lg:gap-12">
                     <div className="text-center lg:text-left lg:mr-12">
-                        <h3 className="text-xl sm:text-2xl lg:text-4xl xl:text-[45px] font-normal text-[#162F65] mb-3 sm:mb-4">
+                        <h3 className="text-xl sm:text-2xl lg:text-[34px] xl:text-[43px] font-normal text-[#162F65] mb-3 sm:mb-4">
                             Link up on LinkedIn
                         </h3>
-                        <p className="text-sm sm:text-base lg:text-lg text-[#676767] font-medium leading-[28px] max-w-xl sm:max-w-2xl">
+                        <p className="text-sm sm:text-base text-[#676767] font-medium leading-[28px] max-w-xl sm:max-w-2xl">
                             Stay informed about the latest developments in the logistics space
                             and get early updates about the lowest emerging rate windows by
                             following us on LinkedIn.

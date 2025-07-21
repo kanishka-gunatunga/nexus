@@ -96,7 +96,7 @@ const InsightsPage = () => {
 
             {/* Main Content */}
             <div className="container relative max-w-7xl -top-22 lg:-top-50 mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-16">
-                <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-5xl xl:text-6xl py-4 font-bold tracking-wider">
+                <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold tracking-wider">
                     Insights
                 </h1>
                 {/* Subtitle */}

@@ -16,7 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 export default function Home() {
 
     const images = ["/plane1.png", "/slid1.png", "/slid2.png", "/slid3.png", "/slid4.png", "/slid5.png"];
-    const mobileImages = ["/img_5.png", "/img_6.png", "/img_7.png", "/img_8.png", "/img_9.png", "/img_10.png"];
+    const mobileImages = ["/home/mobile-slide-1.svg", "/home/mobile-slide-2.svg", "/home/mobile-slide-3.svg", "/home/mobile-slide-4.svg", "/home/mobile-slide-5.svg", "/home/mobile-slide-6.svg"];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
@@ -47,7 +47,7 @@ export default function Home() {
             title: "Who is Nexus Logix",
             description:
                 "Homegrown in Australia and backed by global expertise, we strive to be your responsive, agile freight and logistics partner. \n\nAs a player in a global supply chain, you are like an F1 race driver, which means every second counts. That's why we're your dedicated pit crew, ever ready to support your cargo in motion.",
-            imageSrc: "/3-men.png",
+            imageSrc: "/home/Nexus-Logix.png",
             imageAlt: "Nexus Logix Team",
             reverse: false,
             buttonTitle: "Explore More"
@@ -56,7 +56,7 @@ export default function Home() {
             title: "Your Supply Chain is Now Visible, Measurable, and Transparent",
             description:
                 "50% of customers track their shipments - You can too! \n\nPowered by Neo, Nexus Logix delivers live tracking that shows your shipment's exact location on an interactive world map in real time. Get automated milestone alerts, 12-month performance stats, financial summaries, and detailed CO₂ emission data for every shipment all accessible on any device, right at your fingertips.",
-            imageSrc: "/cargo-wise.png",
+            imageSrc: "/CargoWise_neo_logo.svg",
             imageAlt: "Cargo Tracking",
             reverse: true,
             buttonTitle: "Learn More"
@@ -97,30 +97,58 @@ export default function Home() {
         },
     ];
 
+    // const services = [
+    //     {
+    //         src: "/forwarding_service.png",
+    //         alt: "Freight forwarding service",
+    //         label: "Air & Sea Freight",
+    //         description: `Be it express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.`,
+    //     },
+    //     {
+    //         src: "/Customs_Clearance.png",
+    //         alt: "Customs Clearance & Compliance",
+    //         label: "Customs Clearance & Compliance",
+    //         description: `Navigating Australia’s vast distances often requires more than one mode of transport, with local expertise at every stage. Our comprehensive road and rail services cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport.`,
+    //     },
+    //     {
+    //         src: "/warehousing.png",
+    //         alt: "3PL, Warehousing & Special Projects",
+    //         label: "3PL, Warehousing & Special Projects",
+    //         description: `From end-to-end supply chain management to specialised project transport for heavy-lift or out-of-gauge cargo, our integrated solutions and experienced consultants streamline warehousing, fulfilment, and special moves – providing a unique personalised approach for each client.`,
+    //     },
+    //     {
+    //         src: "/transport.png",
+    //         alt: "Road & Rail Transport",
+    //         label: "Road & Rail Transport",
+    //         description: `Customs and compliance doesn’t have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits – ensuring your goods clear swiftly and cost-effectively.`,
+    //     },
+    // ];
+
+
     const services = [
         {
             src: "/forwarding_service.png",
             alt: "Freight forwarding service",
             label: "Air & Sea Freight",
-            description: `Be it express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.`,
+            description: `Express shipments or cost-effective bulk transport, we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving, by air and sea, while avoiding delays and unexpected costs.`,
         },
         {
-            src: "/Customs_Clearance.png",
+            src: "/home/Customs_Clearance.png",
             alt: "Customs Clearance & Compliance",
             label: "Customs Clearance & Compliance",
-            description: `Navigating Australia’s vast distances often requires more than one mode of transport, with local expertise at every stage. Our comprehensive road and rail services cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport.`,
+            description: `We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures – including audits – ensuring your goods clear quickly and cost-effectively.`,
         },
         {
             src: "/warehousing.png",
-            alt: "3PL, Warehousing & Special Projects",
-            label: "3PL, Warehousing & Special Projects",
-            description: `From end-to-end supply chain management to specialised project transport for heavy-lift or out-of-gauge cargo, our integrated solutions and experienced consultants streamline warehousing, fulfilment, and special moves – providing a unique personalised approach for each client.`,
+            alt: "Integrated Logistics & Special Projects",
+            label: "Integrated Logistics & Special Projects",
+            description: `We offer end-to-end supply chain management, including 3PL and Warehousing, Fulfilment and eCommerce, and Inventory Management and Optimisation, all scalable and tailored to your unique requirements.`,
         },
         {
             src: "/transport.png",
             alt: "Road & Rail Transport",
             label: "Road & Rail Transport",
-            description: `Customs and compliance doesn’t have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits – ensuring your goods clear swiftly and cost-effectively.`,
+            description: `Our comprehensive road and rail services, within Australia, cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport across even the most challenging corridors.`,
         },
     ];
 
@@ -167,7 +195,7 @@ export default function Home() {
     return (
         <div className="min-h-screen bg-[#F6F6F6] poppins">
             {/*<section className="relative mx-auto min-h-[70vh] sm:min-h-[80vh] lg:min-h-[100vh] overflow-hidden max-w-[2400px]">*/}
-            <section className="relative mx-auto overflow-hidden max-w-[2400px]">
+            <section className="relative mx-auto overflow-hidden max-w-[1800px]">
 
                 {/*<div className="absolute hidden lg:block inset-0">*/}
                 {/*    <div className="absolute flex flex-row justify-end right-0 w-full h-full">*/}
@@ -244,8 +272,8 @@ export default function Home() {
                 <div className="absolute hidden lg:block inset-0">
                     <div className="absolute flex flex-row justify-end right-0 w-full h-full hero-image">
                         <Image
-                            key={images[currentMobileImageIndex]}
-                            src={images[currentMobileImageIndex]}
+                            key={images[currentImageIndex]}
+                            src={images[currentImageIndex]}
                             alt="Airplane"
                             width={1200}
                             height={1600}
@@ -275,8 +303,9 @@ export default function Home() {
                 <div id="hero-background-image"
                      className="relative w-full h-[400px] mobile:h-[500px] sm:h-[600px] md:h-[800px] -mt-20 lg:hidden overflow-hidden">
                     <Image
-                        key={mobileImages[currentImageIndex]}
-                        src={mobileImages[currentImageIndex]}
+                        key={mobileImages[currentMobileImageIndex]}
+                        src={mobileImages[currentMobileImageIndex]}
+                        // src="/insights/Group72.png"
                         alt="Airplane"
                         width={1000}
                         height={400}
@@ -286,7 +315,7 @@ export default function Home() {
                 </div>
 
                 <div id="mobile-hero-content"
-                     className="relative flex flex-col -top-10 md:-top-40 border-[#D9D9D9] container mx-auto border-b-2 pb-4 justify-center items-center text-center
+                     className="relative flex flex-col border-[#D9D9D9] container mx-auto border-b-2 pb-4 justify-center items-center text-center
                             w-full px-4 sm:px-6 lg:hidden z-10">
                     <div
                         className="w-full max-w-lg mx-auto">
@@ -299,7 +328,7 @@ export default function Home() {
                             business, so you enjoy peace of mind, and responsive service.
                         </p>
                         <button
-                            className="bg-[#071940] text-white
+                            className="bg-[#162F65] text-white
                                    px-6 py-2 mobile:px-8 mobile:py-3 text-sm font-medium  rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                         >
                             Explore More
@@ -310,19 +339,19 @@ export default function Home() {
 
                 <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
                     <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
-                        <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-tight mb-4 sm:mb-6 head-title">
+                        <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
                             Supply Chains
                             <br/>
                             Never Sleep.
                             <br/>
                             Neither Do We.
                         </h1>
-                        <p className="text-sm sm:text-base lg:text-base xl:text-xl text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-relaxed head-para">
+                        <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
                             As your agile logistics partner, we operate as an extension of your
                             business, so you enjoy peace of mind, and responsive service.
                         </p>
                         <button
-                            className="bg-[#071940] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
+                            className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
                         >
                             Explore More
                         </button>
@@ -331,7 +360,7 @@ export default function Home() {
 
                 <Quote/>
 
-                <section className="relative py-6 md:-top-20 lg:-top-0 z-40 sm:py-8">
+                <section className="relative py-6 lg:-top-0 z-40 sm:py-8">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
                         {/*<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-3">*/}
                         {/*    {values.map((value, index) => (*/}
@@ -426,11 +455,11 @@ export default function Home() {
                         </div>
 
                         <div className="flex flex-col">
-                            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-8 text-left">
+                            <h2 className="text-2xl sm:text-3xl lg:text-[50px] font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-6 text-left -mt-5">
                                 Why Nexus Logix
                             </h2>
                             <div
-                                className="space-y-4 sm:space-y-5 lg:space-y-6 text-sm sm:text-base lg:text-base text-[#676767] font-medium leading-[25px] text-left">
+                                className="space-y-4 sm:space-y-5 lg:space-y-6 text-sm sm:text-base lg:text-lg text-[#676767] font-medium leading-[25px] text-left">
                                 <p>
                                     Established in Australia by a group of logistics professionals,
                                     each with over 25+ years of experience across Australia, Oceania,
@@ -453,11 +482,11 @@ export default function Home() {
                                     extension of your office.
                                 </p>
                             </div>
-                            <p className="text-[#225395] text-lg sm:text-xl lg:text-2xl font-medium mt-4 sm:mt-6 lg:mt-8 text-left">
+                            <p className="text-[#225395] text-lg sm:text-xl lg:text-[21px] font-medium mt-4 sm:mt-6 lg:mt-8 text-left">
                                 - This is the Nexus Way
                             </p>
                             <button
-                                className="bg-[#071940] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-medium mt-4 sm:mt-6 lg:mt-8  rounded-[10px] hover:bg-blue-950 flex items-left lg:items-center w-fit mx-0 hover:scale-105 transition-all duration-300"
+                                className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-medium mt-4 sm:mt-6 lg:mt-8  rounded-[10px] hover:bg-blue-950 flex items-left lg:items-center w-fit mx-0 hover:scale-105 transition-all duration-300"
                             >
                                 Explore More
                             </button>
@@ -602,11 +631,11 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div
                         className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
-                        <h2 className="text-2xl sm:text-3xl lg:text-6xl font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-tight mx-auto sm:mx-0">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[57px] font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-[72px] mx-auto sm:mx-0">
                             Comprehensive
                             <br className="hidden sm:block"/> Solutions
                         </h2>
-                        <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-base leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
+                        <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-lg leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
                             Whether it&#39;s retail, manufacturing, mining, automotive, or any other
                             industry, our specialists understand each one&#39;s unique challenges,
                             constraints, and regulations. In particular, we understand the value
@@ -776,18 +805,18 @@ export default function Home() {
                             )}
                             <div
                                 className={`max-w-7xl relative mx-auto items-center flex flex-col ${
-                                    section.reverse ? "md:flex-row-reverse border-[#D9D9D9] container mx-auto border-b-2" : "md:flex-row"
-                                } gap-4 sm:gap-8 md:gap-12 lg:gap-16 p-4 sm:p-6 lg:px-12`}
+                                    section.reverse ? "md:flex-row-reverse container mx-auto lg:px-8" : "md:flex-row lg:px-12"
+                                } gap-4 sm:gap-8 md:gap-12 lg:gap-16 p-4 sm:p-6`}
                             >
                                 <div className="w-full md:w-3/5 flex flex-col justify-between">
                                     <div>
                                         <h2
-                                            className="font-semibold text-xl sm:text-2xl lg:text-[40px] text-[#162F65] max-w-3xl text-center md:text-left"
+                                            className={`font-semibold ${section.reverse ? "lg:text-[41px] lg:leading-[56px]" : "lg:text-[50px] lg:leading-[72px]" } text-xl sm:text-2xl text-[#162F65] max-w-3xl text-center md:text-left`}
                                         >
                                             {section.title}
                                         </h2>
                                         <p
-                                            className={`text-xs sm:text-sm lg:text-base font-medium ${
+                                            className={`text-xs sm:text-sm lg:text-lg font-medium ${
                                                 section.reverse ? "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
                                         >
                                             {section.description}
@@ -795,7 +824,7 @@ export default function Home() {
                                         <div className="mt-4 sm:mt-6 lg:mt-8 text-center md:text-left">
                                             <Link href="#">
                                                 <button
-                                                    className="bg-[#071940] cursor-pointer text-white text-sm sm:text-base lg:text-lg font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+                                                    className="bg-[#162F65] cursor-pointer text-white text-sm sm:text-base lg:text-lg font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                                                 >
                                                     {section.buttonTitle}
                                                 </button>
@@ -815,6 +844,8 @@ export default function Home() {
                             </div>
                         </div>
                     ))}
+
+                    <hr className="border-[#D9D9D9] container mx-auto border-b-2 max-w-7xl"/>
                 </div>
             </div>
 
@@ -822,7 +853,7 @@ export default function Home() {
                 <div className="">
                     <div
                         className="flex flex-col px-4 sm:px-6 mb-2 lg:mb-8 lg:px-8 max-w-7xl mx-auto lg:flex-row justify-between gap-2 lg:gap-8 items-center md:items-start">
-                        <h2 className="text-xl sm:text-2xl lg:text-5xl text-[#0F2043] font-semibold text-center sm:text-left mb-1 leading-[50px] max-w-xl">
+                        <h2 className="text-xl sm:text-2xl lg:text-5xl text-[#162F65] font-semibold text-center sm:text-left mb-1 leading-[50px] max-w-xl">
                             Success Stories from Our Clients
                         </h2>
                         <p className="text-[#676767] text-sm sm:text-base lg:text-lg font-medium text-center md:text-left mb-6 sm:mb-8 lg:mb-12 max-w-2xl leading-[25px]">
