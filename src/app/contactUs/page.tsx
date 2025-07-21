@@ -147,7 +147,7 @@ export default function ContactPage() {
       >
         <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
           <Image
-            src="/lead-banner.png"
+            src="/contactUs_hero_banner.svg"
             alt="Nexus X Logo"
             width={1000}
             height={400}
@@ -557,7 +557,7 @@ export default function ContactPage() {
               <div className="text-right">
                 <button
                   onClick={handleSubmit}
-                  className="px-8 py-3 text-white font-semibold rounded-md hover:opacity-90 transition-opacity"
+                  className="px-8 py-3 text-white font-semibold rounded-md hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                   style={{ backgroundColor: "#162F65" }}
                 >
                   Submit My Request

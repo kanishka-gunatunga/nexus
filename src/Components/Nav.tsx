@@ -304,6 +304,7 @@
 //
 // export default Nav;
 
+"use client"
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -418,7 +419,7 @@ const Nav = () => {
 
           {/* Mobile Track & Trace Button - Visible on small screens */}
           <div className="lg:hidden flex-shrink-0 order-3">
-            <Link href="#">
+            <Link href="/track-and-trace">
               <button className="bg-[#e6b333] text-[#282828] hover:bg-[#e6b333]/90 px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm rounded-lg font-normal transition-colors">
                 Track & Trace
               </button>
@@ -446,13 +447,13 @@ const Nav = () => {
               Services
             </Link>
             <Link
-              href="#"
+              href="/insights"
               className="font-semibold text-[#282828] hover:text-[#082049] transition-colors duration-200"
             >
               Insights
             </Link>
             {/* Desktop Track & Trace Button - Now visible from 'lg' breakpoint */}
-            <Link href="#">
+            <Link href="/track-and-trace">
               {" "}
               {/* Removed the 'hidden xl:block' class */}
               <button className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] hover:text-white px-4 sm:px-6 lg:px-8 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-sm rounded-lg font-normal transition-colors">

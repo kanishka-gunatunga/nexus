@@ -166,7 +166,8 @@ export default function Home() {
 
     return (
         <div className="min-h-screen bg-[#F6F6F6] poppins">
-            <section className="relative mx-auto min-h-[70vh] sm:min-h-[80vh] lg:min-h-[100vh] overflow-hidden">
+            {/*<section className="relative mx-auto min-h-[70vh] sm:min-h-[80vh] lg:min-h-[100vh] overflow-hidden max-w-[2400px]">*/}
+            <section className="relative mx-auto overflow-hidden max-w-[2400px]">
 
                 {/*<div className="absolute hidden lg:block inset-0">*/}
                 {/*    <div className="absolute flex flex-row justify-end right-0 w-full h-full">*/}
@@ -246,9 +247,11 @@ export default function Home() {
                             key={images[currentMobileImageIndex]}
                             src={images[currentMobileImageIndex]}
                             alt="Airplane"
-                            width={400}
-                            height={1200}
-                            className="w-full xl:w-auto lg:-top-0 sm:w-auto h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[620px] object-contain relative z-40"
+                            width={1200}
+                            height={1600}
+                            // className="w-full xl:w-auto lg:-top-0 sm:w-auto h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[620px] object-contain relative z-40"
+                            className="w-full xl:w-auto h-full object-contain relative z-40"
+                            sizes="(max-width: 2560px) 750px, 900px"
                         />
                     </div>
 
@@ -257,9 +260,11 @@ export default function Home() {
                             <Image
                                 src="/x1.png"
                                 alt="Nexus X Logo"
-                                width={600}
-                                height={600}
-                                className="lg:w-[800px] xl:w-full sm:w-auto h-[600px] sm:h-[800px] lg:h-[980px] object-contain z-30 logo-images"
+                                width={1600}
+                                height={1600}
+                                // className="lg:w-[800px] xl:w-full sm:w-auto h-[600px] sm:h-[800px] lg:h-[980px] object-contain z-30 logo-images"
+                                className="w-full h-full object-contain z-30 logo-images"
+                                sizes="(max-width: 2560px) 1000px, 1200px"
                             />
                         </div>
                     </div>

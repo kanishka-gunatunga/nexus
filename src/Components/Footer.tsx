@@ -473,6 +473,7 @@
 
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
     return (
@@ -537,42 +538,42 @@ const Footer = () => {
                                 Links
                             </h4>
                             <div className="space-y-2 text-center sm:text-left">
-                                <a
-                                    href="#"
+                                <Link
+                                    href="/"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Home
-                                </a>
-                                <a
-                                    href="#"
+                                </Link>
+                                <Link
+                                    href="/whyNexus"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Why Nexus
-                                </a>
-                                <a
-                                    href="#"
+                                </Link>
+                                <Link
+                                    href="/leadership"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Leadership Team
-                                </a>
-                                <a
-                                    href="#"
+                                </Link>
+                                <Link
+                                    href="/insights"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Insights
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href="/contactUs"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Contact Us
-                                </a>
-                                <a
-                                    href="#"
+                                </Link>
+                                <Link
+                                    href="/track-and-trace"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Track and Trace
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -606,30 +607,30 @@ const Footer = () => {
                                 Services
                             </h4>
                             <div className="space-y-2 text-center sm:text-left">
-                                <a
+                                <Link
                                     href="/air-and-sea-freight"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Air & Sea Freight
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href="/road-and-rail"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Road & Rail Transport
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href="/customs"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Customs Clearance & Border Processing
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href="/Integrated-logistics"
                                     className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                                 >
                                     Integrated Logistics & Special Projects
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
