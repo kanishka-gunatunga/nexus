@@ -120,7 +120,7 @@ const LeadershipPage = () => {
                         <div className="max-w-4xl mb-4">
                             <div className="flex items-center space-x-4">
                                 <div className="w-3 bg-[#E7E6DD] rounded-[9px] h-25 mt-1"></div>
-                                <p className="text-[#0F2043] w-full font-medium text-sm z-50 md:text-base lg:text-[24px] leading-relaxed">
+                                <p className="text-[#0F2043] font-medium text-sm z-50 md:text-base lg:text-[24px] leading-relaxed">
                                     Like a finely tuned F1 pit crew, our team is always on standby – ready to keep your supply chain racing ahead at peak performance.
                                 </p>
                             </div>
@@ -223,9 +223,9 @@ const LeadershipPage = () => {
                 <div
                     className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
                     <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-                        Efficiency, Visibility, and
+                        Commitment to
                         <br/>
-                        Accuracy - Delivered
+                        Personalised Service
                     </h2>
                     <button
                         className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
