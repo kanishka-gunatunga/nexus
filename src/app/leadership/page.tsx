@@ -219,7 +219,8 @@ const LeadershipPage = () => {
                                                 {/*    {member.description}*/}
                                                 {/*</p>*/}
                                                 {otherParagraphs.map((para, index) => (
-                                                    <p key={index} className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight text-left mb-3">
+                                                    <p key={index}
+                                                       className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight text-left mb-3">
                                                         {para}
                                                     </p>
                                                 ))}
@@ -262,10 +263,12 @@ const LeadershipPage = () => {
                         <br/>
                         Personalised Service
                     </h2>
-                    <button
-                        className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-                        View Services
-                    </button>
+                    <Link href="/services">
+                        <button
+                            className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
+                            View Services
+                        </button>
+                    </Link>
                 </div>
 
                 {/*<div*/}
