@@ -117,12 +117,11 @@ const LeadershipPage = () => {
                  className="relative -top-22 lg:-top-50">
                 <div className="">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="max-w-3xl mb-4">
+                        <div className="max-w-4xl mb-4">
                             <div className="flex items-center space-x-4">
                                 <div className="w-3 bg-[#E7E6DD] rounded-[9px] h-25 mt-1"></div>
-                                <p className="text-[#0F2043] font-medium text-sm z-50 md:text-base lg:text-[24px] leading-relaxed">
-                                    Like a finely tuned F1 pit crew, our team is always on standby –
-                                    ready to keep your supply chain racing ahead at peak performance.
+                                <p className="text-[#0F2043] w-full font-medium text-sm z-50 md:text-base lg:text-[24px] leading-relaxed">
+                                    Like a finely tuned F1 pit crew, our team is always on standby – ready to keep your supply chain racing ahead at peak performance.
                                 </p>
                             </div>
                         </div>
