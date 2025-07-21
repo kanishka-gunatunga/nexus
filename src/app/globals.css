@@ -344,9 +344,9 @@
         font-size: 50px !important;
     }
 
-    .head-para {
-        font-size: 25px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 25px !important;*/
+    /*}*/
 
     .head-button {
         font-size: 20px !important;
@@ -375,9 +375,9 @@
         font-size: 45px !important;
     }
 
-    .head-para {
-        font-size: 20px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 20px !important;*/
+    /*}*/
 
     .head-button {
         font-size: 20px !important;
@@ -406,9 +406,9 @@
         font-size: 45px !important;
     }
 
-    .head-para {
-        font-size: 20px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 20px !important;*/
+    /*}*/
 
     .head-button {
         font-size: 20px !important;
@@ -437,9 +437,9 @@
         font-size: 45px !important;
     }
 
-    .head-para {
-        font-size: 20px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 20px !important;*/
+    /*}*/
 
     .head-button {
         font-size: 20px !important;
@@ -468,10 +468,10 @@
         font-size: 40px !important;
     }
 
-    .head-para {
-        font-size: 18px !important;
-        max-width: 400px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 18px !important;*/
+    /*    max-width: 400px !important;*/
+    /*}*/
 
     .head-button {
         font-size: 18px !important;
@@ -500,10 +500,10 @@
         font-size: 36px !important;
     }
 
-    .head-para {
-        font-size: 17px !important;
-        max-width: 380px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 17px !important;*/
+    /*    max-width: 380px !important;*/
+    /*}*/
 
     .head-button {
         font-size: 17px !important;
@@ -536,10 +536,10 @@
         font-size: 32px !important;
     }
 
-    .head-para {
-        font-size: 16px !important;
-        max-width: 350px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 16px !important;*/
+    /*    max-width: 350px !important;*/
+    /*}*/
 
     .head-button {
         font-size: 16px !important;
@@ -604,10 +604,10 @@
         line-height: 1.2 !important;
     }
 
-    .head-para {
-        font-size: 22px !important;
-        max-width: 500px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 22px !important;*/
+    /*    max-width: 500px !important;*/
+    /*}*/
 
     .head-button {
         font-size: 22px !important;
@@ -618,18 +618,16 @@
         max-width: 1800px !important;
     }
 
-    #mobile-hero-content h1 {
-        font-size: 3rem !important;
-    }
-
-    #mobile-hero-content p {
-        font-size: 1.25rem !important;
-    }
-
-    #mobile-hero-content button {
-        font-size: 1.1rem !important;
-        padding: 12px 24px !important;
-    }
+    /*#mobile-hero-content h1 {*/
+    /*    font-size: 3rem !important;*/
+    /*}*/
+    /*#mobile-hero-content p {*/
+    /*    font-size: 1.25rem !important;*/
+    /*}*/
+    /*#mobile-hero-content button {*/
+    /*    font-size: 1.1rem !important;*/
+    /*    padding: 12px 24px !important;*/
+    /*}*/
 }
 
 /* 4K Resolution (2561px and above) */
@@ -662,11 +660,11 @@
         margin-bottom: 30px !important;
     }
 
-    .head-para {
-        font-size: 26px !important;
-        max-width: 600px !important;
-        margin-bottom: 40px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 26px !important;*/
+    /*    max-width: 600px !important;*/
+    /*    margin-bottom: 40px !important;*/
+    /*}*/
 
     .head-button {
         font-size: 26px !important;
@@ -678,29 +676,25 @@
         max-width: 2400px !important;
     }
 
-    #hero-background-image {
-        height: 700px !important;
-    }
-
-    #mobile-hero-content {
-        padding: 24px !important;
-    }
-
-    #mobile-hero-content h1 {
-        font-size: 3.5rem !important;
-        margin-bottom: 24px !important;
-    }
-
-    #mobile-hero-content p {
-        font-size: 1.5rem !important;
-        margin-bottom: 32px !important;
-    }
-
-    #mobile-hero-content button {
-        font-size: 1.3rem !important;
-        padding: 16px 32px !important;
-        border-radius: 12px !important;
-    }
+    /*#hero-background-image {*/
+    /*    height: 700px !important;*/
+    /*}*/
+    /*#mobile-hero-content {*/
+    /*    padding: 24px !important;*/
+    /*}*/
+    /*#mobile-hero-content h1 {*/
+    /*    font-size: 3.5rem !important;*/
+    /*    margin-bottom: 24px !important;*/
+    /*}*/
+    /*#mobile-hero-content p {*/
+    /*    font-size: 1.5rem !important;*/
+    /*    margin-bottom: 32px !important;*/
+    /*}*/
+    /*#mobile-hero-content button {*/
+    /*    font-size: 1.3rem !important;*/
+    /*    padding: 16px 32px !important;*/
+    /*    border-radius: 12px !important;*/
+    /*}*/
 
     nav {
         padding: 16px 32px !important;
@@ -933,4 +927,51 @@
         width: 30%;
     }
 
+}
+
+
+
+@media (max-width: 479px) {
+    #hero-background-image {
+        height: 450px !important;
+    }
+    #hero-background-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+}
+
+
+@media (min-width: 480px) and (max-width: 639px) {
+    #hero-background-image {
+        height: 450px !important;
+    }
+    #hero-background-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+    #hero-background-image {
+        height: 550px !important;
+    }
+    #hero-background-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #hero-background-image {
+        height: 700px !important;
+    }
+    #hero-background-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
 }

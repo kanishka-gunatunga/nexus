@@ -502,7 +502,7 @@ const Nav = () => {
               Services
             </Link>
             <Link
-              href="#"
+              href="/insights"
               className="block px-3 py-2 text-base font-medium text-[#282828] hover:text-[#082049] hover:bg-gray-100 rounded-md transition-colors w-full text-center"
               onClick={() => setIsMenuOpen(false)}
             >
