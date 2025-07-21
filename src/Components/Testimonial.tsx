@@ -18,10 +18,10 @@ interface TranslateWrapperProps extends PropsWithChildren {
 
 const TestimonialCard = ({testimonial}: { testimonial: TestimonialProps }) => (
     <motion.div
-        className="bg-[#EAEAEA] justify-center px-6 py-1 rounded-[20px] shadow-sm flex flex-col items-center text-center w-[280px] sm:w-[320px] h-[200px] shrink-0 mx-2 sm:mx-4"
+        className="bg-[#EAEAEA] justify-center px-6 py-1 rounded-[20px] shadow-sm flex flex-col items-center text-center w-[280px] sm:w-[450px] h-[200px] shrink-0 mx-2 sm:mx-4"
         whileHover={{scale: 1.02, transition: {duration: 0.2}}}
     >
-        <p className="text-[#676767] text-left max-w-4xl text-sm mb-4 sm:mb-6 leading-relaxed">
+        <p className="text-[#676767] text-left max-w-5xl text-sm mb-4 sm:mb-6 leading-relaxed">
             {testimonial.quote}
         </p>
         <div className="justify-between w-full items-center gap-8 flex flex-row">
@@ -87,27 +87,39 @@ const TranslateWrapper = ({children, duration = 30}: TranslateWrapperProps) => {
 const Testimonial = () => {
     const testimonials: TestimonialProps[] = [
         {
-            quote: "Lorem ipsum dolor sit amet consectetur. Ut pulvinar ullamcorper enim vulputate.",
-            name: "Sophia L.",
-            title: "Creative Director",
+            quote: "Working with Nexus Logix has really eased the stress off of our supply chain. Their team handles everything and keeps us in the loop, which makes a huge difference.",
+            name: "Rachel Silva",
+            title: "Supply Chain Manager",
             avatar: "/avatar-placeholder.png",
         },
         {
-            quote: "Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
-            name: "James M.",
-            title: "Product Manager",
+            quote: "Nexus Logix listened to our needs and helped simplify a complicated shipping process. It feels good to know we have a partner that truly understands our business.",
+            name: "Daniel Brooks",
+            title: "Logistics Director",
             avatar: "/avatar-placeholder.png",
         },
         {
-            quote: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-            name: "Emma R.",
-            title: "UX Designer",
+            quote: "I appreciate how reliable Nexus Logix is. With them on board, our timelines are met without surprises, and that personal touch means a lot.",
+            name: "Priya Nair",
+            title: "Operations Manager",
             avatar: "/avatar-placeholder.png",
         },
         {
-            quote: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
-            name: "Liam T.",
-            title: "Developer",
+            quote: "We’ve worked with larger freight companies before, but Nexus Logix delivers the kind of personal service that’s hard to find. They keep things simple, clear, and on time.",
+            name: "Michael Chen",
+            title: "Procurement Head",
+            avatar: "/avatar-placeholder.png",
+        },
+        {
+            quote: "As an import-focused business, we’ve dealt with our fair share of customs conundrums. But since choosing to partner with Nexus Logix, it’s never been an issue, because they’re ready with a plan, long before the goods arrive for clearance.",
+            name: "Akhil Fernando",
+            title: "Import & Compliance Manager",
+            avatar: "/avatar-placeholder.png",
+        },
+        {
+            quote: "We’re a small- to mid-size business, heavily affected by seasonality, and we’ve reaped nothing but benefit and peace of mind, thanks to the easily scalable logistics provided by Nexus Logix. The cost-benefit and the efficiency-benefit have strengthened our bottom line and our operational framework.",
+            name: "Emily Dawson",
+            title: "Finance & Operations Lead",
             avatar: "/avatar-placeholder.png",
         },
     ];
