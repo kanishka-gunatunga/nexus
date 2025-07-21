@@ -481,7 +481,7 @@ const Nav = () => {
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
             <Link
-              href="#"
+              href="/whyNexus"
               className="block px-3 py-2 text-base font-medium text-[#282828] hover:text-[#082049] hover:bg-gray-100 rounded-md transition-colors w-full text-center"
               onClick={() => setIsMenuOpen(false)}
             >
