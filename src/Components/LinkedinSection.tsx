@@ -12,7 +12,7 @@ const LinkedinSection = () => {
                         <h3 className="text-xl sm:text-2xl lg:text-4xl xl:text-[45px] font-normal text-[#162F65] mb-3 sm:mb-4">
                             Link up on LinkedIn
                         </h3>
-                        <p className="text-sm sm:text-base lg:text-lg text-[#676767] font-medium leading-[28px] max-w-xl sm:max-w-2xl">
+                        <p className="text-sm sm:text-base text-[#676767] font-medium leading-[28px] max-w-xl sm:max-w-2xl">
                             Stay informed about the latest developments in the logistics space
                             and get early updates about the lowest emerging rate windows by
                             following us on LinkedIn.
