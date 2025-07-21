@@ -89,7 +89,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
 
       {/* Widget */}
       <div
-        className={`fixed right-0 top-0 h-full w-full md:w-1/2 bg-[#1B1B1B] z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed right-0 top-0 h-full w-full md:w-3/4 bg-[#1B1B1B] z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -107,14 +107,16 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
           <div className="w-full max-w-3xl p-6 sm:p-8 bg-[#1B1B1B]">
             {/* Header */}
             <div className="mb-8">
-              <h2 className="text-3xl sm:text-4xl font-normal text-white mb-4 leading-tight">
+              <h2 className="font-poppins font-bold text-[32px] sm:text-[42px] lg:text-[51px] text-white leading-[69px] mb-4">
                 Request a<br />
                 freight rate today
               </h2>
-              <p className="text-gray-300 text-sm mb-2">
+
+              <p className="font-poppins font-medium text-[14px] sm:text-[16px] lg:text-[19px] leading-[29px] tracking-[0.003em] text-gray-300 mb-2">
                 Tell us as much as you can... Nothing is too complex for us...
               </p>
-              <p className="text-gray-300 text-sm italic">
+
+              <p className="font-poppins font-medium italic text-[14px] sm:text-[16px] lg:text-[19px] leading-[29px] tracking-[0.003em] text-gray-300">
                 Commercial shipments only - no personal effects.
               </p>
             </div>
@@ -126,7 +128,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div>
                   <label
                     htmlFor="firstName"
-                    className="block text-white text-sm mb-2"
+                    className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
                     First Name*
                   </label>
@@ -143,7 +145,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div>
                   <label
                     htmlFor="lastName"
-                    className="block text-white text-sm mb-2"
+                    className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
                     Last Name*
                   </label>
@@ -163,7 +165,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
               <div>
                 <label
                   htmlFor="companyName"
-                  className="block text-white text-sm mb-2"
+                  className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                 >
                   Company Name*
                 </label>
@@ -187,7 +189,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-white text-sm mb-2"
+                    className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
                     Email*
                   </label>
@@ -204,7 +206,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-white text-sm mb-2"
+                    className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
                     Phone Number*
                   </label>
@@ -215,7 +217,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
                   />
                 </div>
               </div>
@@ -225,7 +227,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div className="relative">
                   <label
                     htmlFor="shipmentsPerMonth"
-                    className="block text-white text-sm mb-2"
+                    className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
                     Number of shipments per month
                   </label>
@@ -234,7 +236,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="shipmentsPerMonth"
                     value={formData.shipmentsPerMonth}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
+                    className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
                   >
                     <option value="25044" className="bg-[#2A2A2A] text-white">
                       10 to 25
@@ -257,7 +259,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div className="relative">
                   <label
                     htmlFor="mode"
-                    className="block text-white text-sm mb-2"
+                    className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
                     Mode
                   </label>
@@ -266,7 +268,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="mode"
                     value={formData.mode}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
+                    className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
                   >
                     <option
                       value="Air & Sea Freight Services"
@@ -320,7 +322,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div>
                   <label
                     htmlFor="originPort"
-                    className="block text-white text-sm mb-2"
+                    className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
                     Origin Port or Country
                   </label>
@@ -336,7 +338,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div>
                   <label
                     htmlFor="originPort"
-                    className="block text-white text-sm mb-2"
+                    className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
                     Destination port or Country
                   </label>
@@ -355,7 +357,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
               <div>
                 <label
                   htmlFor="enquiry"
-                  className="block text-white text-sm mb-2"
+                  className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                 >
                   Enquiry
                 </label>
@@ -366,7 +368,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   onChange={handleInputChange}
                   rows={2}
                   placeholder="Type your message here..."
-                  className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] placeholder-gray-400 py-2 px-0 focus:outline-none focus:border-white transition-colors resize-none"
+                  className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] placeholder-gray-400 py-2 px-0 focus:outline-none focus:border-white transition-colors resize-none"
                 />
               </div>
 
@@ -379,7 +381,10 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   onChange={(e) => setPrivacyAccepted(e.target.checked)}
                   className="mt-1 w-4 h-4 text-blue-600 bg-transparent border-gray-300 rounded focus:ring-blue-500"
                 />
-                <label htmlFor="privacy" className="text-xs text-gray-300">
+                <label
+                  htmlFor="privacy"
+                  className="font-poppins font-normal text-[12px] md:text-[14px] lg:text-[15px] leading-[25px] tracking-[0em] text-white"
+                >
                   Our{" "}
                   <a href="/privacy-policy" className="underline">
                     privacy policy
@@ -426,8 +431,8 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                       className="object-contain filter invert"
                     />
                   </div>
-                  <div className="text-xs text-center text-gray-300 leading-tight">
-                    <div className="font-medium">{service.title}</div>
+                  <div className="font-poppins font-medium text-[12px] sm:text-[13px] lg:text-[14px] leading-[19px] tracking-[0.02em] text-center text-gray-300">
+                    <div>{service.title}</div>
                     <div>{service.subtitle}</div>
                   </div>
                 </button>
@@ -445,13 +450,12 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   className="object-contain"
                 />
               </div>
-              <div className="text-sm text-gray-300 leading-tight">
+              <div className="font-poppins font-medium text-gray-300 leading-[17px] text-[11px] sm:text-[12px] lg:text-[13px] leading-tight">
                 A proudly Australian logistics pit crew with a global reach,
                 <br />
                 delivering agile, reliable freight solutions that keep your
-                supply
                 <br />
-                chain moving.
+                supply chain moving.
               </div>
             </div>
           </div>
