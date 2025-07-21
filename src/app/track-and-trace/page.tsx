@@ -87,7 +87,7 @@ const TrackAndTrace = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left side - Dashboard Image */}
-            <div className="order-2 lg:order-1">
+            <div className="order-2 lg:order-1 lg:-ml-42">
               <div className="relative w-full">
                 <Image
                   src="/trackAndTrace_img1.svg"
