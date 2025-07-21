@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 interface FreightQuoteWidgetProps {
   isOpen: boolean;
@@ -24,6 +25,34 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
   });
 
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+
+  const services = [
+    {
+      id: "air-sea",
+      title: "AIR & SEA",
+      subtitle: "FREIGHT",
+      image: "/icons/plane-black.svg",
+    },
+    {
+      id: "road-rail",
+      title: "ROAD & RAIL",
+      subtitle: "TRANSPORT",
+      image: "/icons/truck.svg",
+    },
+    {
+      id: "logistics",
+      title: "INTEGRATED",
+      subtitle: "LOGISTICS",
+      image: "/icons/box.svg",
+    },
+    {
+      id: "customs",
+      title: "CUSTOMS CLEARANCE",
+      subtitle: "& COMPLIANCE",
+      image: "/icons/cart.svg",
+    },
+  ];
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -77,14 +106,14 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
           <div className="w-full max-w-3xl p-6 sm:p-8 bg-[#1B1B1B]">
             {/* Header */}
             <div className="mb-8">
-              <h2 className="textfont-poppins font-bold text-[35px] lg:text-[55px] text-white mb-4 leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-normal text-white mb-4 leading-tight">
                 Request a<br />
                 freight rate today
               </h2>
-              <p className="font-poppins font-medium sm:text-[18px] md:text-[18px] lg:text-[20px] text-white italic mb-2">
+              <p className="text-gray-300 text-sm mb-2">
                 Tell us as much as you can... Nothing is too complex for us...
               </p>
-              <p className="font-poppins font-medium sm:text-[18px] md:text-[18px] lg:text-[20px] text-white italic">
+              <p className="text-gray-300 text-sm italic">
                 Commercial shipments only - no personal effects.
               </p>
             </div>
@@ -96,7 +125,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div>
                   <label
                     htmlFor="firstName"
-                    className="font-poppins sm:text-[18px] md:text-[18px] lg:text-[20px] text-white mb-2"
+                    className="block text-white text-sm mb-2"
                   >
                     First Name*
                   </label>
@@ -107,13 +136,13 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-transparent border-b border-gray-500 text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="lastName"
-                    className="font-poppins sm:text-[18px] md:text-[18px] lg:text-[20px] text-white mb-2"
+                    className="block text-white text-sm mb-2"
                   >
                     Last Name*
                   </label>
@@ -124,7 +153,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-transparent border-b border-gray-500 text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
                   />
                 </div>
               </div>
@@ -133,13 +162,13 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
               <div>
                 <label
                   htmlFor="companyName"
-                  className="font-poppins sm:text-[18px] md:text-[18px] lg:text-[20px] text-white mb-2"
+                  className="block text-white text-sm mb-2"
                 >
                   Company Name*
                 </label>
-                <p className="text-xs text-white mb-2">
-                  Kindly use your company email address so your enquiry isn't
-                  marked as spam.
+                <p className="text-xs text-gray-400 mb-2">
+                  Kindly use your company email address to <br /> your enquiry
+                  isn't marked as spam.
                 </p>
                 <input
                   type="text"
@@ -148,7 +177,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   value={formData.companyName}
                   onChange={handleInputChange}
                   required
-                  className="w-full bg-transparent border-b border-gray-500 text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                  className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
                 />
               </div>
 
@@ -157,7 +186,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div>
                   <label
                     htmlFor="email"
-                    className="font-poppins sm:text-[18px] md:text-[18px] lg:text-[20px] text-white mb-2"
+                    className="block text-white text-sm mb-2"
                   >
                     Email*
                   </label>
@@ -168,13 +197,13 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-transparent border-b border-gray-500 text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="phone"
-                    className="nt-poppins sm:text-[18px] md:text-[18px] lg:text-[20px] text-white mb-2"
+                    className="block text-white text-sm mb-2"
                   >
                     Phone Number*
                   </label>
@@ -185,17 +214,17 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-transparent border-b border-gray-500 text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
                   />
                 </div>
               </div>
 
               {/* Shipments and Mode */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
+                <div className="relative">
                   <label
                     htmlFor="shipmentsPerMonth"
-                    className="nt-poppins sm:text-[18px] md:text-[18px] lg:text-[20px] text-white mb-2"
+                    className="block text-white text-sm mb-2"
                   >
                     Number of shipments per month
                   </label>
@@ -204,29 +233,30 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="shipmentsPerMonth"
                     value={formData.shipmentsPerMonth}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b border-gray-500 text-white py-2 focus:outline-none focus:border-white transition-colors appearance-none"
+                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
                   >
                     <option value="25044" className="bg-[#2A2A2A] text-white">
-                      25044
+                      10 to 25
                     </option>
                     <option value="1-5" className="bg-[#2A2A2A] text-white">
-                      1-5
+                      25 to 50
                     </option>
                     <option value="6-10" className="bg-[#2A2A2A] text-white">
-                      6-10
-                    </option>
-                    <option value="11-25" className="bg-[#2A2A2A] text-white">
-                      11-25
-                    </option>
-                    <option value="25+" className="bg-[#2A2A2A] text-white">
-                      25+
+                      More than 50
                     </option>
                   </select>
+
+                  {/* Chevron icon positioned absolutely */}
+                  <ChevronDown
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none"
+                    stroke="#A5A5A5"
+                    size={17}
+                  />
                 </div>
-                <div>
+                <div className="relative">
                   <label
                     htmlFor="mode"
-                    className="nt-poppins sm:text-[18px] md:text-[18px] lg:text-[20px] text-white mb-2"
+                    className="block text-white text-sm mb-2"
                   >
                     Mode
                   </label>
@@ -235,33 +265,52 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="mode"
                     value={formData.mode}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b border-gray-500 text-white py-2 focus:outline-none focus:border-white transition-colors appearance-none"
+                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
                   >
                     <option
                       value="Air & Sea Freight Services"
                       className="bg-[#2A2A2A] text-white"
                     >
-                      Air & Sea Freight Services
+                      Air Freight Services
                     </option>
                     <option
                       value="Road & Rail Transport"
                       className="bg-[#2A2A2A] text-white"
                     >
-                      Road & Rail Transport
+                      Sea Freight Services
                     </option>
                     <option
                       value="Customs Clearance"
                       className="bg-[#2A2A2A] text-white"
                     >
-                      Customs Clearance
+                      Sea-Air Combination
                     </option>
                     <option
                       value="3PL Warehousing"
                       className="bg-[#2A2A2A] text-white"
                     >
-                      3PL Warehousing
+                      Book Road Transport
+                    </option>
+                    <option
+                      value="3PL Warehousing"
+                      className="bg-[#2A2A2A] text-white"
+                    >
+                      Explore Rail Options
+                    </option>
+                    <option
+                      value="3PL Warehousing"
+                      className="bg-[#2A2A2A] text-white"
+                    >
+                      Other
                     </option>
                   </select>
+
+                  {/* White chevron icon */}
+                  <ChevronDown
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none"
+                    stroke="#A5A5A5"
+                    size={17}
+                  />
                 </div>
               </div>
 
@@ -270,7 +319,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 <div>
                   <label
                     htmlFor="originPort"
-                    className="nt-poppins sm:text-[18px] md:text-[18px] lg:text-[20px] text-white mb-2"
+                    className="block text-white text-sm mb-2"
                   >
                     Origin Port or Country
                   </label>
@@ -280,36 +329,24 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="originPort"
                     value={formData.originPort}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b border-gray-500 text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
                   />
                 </div>
                 <div>
                   <label
-                    htmlFor="destinationPort"
-                    className="nt-poppins sm:text-[18px] md:text-[18px] lg:text-[20px] text-white mb-2"
+                    htmlFor="originPort"
+                    className="block text-white text-sm mb-2"
                   >
                     Destination port or Country
                   </label>
-                  <select
-                    id="destinationPort"
-                    name="destinationPort"
-                    value={formData.destinationPort}
+                  <input
+                    type="text"
+                    id="originPort"
+                    name="originPort"
+                    value={formData.originPort}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b border-gray-500 text-white py-2 focus:outline-none focus:border-white transition-colors appearance-none"
-                  >
-                    <option value="Import" className="bg-[#2A2A2A] text-white">
-                      Import
-                    </option>
-                    <option value="Export" className="bg-[#2A2A2A] text-white">
-                      Export
-                    </option>
-                    <option
-                      value="Domestic"
-                      className="bg-[#2A2A2A] text-white"
-                    >
-                      Domestic
-                    </option>
-                  </select>
+                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                  />
                 </div>
               </div>
 
@@ -317,7 +354,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
               <div>
                 <label
                   htmlFor="enquiry"
-                  className="nt-poppins sm:text-[18px] md:text-[18px] lg:text-[20px] text-white mb-2"
+                  className="block text-white text-sm mb-2"
                 >
                   Enquiry
                 </label>
@@ -326,8 +363,9 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   name="enquiry"
                   value={formData.enquiry}
                   onChange={handleInputChange}
-                  rows={4}
-                  className="w-full bg-transparent border border-gray-500 text-white placeholder-gray-400 p-3 rounded focus:outline-none focus:border-white transition-colors resize-none"
+                  rows={2}
+                  placeholder="Type your message here..."
+                  className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] placeholder-gray-400 py-2 px-0 focus:outline-none focus:border-white transition-colors resize-none"
                 />
               </div>
 
@@ -342,9 +380,9 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 />
                 <label htmlFor="privacy" className="text-xs text-gray-300">
                   Our{" "}
-                  <span className="underline cursor-pointer">
+                  <a href="/privacy-policy" className="underline">
                     privacy policy
-                  </span>{" "}
+                  </a>{" "}
                   contains detailed information about our handling of personal
                   information.
                 </label>
@@ -353,82 +391,55 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#4A5FBF] text-white py-3 px-6 rounded hover:bg-[#3A4FAF] transition-colors duration-200 font-medium"
+                onClick={handleSubmit}
+                className="ml-auto block px-8 py-3 font-poppins font-medium text-[16px] md:text-[20px] lg:text-[25px] leading-[100%] tracking-[0em] text-white rounded-md hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+                style={{ backgroundColor: "#162F65" }}
               >
                 Get My Quote
               </button>
             </form>
 
             {/* Footer Icons */}
-            <div className="flex justify-center gap-8 mt-12 pt-8 border-t border-gray-600">
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 mb-2 flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2L4.5 20.29L8.5 17.5L12 22L15.5 17.5L19.5 20.29L12 2Z" />
-                  </svg>
-                </div>
-                <div className="text-xs text-center text-gray-300 leading-tight">
-                  <div className="font-medium">AIR & SEA</div>
-                  <div>FREIGHT</div>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 mb-2 flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.85L8.91 12.7C8.96 12.47 9 12.24 9 12S8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5S19.66 2 18 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12S4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.34C15.11 18.55 15.08 18.77 15.08 19C15.08 20.61 16.39 21.92 18 21.92S20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z" />
-                  </svg>
-                </div>
-                <div className="text-xs text-center text-gray-300 leading-tight">
-                  <div className="font-medium">ROAD & RAIL</div>
-                  <div>TRANSPORT</div>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 mb-2 flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2L2 7L12 12L22 7L12 2M2 17L12 22L22 17M2 12L12 17L22 12" />
-                  </svg>
-                </div>
-                <div className="text-xs text-center text-gray-300 leading-tight">
-                  <div className="font-medium">INTEGRATED</div>
-                  <div>LOGISTICS</div>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 mb-2 flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M9 11H7V9H9V11M13 7H11V13H13V7M15 15H9C8.45 15 8 14.55 8 14V6C8 5.45 8.45 5 9 5H15C15.55 5 16 5.45 16 6V14C16 14.55 15.55 15 15 15M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" />
-                  </svg>
-                </div>
-                <div className="text-xs text-center text-gray-300 leading-tight">
-                  <div className="font-medium">CUSTOMS CLEARANCE</div>
-                  <div>& COMPLIANCE</div>
-                </div>
-              </div>
+            <div className="flex justify-left gap-8 mt-12 pt-8">
+              {services.map((service) => (
+                <button
+                  key={service.id}
+                  type="button"
+                  onClick={() =>
+                    setSelectedService((prev) =>
+                      prev === service.id ? null : service.id
+                    )
+                  }
+                  className={`flex flex-col items-center p-3 rounded-sm transition-all duration-200 ${
+                    selectedService === service.id
+                      ? "bg-[#0F0F0F] "
+                      : "hover:bg-[#0F0F0F]"
+                  }`}
+                >
+                  <div className="w-16 h-16 mb-2 flex items-center justify-center">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-contain filter invert"
+                    />
+                  </div>
+                  <div className="text-xs text-center text-gray-300 leading-tight">
+                    <div className="font-medium">{service.title}</div>
+                    <div>{service.subtitle}</div>
+                  </div>
+                </button>
+              ))}
             </div>
 
             {/* Company Logo/Info */}
-            <div className="mt-12 pt-8 border-t border-gray-600 flex items-center gap-4">
-              <div className="text-2xl font-bold text-white">neXus</div>
+            <div className="mt-12 pt-8 flex items-center gap-10">
+              <div className="w-24 h-auto">
+                <img
+                  src="/footer_logo.png"
+                  alt="neXus Logo"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
               <div className="text-sm text-gray-300 leading-tight">
                 A proudly Australian logistics pit crew with a global reach,
                 <br />

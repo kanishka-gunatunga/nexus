@@ -84,7 +84,7 @@ const ServicesPage = () => {
               Comprehensive
               <br className="hidden sm:block" /> Solutions
             </h2>
-            <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-base leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left text-justify">
+            <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-[18px] lg:text-base leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left text-justify">
               Whether it&#39;s retail, manufacturing, mining, automotive, or any
               other industry, our specialists understand each one&#39;s unique
               challenges, constraints, and regulations. In particular, we
