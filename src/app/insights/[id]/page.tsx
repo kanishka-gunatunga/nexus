@@ -125,7 +125,7 @@ const InsightInner = () => {
                                         <div
                                             className="absolute bg-gradient-to-t from-[#002B64] to-[#00255700] inset-0"/>
                                         <div className="absolute bottom-9 left-6 right-6">
-                                            <h3 className="text-white font-bold text-lg sm:text-xl leading-normal tracking-[0.6px]">
+                                            <h3 className="text-white font-semibold text-lg sm:text-xl leading-normal tracking-[0.6px]">
                                                 Eco Freight
                                             </h3>
                                             <p className="text-white text-[10px] leading-[12px] mb-4">
