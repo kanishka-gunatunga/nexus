@@ -455,7 +455,7 @@ export default function Home() {
                         </div>
 
                         <div className="flex flex-col">
-                            <h2 className="text-2xl sm:text-3xl lg:text-[57px] font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-8 text-left">
+                            <h2 className="text-2xl sm:text-3xl lg:text-[53px] font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-8 text-left">
                                 Why Nexus Logix
                             </h2>
                             <div
@@ -482,7 +482,7 @@ export default function Home() {
                                     extension of your office.
                                 </p>
                             </div>
-                            <p className="text-[#225395] text-lg sm:text-xl lg:text-[25px] font-medium mt-4 sm:mt-6 lg:mt-8 text-left">
+                            <p className="text-[#225395] text-lg sm:text-xl lg:text-[21px] font-medium mt-4 sm:mt-6 lg:mt-8 text-left">
                                 - This is the Nexus Way
                             </p>
                             <button
@@ -811,7 +811,7 @@ export default function Home() {
                                 <div className="w-full md:w-3/5 flex flex-col justify-between">
                                     <div>
                                         <h2
-                                            className="font-semibold text-xl sm:text-2xl lg:text-[57px] text-[#162F65] leading-[72px] max-w-3xl text-center md:text-left"
+                                            className="font-semibold text-xl sm:text-2xl lg:text-[53px] text-[#162F65] leading-[72px] max-w-3xl text-center md:text-left"
                                         >
                                             {section.title}
                                         </h2>
