@@ -805,7 +805,7 @@ export default function Home() {
                             )}
                             <div
                                 className={`max-w-7xl relative mx-auto items-center flex flex-col ${
-                                    section.reverse ? "md:flex-row-reverse border-[#D9D9D9] container mx-auto border-b-2 lg:px-8" : "md:flex-row lg:px-12"
+                                    section.reverse ? "md:flex-row-reverse container mx-auto lg:px-8" : "md:flex-row lg:px-12"
                                 } gap-4 sm:gap-8 md:gap-12 lg:gap-16 p-4 sm:p-6`}
                             >
                                 <div className="w-full md:w-3/5 flex flex-col justify-between">
@@ -844,6 +844,8 @@ export default function Home() {
                             </div>
                         </div>
                     ))}
+
+                    <hr className="border-[#D9D9D9] container mx-auto border-b-2 max-w-7xl"/>
                 </div>
             </div>
 
