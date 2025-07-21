@@ -455,11 +455,11 @@ export default function Home() {
                         </div>
 
                         <div className="flex flex-col">
-                            <h2 className="text-2xl sm:text-3xl lg:text-[50px] font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-8 text-left">
+                            <h2 className="text-2xl sm:text-3xl lg:text-[50px] font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-6 text-left -mt-5">
                                 Why Nexus Logix
                             </h2>
                             <div
-                                className="space-y-4 sm:space-y-5 lg:space-y-6 text-sm sm:text-base lg:text-base text-[#676767] font-medium leading-[25px] text-left">
+                                className="space-y-4 sm:space-y-5 lg:space-y-6 text-sm sm:text-base lg:text-lg text-[#676767] font-medium leading-[25px] text-left">
                                 <p>
                                     Established in Australia by a group of logistics professionals,
                                     each with over 25+ years of experience across Australia, Oceania,
