@@ -635,7 +635,7 @@ export default function Home() {
                             Comprehensive
                             <br className="hidden sm:block"/> Solutions
                         </h2>
-                        <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-base leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
+                        <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-lg leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
                             Whether it&#39;s retail, manufacturing, mining, automotive, or any other
                             industry, our specialists understand each one&#39;s unique challenges,
                             constraints, and regulations. In particular, we understand the value
