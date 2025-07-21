@@ -336,9 +336,9 @@
         font-size: 50px !important;
     }
 
-    .head-para {
-        font-size: 25px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 25px !important;*/
+    /*}*/
 
     .head-button {
         font-size: 20px !important;
@@ -592,10 +592,10 @@
         font-size: 50px !important;
         line-height: 1.2 !important;
     }
-    .head-para {
-        font-size: 22px !important;
-        max-width: 500px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 22px !important;*/
+    /*    max-width: 500px !important;*/
+    /*}*/
     .head-button {
         font-size: 22px !important;
         padding: 12px 24px !important;
@@ -641,11 +641,11 @@
         line-height: 1.2 !important;
         margin-bottom: 30px !important;
     }
-    .head-para {
-        font-size: 26px !important;
-        max-width: 600px !important;
-        margin-bottom: 40px !important;
-    }
+    /*.head-para {*/
+    /*    font-size: 26px !important;*/
+    /*    max-width: 600px !important;*/
+    /*    margin-bottom: 40px !important;*/
+    /*}*/
     .head-button {
         font-size: 26px !important;
         padding: 14px 28px !important;

@@ -346,7 +346,7 @@ export default function Home() {
                             <br/>
                             Neither Do We.
                         </h1>
-                        <p className="text-sm sm:text-base lg:text-base xl:text-xl text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
+                        <p className="text-sm sm:text-base lg:text-base text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
                             As your agile logistics partner, we operate as an extension of your
                             business, so you enjoy peace of mind, and responsive service.
                         </p>
