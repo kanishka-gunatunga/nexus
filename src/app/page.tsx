@@ -811,7 +811,7 @@ export default function Home() {
                                 <div className="w-full md:w-3/5 flex flex-col justify-between">
                                     <div>
                                         <h2
-                                            className="font-semibold text-xl sm:text-2xl lg:text-[53px] text-[#162F65] leading-[72px] max-w-3xl text-center md:text-left"
+                                            className={`font-semibold ${section.reverse ? "text-[41px] lg:leading-[56px]" : "text-[50px] lg:leading-[72px]" } text-xl sm:text-2xl text-[#162F65] max-w-3xl text-center md:text-left`}
                                         >
                                             {section.title}
                                         </h2>
