@@ -455,7 +455,7 @@ export default function Home() {
                         </div>
 
                         <div className="flex flex-col">
-                            <h2 className="text-2xl sm:text-3xl lg:text-[53px] font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-8 text-left">
+                            <h2 className="text-2xl sm:text-3xl lg:text-[50px] font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-8 text-left">
                                 Why Nexus Logix
                             </h2>
                             <div
