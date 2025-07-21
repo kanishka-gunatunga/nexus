@@ -816,7 +816,7 @@ export default function Home() {
                                             {section.title}
                                         </h2>
                                         <p
-                                            className={`text-xs sm:text-sm lg:text-base font-medium ${
+                                            className={`text-xs sm:text-sm lg:text-lg font-medium ${
                                                 section.reverse ? "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
                                         >
                                             {section.description}
