@@ -330,7 +330,7 @@ export default function Home() {
                 </div>
 
                 <div id="mobile-hero-content"
-                     className="relative flex flex-col border-[#D9D9D9] container mx-auto border-b-2 pb-4 justify-center items-center text-center
+                     className="relative flex flex-col border-[#D9D9D9] container mx-auto border-b-2 pb-4 mt-4 justify-center items-center text-center
                             w-full px-4 sm:px-6 lg:hidden z-10">
                     <div
                         className="w-full max-w-lg mx-auto">
@@ -650,7 +650,7 @@ export default function Home() {
                             Comprehensive
                             <br className="hidden sm:block"/> Solutions
                         </h2>
-                        <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-lg leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
+                        <p className="text-[#676767] font-medium text-sm sm:text-base lg:text-lg leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
                             Whether it&#39;s retail, manufacturing, mining, automotive, or any other
                             industry, our specialists understand each one&#39;s unique challenges,
                             constraints, and regulations. In particular, we understand the value
@@ -834,7 +834,7 @@ export default function Home() {
                                             {section.title}
                                         </h2>
                                         <p
-                                            className={`text-xs sm:text-sm lg:text-lg font-medium ${
+                                            className={`text-sm lg:text-lg font-medium ${
                                                 section.reverse ? "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
                                         >
                                             {section.description}
