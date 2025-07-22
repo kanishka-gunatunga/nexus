@@ -19,7 +19,7 @@ const ServicesPage = () => {
     {
       label: "Air & Sea Freight",
       description:
-        "Looking for express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport?\nWe optimize routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.",
+        "Looking for express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport?\n\nWe optimize routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.",
       src: "/air-sea-freight.svg",
       alt: "Air and Sea Freight Services",
       link: "/air-and-sea-freight",
@@ -78,13 +78,13 @@ const ServicesPage = () => {
 
       {/* Comprehensive Solutions Section */}
       <div className="lg:-mt-28 lg:pb-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
             <h1 className="text-2xl sm:text-3xl lg:text-[50px] font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-tight mx-auto sm:mx-0">
               Comprehensive
               <br className="hidden sm:block" /> Solutions
             </h1>
-            <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-lg leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
+            <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-lg leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left text-justify">
               Whether it&#39;s retail, manufacturing, mining, automotive, or any
               other industry, our specialists understand each one&#39;s unique
               challenges, constraints, and regulations. In particular, we
