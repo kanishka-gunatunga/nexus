@@ -492,10 +492,10 @@ const airAndSeaFreight = () => {
                     <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
                         Australian Expertise, Global Strength
                     </h2>
-                    <Link href="/services">
+                    <Link href="/leadership">
                         <button
                             className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-                            View Services
+                            Leadership Team
                         </button>
                     </Link>
                 </div>
