@@ -838,6 +838,8 @@ export default function Home() {
                                                 section.reverse ? "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
                                         >
                                             {section.description}
+                                            <span>{section.description}</span>
+                                            
                                         </p>
                                         <div className="mt-4 sm:mt-6 lg:mt-8 text-center md:text-left">
                                             <Link href="#">
