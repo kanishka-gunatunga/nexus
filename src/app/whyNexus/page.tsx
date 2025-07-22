@@ -139,21 +139,21 @@ const airAndSeaFreight = () => {
                         </div>
 
                         <div
-                            className="bg-[#162F65] rounded-lg shadow p-5 sm:p-6 md:p-8 w-full sm:w-[100%] w-full max-w-full flex-1 ">
-                            <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-white mb-2">
+                            className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8 w-full sm:w-[100%] w-full max-w-full flex-1 ">
+                            <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Sustainability
                             </h3>
 
-                            <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-gray-300">
+                            <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-medium">
                                 Track
                             </span>
                             <span className="mx-1"></span>
 
-                            <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#5DF706] ">
-                                Co2
+                            <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#5DF706] font-medium">
+                                CO<sub>2</sub>
                             </span>
                             <span className="mx-1"></span>
-                            <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-gray-300">
+                            <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-medium">
                                 emission of every shipment with CargoWise Neo.
                             </span>
                         </div>
@@ -484,13 +484,17 @@ const airAndSeaFreight = () => {
 
                     image="/sus-accord.png"
                     cards={[
+                        // {
+                        //     title: 'Carbon-Conscious Freight Solutions',
+                        //     content: 'We prioritise cost- and carbon-efficient routing, consolidated loads, and collaborations with carriers that invest in low-emissions technologies.'
+                        // },
+
+                    ]}
+                    accordionItems={[
                         {
                             title: 'Carbon-Conscious Freight Solutions',
                             content: 'We prioritise cost- and carbon-efficient routing, consolidated loads, and collaborations with carriers that invest in low-emissions technologies.'
                         },
-
-                    ]}
-                    accordionItems={[
                         {
                             title: 'Technology for Smarter Decisions',
                             content: 'Our advanced supply chain visibility tools, digital documentation, and emissions transparency empower our customers to make informed decisions.'
@@ -527,13 +531,13 @@ const airAndSeaFreight = () => {
 
             <div className="w-full block lg:hidden bg-[#0F2043] mt-[50px] lg:mt-[100px]">
                 <div
-                    className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+                    className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 h-full lg:h-[400px]">
                     <Image
                         src="/why-nexus/road-map.svg"
                         alt="Nexus X Logo"
                         width={800}
                         height={1200}
-                        className="object-cover"
+                        className="object-cover h-full lg:h-[400px]"
                     />
                 </div>
             </div>
