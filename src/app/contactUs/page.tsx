@@ -4,6 +4,7 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
+import Quote from "@/Components/Quote";
 
 // Define the shape of your form data
 interface FormData {
@@ -171,12 +172,12 @@ export default function ContactPage() {
         <div className="flex flex-col lg:flex-row  overflow-hidden">
           {/* Left Panel - Contact Info */}
           <div
-            className="lg:w-2/5 xl:w-1/3 p-8 lg:p-12 relative rounded-lg"
+            className="lg:w-2/5 xl:w-[555px] p-8 lg:p-12 relative rounded-lg"
             style={{ backgroundColor: "#E7E6DD" }}
           >
-            <div className="max-w-sm">
+            <div className="max-w-md md:max-w-xl">
               <h1
-                className="mb-4 font-poppins font-semibold text-[28px] leading-[40px] tracking-[0.03em] md:text-[32px] md:leading-[48px] lg:text-[39px] lg:leading-[60px]"
+                className="mb-4 font-poppins font-semibold text-[28px] leading-[40px] tracking-[0.03em] md:text-[32px] md:leading-[48px] lg:text-[39px] lg:leading-[38px]"
                 style={{ color: "#162F65" }}
               >
                 We&apos;re here to help.
@@ -336,69 +337,85 @@ export default function ContactPage() {
                   Contact Information
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                  <div className="relative">
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       First Name
                     </label>
+                    <div className="relative">
                     <input
                       type="text"
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
+                      required
                       className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
+                    <span className="absolute right-0 bottom-2 text-black">*</span>
+                    </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.firstName}
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="relative">
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Last Name
                     </label>
+                    <div className="relative">
                     <input
                       type="text"
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
+                      required
                       className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
+                    <span className="absolute right-0 bottom-2 text-black">*</span>
+                    </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.lastName}
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="relative">
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Company Email Address
                     </label>
+                     <div className="relative">
                     <input
                       type="email"
                       name="companyEmail"
                       value={formData.companyEmail}
                       onChange={handleInputChange}
+                      required
                       className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
+                    <span className="absolute right-0 bottom-2 text-black">*</span>
+                    </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.companyEmail}
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="relative">
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Phone
                     </label>
+                    <div className="relative">
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="+61(2)234-5678"
+                      placeholder="+61 2 1234 5678"
+                      required
                       className="w-full font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
                     />
+                    <span className="absolute right-0 bottom-2 text-black">*</span>
+                    </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.phone}
@@ -417,17 +434,21 @@ export default function ContactPage() {
                   Company Information
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                  <div className="relative">
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Company Name
                     </label>
+                    <div className="relative">
                     <input
                       type="text"
                       name="companyName"
                       value={formData.companyName}
                       onChange={handleInputChange}
+                      required
                       className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
+                    <span className="absolute right-0 bottom-2 text-black">*</span>
+                    </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.companyName}
@@ -487,7 +508,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
-                      Province
+                      State
                     </label>
                     <input
                       type="text"
@@ -557,7 +578,7 @@ export default function ContactPage() {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  placeholder="Write your message"
+                  placeholder="Include a description of your requirements"
                   rows={2}
                   className="w-full font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
                 />
@@ -597,6 +618,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+        <Quote />
       </div>
 
       {/* Map Section - Full Width */}

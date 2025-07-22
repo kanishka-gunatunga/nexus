@@ -312,7 +312,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    placeholder="+61212234-5678"
+                    placeholder="+61 7 1234 5678"
                     className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors text-[#647FBB] placeholder-[#647FBB] ${
                       errors.phone
                         ? "border-red-500 text-red-500"
