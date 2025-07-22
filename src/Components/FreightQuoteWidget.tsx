@@ -27,7 +27,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
   });
 
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
-  const [selectedService, setSelectedService] = useState<string | null>(null);
+  // const [selectedService, setSelectedService] = useState<string | null>(null);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const services = [
