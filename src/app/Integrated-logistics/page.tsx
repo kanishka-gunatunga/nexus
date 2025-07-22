@@ -8,6 +8,7 @@ import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
+import HeroSection from "@/Components/HeroSection";
 
 
 
@@ -16,12 +17,18 @@ const integratedLogistics = () => {
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div className="min-h-screen bg-[#F6F6F6] poppins">
-            <div className="relative max-w-7xl mx-auto block">
+         <div className="min-h-screen bg-[#F6F6F6] poppins">
+            <div className="relative mx-auto block">
 
                 <Nav />
 
-                <div id="hero-section"
+                <HeroSection
+                    imageSrc="/hero-images/intergrated-logi.svg"
+                    imageAlt="Integrated Logistics"
+                    title="INTEGRATED LOGISTICS & SPECIAL PROJECTS"
+                    />
+
+                {/* <div id="hero-section"
                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
                     <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
                         <Image
@@ -39,7 +46,7 @@ const integratedLogistics = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
             </div>
 

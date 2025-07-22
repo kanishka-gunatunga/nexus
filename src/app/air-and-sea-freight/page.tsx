@@ -8,6 +8,7 @@ import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
+import HeroSection from "@/Components/HeroSection";
 
 
 
@@ -17,11 +18,16 @@ const airAndSeaFreight = () => {
 
     return (
         <div className="min-h-screen bg-[#F6F6F6] poppins">
-            <div className="relative max-w-7xl mx-auto block">
+            <div className="relative mx-auto block">
 
                 <Nav />
+                <HeroSection
+                    imageSrc="/hero-images/air&sea.svg"
+                    imageAlt="Air and Sea Freight Hero Image"
+                    title="Air & Sea Freight Services"
+                />
 
-                <div id="hero-section"
+                {/* <div id="hero-section"
                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
                     <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
                         <Image
@@ -42,7 +48,7 @@ const airAndSeaFreight = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
             </div>
 
