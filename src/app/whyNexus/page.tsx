@@ -425,7 +425,7 @@ const airAndSeaFreight = () => {
             </div>
 
 
-            <div className="max-w-7xl mx-auto px-8  sm:px-8 lg:px-8 mt-[50px] lg:mt-[100px]">
+            <div className="max-w-7xl mx-auto px-4  sm:px-8 lg:px-8 mt-[50px] lg:mt-[100px]">
                 <div
                     className={`bg-transparent px-0 py-6 md:py-10 flex flex-col lg:flex-row gap-10  'lg:flex-row-reverse' : ''
                         }`}
@@ -474,7 +474,7 @@ const airAndSeaFreight = () => {
             </div>
 
 
-            <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-row justify-center mb-12">
                     <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[50px] leading-[1.1] text-[#162F65] font-poppins">
                         Our Focus Areas
