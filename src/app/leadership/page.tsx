@@ -277,7 +277,7 @@ const LeadershipPage = () => {
                 {/*</div>*/}
             </div>
 
-            <div className="py-6 lg:py-12">
+            <div className="py-6 lg:py-2">
                 <LinkedinSection/>
             </div>
         </div>
