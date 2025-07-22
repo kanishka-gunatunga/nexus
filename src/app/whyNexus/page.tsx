@@ -5,7 +5,7 @@ import React from "react";
 // import Link from "next/link";
 import Nav from "@/Components/Nav";
 // import ServiceCardRow from "@/Components/ServiceCardRow";
-import Quote from "@/Components/Quote";
+// import Quote from "@/Components/Quote";
 
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Navigation} from 'swiper/modules';
