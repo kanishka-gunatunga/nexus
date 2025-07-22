@@ -506,7 +506,7 @@ const airAndSeaFreight = () => {
                 {/*</div>*/}
             </div>
 
-            <Quote/>
+            {/*<Quote/>*/}
             <div className="py-6 lg:py-12">
                 <LinkedinSection/>
             </div>
