@@ -871,7 +871,7 @@ export default function Home() {
                 <div className="">
                     <div
                         className="flex flex-col px-4 sm:px-6 mb-2 lg:mb-8 lg:px-8 max-w-7xl mx-auto lg:flex-row justify-between gap-2 lg:gap-8 items-center md:items-start">
-                        <h2 className="text-xl sm:text-2xl lg:text-5xl text-[#162F65] font-semibold text-center sm:text-left mb-1 leading-[50px] max-w-xl">
+                        <h2 className="text-xl sm:text-2xl lg:text-5xl text-[#0F2043] font-semibold text-center sm:text-left mb-1 leading-[50px] max-w-xl">
                             Success Stories from Our Clients
                         </h2>
                         <p className="text-[#676767] text-sm sm:text-base lg:text-lg font-medium text-center md:text-left mb-6 sm:mb-8 lg:mb-12 max-w-2xl leading-[25px]">
