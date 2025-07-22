@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface FreightQuoteWidgetProps {
   isOpen: boolean;
@@ -17,16 +18,17 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
     lastName: "",
     companyName: "",
     email: "",
-    phone: "+61212234-5678",
-    shipmentsPerMonth: "25044",
-    mode: "Air & Sea Freight Services",
+    phone: "",
+    shipmentsPerMonth: "",
+    mode: "",
     originPort: "",
-    destinationPort: "Import",
-    enquiry: "Include a description of the cargo",
+    destinationPort: "",
+    enquiry: "",
   });
 
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
-  const [selectedService, setSelectedService] = useState<string | null>(null);
+  // const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const services = [
     {
@@ -34,24 +36,28 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
       title: "AIR & SEA",
       subtitle: "FREIGHT",
       image: "/icons/plane-black.svg",
+      link: "/air-and-sea-freight",
     },
     {
       id: "road-rail",
       title: "ROAD & RAIL",
       subtitle: "TRANSPORT",
       image: "/icons/truck.svg",
+      link: "/road-and-rail",
     },
     {
       id: "logistics",
       title: "INTEGRATED",
       subtitle: "LOGISTICS",
       image: "/icons/box.svg",
+      link: "/integrated-logistics",
     },
     {
       id: "customs",
       title: "CUSTOMS CLEARANCE",
       subtitle: "& COMPLIANCE",
       image: "/icons/cart.svg",
+      link: "/customs",
     },
   ];
 
@@ -65,16 +71,69 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
       ...prev,
       [name]: value,
     }));
+
+    // Clear error on input change
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  };
+
+  const validate = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
+    }
+
+    if (!formData.companyName.trim()) {
+      newErrors.companyName = "Company name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email.trim())
+    ) {
+      newErrors.email = "Email is invalid";
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^\+?[0-9\s\-()]{7,}$/i.test(formData.phone.trim())) {
+      newErrors.phone = "Phone number is invalid";
+    }
+
+    if (!privacyAccepted) {
+      newErrors.privacy = "You must accept the privacy policy";
+    }
+
+    // Optional: Check that originPort and destinationPort are not empty if needed
+    if (!formData.originPort.trim()) {
+      newErrors.originPort = "Origin port or country is required";
+    }
+
+    if (!formData.destinationPort.trim()) {
+      newErrors.destinationPort = "Destination port or country is required";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!privacyAccepted) {
-      alert("Please accept the privacy policy to continue.");
-      return;
+
+    if (validate()) {
+      // All validations passed
+      console.log("Form submitted:", formData);
+      // You can reset form or call API here
     }
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
   };
 
   if (!isOpen) return null;
@@ -83,13 +142,13 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
+        className="fixed inset-0 backdrop-blur-[4px] bg-black/10 z-40 transition-opacity duration-300"
         onClick={onClose}
       />
 
       {/* Widget */}
       <div
-        className={`fixed right-0 top-0 h-full w-full md:w-3/4 bg-[#1B1B1B] z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed right-0 top-0 h-full w-full md:w-1/2 bg-[#1B1B1B] z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -124,7 +183,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Fields */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div>
                   <label
                     htmlFor="firstName"
@@ -139,8 +198,17 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
+                      errors.firstName
+                        ? "border-red-500 text-red-500"
+                        : "border-[#A5A5A5] text-white"
+                    }`}
                   />
+                  {errors.firstName && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.firstName}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -156,8 +224,17 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
+                      errors.lastName
+                        ? "border-red-500 text-red-500"
+                        : "border-[#A5A5A5] text-white"
+                    }`}
                   />
+                  {errors.lastName && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.lastName}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -180,12 +257,21 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   value={formData.companyName}
                   onChange={handleInputChange}
                   required
-                  className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                  className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
+                    errors.companyName
+                      ? "border-red-500 text-red-500"
+                      : "border-[#A5A5A5] text-white"
+                  }`}
                 />
+                {errors.companyName && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.companyName}
+                  </p>
+                )}
               </div>
 
               {/* Email and Phone */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div>
                   <label
                     htmlFor="email"
@@ -200,8 +286,15 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
+                      errors.email
+                        ? "border-red-500 text-red-500"
+                        : "border-[#A5A5A5] text-white"
+                    }`}
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -217,13 +310,21 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    placeholder="+61212234-5678"
+                    className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
+                      errors.phone
+                        ? "border-red-500 text-red-500"
+                        : "border-[#A5A5A5] text-white"
+                    }`}
                   />
+                  {errors.phone && (
+                    <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+                  )}
                 </div>
               </div>
 
               {/* Shipments and Mode */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div className="relative">
                   <label
                     htmlFor="shipmentsPerMonth"
@@ -238,13 +339,13 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     onChange={handleInputChange}
                     className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
                   >
-                    <option value="25044" className="bg-[#2A2A2A] text-white">
+                    <option value="10-25" className="bg-[#2A2A2A] text-white">
                       10 to 25
                     </option>
-                    <option value="1-5" className="bg-[#2A2A2A] text-white">
+                    <option value="25-50" className="bg-[#2A2A2A] text-white">
                       25 to 50
                     </option>
-                    <option value="6-10" className="bg-[#2A2A2A] text-white">
+                    <option value="50" className="bg-[#2A2A2A] text-white">
                       More than 50
                     </option>
                   </select>
@@ -271,39 +372,36 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
                   >
                     <option
-                      value="Air & Sea Freight Services"
+                      value="Air Freight Services"
                       className="bg-[#2A2A2A] text-white"
                     >
                       Air Freight Services
                     </option>
                     <option
-                      value="Road & Rail Transport"
+                      value="Sea Freight Services"
                       className="bg-[#2A2A2A] text-white"
                     >
                       Sea Freight Services
                     </option>
                     <option
-                      value="Customs Clearance"
+                      value="Sea-Air Combination"
                       className="bg-[#2A2A2A] text-white"
                     >
                       Sea-Air Combination
                     </option>
                     <option
-                      value="3PL Warehousing"
+                      value="Book Road Transport"
                       className="bg-[#2A2A2A] text-white"
                     >
                       Book Road Transport
                     </option>
                     <option
-                      value="3PL Warehousing"
+                      value="Explore Rail Options"
                       className="bg-[#2A2A2A] text-white"
                     >
                       Explore Rail Options
                     </option>
-                    <option
-                      value="3PL Warehousing"
-                      className="bg-[#2A2A2A] text-white"
-                    >
+                    <option value="Other" className="bg-[#2A2A2A] text-white">
                       Other
                     </option>
                   </select>
@@ -318,7 +416,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
               </div>
 
               {/* Origin and Destination */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div>
                   <label
                     htmlFor="originPort"
@@ -332,8 +430,17 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="originPort"
                     value={formData.originPort}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
+                      errors.originPort
+                        ? "border-red-500 text-red-500"
+                        : "border-[#A5A5A5] text-white"
+                    }`}
                   />
+                  {errors.originPort && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.originPort}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -348,8 +455,17 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="originPort"
                     value={formData.originPort}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-gray-400 py-2 focus:outline-none focus:border-white transition-colors"
+                    className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
+                      errors.destinationPort
+                        ? "border-red-500 text-red-500"
+                        : "border-[#A5A5A5] text-white"
+                    }`}
                   />
+                  {errors.destinationPort && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.destinationPort}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -367,8 +483,8 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   value={formData.enquiry}
                   onChange={handleInputChange}
                   rows={2}
-                  placeholder="Type your message here..."
-                  className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] placeholder-gray-400 py-2 px-0 focus:outline-none focus:border-white transition-colors resize-none"
+                  placeholder="Include a description of the cargo"
+                  className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] placeholder-[#647FBB] py-2 px-0 focus:outline-none focus:border-white transition-colors resize-none"
                 />
               </div>
 
@@ -406,21 +522,12 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
             </form>
 
             {/* Footer Icons */}
-            <div className="flex justify-left gap-8 mt-12 pt-8">
+            <div className="grid grid-cols-2 gap-6 mt-12 pt-8 xl:flex xl:flex-row xl:flex-wrap xl:justify-start">
               {services.map((service) => (
-                <button
+                <Link
                   key={service.id}
-                  type="button"
-                  onClick={() =>
-                    setSelectedService((prev) =>
-                      prev === service.id ? null : service.id
-                    )
-                  }
-                  className={`flex flex-col items-center p-3 rounded-sm transition-all duration-200 ${
-                    selectedService === service.id
-                      ? "bg-[#0F0F0F] "
-                      : "hover:bg-[#0F0F0F]"
-                  }`}
+                  href={service.link}
+                  className="w-36 h-36 flex flex-col items-center justify-center p-3 rounded-md transition-all duration-200 hover:bg-[#0F0F0F]"
                 >
                   <div className="w-16 h-16 mb-2 flex items-center justify-center">
                     <Image
@@ -435,7 +542,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     <div>{service.title}</div>
                     <div>{service.subtitle}</div>
                   </div>
-                </button>
+                </Link>
               ))}
             </div>
 
