@@ -50,6 +50,7 @@ const Accordian: React.FC<AccordianProps> = ({
           sm:h-auto md:h-auto 
           sm:w-full md:w-full 
           lg:h-full lg:w-full 
+          max-h-[500px]
           shadow
         "
             />

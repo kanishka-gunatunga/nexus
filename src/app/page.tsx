@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Testimonial from "@/Components/Testimonial";
 import LinkedinSection from "@/Components/LinkedinSection";
 import Quote from "@/Components/Quote";
@@ -13,6 +13,8 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// import { homePage } from '../../src/sanity/lib/homePage'
+
 export default function Home() {
 
     const images = ["/plane1.png", "/slid1.png", "/slid2.png", "/slid3.png", "/slid4.png", "/slid5.png"];
@@ -22,6 +24,20 @@ export default function Home() {
     const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
 
+    // const [data, setData] = useState<any>(null)
+    // interface HomePageData {
+    //     heroTitle: string;
+    //     heroDescription: string;
+    //     buttonText: string;
+    // }
+
+    // const dataTest= homePage();
+
+    // useEffect(() => {
+    //     homePage().then(setData)
+    // }, [])
+
+    // console.log(dataTest);
     // useEffect(() => {
     //     const interval = setInterval(() => {
     //         setCurrentImageIndex((prevIndex) =>
@@ -79,8 +95,8 @@ export default function Home() {
     ];
 
     const stats = [
-        {value: 39, label: "Countries", suffix: "+"},
-        {value: 76, label: "Global Partner Offices"},
+        { value: 39, label: "Countries", suffix: "+" },
+        { value: 76, label: "Global Partner Offices" },
     ];
 
 
@@ -313,10 +329,10 @@ export default function Home() {
                     </div>
                 </div>
 
-                <Nav/>
+                <Nav />
 
                 <div id="hero-background-image"
-                     className="relative w-full h-[400px] mobile:h-[500px] sm:h-[600px] md:h-[800px] -mt-20 lg:hidden overflow-hidden">
+                    className="relative w-full h-[400px] mobile:h-[500px] sm:h-[600px] md:h-[800px] -mt-20 lg:hidden overflow-hidden">
                     <Image
                         key={mobileImages[currentMobileImageIndex]}
                         src={mobileImages[currentMobileImageIndex]}
@@ -330,13 +346,14 @@ export default function Home() {
                 </div>
 
                 <div id="mobile-hero-content"
-                     className="relative flex flex-col border-[#D9D9D9] container mx-auto border-b-2 pb-4 mt-4 justify-center items-center text-center
+                    className="relative flex flex-col border-[#D9D9D9] container mx-auto border-b-2 pb-4 mt-4 justify-center items-center text-center
                             w-full px-4 sm:px-6 lg:hidden z-10">
                     <div
                         className="w-full max-w-lg mx-auto">
                         <h1 className="text-2xl mobile:text-3xl sm:text-4xl font-bold text-[#114284] leading-tight mb-4 sm:mb-6">
                             Supply Chains Never Sleep.
-                            <br className="sm:hidden"/>Neither Do We.
+                            {/* {dataTest?.heroTitle} */}
+                            <br className="sm:hidden" />Neither Do We.
                         </h1>
                         <p className="text-sm mobile:text-base sm:text-lg text-[#676767] font-medium mb-6 sm:mb-8 leading-relaxed">
                             As your agile logistics partner, we operate as an extension of your
@@ -356,9 +373,9 @@ export default function Home() {
                     <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
                         <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
                             Supply Chains
-                            <br/>
+                            <br />
                             Never Sleep.
-                            <br/>
+                            <br />
                             Neither Do We.
                         </h1>
                         <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
@@ -373,7 +390,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <Quote/>
+                <Quote />
 
                 <section className="relative py-6 lg:-top-0 z-40 sm:py-8">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
@@ -462,7 +479,7 @@ export default function Home() {
                                     </p>
                                     <p className="text-xs sm:text-sm lg:text-sm mt-0.5 sm:mt-1">
                                         Industry
-                                        <br/>
+                                        <br />
                                         Experience
                                     </p>
                                 </div>
@@ -518,7 +535,7 @@ export default function Home() {
                     <div
                         className="flex flex-col items-start md:items-center gap-2 lg:gap-8 md:flex-row md:justify-between">
                         <h2 className="text-xl sm:text-2xl lg:text-5xl font-semibold text-[#FFFFFF] text-left leading-tight sm:leading-[48px] lg:leading-[57px]">
-                            Connecting<br className="hidden lg:block"/> you worldwide...
+                            Connecting<br className="hidden lg:block" /> you worldwide...
                         </h2>
                         <div className="flex flex-row justify-between gap-4 sm:gap-6 lg:gap-12 text-left">
                             {stats.map((stat, index) => (
@@ -538,8 +555,8 @@ export default function Home() {
                                             onEnd={() => {
                                             }}
                                         >
-                                            {({countUpRef}) => (
-                                                <span ref={countUpRef}/>
+                                            {({ countUpRef }) => (
+                                                <span ref={countUpRef} />
                                             )}
                                         </CountUp>
                                     </p>
@@ -648,7 +665,7 @@ export default function Home() {
                         className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
                         <h2 className="text-2xl sm:text-3xl lg:text-[50px] font-semibold text-[#162F65] text-center lg:text-left mb-1 sm:mb-0 lg:leading-[72px] mx-auto sm:mx-0">
                             Comprehensive
-                            <br className="hidden sm:block"/> Solutions
+                            <br className="hidden sm:block" /> Solutions
                         </h2>
                         <p className="text-[#676767] font-medium text-sm sm:text-base lg:text-lg leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
                             Whether it&#39;s retail, manufacturing, mining, automotive, or any other
@@ -665,9 +682,9 @@ export default function Home() {
                     <div className="hidden lg:block">
                         <div className="flex flex-row gap-4 sm:gap-6 lg:gap-10">
                             <div id="main-card"
-                                 className="bg-[#002453] relative w-full lg:w-2/3 rounded-lg text-center transition-colors duration-300">
+                                className="bg-[#002453] relative w-full lg:w-2/3 rounded-lg text-center transition-colors duration-300">
                                 <div
-                                    className="absolute bg-[url('/x.png')] opacity-5 bg-no-repeat -top-30 -mr-20 bg-contain inset-0 w-[600px] h-[800px]"/>
+                                    className="absolute bg-[url('/x.png')] opacity-5 bg-no-repeat -top-30 -mr-20 bg-contain inset-0 w-[600px] h-[800px]" />
                                 <div
                                     className="relative p-4 sm:p-6 lg:p-8 flex flex-col items-center justify-between h-full">
                                     <div>
@@ -683,11 +700,11 @@ export default function Home() {
                                             width="81"
                                             height="82" viewBox="0 0 81 82" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="40.5" cy="41" r="37.7635" stroke="white" strokeWidth="5.47297"/>
+                                            <circle cx="40.5" cy="41" r="37.7635" stroke="white" strokeWidth="5.47297" />
                                             <path
                                                 className="origin-center transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-45" // Added scale-110 for a more pronounced effect without layout shift
                                                 d="M50.7383 33.4925C50.7693 32.847 50.5433 32.2156 50.1099 31.7363C49.6764 31.257 49.0708 30.9689 48.4254 30.935L34.6517 30.2429C34.3319 30.2269 34.0121 30.274 33.7105 30.3815C33.4089 30.489 33.1314 30.6549 32.894 30.8697C32.4143 31.3034 32.1266 31.9099 32.0942 32.5558C32.0617 33.2016 32.2872 33.8339 32.7209 34.3136C33.1547 34.7932 33.7612 35.0809 34.4070 35.1133L42.3021 35.51L29.3090 47.26C28.8294 47.6937 28.5418 48.3001 28.5093 48.9459C28.4769 49.5916 28.7023 50.2238 29.1360 50.7034C29.5697 51.183 30.1761 51.4706 30.8219 51.5031C31.4676 51.5355 32.0998 51.3101 32.5794 50.8764L45.5725 39.1264L45.1759 47.0215C45.1598 47.3413 45.2069 47.6612 45.3144 47.9628C45.4220 48.2644 45.5878 48.5418 45.8026 48.7793C46.0174 49.0168 46.2768 49.2097 46.5661 49.3469C46.8554 49.4841 47.1689 49.5630 47.4887 49.5791C47.8085 49.5952 48.1283 49.5481 48.4299 49.4405C48.7315 49.3330 49.0090 49.1671 49.2465 48.9523C49.4840 48.7376 49.6768 48.4781 49.8141 48.1888C49.9513 47.8995 50.0302 47.5860 50.0463 47.2662L50.7383 33.4925Z"
-                                                fill="white"/>
+                                                fill="white" />
                                         </svg>
 
                                         <h3 className="text-sm sm:text-base text-left leading-[35px] lg:text-[36px] text-white font-medium">
@@ -735,15 +752,15 @@ export default function Home() {
                         <Slider {...settings}>
                             {services.map((item, index) => (
                                 <div key={index}
-                                     className="px-2 py-4 flex flex-col items-center">
+                                    className="px-2 py-4 flex flex-col items-center">
                                     <div
                                         className={`relative group cursor-pointer rounded-lg overflow-hidden transition-all duration-300
                                             ${activeService.label === item.label
-                                            ? 'scale-[1.05] bg-[#002453] shadow-lg'
-                                            : 'scale-[0.9]'
-                                        }`}
+                                                ? 'scale-[1.05] bg-[#002453] shadow-lg'
+                                                : 'scale-[0.9]'
+                                            }`}
 
-                                        style={{height: activeService.label === item.label ? '280px' : '270px',width: '100%'}}
+                                        style={{ height: activeService.label === item.label ? '280px' : '270px', width: '100%' }}
                                     >
 
                                         {activeService.label !== item.label && (
@@ -758,16 +775,16 @@ export default function Home() {
                                         <div
                                             className={`absolute inset-0 transition-all duration-300
                                             ${activeService.label === item.label
-                                                ? 'bg-[#002B64]/10'
-                                                : 'bg-gradient-to-t from-[#002B64]/40 to-[#00255700]/10'
-                                            }`}
+                                                    ? 'bg-[#002B64]/10'
+                                                    : 'bg-gradient-to-t from-[#002B64]/40 to-[#00255700]/10'
+                                                }`}
                                         />
 
 
                                         {activeService.label === item.label ? (
                                             <>
                                                 <div
-                                                    className="absolute bg-[url('/x.png')] opacity-5 bg-no-repeat bg-contain inset-0 items-center -top-20 w-[400px] h-[800px]"/>
+                                                    className="absolute bg-[url('/x.png')] opacity-5 bg-no-repeat bg-contain inset-0 items-center -top-20 w-[400px] h-[800px]" />
                                                 <div
                                                     className="relative p-2 sm:p-4 flex flex-col items-center justify-between h-full">
                                                     <p className="text-left font-medium pt-2 px-6 text-xs text-[#FFFFFF] leading-[20px] whitespace-pre-line">
@@ -776,13 +793,13 @@ export default function Home() {
                                                     <div
                                                         className="flex flex-row gap-2 group justify-start items-center pt-4 sm:pt-6 w-full px-6">
                                                         <svg className="w-8 h-8 text-left flex-shrink-0" width="81" height="82"
-                                                             viewBox="0 0 81 82" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            viewBox="0 0 81 82" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
                                                             <circle cx="40.5" cy="41" r="37.7635" stroke="white"
-                                                                    strokeWidth="5.47297"/>
+                                                                strokeWidth="5.47297" />
                                                             <path
                                                                 d="M50.7383 33.4925C50.7693 32.847 50.5433 32.2156 50.1099 31.7363C49.6764 31.257 49.0708 30.9689 48.4254 30.935L34.6517 30.2429C34.3319 30.2269 34.0121 30.274 33.7105 30.3815C33.4089 30.489 33.1314 30.6549 32.894 30.8697C32.4143 31.3034 32.1266 31.9099 32.0942 32.5558C32.0617 33.2016 32.2872 33.8339 32.7209 34.3136C33.1547 34.7932 33.7612 35.0809 34.4070 35.1133L42.3021 35.51L29.3090 47.26C28.8294 47.6937 28.5418 48.3001 28.5093 48.9459C28.4769 49.5916 28.7023 50.2238 29.1360 50.7034C29.5697 51.183 30.1761 51.4706 30.8219 51.5031C31.4676 51.5355 32.0998 51.3101 32.5794 50.8764L45.5725 39.1264L45.1759 47.0215C45.1598 47.3413 45.2069 47.6612 45.3144 47.9628C45.4220 48.2644 45.5878 48.5418 45.8026 48.7793C46.0174 49.0168 46.2768 49.2097 46.5661 49.3469C46.8554 49.4841 47.1689 49.5630 47.4887 49.5791C47.8085 49.5952 48.1283 49.5481 48.4299 49.4405C48.7315 49.3330 49.0090 49.1671 49.2465 48.9523C49.4840 48.7376 49.6768 48.4781 49.8141 48.1888C49.9513 47.8995 50.0302 47.5860 50.0463 47.2662L50.7383 33.4925Z"
-                                                                fill="white"/>
+                                                                fill="white" />
                                                         </svg>
                                                         <h3 className="text-sm sm:text-base text-left leading-[20px] text-white font-medium">
                                                             {item.label}
@@ -822,24 +839,22 @@ export default function Home() {
                                 />
                             )}
                             <div
-                                className={`max-w-7xl relative mx-auto items-center flex flex-col ${
-                                    section.reverse ? "md:flex-row-reverse container mx-auto lg:px-8" : "md:flex-row lg:px-12"
-                                } gap-4 sm:gap-8 md:gap-12 lg:gap-16 p-4 sm:p-6`}
+                                className={`max-w-7xl relative mx-auto items-center flex flex-col ${section.reverse ? "md:flex-row-reverse container mx-auto lg:px-8" : "md:flex-row lg:px-12"
+                                    } gap-4 sm:gap-8 md:gap-12 lg:gap-16 p-4 sm:p-6`}
                             >
                                 <div className="w-full md:w-3/5 flex flex-col justify-between">
                                     <div>
                                         <h2
-                                            className={`font-semibold ${section.reverse ? "lg:text-[41px] lg:leading-[56px]" : "lg:text-[50px] lg:leading-[72px]" } text-xl sm:text-2xl text-[#162F65] max-w-3xl text-center md:text-left`}
+                                            className={`font-semibold ${section.reverse ? "lg:text-[41px] lg:leading-[56px]" : "lg:text-[50px] lg:leading-[72px]"} text-xl sm:text-2xl text-[#162F65] max-w-3xl text-center md:text-left`}
                                         >
                                             {section.title}
                                         </h2>
                                         <p
-                                            className={`text-sm lg:text-lg font-medium ${
-                                                section.reverse ? "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
+                                            className={`text-sm lg:text-lg font-medium ${section.reverse ? "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
                                         >
                                             {section.description}
-                                            
-                                            
+
+
                                         </p>
                                         <div className="mt-4 sm:mt-6 lg:mt-8 text-center md:text-left">
                                             <Link href="#">
@@ -865,7 +880,7 @@ export default function Home() {
                         </div>
                     ))}
 
-                    <hr className="border-[#D9D9D9] container mx-auto border-b-2 max-w-7xl"/>
+                    <hr className="border-[#D9D9D9] container mx-auto border-b-2 max-w-7xl" />
                 </div>
             </div>
 
@@ -881,12 +896,12 @@ export default function Home() {
                             successes for our customers.
                         </p>
                     </div>
-                    <Testimonial/>
+                    <Testimonial />
                 </div>
             </div>
 
             <div className="pb-14">
-                <LinkedinSection/>
+                <LinkedinSection />
             </div>
 
         </div>
