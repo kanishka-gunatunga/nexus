@@ -81,7 +81,7 @@ const TrackAndTrace = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28">
         {/* Track Now Section */}
         <div className="py-6 md:py-10">
-          <h2 className="font-poppins font-bold text-[35px] lg:text-[55px] text-[#162F65] mb-8 lg:mb-16 leading-tight">
+          <h2 className="font-poppins font-bold text-[35px] lg:text-[50px] text-[#162F65] mb-8 lg:mb-16 leading-tight">
             Track Now
           </h2>
 
@@ -102,11 +102,13 @@ const TrackAndTrace = () => {
             {/* Right side - Content */}
             <div className="order-1 lg:order-2 space-y-6">
               <div className="space-y-4">
-                <p className="font-poppins font-medium sm:text-[18px] md:text-[18px] lg:text-[22px] text-[#676767] leading-relaxed">
+
+                <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
                   Track and trace your cargo as it makes its journey with the
                   Neo dashboard from Cargowise.
                 </p>
-                <p className="font-poppins font-medium sm:text-[18px] md:text-[18px] lg:text-[22px] text-[#676767] leading-relaxed">
+                <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
+
                   Real-time insights of your transactions, shipments,
                   declarations, and orders give you the visibility you have been
                   asking for.
@@ -126,7 +128,6 @@ const TrackAndTrace = () => {
 
         {/* Route Visualiser Section */}
         <div className="py-6 md:py-10">
-          
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative">
             {/* Left side - Content */}

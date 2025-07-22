@@ -21,7 +21,7 @@ export default function HeroSection({ title, imageSrc, imageAlt }: HeroSectionPr
         className="w-full h-full lg:object-cover absolute inset-0 "
       />
       <div className="absolute inset-0 flex items-center left-5 lg:left-60 justify-start">
-        <div className="text-left px-4">
+        <div className="text-left px-4 max-w-[600px] sm:max-w-[250px] md:max-w-[400px] lg:max-w-[600px]">
           <h1 className="sm:text-[26px] md:text-[36px] lg:text-[46px]  font-normal text-[#0F2043] uppercase">
             {title}
           </h1>

@@ -53,12 +53,11 @@ const roadAndRail = () => {
             title="Road Transport"
             paragraph1="From origin, where our agents secure sharp ex works rates, to port handover, to cross-country highways via hand-picked carriers, and all the way through to final-mile delivery - we manage it all and coordinate the entire journey with precision."
             paragraph3="Whether it's a 100 km hop or a 1,000 km haul, we assign the right operator for each shipment, ensuring reliable transit and competitive pricing every step of the way."
-            subtitle="Think only global players can
-offer true end-to-end logistics?"
+            subtitle="Think only global players can offer true end-to-end logistics?"
             paragraph2={`Think again. Our global agent network and route-specialist carriers deliver unified origin, domestic, and final-mile service - without the "global" price tag.`}
             buttonText="Book Road Transport"
             buttonLink="/air-freight-quote"
-            imageSrc="/road-and-rail-img1.png"
+            imageSrc="/road-and-rail-img1.svg"
             reverse={false}
           />
         </div>

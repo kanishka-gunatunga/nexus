@@ -41,30 +41,30 @@ export default function PhotoDescriptionSection({
           alt={imageAlt}
           width={620}
           height={460}
-          className="rounded-[10px] sm:w-full md:w-full lg:max-w-[620px] h-auto lg:max-h-[460px] object-cover"
+          className="rounded-[10px] sm:w-full md:w-full lg:max-w-[620px] h-auto lg:max-h-[660px] object-cover"
         />
       </div>
 
       {/* Text Content */}
       <div className="flex-1 flex flex-col justify-center">
-        <h2 className="font-poppins font-semibold text-[33px]  text-[#162F65] mb-4">
+        <h2 className="font-poppins font-semibold text-[35px]  text-[#162F65] mb-4">
           {title}
         </h2>
 
         {/* <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left"> */}
-        <p className="font-poppins font-medium text-xs sm:text-sm lg:text-base text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
+        <p className="font-poppins font-medium text-[18px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph1}
         </p>
-        <p className="font-poppins font-medium text-xs sm:text-sm lg:text-base text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
+        <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph3}
         </p>
 
-        <p className="font-poppins font-medium text-[24px] text-[#162F65] mb-2">
+        <p className="font-poppins font-medium text-[25px] text-[#162F65] mb-2">
           {subtitle}
         </p>
 
         {/* <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left"> */}
-        <p className="font-poppins font-medium text-xs sm:text-sm lg:text-base text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
+        <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
           {paragraph2}
         </p>
 
