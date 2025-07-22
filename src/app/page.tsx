@@ -148,7 +148,7 @@ export default function Home() {
             description: `Express shipments or cost-effective bulk transport, we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving, by air and sea, while avoiding delays and unexpected costs.`,
         },
         {
-            src: "/home/Customs_Clearance.png",
+            src: "/home/Customs_Clearance-new.svg",
             alt: "Customs Clearance & Compliance",
             label: "Customs Clearance & Compliance",
             description: `We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures – including audits – ensuring your goods clear quickly and cost-effectively.`,
@@ -716,7 +716,7 @@ export default function Home() {
                                                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                                             />
                                             <div
-                                                className={`absolute inset-0 transition-all duration-300 ${activeService.label === item.label ? 'bg-[#002B64]/70' : 'bg-gradient-to-t from-[#002B64] to-[#00255700]/10'}`}
+                                                className={`absolute inset-0 transition-all duration-300 ${activeService.label === item.label ? 'bg-[#002B64]/70' : 'bg-gradient-to-t from-[#002B64]/0 to-[#00255700]/0'}`}
                                             />
                                             {/*<div*/}
                                             {/*    className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"*/}

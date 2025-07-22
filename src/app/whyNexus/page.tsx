@@ -5,7 +5,7 @@ import React from "react";
 // import Link from "next/link";
 import Nav from "@/Components/Nav";
 // import ServiceCardRow from "@/Components/ServiceCardRow";
-import Quote from "@/Components/Quote";
+// import Quote from "@/Components/Quote";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -484,7 +484,7 @@ const airAndSeaFreight = () => {
             </div>
 
 
-            <div className="relative h-64 sm:h-80 lg:h-96 mt-10 overflow-hidden mt-[50px] lg:mt-[100px]">
+            <div className="relative h-64 sm:h-80 lg:h-96 mt-2 overflow-hidden">
                 <div className="absolute inset-0">
                     <Image
                         src="/why-nexus/why-nexus-ribbon.png"
@@ -502,10 +502,10 @@ const airAndSeaFreight = () => {
                     <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
                         Australian Expertise, Global Strength
                     </h2>
-                    <Link href="/services">
+                    <Link href="/leadership">
                         <button
                             className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-                            View Services
+                            Leadership Team
                         </button>
                     </Link>
                 </div>
@@ -516,7 +516,7 @@ const airAndSeaFreight = () => {
                 {/*</div>*/}
             </div>
 
-            <Quote />
+            {/*<Quote/>*/}
             <div className="py-6 lg:py-12">
                 <LinkedinSection />
             </div>
