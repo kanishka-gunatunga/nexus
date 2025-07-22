@@ -43,14 +43,14 @@ const TermsAndConditions = () => {
 
 
 
-            <div className="cros-x-hero flex relative">
+            {/* <div className="cros-x-hero flex relative">
                 <div className="relative w-[70%] h-[200px] flex x-content-div">
                     <div className="clip-path "></div>
                     <Image src="/X-hero-new.png" alt="X" className="x1" height={500} width={500} />
                 </div>
                 <div className="absolute top-0 right-0 w-[100%] h-[200px] flex justify-end items-center clip-path-2-div">
                     <div className="w-[35%] h-[200px] right-image-div relative">
-                        {/* <img src="/hsity.png" alt="" /> */}
+                        
                         <div className="clip-path-2"></div>
                     </div>
                 </div>
@@ -58,15 +58,7 @@ const TermsAndConditions = () => {
 
 
 
-                {/* <div className="hero-title-div absolute h-[8rem] sm:h-[10rem] md:h-[12.5rem] lg:h-[14rem] xl:h-[16rem] flex flex-col justify-center hero-title-div ">
-                    <h2 className="hero-title-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">INTEGRATED LOGISTICS
-
-                    </h2>
-
-                    <h2 className="hero-title-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">& SPECIAL PROJECTS
-
-                    </h2>
-                </div> */}
+                
                 <div className="absolute top-0 left-0 w-full">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[8rem] sm:h-[10rem] md:h-[12.5rem] lg:h-[14rem] xl:h-[16rem] flex flex-col justify-center">
                         <h2 className="hero-title-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
@@ -79,7 +71,7 @@ const TermsAndConditions = () => {
                 </div>
 
 
-            </div>
+            </div> */}
 
             <div
                 className="relative ">
