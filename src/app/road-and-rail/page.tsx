@@ -87,7 +87,7 @@ const roadAndRail = () => {
       >
         <div className="absolute inset-0">
           <Image
-            src="/roadAndRail_banner.svg"
+            src="/roadAndRail_banner.png"
             alt="Airport"
             width={1000}
             height={400}
@@ -101,7 +101,7 @@ const roadAndRail = () => {
           <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
             Global Reach
             <br />
-            Regional Expertise
+            Australian Expertise
           </h2>
           <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
             Why Nexus

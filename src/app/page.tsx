@@ -86,7 +86,7 @@ export default function Home() {
         {
             title: "Your Supply Chain is Now Visible, Measurable, and Transparent",
             description:
-                "50% of customers track their shipments - You can too! \n\nPowered by Neo, Nexus Logix delivers live tracking that shows your shipment's exact location on an interactive world map in real time. Get automated milestone alerts, 12-month performance stats, financial summaries, and detailed CO₂ emission data for every shipment all accessible on any device, right at your fingertips.",
+                "50% of customers track their shipments - You can too! \n\nPowered by Neo, Nexus Logix delivers live tracking that shows your shipment's exact location on an interactive world map in real time. Get automated milestone alerts, 12-month performance stats, financial summaries, and detailed <span class='co2-highlight'>CO₂</span> emission data for every shipment all accessible on any device, right at your fingertips.",
             imageSrc: "/CargoWise_neo_logo.svg",
             imageAlt: "Cargo Tracking",
             reverse: true,
@@ -517,11 +517,13 @@ export default function Home() {
                             <p className="text-[#225395] text-lg sm:text-xl lg:text-[21px] font-medium mt-4 sm:mt-6 lg:mt-8 text-left">
                                 - This is the Nexus Way
                             </p>
-                            <button
-                                className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-medium mt-4 sm:mt-6 lg:mt-8  rounded-[10px] hover:bg-blue-950 flex items-left lg:items-center w-fit mx-0 hover:scale-105 transition-all duration-300"
-                            >
-                                Explore More
-                            </button>
+                            <Link href="/whyNexus">
+                                <button
+                                    className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-medium mt-4 sm:mt-6 lg:mt-8  rounded-[10px] hover:bg-blue-950 flex items-left lg:items-center w-fit mx-0 hover:scale-105 transition-all duration-300"
+                                >
+                                    Explore More
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -760,7 +762,10 @@ export default function Home() {
                                                 : 'scale-[0.9]'
                                             }`}
 
-                                        style={{ height: activeService.label === item.label ? '280px' : '270px', width: '100%' }}
+                                        style={{
+                                            height: activeService.label === item.label ? '280px' : '270px',
+                                            width: '100%'
+                                        }}
                                     >
 
                                         {activeService.label !== item.label && (
@@ -792,9 +797,10 @@ export default function Home() {
                                                     </p>
                                                     <div
                                                         className="flex flex-row gap-2 group justify-start items-center pt-4 sm:pt-6 w-full px-6">
-                                                        <svg className="w-8 h-8 text-left flex-shrink-0" width="81" height="82"
-                                                            viewBox="0 0 81 82" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
+                                                        <svg className="w-8 h-8 text-left flex-shrink-0" width="81"
+                                                             height="82"
+                                                             viewBox="0 0 81 82" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <circle cx="40.5" cy="41" r="37.7635" stroke="white"
                                                                 strokeWidth="5.47297" />
                                                             <path
@@ -820,7 +826,6 @@ export default function Home() {
                             ))}
                         </Slider>
                     </div>
-
 
 
                 </div>
@@ -850,12 +855,12 @@ export default function Home() {
                                             {section.title}
                                         </h2>
                                         <p
-                                            className={`text-sm lg:text-lg font-medium ${section.reverse ? "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
-                                        >
-                                            {section.description}
 
+                                            className={`text-sm lg:text-lg font-medium ${
+                                                section.reverse ? "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
+                                            dangerouslySetInnerHTML={{ __html: section.description }}
 
-                                        </p>
+                                        />
                                         <div className="mt-4 sm:mt-6 lg:mt-8 text-center md:text-left">
                                             <Link href="#">
                                                 <button

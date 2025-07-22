@@ -4,6 +4,7 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
+import Quote from "@/Components/Quote";
 
 // Define the shape of your form data
 interface FormData {
@@ -66,15 +67,27 @@ export default function ContactPage() {
     }
 
     if (!formData.companyEmail.trim()) {
-      newErrors.companyEmail = "Email is required.";
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.companyEmail)) {
-      newErrors.companyEmail = "Invalid email address.";
+      newErrors.companyEmail = "Company email is required.";
+    } else if (
+      !/^[a-z][a-z0-9._%+-]*@[a-z0-9.-]+\.[a-z]{2,}$/.test(
+        formData.companyEmail.trim()
+      )
+    ) {
+      newErrors.companyEmail =
+        "Company email is invalid or must be all lowercase and start with a lowercase letter.";
+    } else if (
+      formData.companyEmail.trim().length < 6 ||
+      formData.companyEmail.trim().length > 254
+    ) {
+      newErrors.companyEmail =
+        "Company email must be between 6 and 254 characters.";
     }
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required.";
-    } else if (!/^[\d\s()+-]+$/.test(formData.phone)) {
-      newErrors.phone = "Invalid phone number.";
+    } else if (!/^\+\d{1,4}(?:\s\d{1,4}){1,4}$/.test(formData.phone)) {
+      newErrors.phone =
+        "Phone number must start with + and be in a valid format (e.g., +61 X XXXX XXXX).";
     }
 
     if (!formData.companyName.trim()) {
@@ -88,25 +101,20 @@ export default function ContactPage() {
       newErrors.website = "Invalid website URL.";
     }
 
-    if (!formData.address.trim()) {
-      newErrors.address = "Address is required.";
+    // Optional: address and message — no required validation
+    // Only validate city and province if filled
+    if (formData.city.trim() && !/^[a-zA-Z\s'-]+$/.test(formData.city)) {
+      newErrors.city = "City must contain only letters.";
     }
 
-    if (!formData.city.trim()) {
-      newErrors.city = "City is required.";
-    }
-
-    if (!formData.province.trim()) {
-      newErrors.province = "Province is required.";
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required.";
+    if (
+      formData.province.trim() &&
+      !/^[a-zA-Z\s'-]+$/.test(formData.province)
+    ) {
+      newErrors.province = "State must contain only letters.";
     }
 
     setErrors(newErrors);
-
-    // Return true if no errors
     return Object.keys(newErrors).length === 0;
   };
 
@@ -171,12 +179,12 @@ export default function ContactPage() {
         <div className="flex flex-col lg:flex-row  overflow-hidden">
           {/* Left Panel - Contact Info */}
           <div
-            className="lg:w-2/5 xl:w-1/3 p-8 lg:p-12 relative rounded-lg"
+            className="lg:w-2/5 xl:w-[555px] p-8 lg:p-12 relative rounded-lg"
             style={{ backgroundColor: "#E7E6DD" }}
           >
-            <div className="max-w-sm">
+            <div className="max-w-md md:max-w-xl">
               <h1
-                className="mb-4 font-poppins font-semibold text-[28px] leading-[40px] tracking-[0.03em] md:text-[32px] md:leading-[48px] lg:text-[39px] lg:leading-[60px]"
+                className="mb-4 font-poppins font-semibold text-[28px] leading-[40px] tracking-[0.03em] md:text-[32px] md:leading-[48px] lg:text-[39px] lg:leading-[38px]"
                 style={{ color: "#162F65" }}
               >
                 We&apos;re here to help.
@@ -336,69 +344,93 @@ export default function ContactPage() {
                   Contact Information
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                  <div className="relative">
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       First Name
                     </label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
-                    />
+                    <div className="relative">
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
+                      />
+                      <span className="absolute right-0 bottom-2 text-black">
+                        *
+                      </span>
+                    </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.firstName}
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="relative">
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Last Name
                     </label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
-                    />
+                    <div className="relative">
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
+                      />
+                      <span className="absolute right-0 bottom-2 text-black">
+                        *
+                      </span>
+                    </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.lastName}
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="relative">
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Company Email Address
                     </label>
-                    <input
-                      type="email"
-                      name="companyEmail"
-                      value={formData.companyEmail}
-                      onChange={handleInputChange}
-                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
-                    />
+                    <div className="relative">
+                      <input
+                        type="email"
+                        name="companyEmail"
+                        value={formData.companyEmail}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
+                      />
+                      <span className="absolute right-0 bottom-2 text-black">
+                        *
+                      </span>
+                    </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.companyEmail}
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="relative">
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Phone
                     </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="+61(2)234-5678"
-                      className="w-full font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
-                    />
+                    <div className="relative">
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="+61 2 1234 5678"
+                        required
+                        className="w-full font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
+                      />
+                      <span className="absolute right-0 bottom-2 text-black">
+                        *
+                      </span>
+                    </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.phone}
@@ -417,17 +449,23 @@ export default function ContactPage() {
                   Company Information
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                  <div className="relative">
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Company Name
                     </label>
-                    <input
-                      type="text"
-                      name="companyName"
-                      value={formData.companyName}
-                      onChange={handleInputChange}
-                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
-                    />
+                    <div className="relative">
+                      <input
+                        type="text"
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
+                      />
+                      <span className="absolute right-0 bottom-2 text-black">
+                        *
+                      </span>
+                    </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.companyName}
@@ -487,7 +525,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
-                      Province
+                      State
                     </label>
                     <input
                       type="text"
@@ -557,7 +595,7 @@ export default function ContactPage() {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  placeholder="Write your message"
+                  placeholder="Include a description of your requirements"
                   rows={2}
                   className="w-full font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
                 />
@@ -597,6 +635,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+        <Quote />
       </div>
 
       {/* Map Section - Full Width */}

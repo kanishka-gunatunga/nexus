@@ -102,11 +102,13 @@ const TrackAndTrace = () => {
             {/* Right side - Content */}
             <div className="order-1 lg:order-2 space-y-6">
               <div className="space-y-4">
+
                 <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
                   Track and trace your cargo as it makes its journey with the
                   Neo dashboard from Cargowise.
                 </p>
                 <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
+
                   Real-time insights of your transactions, shipments,
                   declarations, and orders give you the visibility you have been
                   asking for.
@@ -126,14 +128,14 @@ const TrackAndTrace = () => {
 
         {/* Route Visualiser Section */}
         <div className="py-6 md:py-10">
-          <h2 className="font-poppins font-bold text-[35px] lg:text-[50px] text-[#162F65] mb-8 lg:mb-16 leading-tight">
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative">
+            {/* Left side - Content */}
+            <div className="order-1 lg:order-1 space-y-6 z-10">
+              <h2 className="font-poppins font-bold text-[35px] lg:text-[55px] text-[#162F65] mb-8 lg:mb-2 leading-tight">
             Route Visualiser
           </h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            {/* Left side - Content */}
-            <div className="order-1 lg:order-1 space-y-6">
-              <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
+              <p className="font-poppins font-medium sm:text-[18px] md:text-[18px] lg:text-[22px] text-[#676767] leading-relaxed">
                 View your shipment&apos;s journey on a global map powered by
                 satellite AIS and flight transponders for complete visibility
                 from Purchase order to delivery. Color-coded alerts highlight
@@ -142,13 +144,13 @@ const TrackAndTrace = () => {
             </div>
 
             {/* Right side - Route Map Image */}
-            <div className="order-2 lg:order-2">
-              <div className="relative w-full">
+            <div className="order-2 lg:order-2 relative -ml-10 lg:-ml-92">
+              <div className="w-full max-w-[1200px] h-auto">
                 <Image
                   src="/trackAndTrace_img2.svg"
                   alt="Route Current Booking Log"
-                  width={600}
-                  height={450}
+                  width={1200}
+                  height={650}
                   className="w-full h-auto object-contain drop-shadow-2xl"
                 />
               </div>
@@ -210,6 +212,7 @@ const TrackAndTrace = () => {
 
               {/* Text with links */}
               <p className="font-poppins sm:text-[24px] md:text-[24px] lg:text-[26px] text-white leading-snug">
+                Call Richard on{" "}
                 <span
                   className="underline cursor-pointer"
                   onClick={() => {
@@ -221,9 +224,9 @@ const TrackAndTrace = () => {
                     }
                   }}
                 >
-                  Call Richard
+                  Number
                 </span>{" "}
-                for a free demo or{" "}
+                for a free demo or to{" "}
                 <Link href="/contactUs" className="underline cursor-pointer">
                   Reach Us
                 </Link>
@@ -253,7 +256,7 @@ const TrackAndTrace = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
           <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-            In-Depth Analysis, Powerful Solutions
+            Efficiency, Visibility, and Accuracy - Delivered
           </h2>
           <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
             Why Nexus
