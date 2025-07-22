@@ -474,7 +474,7 @@ const airAndSeaFreight = () => {
             </div>
 
 
-            <div className="relative h-64 sm:h-80 lg:h-96 mt-10 overflow-hidden">
+            <div className="relative h-64 sm:h-80 lg:h-96 mt-2 overflow-hidden">
                 <div className="absolute inset-0">
                     <Image
                         src="/why-nexus/why-nexus-ribbon.png"
