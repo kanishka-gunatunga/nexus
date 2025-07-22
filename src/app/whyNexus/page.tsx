@@ -55,7 +55,7 @@ const airAndSeaFreight = () => {
 
             </div>
 
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative max-w-7xl mx-auto px-0 lg:px-4 sm:px-6 lg:px-8">
 
                 <div
                     className="bg-transparent -mt-0 lg:-mt-45 px-4 py-6 md:py-10 flex flex-col lg:flex-row gap-6 items-center lg:items-start">
@@ -66,7 +66,7 @@ const airAndSeaFreight = () => {
                             alt="Nexus X Logo"
                             width={620}
                             height={460}
-                            className="rounded-[10px] px-4 lg:px-0 max-w-full lg:max-w-[435px] h-auto lg:max-h-[420px] object-cover"
+                            className="rounded-[10px] px-0 lg:px-0 max-w-full lg:max-w-[435px] h-auto lg:max-h-[420px] object-cover"
                         />
                     </div>
                     {/* Text Section */}
@@ -94,8 +94,12 @@ const airAndSeaFreight = () => {
 
                 {/* cards */}
 
-                <div className="my-[50px]">
+                <div>
+                    <h3 className="text-[32px] sm:text-[30px] md:text-[32px] lg:text-[50px] font-semibold text-[#162F65] mb-2 text-center">
+                        What we Deliver
+                    </h3>
                     <div className="flex flex-col sm:flex-row justify-between gap-4 my-8 px-0 sm:px-6 lg:px-8">
+
                         <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8   flex-1">
                             <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Delightful Service
@@ -181,7 +185,7 @@ const airAndSeaFreight = () => {
 
             </div>
 
-            <div className="w-full bg-[#0F2043] relative flex min-h-[600px] sm:min-h-0 md:min-h-[400px] vision-section mt-[50px] lg:mt-[100px]">
+            <div className="w-full bg-[#0F2043] relative flex min-h-[600px] sm:min-h-0 md:min-h-[400px] vision-section">
                 <div className="w-full flex">
                     <Image
                         src={"/x-croped.png"}
@@ -232,7 +236,7 @@ const airAndSeaFreight = () => {
                 />
             </div>
 
-            <div className="max-w-7xl block lg:hidden mx-auto mt-[50px] lg:mt-[100px] px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl block lg:hidden mx-auto  px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto mb-4 md:mb-10">
                     <h2 className="text-[#737887] text-3xl ml-6 sm:text-4xl md:text-5xl font-bold mb-2 text-left leading-tight">
                         Our Core Values
@@ -311,7 +315,33 @@ const airAndSeaFreight = () => {
                                             NovaTech Solutions</p>
                                     </div>
                                 </div>
+
+                                <div className="flex justify-end gap-2 mt-4">
+                                    <button
+                                        className="prev-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M13.9806 6L15.3906 7.41L10.8106 12L15.3906 16.59L13.9806 18L7.98062 12L13.9806 6Z"
+                                                fill="white" />
+                                        </svg>
+
+                                    </button>
+                                    <button
+                                        className="next-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.0194 6L8.60938 7.41L13.1894 12L8.60938 16.59L10.0194 18L16.0194 12L10.0194 6Z"
+                                                fill="white" />
+                                        </svg>
+
+                                    </button>
+                                </div>
                             </div>
+
+
+
                         </SwiperSlide>
 
                         <SwiperSlide>
@@ -336,12 +366,35 @@ const airAndSeaFreight = () => {
                                             NovaTech Solutions</p>
                                     </div>
                                 </div>
+
+                                <div className="flex justify-end gap-2 mt-4">
+                                    <button
+                                        className="prev-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M13.9806 6L15.3906 7.41L10.8106 12L15.3906 16.59L13.9806 18L7.98062 12L13.9806 6Z"
+                                                fill="white" />
+                                        </svg>
+
+                                    </button>
+                                    <button
+                                        className="next-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.0194 6L8.60938 7.41L13.1894 12L8.60938 16.59L10.0194 18L16.0194 12L10.0194 6Z"
+                                                fill="white" />
+                                        </svg>
+
+                                    </button>
+                                </div>
                             </div>
 
 
                         </SwiperSlide>
 
-                        <div className="flex justify-end gap-2 mt-4">
+                        {/* <div className="flex justify-end gap-2 mt-4">
                             <button
                                 className="prev-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -362,6 +415,10 @@ const airAndSeaFreight = () => {
                                 </svg>
 
                             </button>
+                        </div> */}
+
+                        <div className="absolute">
+                            <h3>Hello</h3>
                         </div>
                     </Swiper>
 
@@ -419,7 +476,7 @@ const airAndSeaFreight = () => {
             </div>
 
 
-            <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8 mt-[50px] lg:mt-[100px]">
+            <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
                 <div className="flex flex-row justify-center mb-12">
                     <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[50px] leading-[1.1] text-[#162F65] font-poppins">
                         Our Focus Areas
@@ -456,7 +513,7 @@ const airAndSeaFreight = () => {
                 />
             </div>
 
-            <div className="w-full hidden lg:block bg-[#0F2043] mt-[50px] lg:mt-[100px]">
+            <div className="w-full hidden lg:block bg-[#0F2043] mt-[20px] lg:mt-[20px]">
                 <div
                     className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
                     <Image
