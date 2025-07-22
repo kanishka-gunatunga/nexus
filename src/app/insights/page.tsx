@@ -96,7 +96,7 @@ const InsightsPage = () => {
 
             {/* Main Content */}
             <div className="container relative max-w-7xl -top-22 lg:-top-50 mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-16">
-                <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold tracking-wider">
+                <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold">
                     Insights
                 </h1>
                 {/* Subtitle */}
@@ -274,7 +274,7 @@ const InsightsPage = () => {
                 <div className="grid grid-cols-1 xl:grid-cols-6 gap-8 lg:gap-12">
                     {/* Main Content */}
                     <div className="xl:col-span-4">
-                        <h2 className="text-[#162F65] text-3xl md:text-4xl lg:text-[41px] font-bold mb-8 lg:mb-12 tracking-wider">
+                        <h2 className="text-[#162F65] text-3xl md:text-4xl lg:text-[41px] font-semibold mb-8 lg:mb-12">
                             Latest Insights
                         </h2>
 
@@ -295,7 +295,7 @@ const InsightsPage = () => {
                                     </div>
                                     <div className="md:col-span-2 flex flex-col justify-between">
                                         <div>
-                                            <h3 className="text-[#162F65] text-base md:text-lg lg:text-2xl font-bold mb-2 lg:mb-4 tracking-wide">
+                                            <h3 className="text-[#162F65] text-base md:text-lg lg:text-2xl font-semibold mb-2 lg:mb-4 tracking-wide">
                                                 {insight.title}
                                             </h3>
                                             <p className="text-[#676767] text-sm lg:text-base leading-[22px] mb-6 lg:mb-8">
