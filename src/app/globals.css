@@ -871,6 +871,10 @@
     .right-image-div {
         width: 31%;
     }
+
+    .vision-achievements h2 {
+        font-size: 55px !important;
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1499px) {

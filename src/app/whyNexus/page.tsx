@@ -7,12 +7,13 @@ import Nav from "@/Components/Nav";
 // import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {Navigation} from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Accordian from "@/Components/Accordian";
 import Link from "next/link";
+import HeroSection from "@/Components/HeroSection";
 
 
 const airAndSeaFreight = () => {
@@ -23,9 +24,9 @@ const airAndSeaFreight = () => {
         <div className="min-h-screen bg-[#F6F6F6] poppins">
             <div className="relative mx-auto block">
 
-                <Nav/>
+                <Nav />
 
-                <div id="hero-section"
+                {/* <div id="hero-section"
                      className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
                     <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
                         <Image
@@ -44,7 +45,13 @@ const airAndSeaFreight = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
+
+                <HeroSection
+                    title="Why Nexus Logix"
+                    imageSrc="/why-nexus/banner.svg"
+                    imageAlt="Nexus X Logo"
+                />
 
             </div>
 
@@ -66,15 +73,14 @@ const airAndSeaFreight = () => {
                     <div className="w-full flex flex-col justify-start">
                         <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[60px] lg:text-[70px] leading-[1.1] text-[#162F65] font-poppins">
                             History &amp;
-                            <br/>Inspiration
+                            <br />Inspiration
                         </h2>
 
                         {/*<h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[60px] lg:text-[83px] leading-[1.1] text-[#162F65] font-poppins">*/}
                         {/*    Inspiration*/}
                         {/*</h2>*/}
                         <p
-                            className="text-sm sm:text-base lg:text-[18px] text-[#676767] font-poppins"
-                        >
+                            className="text-sm sm:text-base lg:text-[18px] text-[#676767] font-poppins text-justify">
                             Nexus Logix is an Australian freight forwarder and logistics provider, headquartered in
                             Brisbane. Founded by a group of seasoned industry professionals who recognised an
                             opportunity to blend deep regional knowledge with modern systems and global networks, Nexus
@@ -89,61 +95,61 @@ const airAndSeaFreight = () => {
                 {/* cards */}
 
                 <div className="my-[50px]">
-                    <div className="flex flex-col sm:flex-row justify-between gap-4 my-8 px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col sm:flex-row justify-between gap-4 my-8 px-0 sm:px-6 lg:px-8">
                         <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8   flex-1">
-                            <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
+                            <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Delightful Service
                             </h3>
-                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
                                 Transparent, genuine care that puts you first
                             </p>
                         </div>
                         <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8  flex-1">
-                            <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
+                            <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Competitive Pricing
                             </h3>
-                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
                                 Through strong global networks
                             </p>
                         </div>
                         <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8   flex-1">
-                            <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
+                            <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Local Expertise
                             </h3>
-                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
                                 Team with 25 years of Local Experience
                             </p>
                         </div>
                     </div>
 
                     {/* second row */}
-                    <div className="flex flex-col sm:flex-row justify-between gap-4 my-8 px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col sm:flex-row justify-between gap-4 my-8 px-0 sm:px-6 lg:px-8">
                         <div
                             className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8 w-full lg:max-w-[22rem] sm:w-[100%] flex-1">
-                            <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
+                            <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Real Time Visibility
                             </h3>
-                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
                                 Track every shipment with CargoWise Neo.
                             </p>
                         </div>
 
                         <div
                             className="bg-[#162F65] rounded-lg shadow p-5 sm:p-6 md:p-8 w-full sm:w-[100%] w-full max-w-full flex-1 ">
-                            <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-white mb-2">
+                            <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-white mb-2">
                                 Sustainability
                             </h3>
 
-                            <span className="text-paragraph sm:text-[18px] md:text-[20px] text-gray-300">
+                            <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-gray-300">
                                 Track
                             </span>
                             <span className="mx-1"></span>
 
-                            <span className="text-paragraph sm:text-[18px] md:text-[20px] text-[#5DF706] ">
+                            <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#5DF706] ">
                                 Co2
                             </span>
                             <span className="mx-1"></span>
-                            <span className="text-paragraph sm:text-[18px] md:text-[20px] text-gray-300">
+                            <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-gray-300">
                                 emission of every shipment with CargoWise Neo.
                             </span>
                         </div>
@@ -152,20 +158,20 @@ const airAndSeaFreight = () => {
                             <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
                                 Supply Chain Audits
                             </h3>
-                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
                                 Identify gaps, cut costs, improve performance.
                             </p>
                         </div>
                     </div>
 
                     {/* third row */}
-                    <div className="my-8 gap-4 flex flex-wrap justify-center px-4 sm:px-6 lg:px-8">
+                    <div className="my-8 gap-4 flex flex-wrap justify-center px-0 sm:px-6 lg:px-8">
                         <div
                             className="bg-white rounded-lg shadow px-5 py-2  w-full flex-1 lg:flex lg:flex-row items-center justify-start gap-[5rem]">
                             <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65]">
                                 Powered by CargoWise
                             </h3>
-                            <p className="text-paragraph sm:text-[18px] md:text-[20px] text-[#676767] font-poppins font-medium">
+                            <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
                                 Manage Your Supply Chain with the World&rsquo;s Most trusted ERP
                             </p>
                         </div>
@@ -175,7 +181,7 @@ const airAndSeaFreight = () => {
 
             </div>
 
-            <div className="w-full bg-[#0F2043] relative flex min-h-[600px] sm:min-h-0 md:min-h-[400px] vision-section">
+            <div className="w-full bg-[#0F2043] relative flex min-h-[600px] sm:min-h-0 md:min-h-[400px] vision-section mt-[50px] lg:mt-[100px]">
                 <div className="w-full flex">
                     <Image
                         src={"/x-croped.png"}
@@ -192,7 +198,7 @@ const airAndSeaFreight = () => {
                         <div
                             className="flex flex-col mb-4 text-center lg:text-left w-full lg:w-1/3  mr:[0] lg:mr-[60px] ">
                             <h2
-                                className="text-white font-poppins font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[66px] leading-tight font-poppins"
+                                className="text-white font-poppins font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[66px] leading-tight font-poppins "
                             >
                                 Vision
                             </h2>
@@ -200,9 +206,9 @@ const airAndSeaFreight = () => {
                                 Achievements
                             </h2>
                         </div>
-                        <div className="flex flex-col mb-4 w-full lg:w-2/3 px-4">
-                            <p className="text-white text-[18px] font-normal font-poppins text-justify"
-                               style={{fontStyle: "normal"}}>
+                        <div className="flex flex-col mb-4 w-full lg:w-2/3 px-2">
+                            <p className="text-white sm:text-[14px] md:text-[16px] lg:text-[18px]  font-normal font-poppins text-justify"
+                                style={{ fontStyle: "normal" }}>
                                 Driven by an ambition to simplify the complexities of global freight, we have dedicated
                                 ourselves to delivering a service that is both personal and agile. Over nearly three
                                 decades, our people&rsquo;s reputation for reliability and innovation has enabled us to
@@ -248,7 +254,7 @@ const airAndSeaFreight = () => {
                     <h2 className="text-[#737887] mr-6 text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-right leading-tight">
                         Australian Culture
                     </h2>
-                    <p className="text-gray-600 text-xs sm:text-sm text-right leading-relaxed">
+                    <p className="text-gray-600 text-xs sm:text-sm text-justify lg:text-right leading-relaxed">
                         Proudly homegrown, our approach is underpinned by the direct, resilient, and
                         warm spirit synonymous with our local culture. Our clear communication,
                         genuine relationships, and straightforward style reflect the rugged ingenuity of
@@ -331,31 +337,35 @@ const airAndSeaFreight = () => {
                                     </div>
                                 </div>
                             </div>
+
+
                         </SwiperSlide>
+
+                        <div className="flex justify-end gap-2 mt-4">
+                            <button
+                                className="prev-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M13.9806 6L15.3906 7.41L10.8106 12L15.3906 16.59L13.9806 18L7.98062 12L13.9806 6Z"
+                                        fill="white" />
+                                </svg>
+
+                            </button>
+                            <button
+                                className="next-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10.0194 6L8.60938 7.41L13.1894 12L8.60938 16.59L10.0194 18L16.0194 12L10.0194 6Z"
+                                        fill="white" />
+                                </svg>
+
+                            </button>
+                        </div>
                     </Swiper>
 
-                    <div className="flex justify-end gap-2 mt-4">
-                        <button
-                            className="prev-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M13.9806 6L15.3906 7.41L10.8106 12L15.3906 16.59L13.9806 18L7.98062 12L13.9806 6Z"
-                                    fill="white"/>
-                            </svg>
 
-                        </button>
-                        <button
-                            className="next-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10.0194 6L8.60938 7.41L13.1894 12L8.60938 16.59L10.0194 18L16.0194 12L10.0194 6Z"
-                                    fill="white"/>
-                            </svg>
-
-                        </button>
-                    </div>
                 </div>
             </div>
 
@@ -380,7 +390,7 @@ const airAndSeaFreight = () => {
                     <div className="flex-1 flex flex-col justify-center">
                         <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[60px] leading-[1.1] text-[#162F65] font-poppins mb-2">
                             Sustainability
-                            <br/>
+                            <br />
                             at Nexus Logix
                         </h2>
 
@@ -474,7 +484,7 @@ const airAndSeaFreight = () => {
             </div>
 
 
-            <div className="relative h-64 sm:h-80 lg:h-96 mt-10 overflow-hidden">
+            <div className="relative h-64 sm:h-80 lg:h-96 mt-10 overflow-hidden mt-[50px] lg:mt-[100px]">
                 <div className="absolute inset-0">
                     <Image
                         src="/why-nexus/why-nexus-ribbon.png"
@@ -506,9 +516,9 @@ const airAndSeaFreight = () => {
                 {/*</div>*/}
             </div>
 
-            <Quote/>
+            <Quote />
             <div className="py-6 lg:py-12">
-                <LinkedinSection/>
+                <LinkedinSection />
             </div>
         </div>
     );
