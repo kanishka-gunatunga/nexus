@@ -67,15 +67,27 @@ export default function ContactPage() {
     }
 
     if (!formData.companyEmail.trim()) {
-      newErrors.companyEmail = "Email is required.";
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.companyEmail)) {
-      newErrors.companyEmail = "Invalid email address.";
+      newErrors.companyEmail = "Company email is required.";
+    } else if (
+      !/^[a-z][a-z0-9._%+-]*@[a-z0-9.-]+\.[a-z]{2,}$/.test(
+        formData.companyEmail.trim()
+      )
+    ) {
+      newErrors.companyEmail =
+        "Company email is invalid or must be all lowercase and start with a lowercase letter.";
+    } else if (
+      formData.companyEmail.trim().length < 6 ||
+      formData.companyEmail.trim().length > 254
+    ) {
+      newErrors.companyEmail =
+        "Company email must be between 6 and 254 characters.";
     }
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required.";
-    } else if (!/^[\d\s()+-]+$/.test(formData.phone)) {
-      newErrors.phone = "Invalid phone number.";
+    } else if (!/^\+\d{1,4}(?:\s\d{1,4}){1,4}$/.test(formData.phone)) {
+      newErrors.phone =
+        "Phone number must start with + and be in a valid format (e.g., +61 X XXXX XXXX).";
     }
 
     if (!formData.companyName.trim()) {
@@ -89,25 +101,20 @@ export default function ContactPage() {
       newErrors.website = "Invalid website URL.";
     }
 
-    if (!formData.address.trim()) {
-      newErrors.address = "Address is required.";
+    // Optional: address and message — no required validation
+    // Only validate city and province if filled
+    if (formData.city.trim() && !/^[a-zA-Z\s'-]+$/.test(formData.city)) {
+      newErrors.city = "City must contain only letters.";
     }
 
-    if (!formData.city.trim()) {
-      newErrors.city = "City is required.";
-    }
-
-    if (!formData.province.trim()) {
-      newErrors.province = "Province is required.";
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required.";
+    if (
+      formData.province.trim() &&
+      !/^[a-zA-Z\s'-]+$/.test(formData.province)
+    ) {
+      newErrors.province = "State must contain only letters.";
     }
 
     setErrors(newErrors);
-
-    // Return true if no errors
     return Object.keys(newErrors).length === 0;
   };
 
@@ -342,15 +349,17 @@ export default function ContactPage() {
                       First Name
                     </label>
                     <div className="relative">
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
-                    />
-                    <span className="absolute right-0 bottom-2 text-black">*</span>
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
+                      />
+                      <span className="absolute right-0 bottom-2 text-black">
+                        *
+                      </span>
                     </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
@@ -363,15 +372,17 @@ export default function ContactPage() {
                       Last Name
                     </label>
                     <div className="relative">
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
-                    />
-                    <span className="absolute right-0 bottom-2 text-black">*</span>
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
+                      />
+                      <span className="absolute right-0 bottom-2 text-black">
+                        *
+                      </span>
                     </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
@@ -383,16 +394,18 @@ export default function ContactPage() {
                     <label className="block mb-2 font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-black">
                       Company Email Address
                     </label>
-                     <div className="relative">
-                    <input
-                      type="email"
-                      name="companyEmail"
-                      value={formData.companyEmail}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
-                    />
-                    <span className="absolute right-0 bottom-2 text-black">*</span>
+                    <div className="relative">
+                      <input
+                        type="email"
+                        name="companyEmail"
+                        value={formData.companyEmail}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
+                      />
+                      <span className="absolute right-0 bottom-2 text-black">
+                        *
+                      </span>
                     </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
@@ -405,16 +418,18 @@ export default function ContactPage() {
                       Phone
                     </label>
                     <div className="relative">
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="+61 2 1234 5678"
-                      required
-                      className="w-full font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
-                    />
-                    <span className="absolute right-0 bottom-2 text-black">*</span>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="+61 2 1234 5678"
+                        required
+                        className="w-full font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
+                      />
+                      <span className="absolute right-0 bottom-2 text-black">
+                        *
+                      </span>
                     </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
@@ -439,15 +454,17 @@ export default function ContactPage() {
                       Company Name
                     </label>
                     <div className="relative">
-                    <input
-                      type="text"
-                      name="companyName"
-                      value={formData.companyName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
-                    />
-                    <span className="absolute right-0 bottom-2 text-black">*</span>
+                      <input
+                        type="text"
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
+                      />
+                      <span className="absolute right-0 bottom-2 text-black">
+                        *
+                      </span>
                     </div>
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
