@@ -108,14 +108,95 @@ const InsightsPage = () => {
                 </div>
 
                 {/* Hero Cards Section */}
+                {/*<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 lg:mb-24">*/}
+                {/*    /!* Main Featured Card *!/*/}
+                {/*    <div className="lg:col-span-2 relative rounded-xl overflow-hidden h-64 md:h-80 lg:h-96">*/}
+                {/*        <Image*/}
+                {/*            fill*/}
+                {/*            src="/insights/train.png"*/}
+                {/*            alt="Freight Hurdles"*/}
+                {/*            className="w-full h-full object-cover"*/}
+                {/*        />*/}
+                {/*        <div*/}
+                {/*            className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"*/}
+                {/*        />*/}
+                {/*        <div*/}
+                {/*            className="absolute inset-0 flex flex-col justify-end p-6 lg:p-8">*/}
+                {/*            <h2 className="text-white text-xl md:text-3xl font-bold mb-4 tracking-wide">*/}
+                {/*                Freight Hurdles*/}
+                {/*            </h2>*/}
+                {/*            <p className="text-white text-xs md:text-sm mb-6 leading-4 lg:leading-6 max-w-2xl">*/}
+                {/*                Australia&#39;s cargo industry faces challenges like fuel price*/}
+                {/*                hikes, port congestion, and supply chain disruptions. Forward*/}
+                {/*                planning and smart tech are essential to stay on track.*/}
+                {/*            </p>*/}
+                {/*            <Link href="/insights/train">*/}
+                {/*                <button*/}
+                {/*                    className="bg-white text-[#162F65] px-4 py-2 cursor-pointer rounded-lg text-xs lg:text-sm font-medium w-fit hover:scale-105 transition-all duration-300">*/}
+                {/*                    Read More*/}
+                {/*                </button>*/}
+                {/*            </Link>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+
+                {/*    /!* Side Cards *!/*/}
+                {/*    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">*/}
+                {/*        <div className="relative rounded-xl overflow-hidden h-48 lg:h-44">*/}
+                {/*            <Image*/}
+                {/*                fill*/}
+                {/*                src="/insights/van.png"*/}
+                {/*                alt="Eco Freight"*/}
+                {/*                className="w-full h-full object-cover"*/}
+                {/*            />*/}
+                {/*            <div*/}
+                {/*                className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"*/}
+                {/*            />*/}
+                {/*            <div*/}
+                {/*                className="absolute inset-0 flex flex-col justify-end p-4 lg:p-6">*/}
+                {/*                <h3 className="text-white text-lg md:text-xl font-bold mb-2 tracking-wide">*/}
+                {/*                    Eco Freight*/}
+                {/*                </h3>*/}
+                {/*                <p className="text-white text-xs md:text-xs max-w-2xl leading-4">*/}
+                {/*                    Sustainability is now a key focus in logistics. Electric*/}
+                {/*                    trucks low-emission ships, and green warehouse practices are*/}
+                {/*                    helping Australia move toward cleaner cargo operations.*/}
+                {/*                </p>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+
+                {/*        <div className="relative rounded-xl overflow-hidden h-48 lg:h-44">*/}
+                {/*            <Image*/}
+                {/*                fill*/}
+                {/*                src="/insights/truck.png"*/}
+                {/*                alt="Eco Freight"*/}
+                {/*                className="w-full h-full object-cover"*/}
+                {/*            />*/}
+                {/*            <div*/}
+                {/*                className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"*/}
+                {/*            />*/}
+                {/*            <div*/}
+                {/*                className="absolute inset-0 flex flex-col justify-end p-4 lg:p-6">*/}
+                {/*                <h3 className="text-white text-lg md:text-xl font-bold mb-2 tracking-wide">*/}
+                {/*                    Eco Freight*/}
+                {/*                </h3>*/}
+                {/*                <p className="text-white text-xs md:text-xs max-w-2xl leading-4">*/}
+                {/*                    Sustainability is now a key focus in logistics. Electric*/}
+                {/*                    trucks low-emission ships, and green warehouse practices are*/}
+                {/*                    helping Australia move toward cleaner cargo operations.*/}
+                {/*                </p>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 lg:mb-24">
                     {/* Main Featured Card */}
-                    <div className="lg:col-span-2 relative rounded-xl overflow-hidden h-64 md:h-80 lg:h-96">
+                    <div className="lg:col-span-2 relative rounded-xl overflow-hidden" style={{ paddingTop: '56.25%' /* 16:9 Aspect Ratio */ }}>
                         <Image
                             fill
                             src="/insights/train.png"
                             alt="Freight Hurdles"
-                            className="w-full h-full object-cover"
+                            className="absolute inset-0 w-full h-full object-cover"
                         />
                         <div
                             className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"
@@ -141,12 +222,12 @@ const InsightsPage = () => {
 
                     {/* Side Cards */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-                        <div className="relative rounded-xl overflow-hidden h-48 lg:h-44">
+                        <div className="relative rounded-xl overflow-hidden" style={{ paddingTop: '56.25%' /* 4:3 Aspect Ratio */ }}>
                             <Image
                                 fill
                                 src="/insights/van.png"
                                 alt="Eco Freight"
-                                className="w-full h-full object-cover"
+                                className="absolute inset-0 w-full h-full object-cover"
                             />
                             <div
                                 className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"
@@ -164,12 +245,12 @@ const InsightsPage = () => {
                             </div>
                         </div>
 
-                        <div className="relative rounded-xl overflow-hidden h-48 lg:h-44">
+                        <div className="relative rounded-xl overflow-hidden" style={{ paddingTop: '56.25%' /* 4:3 Aspect Ratio */ }}>
                             <Image
                                 fill
                                 src="/insights/truck.png"
                                 alt="Eco Freight"
-                                className="w-full h-full object-cover"
+                                className="absolute inset-0 w-full h-full object-cover"
                             />
                             <div
                                 className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"
