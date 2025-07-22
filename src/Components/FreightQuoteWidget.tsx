@@ -97,15 +97,24 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email.trim())
+      !/^[a-z][a-z0-9._%+-]*@[a-z0-9.-]+\.[a-z]{2,}$/.test(
+        formData.email.trim()
+      )
     ) {
-      newErrors.email = "Email is invalid";
+      newErrors.email =
+        "Email is invalid or must be all lowercase and start with a lowercase letter.";
+    } else if (
+      formData.email.trim().length < 6 ||
+      formData.email.trim().length > 254
+    ) {
+      newErrors.email = "Email must be between 6 and 254 characters.";
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (!/^\+?[0-9\s\-()]{7,}$/i.test(formData.phone.trim())) {
-      newErrors.phone = "Phone number is invalid";
+      newErrors.phone = "Phone number is required.";
+    } else if (!/^\+\d{1,4}(?:\s\d{1,4}){1,4}$/.test(formData.phone)) {
+      newErrors.phone =
+        "Phone number must start with + and be in a valid format (e.g., +61 X XXXX XXXX).";
     }
 
     if (!privacyAccepted) {
@@ -113,13 +122,13 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
     }
 
     // Optional: Check that originPort and destinationPort are not empty if needed
-    if (!formData.originPort.trim()) {
-      newErrors.originPort = "Origin port or country is required";
-    }
+    // if (!formData.originPort.trim()) {
+    //   newErrors.originPort = "Origin port or country is required";
+    // }
 
-    if (!formData.destinationPort.trim()) {
-      newErrors.destinationPort = "Destination port or country is required";
-    }
+    // if (!formData.destinationPort.trim()) {
+    //   newErrors.destinationPort = "Destination port or country is required";
+    // }
 
     setErrors(newErrors);
 
@@ -312,7 +321,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    placeholder="+61212234-5678"
+                    placeholder="+61 7 1234 5678"
                     className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors text-[#647FBB] placeholder-[#647FBB] ${
                       errors.phone
                         ? "border-red-500 text-red-500"

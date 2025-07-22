@@ -196,20 +196,20 @@ const CustomsPage = () => {
         <div className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
           <div className="absolute inset-0">
             <Image
-              src="/customs_banner.svg"
+              src="/customs_banner.png"
               alt="Airport"
               width={1000}
               height={400}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/35"></div>
+            <div className="absolute inset-0 bg-black/90"></div>
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
             <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-              Trusted Partners,
+              Australian Expertise,
               <br />
-              Reliable Freight Solutions
+              Global Strength
             </h2>
             <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
               Why Nexus
