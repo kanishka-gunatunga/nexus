@@ -148,7 +148,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
 
       {/* Widget */}
       <div
-        className={`fixed right-0 top-0 h-full w-full md:w-1/2 bg-[#1B1B1B] z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed right-0 top-0 h-full w-full md:w-3/5 bg-[#1B1B1B] z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -246,10 +246,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 >
                   Company Name*
                 </label>
-                <p className="text-xs text-gray-400 mb-2">
-                  Kindly use your company email address to <br /> your enquiry
-                  isn&#39;t marked as spam.
-                </p>
+
                 <input
                   type="text"
                   id="companyName"
@@ -277,7 +274,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     htmlFor="email"
                     className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
-                    Email*
+                    Company Email*
                   </label>
                   <input
                     type="email"
@@ -295,7 +292,12 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   {errors.email && (
                     <p className="text-red-500 text-xs mt-1">{errors.email}</p>
                   )}
+                  <p className="text-xs text-gray-400 mb-2 mt-2">
+                    Kindly use your company email address to <br /> your enquiry
+                    isn&#39;t marked as spam.
+                  </p>
                 </div>
+
                 <div>
                   <label
                     htmlFor="phone"
@@ -311,7 +313,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     onChange={handleInputChange}
                     required
                     placeholder="+61212234-5678"
-                    className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
+                    className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors text-[#647FBB] placeholder-[#647FBB] ${
                       errors.phone
                         ? "border-red-500 text-red-500"
                         : "border-[#A5A5A5] text-white"
@@ -451,9 +453,9 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   </label>
                   <input
                     type="text"
-                    id="originPort"
-                    name="originPort"
-                    value={formData.originPort}
+                    id="destinationPort"
+                    name="destinationPort"
+                    value={formData.destinationPort}
                     onChange={handleInputChange}
                     className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
                       errors.destinationPort
@@ -484,7 +486,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   onChange={handleInputChange}
                   rows={2}
                   placeholder="Include a description of the cargo"
-                  className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] placeholder-[#647FBB] py-2 px-0 focus:outline-none focus:border-white transition-colors resize-none"
+                  className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-[#647FBB] py-2 px-0 focus:outline-none focus:border-white transition-colors resize-none"
                 />
               </div>
 
@@ -517,7 +519,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 className="ml-auto block px-8 py-3 font-poppins font-medium text-[16px] md:text-[20px] lg:text-[25px] leading-[100%] tracking-[0em] text-white rounded-md hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                 style={{ backgroundColor: "#162F65" }}
               >
-                Get My Quote
+                Submit
               </button>
             </form>
 
