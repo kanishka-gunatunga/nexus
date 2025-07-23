@@ -505,7 +505,7 @@ const Footer = () => {
                             </p>
                         </div>
                         <button
-                            className="bg-white text-[#162F65] hover:bg-black hover:border-2 hover:border-white hover:text-white transition duration-300 px-6 py-2 sm:px-15 sm:py-3 text-base sm:text-lg lg:text-xl rounded-lg font-medium flex-shrink-0"
+                            className="bg-white text-[#162F65] hover:bg-black hover:border-1 hover:border-white hover:text-white transition duration-300 px-6 py-2 sm:px-15 sm:py-3 text-base sm:text-lg lg:text-xl rounded-lg font-medium flex-shrink-0"
                         >
                             Talk to Us
                         </button>

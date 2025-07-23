@@ -190,7 +190,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 lg:mt-22">
               {/* Name Fields */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div>
