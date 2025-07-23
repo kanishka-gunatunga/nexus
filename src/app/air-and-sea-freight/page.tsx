@@ -86,7 +86,7 @@ const AirAndSeaFreight = () => {
                                         paragraph1={section.paragraph1}
                                         paragraph2={section.paragraph2}
                                         paragraph3={section.paragraph3}
-                                        subtitle={section.subtitle}
+                                        subtitle1={section.subtitle}
                                         buttonText={section.buttonText}
                                         buttonLink={section.buttonLink}
                                         imageSrc={section.image?.asset?.url || ''}
