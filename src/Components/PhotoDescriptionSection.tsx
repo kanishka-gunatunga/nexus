@@ -41,7 +41,7 @@ export default function PhotoDescriptionSection({
           alt={imageAlt}
           width={620}
           height={460}
-          className="rounded-[10px] sm:w-full md:w-full lg:max-w-[620px] h-auto lg:max-h-[660px] object-cover"
+          className="rounded-[10px] sm:w-full md:w-full lg:max-w-[620px] h-auto lg:max-h-[660px] min-h-auto lg:min-h-[460px] object-cover"
         />
       </div>
 
