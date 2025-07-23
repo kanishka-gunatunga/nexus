@@ -93,20 +93,18 @@ const CustomsPage = () => {
           <Accordian
             image="/customs_img1.svg"
             description="Navigating customs regulations and border processes in Australia and abroad can be complex, but it doesn't have to slow your supply chain. Our customs specialists manage every aspect - from HS classification and duty optimisation to documentation and compliance - ensuring your goods move across borders quickly, smoothly, and cost-effectively."
-            cards={[
-              // {
-              //   title: "Customs and Border Processing",
-              //   content:
-              //     "Planning and being ready to engage with customs and border authorities is essential for fast clearance and minimizing delays. Our teams begin their work long before your goods arrive at customs to ensure the best possible outcomes.",
-              // },
-            ]}
+
+            classname="max-h-[920px]"
             accordionItems={[
+
+
               {
                 title: "Customs and Border Processing",
                 content:
                   "Planning and being ready to engage with customs and border authorities is essential for fast clearance and minimizing delays. Our teams begin their work long before your goods arrive at customs to ensure the best possible outcomes.",
               },
               {
+                
                 title: "Technology for Smarter Decisions",
                 content:
                   "Our advanced supply chain visibility tools, digital documentation, and emissions transparency empower our customers to make informed decisions.",

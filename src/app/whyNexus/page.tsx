@@ -475,7 +475,7 @@ const airAndSeaFreight = () => {
 
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-row justify-center mb-12">
+                <div className="flex flex-row justify-center mb-6">
                     <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[50px] leading-[1.1] text-[#162F65] font-poppins">
                         Our Focus Areas
                     </h2>
@@ -483,13 +483,7 @@ const airAndSeaFreight = () => {
                 <Accordian
 
                     image="/sus-accord.png"
-                    cards={[
-                        // {
-                        //     title: 'Carbon-Conscious Freight Solutions',
-                        //     content: 'We prioritise cost- and carbon-efficient routing, consolidated loads, and collaborations with carriers that invest in low-emissions technologies.'
-                        // },
-
-                    ]}
+                    classname="max-h-[550px]"
                     accordionItems={[
                         {
                             title: 'Carbon-Conscious Freight Solutions',
