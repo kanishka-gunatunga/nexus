@@ -5,6 +5,7 @@ import React from "react";
 import Nav from "@/Components/Nav";
 import Quote from "@/Components/Quote";
 import Link from "next/link";
+import HeroSection from "@/Components/HeroSection";
 
 const TrackAndTrace = () => {
   //   const [activeTab, setActiveTab] = useState("track");
@@ -51,31 +52,35 @@ const TrackAndTrace = () => {
 
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
-      <div className="relative max-w-7xl mx-auto block">
+      <div className="relative mx-auto block">
         <Nav />
 
-        {/* Hero Section */}
-        <div
-          id="hero-section"
-          className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30"
-        >
-          <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
-            <Image
-              src="/trackAndTrace_hero_banner.svg"
-              alt="Nexus X Logo"
-              width={1000}
-              height={400}
-              className="w-full h-full object-cover absolute inset-0"
-            />
-            <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
-              <div className="text-left px-4">
-                <h1 className="text-l sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl font-normal text-[#0F2043] uppercase">
-                  TRACK AND TRACE
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* <div id="hero-section"
+                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
+                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
+                        <Image
+                            src="/why-nexus/banner.svg"
+                            alt="Nexus X Logo"
+                            width={1000}
+                            height={400}
+                            className="w-full h-full object-cover absolute inset-0"
+                        />
+                        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
+                            <div className="text-left px-4">
+                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
+                                    Why Nexus
+                                </h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+
+        <HeroSection
+          title="TRACK AND TRACE"
+          imageSrc="/trackAndTrace_hero_banner.svg"
+          imageAlt="Nexus X Logo"
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28">
@@ -102,13 +107,11 @@ const TrackAndTrace = () => {
             {/* Right side - Content */}
             <div className="order-1 lg:order-2 space-y-6">
               <div className="space-y-4">
-
                 <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
                   Track and trace your cargo as it makes its journey with the
                   Neo dashboard from Cargowise.
                 </p>
                 <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
-
                   Real-time insights of your transactions, shipments,
                   declarations, and orders give you the visibility you have been
                   asking for.
@@ -128,13 +131,12 @@ const TrackAndTrace = () => {
 
         {/* Route Visualiser Section */}
         <div className="py-6 md:py-10">
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative">
             {/* Left side - Content */}
             <div className="order-1 lg:order-1 space-y-6 z-10">
               <h2 className="font-poppins font-bold text-[35px] lg:text-[55px] text-[#162F65] mb-8 lg:mb-2 leading-tight">
-            Route Visualiser
-          </h2>
+                Route Visualiser
+              </h2>
               <p className="font-poppins font-medium sm:text-[18px] md:text-[18px] lg:text-[22px] text-[#676767] leading-relaxed">
                 View your shipment&apos;s journey on a global map powered by
                 satellite AIS and flight transponders for complete visibility
@@ -184,8 +186,16 @@ const TrackAndTrace = () => {
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       <h3 className="font-poppins text-xl sm:text-2xl font-semibold text-[#162F65] mb-3 sm:mb-4 leading-tight">
-                        {feature.title}
+                        {feature.title.includes("CO₂") ? (
+                          <>
+                            <span style={{ color: "#55a626ff" }}>CO₂</span>{" "}
+                            {feature.title.replace("CO₂", "").trim()}
+                          </>
+                        ) : (
+                          feature.title
+                        )}
                       </h3>
+
                       <p className="font-poppins text-sm sm:text-base lg:text-lg text-[#162F65] font-medium leading-[28px]">
                         {feature.description}
                       </p>
