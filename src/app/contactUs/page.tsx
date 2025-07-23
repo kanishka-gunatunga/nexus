@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
 import Quote from "@/Components/Quote";
+import HeroSection from "@/Components/HeroSection";
 
 // Define the shape of your form data
 interface FormData {
@@ -145,32 +146,35 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
-      {/* Header Section */}
-      <Nav />
+      <div className="relative mx-auto block">
+        <Nav />
 
-      {/* Hero Section */}
-      <div
-        id="hero-section"
-        className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30"
-      >
-        <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
-          <Image
-            src="/contactUs_hero_banner.svg"
-            alt="Nexus X Logo"
-            width={1000}
-            height={400}
-            className="w-full h-full object-cover absolute inset-0"
-          />
-          <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
-            <div className="text-left px-4">
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
-                DON&apos;T HESITATE
-                <br />
-                TO CONTACT US
-              </h1>
-            </div>
-          </div>
-        </div>
+        {/* <div id="hero-section"
+                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
+                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
+                        <Image
+                            src="/why-nexus/banner.svg"
+                            alt="Nexus X Logo"
+                            width={1000}
+                            height={400}
+                            className="w-full h-full object-cover absolute inset-0"
+                        />
+                        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
+                            <div className="text-left px-4">
+                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
+                                    Why Nexus
+                                </h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+
+        <HeroSection
+          title="DON'T HESITATE TO CONTACT US"
+          imageSrc="/contactUs_hero_banner.svg"
+          imageAlt="Nexus X Logo"
+        />
       </div>
 
       {/* Main Container */}
@@ -190,11 +194,11 @@ export default function ContactPage() {
                 We&apos;re here to help.
               </h1>
 
-              <p className="mb-2 font-poppins font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] text-justify text-[#0F2043]">
+              <p className="mb-2 font-poppins font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] text-left text-[#0F2043]">
                 Tell us as much as you can... Nothing is too complex for us...
               </p>
 
-              <p className="mb-2 font-poppins font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] text-justify text-[#0F2043]">
+              <p className="mb-2 font-poppins font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] text-left text-[#0F2043]">
                 Commercial shipments only - no personal effects.
               </p>
 

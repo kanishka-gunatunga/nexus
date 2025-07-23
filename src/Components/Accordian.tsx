@@ -60,7 +60,7 @@ const Accordian: React.FC<AccordianProps> = ({
         {/* Right Column - Content */}
         <div className="flex flex-col h-full">
           {/* Description */}
-          <div className="font-poppins font-medium text-[18px] text-[#676767] leading-relaxed mb-4">
+          <div className="font-poppins font-medium text-[18px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed mb-4">
             {description}
           </div>
 

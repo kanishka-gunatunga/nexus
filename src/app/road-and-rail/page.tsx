@@ -8,36 +8,42 @@ import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
+import HeroSection from "@/Components/HeroSection";
 
 const roadAndRail = () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
-      <div className="relative max-w-7xl mx-auto block">
+      <div className="relative mx-auto block">
         <Nav />
 
-        <div
-          id="hero-section"
-          className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30"
-        >
-          <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
-            <Image
-              src="/roadAndRail_hero_banner.svg"
-              alt="Nexus X Logo"
-              width={1000}
-              height={400}
-              className="w-full h-full object-cover absolute inset-0"
-            />
-            <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
-              <div className="text-left px-4">
-                <h1 className="text-l sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl font-normal text-[#0F2043] uppercase">
-                  ROAD & RAIL TRANSPORT
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* <div id="hero-section"
+                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
+                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
+                        <Image
+                            src="/why-nexus/banner.svg"
+                            alt="Nexus X Logo"
+                            width={1000}
+                            height={400}
+                            className="w-full h-full object-cover absolute inset-0"
+                        />
+                        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
+                            <div className="text-left px-4">
+                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
+                                    Why Nexus
+                                </h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+
+        <HeroSection
+          title="ROAD & RAIL TRANSPORT"
+          imageSrc="/roadAndRail_hero_banner.svg"
+          imageAlt="Nexus X Logo"
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28">
