@@ -483,13 +483,7 @@ const airAndSeaFreight = () => {
                 <Accordian
 
                     image="/sus-accord.png"
-                    cards={[
-                        // {
-                        //     title: 'Carbon-Conscious Freight Solutions',
-                        //     content: 'We prioritise cost- and carbon-efficient routing, consolidated loads, and collaborations with carriers that invest in low-emissions technologies.'
-                        // },
-
-                    ]}
+                    classname="max-h-[550px]"
                     accordionItems={[
                         {
                             title: 'Carbon-Conscious Freight Solutions',
