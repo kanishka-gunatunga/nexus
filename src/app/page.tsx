@@ -13,7 +13,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// import { homePage } from '../../src/sanity/lib/homePage'
+import { homePage } from '../../src/sanity/lib/homePage'
 
 export default function Home() {
   const images = [
@@ -37,29 +37,29 @@ export default function Home() {
   const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
-  // const [data, setData] = useState<any>(null)
-  // interface HomePageData {
-  //     heroTitle: string;
-  //     heroDescription: string;
-  //     buttonText: string;
-  // }
+    const [data, setData] = useState<HomePageData | null>(null);
+    interface HomePageData {
+        heroTitle: string;
+        heroDescription: string;
+        buttonText: string;
+    }
 
-  // const dataTest= homePage();
+    const dataTest = homePage();
 
-  // useEffect(() => {
-  //     homePage().then(setData)
-  // }, [])
+    useEffect(() => {
+        homePage().then(setData);
+    }, []);
 
-  // console.log(dataTest);
-  // useEffect(() => {
-  //     const interval = setInterval(() => {
-  //         setCurrentImageIndex((prevIndex) =>
-  //             (prevIndex + 1) % images.length
-  //         );
-  //     }, 5000);
-  //
-  //     return () => clearInterval(interval);
-  // }, [images.length]);
+    console.log(dataTest);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) =>
+                (prevIndex + 1) % images.length
+            );
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [images.length]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -381,24 +381,27 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
-          <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
-            <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
-              Supply Chains
-              <br />
-              Never Sleep.
-              <br />
-              Neither Do We.
-            </h1>
-            <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
-              As your agile logistics partner, we operate as an extension of
-              your business, so you enjoy peace of mind, and responsive service.
-            </p>
-            <button className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button">
-              Explore More
-            </button>
-          </div>
-        </div>
+                <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
+                    <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
+                        <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
+                            {/* Supply Chains
+                            <br />
+                            Never Sleep.
+                            <br />
+                            Neither Do We. */}
+                            {data?.heroTitle}
+                        </h1>
+                        <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
+                            As your agile logistics partner, we operate as an extension of your
+                            business, so you enjoy peace of mind, and responsive service.
+                        </p>
+                        <button
+                            className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
+                        >
+                            Explore More
+                        </button>
+                    </div>
+                </div>
 
         <Quote />
 
