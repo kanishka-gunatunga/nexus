@@ -8,6 +8,6 @@ export const homePage =  () => {
     buttonText
   }`
   const data =  client.fetch(query)
-  console.log("4--------------", data);
+  // console.log("4--------------", data);
   return data
 }

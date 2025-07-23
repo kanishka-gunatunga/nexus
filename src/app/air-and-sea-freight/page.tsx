@@ -9,10 +9,45 @@ import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
+import { airAndFreightService } from "@/sanity/lib/air-and-freight-service";
+import { useEffect, useState } from "react";
 
 
 
-const airAndSeaFreight = () => {
+const AirAndSeaFreight = () => {
+
+    interface Section {
+        _type: string;
+        title: string;
+        paragraph1: string;
+        paragraph2: string;
+        paragraph3: string;
+        subtitle: string;
+        buttonText: string;
+        buttonLink: string;
+        image: {
+            asset?: {
+                _id: string;
+                url: string;
+            };
+        };
+        imageAlt: string;
+        reverseOrder: boolean;
+    }
+
+    interface AirAndFreightServiceData {
+        title: string;
+        sections: Section[];
+    }
+    const [data, setData] = useState<AirAndFreightServiceData[] | null>(null);
+
+
+    useEffect(() => {
+        airAndFreightService().then((res) => {
+            console.log("Air and Sea Freight Data:", res)
+            setData(res)
+        })
+    }, [])
 
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -27,29 +62,6 @@ const airAndSeaFreight = () => {
                     title="Air & Sea Freight Services"
                 />
 
-                {/* <div id="hero-section"
-                    className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
-                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
-                        <Image
-                            src="/lead-banner.png"
-                            alt="Nexus X Logo"
-                            width={1000}
-                            height={400}
-                            className="w-full h-full object-cover absolute inset-0"
-                        />
-                        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
-                            <div className="text-left px-4">
-                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[53px] xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
-                                    AIR & SEA
-                                </h1>
-                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[53px] xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
-                                    FREIGHT SERVICES
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-
             </div>
 
             <div className="relative top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,8 +72,37 @@ const airAndSeaFreight = () => {
                     paragraph2=""
                 />
 
-                {/* first card */}
-                <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+                {data?.map((page, pageIndex) => (
+                    <div key={pageIndex}>
+                        {/* <h2 className="text-2xl font-bold mb-6">{page.title}</h2> */}
+
+                        {page.sections.map((section, sectionIndex) => {
+                            if (!section) return null;
+                            if (section._type === "photoDescriptionSection") {
+                                return (
+                                    <PhotoDescriptionSection
+                                        key={sectionIndex}
+                                        title={section.title}
+                                        paragraph1={section.paragraph1}
+                                        paragraph2={section.paragraph2}
+                                        paragraph3={section.paragraph3}
+                                        subtitle={section.subtitle}
+                                        buttonText={section.buttonText}
+                                        buttonLink={section.buttonLink}
+                                        imageSrc={section.image?.asset?.url || ''}
+                                        imageAlt={section.imageAlt}
+                                        reverse={section.reverseOrder ?? false}
+                                    />
+                                );
+                            }
+
+                            return null;
+                        })}
+                    </div>
+                ))}
+
+
+                {/* <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
                     <PhotoDescriptionSection
                         title="Air Freight Services"
                         paragraph1="When time is critical, our air freight solutions move your cargo reliably. We tap into a global network of carriers and charter options, ensuring capacity even during peak congestion. You'll have end-to-end visibility from pickup to final delivery - no guesswork, no last-minute rate spikes"
@@ -76,7 +117,7 @@ const airAndSeaFreight = () => {
                 </div>
 
 
-                {/* second card */}
+                
                 <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
                     <PhotoDescriptionSection
                         title="Sea Freight Services"
@@ -93,7 +134,7 @@ const airAndSeaFreight = () => {
 
 
 
-                {/* third card */}
+                
                 <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
                     <PhotoDescriptionSection
                         title="Sea-Air Combination Faster than sea, cheaper than air."
@@ -106,7 +147,7 @@ const airAndSeaFreight = () => {
                         imageSrc="/services/sea-air.png"
                         reverse={false}
                     />
-                </div>
+                </div> */}
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ServiceCardRow />
@@ -127,9 +168,9 @@ const airAndSeaFreight = () => {
                 <div
                     className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
                     <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-                        Australian Expertise, 
+                        Australian Expertise,
                         <br />
-                       Global Strength
+                        Global Strength
                     </h2>
                     <button
                         className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
@@ -150,4 +191,4 @@ const airAndSeaFreight = () => {
     );
 }
 
-export default airAndSeaFreight;
+export default AirAndSeaFreight;

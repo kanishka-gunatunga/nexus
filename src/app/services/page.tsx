@@ -165,7 +165,7 @@ const ServicesPage = () => {
             fill
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/90"></div>
+          <div className="absolute inset-0 bg-black/[0.6]"></div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
             <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
               Trusted Partners,
