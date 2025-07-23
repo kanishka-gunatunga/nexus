@@ -540,14 +540,14 @@ const airAndSeaFreight = () => {
             <div className="relative h-64 sm:h-80 lg:h-96 mt-2 overflow-hidden">
                 <div className="absolute inset-0">
                     <Image
-                        src="/why-nexus/why-nexus-ribbon.png"
+                        src="/why-nexus/why-nexus-ribbon.svg"
                         // src="/leadership.svg"
                         alt="Airport"
                         width={1000}
                         height={400}
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/40"></div>
+                    <div className="absolute inset-0 bg-black/10"></div>
                 </div>
 
                 <div

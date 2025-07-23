@@ -253,7 +253,7 @@ const LeadershipPage = () => {
                         height={400}
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/90"></div>
+                    <div className="absolute inset-0 bg-black/[0.4]"></div>
                 </div>
 
                 <div
