@@ -9,6 +9,7 @@ import ServiceCardRow from "@/Components/ServiceCardRow";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import Link from "next/link";
 import Accordian from "@/Components/Accordian";
+import HeroSection from "@/Components/HeroSection";
 
 const CustomsPage = () => {
   // const [isExpanded, setIsExpanded] = useState(false);
@@ -47,32 +48,38 @@ const CustomsPage = () => {
 
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
-      {/* Header */}
-      <Nav />
+      <div className="relative mx-auto block">
 
-      {/* Hero Section */}
-      <div
-        id="hero-section"
-        className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30"
-      >
-        <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
-          <Image
-            src="/customs_hero_banner.svg"
-            alt="Nexus X Logo"
-            width={1000}
-            height={400}
-            className="w-full h-full object-cover absolute inset-0"
-          />
-          <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
-            <div className="text-left px-4">
-              <h1 className="text-l sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal text-[#0F2043] uppercase">
-                CUSTOMS CLEARANCE
-                <br />& COMPLIANCE
-              </h1>
+                <Nav />
+
+                {/* <div id="hero-section"
+                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
+                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
+                        <Image
+                            src="/why-nexus/banner.svg"
+                            alt="Nexus X Logo"
+                            width={1000}
+                            height={400}
+                            className="w-full h-full object-cover absolute inset-0"
+                        />
+                        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
+                            <div className="text-left px-4">
+                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
+                                    Why Nexus
+                                </h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+
+                <HeroSection
+                    title="Customs Clearance & Compliance"
+                    imageSrc="/customs_hero_banner.svg"
+                    imageAlt="Nexus X Logo"
+                />
+
             </div>
-          </div>
-        </div>
-      </div>
 
       {/* Customs and Border Processing Section */}
       <section className="py-4 bg-[#F6F6F6] poppins relative lg:-mt-28">
@@ -86,8 +93,10 @@ const CustomsPage = () => {
           <Accordian
             image="/customs_img1.svg"
             description="Navigating customs regulations and border processes in Australia and abroad can be complex, but it doesn't have to slow your supply chain. Our customs specialists manage every aspect - from HS classification and duty optimisation to documentation and compliance - ensuring your goods move across borders quickly, smoothly, and cost-effectively."
+
             classname="max-h-[920px]"
             accordionItems={[
+
 
               {
                 title: "Customs and Border Processing",
@@ -138,7 +147,7 @@ const CustomsPage = () => {
             <h3 className="font-poppins font-medium text-[24px] text-[#162F65] mb-4">
               Customs doesn&apos;t have to be a block...
             </h3>
-            <p className="font-poppins font-medium text-[18px] text-[#676767] leading-relaxed mb-6 max-w-4xl">
+            <p className="font-poppins font-medium text-[18px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed mb-6 text-justify max-w-4xl">
               If you and your goods arrive with a good plan and in compliance
               with local regulations. We make that happen by simplifying
               compliance and reducing inspection delays.
