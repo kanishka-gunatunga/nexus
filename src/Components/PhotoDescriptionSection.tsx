@@ -13,7 +13,7 @@ type Props = {
   buttonLink: string;
   imageSrc: string;
   imageAlt?: string;
-  reverse?: boolean; 
+  reverse?: boolean;
 };
 
 export default function PhotoDescriptionSection({
@@ -30,9 +30,8 @@ export default function PhotoDescriptionSection({
 }: Props) {
   return (
     <div
-      className={`bg-transparent px-0 py-6 md:py-10 flex flex-col lg:flex-row gap-10 ${
-        reverse ? 'lg:flex-row-reverse' : ''
-      }`}
+      className={`bg-transparent px-0 py-6 md:py-10 flex gap-10 ${reverse ? 'flex-col-reverse lg:flex-row-reverse' : 'flex-col lg:flex-row'
+        }`}
     >
       {/* Image */}
       <div className="flex-1 flex justify-center items-center">
@@ -68,7 +67,7 @@ export default function PhotoDescriptionSection({
           {paragraph2}
         </p>
 
-        
+
 
         <Link href={buttonLink}>
           <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">

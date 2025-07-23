@@ -13,7 +13,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// import { homePage } from '../../src/sanity/lib/homePage'
+import { homePage } from '../../src/sanity/lib/homePage'
 
 export default function Home() {
 
@@ -24,29 +24,29 @@ export default function Home() {
     const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
 
-    // const [data, setData] = useState<any>(null)
-    // interface HomePageData {
-    //     heroTitle: string;
-    //     heroDescription: string;
-    //     buttonText: string;
-    // }
+    const [data, setData] = useState<HomePageData | null>(null);
+    interface HomePageData {
+        heroTitle: string;
+        heroDescription: string;
+        buttonText: string;
+    }
 
-    // const dataTest= homePage();
+    const dataTest = homePage();
 
-    // useEffect(() => {
-    //     homePage().then(setData)
-    // }, [])
+    useEffect(() => {
+        homePage().then(setData);
+    }, []);
 
-    // console.log(dataTest);
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrentImageIndex((prevIndex) =>
-    //             (prevIndex + 1) % images.length
-    //         );
-    //     }, 5000);
-    //
-    //     return () => clearInterval(interval);
-    // }, [images.length]);
+    console.log(dataTest);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) =>
+                (prevIndex + 1) % images.length
+            );
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [images.length]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -372,11 +372,12 @@ export default function Home() {
                 <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
                     <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
                         <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
-                            Supply Chains
+                            {/* Supply Chains
                             <br />
                             Never Sleep.
                             <br />
-                            Neither Do We.
+                            Neither Do We. */}
+                            {data?.heroTitle}
                         </h1>
                         <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
                             As your agile logistics partner, we operate as an extension of your
@@ -798,9 +799,9 @@ export default function Home() {
                                                     <div
                                                         className="flex flex-row gap-2 group justify-start items-center pt-4 sm:pt-6 w-full px-6">
                                                         <svg className="w-8 h-8 text-left flex-shrink-0" width="81"
-                                                             height="82"
-                                                             viewBox="0 0 81 82" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            height="82"
+                                                            viewBox="0 0 81 82" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
                                                             <circle cx="40.5" cy="41" r="37.7635" stroke="white"
                                                                 strokeWidth="5.47297" />
                                                             <path
@@ -856,8 +857,7 @@ export default function Home() {
                                         </h2>
                                         <p
 
-                                            className={`text-sm lg:text-lg font-medium ${
-                                                section.reverse ? "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
+                                            className={`text-sm lg:text-lg font-medium ${section.reverse ? "mt-1 sm:mt-2 lg:mt-3" : "mt-2 sm:mt-4 lg:mt-8"} text-[#676767] max-w-2xl leading-[25px] text-center md:text-left whitespace-pre-line`}
                                             dangerouslySetInnerHTML={{ __html: section.description }}
 
                                         />
