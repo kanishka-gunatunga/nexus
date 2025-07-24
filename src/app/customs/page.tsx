@@ -184,7 +184,7 @@ const CustomsPage = () => {
           <PhotoDescriptionSection
             title="Supply Chain Consultancy & Audits"
             paragraph1="Our comprehensive audits uncover inefficiencies across your entire supply chain from procurement to last-mile delivery. We provide actionable insights and customised roadmaps that cut costs and improve service quality. We also guide you through the process of becoming an Australian Trusted Trader (ATT), unlocking benefits such as reduced red tape at the border, priority goods processing, duty deferral options, and a dedicated Australian Border Force account manager."
-            subtitle="Audits are more than box-ticking exercises..."
+            subtitle1="Audits are more than box-ticking exercises..."
             paragraph2="We turn audit insights into immediate ROI, delivering cost savings and enhanced performance from day one."
             paragraph3=""
             buttonText="Get Started with a Supply Chain Audit"
