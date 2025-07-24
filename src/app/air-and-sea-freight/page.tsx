@@ -72,9 +72,9 @@ const AirAndSeaFreight = () => {
                     paragraph2=""
                 />
 
-                {data?.map((page, pageIndex) => (
+                {/* {data?.map((page, pageIndex) => (
                     <div key={pageIndex}>
-                        {/* <h2 className="text-2xl font-bold mb-6">{page.title}</h2> */}
+                       
 
                         {page.sections.map((section, sectionIndex) => {
                             if (!section) return null;
@@ -99,10 +99,10 @@ const AirAndSeaFreight = () => {
                             return null;
                         })}
                     </div>
-                ))}
+                ))} */}
 
 
-                {/* <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+                <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
                     <PhotoDescriptionSection
                         title="Air Freight Services"
                         paragraph1="When time is critical, our air freight solutions move your cargo reliably. We tap into a global network of carriers and charter options, ensuring capacity even during peak congestion. You'll have end-to-end visibility from pickup to final delivery - no guesswork, no last-minute rate spikes"
@@ -147,7 +147,7 @@ const AirAndSeaFreight = () => {
                         imageSrc="/services/sea-air.png"
                         reverse={false}
                     />
-                </div> */}
+                </div>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ServiceCardRow />

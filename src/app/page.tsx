@@ -372,12 +372,12 @@ export default function Home() {
                 <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
                     <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
                         <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
-                            {/* Supply Chains
+                            Supply Chains
                             <br />
                             Never Sleep.
                             <br />
-                            Neither Do We. */}
-                            {data?.heroTitle}
+                            Neither Do We.
+                            {/* {data?.heroTitle} */}
                         </h1>
                         <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
                             As your agile logistics partner, we operate as an extension of your
