@@ -13,7 +13,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { homePage } from '../../src/sanity/lib/homePage'
+// import { homePage } from '../../src/sanity/lib/homePage'
 
 export default function Home() {
   const images = [
@@ -37,20 +37,20 @@ export default function Home() {
   const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
-    const [data, setData] = useState<HomePageData | null>(null);
-    interface HomePageData {
-        heroTitle: string;
-        heroDescription: string;
-        buttonText: string;
-    }
+    // const [data, setData] = useState<HomePageData | null>(null);
+    // interface HomePageData {
+    //     heroTitle: string;
+    //     heroDescription: string;
+    //     buttonText: string;
+    // }
 
-    const dataTest = homePage();
+    // const dataTest = homePage();
 
-    useEffect(() => {
-        homePage().then(setData);
-    }, []);
+    // useEffect(() => {
+    //     homePage().then(setData);
+    // }, []);
 
-    console.log(dataTest);
+    // console.log(dataTest);
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) =>

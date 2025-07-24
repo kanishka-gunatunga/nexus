@@ -175,6 +175,11 @@ const airAndSeaFreight = () => {
               <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#5DF706] font-medium">
                 CO<sub>2</sub>
               </span>
+
+              {/* <p
+                  className="text-sm font-medium text-[#676767] leading-[25px] whitespace-pre-line text-center"
+                  dangerouslySetInnerHTML={{ __html: section.description }}
+                /> */}
               <span className="mx-1"></span>
               <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-medium">
                 emission of every shipment with CargoWise Neo.

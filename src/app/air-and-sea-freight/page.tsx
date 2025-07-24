@@ -9,45 +9,45 @@ import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
-import { airAndFreightService } from "@/sanity/lib/air-and-freight-service";
-import { useEffect, useState } from "react";
+// import { airAndFreightService } from "@/sanity/lib/air-and-freight-service";
+// import { useEffect, useState } from "react";
 
 
 
 const AirAndSeaFreight = () => {
 
-    interface Section {
-        _type: string;
-        title: string;
-        paragraph1: string;
-        paragraph2: string;
-        paragraph3: string;
-        subtitle: string;
-        buttonText: string;
-        buttonLink: string;
-        image: {
-            asset?: {
-                _id: string;
-                url: string;
-            };
-        };
-        imageAlt: string;
-        reverseOrder: boolean;
-    }
+    // interface Section {
+    //     _type: string;
+    //     title: string;
+    //     paragraph1: string;
+    //     paragraph2: string;
+    //     paragraph3: string;
+    //     subtitle: string;
+    //     buttonText: string;
+    //     buttonLink: string;
+    //     image: {
+    //         asset?: {
+    //             _id: string;
+    //             url: string;
+    //         };
+    //     };
+    //     imageAlt: string;
+    //     reverseOrder: boolean;
+    // }
 
-    interface AirAndFreightServiceData {
-        title: string;
-        sections: Section[];
-    }
-    const [data, setData] = useState<AirAndFreightServiceData[] | null>(null);
+    // interface AirAndFreightServiceData {
+    //     title: string;
+    //     sections: Section[];
+    // }
+    // const [data, setData] = useState<AirAndFreightServiceData[] | null>(null);
 
 
-    useEffect(() => {
-        airAndFreightService().then((res) => {
-            console.log("Air and Sea Freight Data:", res)
-            setData(res)
-        })
-    }, [])
+    // useEffect(() => {
+    //     airAndFreightService().then((res) => {
+    //         console.log("Air and Sea Freight Data:", res)
+    //         setData(res)
+    //     })
+    // }, [])
 
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
