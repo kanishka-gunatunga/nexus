@@ -86,7 +86,7 @@ const AirAndSeaFreight = () => {
                                         paragraph1={section.paragraph1}
                                         paragraph2={section.paragraph2}
                                         paragraph3={section.paragraph3}
-                                        subtitle={section.subtitle}
+                                        subtitle1={section.subtitle}
                                         buttonText={section.buttonText}
                                         buttonLink={section.buttonLink}
                                         imageSrc={section.image?.asset?.url || ''}
@@ -106,7 +106,7 @@ const AirAndSeaFreight = () => {
                     <PhotoDescriptionSection
                         title="Air Freight Services"
                         paragraph1="When time is critical, our air freight solutions move your cargo reliably. We tap into a global network of carriers and charter options, ensuring capacity even during peak congestion. You'll have end-to-end visibility from pickup to final delivery - no guesswork, no last-minute rate spikes"
-                        subtitle="Think air freight is always expensive?"
+                        subtitle1="Think air freight is always expensive?"
                         paragraph2="Our experts optimise routes, consolidate compatible loads, and negotiate directly with airlines, so we can secure air freight at rates that keep your margins intact."
                         paragraph3=""
                         buttonText="Book Air Freight"
@@ -122,7 +122,7 @@ const AirAndSeaFreight = () => {
                     <PhotoDescriptionSection
                         title="Sea Freight Services"
                         paragraph1="Our sea freight services are engineered for businesses moving volume across borders, without compromising control. Whether you need FCL, LCL, or break-bulk, we offer consistent scheduling, locked-in rates, and transparent coordination - all backed by powerful systems, efficient tracking, and on-ground expertise."
-                        subtitle="Our networks provide better pricing..."
+                        subtitle1="Our networks provide better pricing..."
                         paragraph2="What matters is strength at destination. Nexus Logix partners with leading global agents who deliver superior pricing, consistent transit times, and hands-on shipment tracking, without passing on inflated overheads - and that's a cost benefit for you."
                         paragraph3=""
                         buttonText="Book Sea Freight"
@@ -137,9 +137,10 @@ const AirAndSeaFreight = () => {
                 
                 <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
                     <PhotoDescriptionSection
-                        title="Sea-Air Combination Faster than sea, cheaper than air."
+                        title="Sea-Air Combination"
                         paragraph1="For shipments that can't justify full air freight costs but can't afford full sea timelines, our sea-air hybrid options provide a strategic alternative. We ship to a transhipment hub via sea, then fly the cargo to its final destination, slashing lead times but without high air freight premiums."
-                        subtitle="You don't have to choose between slow and expensive..."
+                        subtitle2="You don't have to choose between slow and expensive..."
+                        subtitle1="Faster than sea, cheaper than air."
                         paragraph2="You can choose efficient instead. With smart planning, our sea-air options give you the best of both worlds; cost savings and time efficiency - all tailored to your specific delivery window."
                         paragraph3=""
                         buttonText="Explore Sea-Air Options"

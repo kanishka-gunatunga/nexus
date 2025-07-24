@@ -326,7 +326,7 @@ const Nav = () => {
   return (
     <header className="relative z-50 poppins">
       <div className="max-w-7xl container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-3 sm:py-4 lg:py-6 relative">
+        <div className="flex items-center justify-between py-3 sm:py-4 lg:py-2 relative">
           {/* Mobile Menu Button - Visible on small screens */}
           <div className="lg:hidden flex-shrink-0 order-1">
             <button
@@ -418,13 +418,13 @@ const Nav = () => {
           <div className="flex-shrink-0 order-2 flex justify-center lg:order-none lg:flex lg:justify-center">
             <Link href="/">
               <Image
-                src="/Logo-Nexus.png"
-                alt="Nexus Logo"
-                width={120}
-                height={120}
-                className="h-12 sm:h-16 lg:h-20 w-auto"
-                priority
-              />
+  src="/Logo-Nexus.png"
+  alt="Nexus Logo"
+  width={180}
+  height={180}
+  className="h-20 sm:h-24 lg:h-28 w-auto"
+  priority
+/>
             </Link>
           </div>
 
