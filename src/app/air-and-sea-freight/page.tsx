@@ -9,45 +9,45 @@ import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
-import { airAndFreightService } from "@/sanity/lib/air-and-freight-service";
-import { useEffect, useState } from "react";
+// import { airAndFreightService } from "@/sanity/lib/air-and-freight-service";
+// import { useEffect, useState } from "react";
 
 
 
 const AirAndSeaFreight = () => {
 
-    interface Section {
-        _type: string;
-        title: string;
-        paragraph1: string;
-        paragraph2: string;
-        paragraph3: string;
-        subtitle: string;
-        buttonText: string;
-        buttonLink: string;
-        image: {
-            asset?: {
-                _id: string;
-                url: string;
-            };
-        };
-        imageAlt: string;
-        reverseOrder: boolean;
-    }
+    // interface Section {
+    //     _type: string;
+    //     title: string;
+    //     paragraph1: string;
+    //     paragraph2: string;
+    //     paragraph3: string;
+    //     subtitle: string;
+    //     buttonText: string;
+    //     buttonLink: string;
+    //     image: {
+    //         asset?: {
+    //             _id: string;
+    //             url: string;
+    //         };
+    //     };
+    //     imageAlt: string;
+    //     reverseOrder: boolean;
+    // }
 
-    interface AirAndFreightServiceData {
-        title: string;
-        sections: Section[];
-    }
-    const [data, setData] = useState<AirAndFreightServiceData[] | null>(null);
+    // interface AirAndFreightServiceData {
+    //     title: string;
+    //     sections: Section[];
+    // }
+    // const [data, setData] = useState<AirAndFreightServiceData[] | null>(null);
 
 
-    useEffect(() => {
-        airAndFreightService().then((res) => {
-            console.log("Air and Sea Freight Data:", res)
-            setData(res)
-        })
-    }, [])
+    // useEffect(() => {
+    //     airAndFreightService().then((res) => {
+    //         console.log("Air and Sea Freight Data:", res)
+    //         setData(res)
+    //     })
+    // }, [])
 
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -72,9 +72,9 @@ const AirAndSeaFreight = () => {
                     paragraph2=""
                 />
 
-                {data?.map((page, pageIndex) => (
+                {/* {data?.map((page, pageIndex) => (
                     <div key={pageIndex}>
-                        {/* <h2 className="text-2xl font-bold mb-6">{page.title}</h2> */}
+                       
 
                         {page.sections.map((section, sectionIndex) => {
                             if (!section) return null;
@@ -99,10 +99,10 @@ const AirAndSeaFreight = () => {
                             return null;
                         })}
                     </div>
-                ))}
+                ))} */}
 
 
-                {/* <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+                <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
                     <PhotoDescriptionSection
                         title="Air Freight Services"
                         paragraph1="When time is critical, our air freight solutions move your cargo reliably. We tap into a global network of carriers and charter options, ensuring capacity even during peak congestion. You'll have end-to-end visibility from pickup to final delivery - no guesswork, no last-minute rate spikes"
@@ -148,7 +148,7 @@ const AirAndSeaFreight = () => {
                         imageSrc="/services/sea-air.png"
                         reverse={false}
                     />
-                </div> */}
+                </div>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ServiceCardRow />
