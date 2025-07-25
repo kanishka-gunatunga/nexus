@@ -78,8 +78,9 @@ const TrackAndTrace = () => {
 
         <HeroSection
           title="TRACK AND TRACE"
-          imageSrc="/trackAndTrace_hero_banner.svg"
-          imageAlt="Nexus X Logo"
+          desktopImage="/trackAndTrace_hero_banner.svg"
+          mobileImage="/hero_arrow.svg"
+          altText="Track and trace hero section"
         />
       </div>
 

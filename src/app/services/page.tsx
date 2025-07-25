@@ -58,8 +58,9 @@ const ServicesPage = () => {
 
         <HeroSection
           title="Services"
-          imageSrc="/services_hero_banner.svg"
-          imageAlt="Nexus X Logo"
+          desktopImage="/services_hero_banner.svg"
+          mobileImage="/hero_arrow.svg"
+          altText="Service hero section"
         />
       </div>
 

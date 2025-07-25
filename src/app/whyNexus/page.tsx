@@ -46,8 +46,9 @@ const airAndSeaFreight = () => {
 
         <HeroSection
           title="Why Nexus Logix"
-          imageSrc="/why-nexus/banner.svg"
-          imageAlt="Nexus X Logo"
+          desktopImage="/why-nexus/banner.svg"
+          mobileImage="/hero_arrow.svg"
+          altText="Why nexus hero section"
         />
       </div>
 
@@ -603,18 +604,18 @@ const airAndSeaFreight = () => {
         </div>
       </div>
 
-            <div className="relative h-64 sm:h-80 lg:h-96 mt-2 overflow-hidden">
-                <div className="absolute inset-0">
-                    <Image
-                        src="/why-nexus/why-nexus-ribbon.svg"
-                        // src="/leadership.svg"
-                        alt="Airport"
-                        width={1000}
-                        height={400}
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/10"></div>
-                </div>
+      <div className="relative h-64 sm:h-80 lg:h-96 mt-2 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/why-nexus/why-nexus-ribbon.svg"
+            // src="/leadership.svg"
+            alt="Airport"
+            width={1000}
+            height={400}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/10"></div>
+        </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
           <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">

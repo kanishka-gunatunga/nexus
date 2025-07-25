@@ -41,8 +41,9 @@ const roadAndRail = () => {
 
         <HeroSection
           title="ROAD & RAIL TRANSPORT"
-          imageSrc="/roadAndRail_hero_banner.svg"
-          imageAlt="Nexus X Logo"
+          desktopImage="/roadAndRail_hero_banner.svg"
+          mobileImage="/hero_arrow.svg"
+          altText="road and rail hero section"
         />
       </div>
 

@@ -26,7 +26,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           priority
         />
         {/* Title overlay for desktop/tablet */}
-        <div className="absolute inset-0 flex items-center justify-start left-5 lg:left-10 xl:left-30 [@media(min-width:2100px)]:left-40 [@media(min-width:2800)]:left-110 [@media(min-width:2500)]:left-100">
+        <div className="absolute inset-0 flex items-center justify-start left-5 lg:left-10 xl:left-30 [@media(min-width:2100px)]:left-100 [@media(min-width:2100px)]:left-100">
           <div className="text-left px-4 max-w-[600px] sm:max-w-[250px] md:max-w-[450px] lg:max-w-[600px]">
             <h1 className="sm:text-[26px] md:text-[36px] lg:text-[46px] font-normal text-[#0F2043] uppercase">
               {title}

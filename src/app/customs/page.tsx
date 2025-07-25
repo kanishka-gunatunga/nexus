@@ -49,10 +49,9 @@ const CustomsPage = () => {
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
       <div className="relative mx-auto block">
+        <Nav />
 
-                <Nav />
-
-                {/* <div id="hero-section"
+        {/* <div id="hero-section"
                      className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
                     <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
                         <Image
@@ -73,13 +72,13 @@ const CustomsPage = () => {
                     </div>
                 </div> */}
 
-                <HeroSection
-                    title="Customs Clearance & Compliance"
-                    imageSrc="/customs_hero_banner.svg"
-                    imageAlt="Nexus X Logo"
-                />
-
-            </div>
+        <HeroSection
+          title="Customs Clearance & Compliance"
+          desktopImage="/leadership.svg"
+          mobileImage="/hero_arrow.svg"
+          altText="Customs Clearance hero section"
+        />
+      </div>
 
       {/* Customs and Border Processing Section */}
       <section className="py-4 bg-[#F6F6F6] poppins relative lg:-mt-28">
@@ -93,18 +92,14 @@ const CustomsPage = () => {
           <Accordian
             image="/customs_img1.svg"
             description="Navigating customs regulations and border processes in Australia and abroad can be complex, but it doesn't have to slow your supply chain. Our customs specialists manage every aspect - from HS classification and duty optimisation to documentation and compliance - ensuring your goods move across borders quickly, smoothly, and cost-effectively."
-
             classname="max-h-[920px]"
             accordionItems={[
-
-
               {
                 title: "Customs and Border Processing",
                 content:
                   "Planning and being ready to engage with customs and border authorities is essential for fast clearance and minimizing delays. Our teams begin their work long before your goods arrive at customs to ensure the best possible outcomes.",
               },
               {
-                
                 title: "Technology for Smarter Decisions",
                 content:
                   "Our advanced supply chain visibility tools, digital documentation, and emissions transparency empower our customers to make informed decisions.",
@@ -212,7 +207,7 @@ const CustomsPage = () => {
               height={400}
               className="w-full h-full object-cover"
             />
-           <div className="absolute inset-0 bg-black/[0.6]"></div>
+            <div className="absolute inset-0 bg-black/[0.6]"></div>
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
