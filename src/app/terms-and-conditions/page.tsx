@@ -1,8 +1,6 @@
 "use client"
-// import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
 import React from "react";
-// import Link from "next/link";
 import Nav from "@/Components/Nav";
 import HeroSection from "@/Components/HeroSection";
 

@@ -1,7 +1,6 @@
 "use client";
 import LinkedinSection from "@/Components/LinkedinSection";
 import React from "react";
-// import Image from "next/image";  // Removed unused Image import
 import Nav from "@/Components/Nav";
 import HeroSection from "@/Components/HeroSection";
 
