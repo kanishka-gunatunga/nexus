@@ -579,15 +579,14 @@ const airAndSeaFreight = () => {
         />
       </div>
 
-      <div className="w-full hidden lg:block bg-[#0F2043] mt-[20px] lg:mt-[20px]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div className="w-full hidden lg:block bg-[#0F2043] mt-[20px] lg:mt-[20px] h-[400px]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 h-full">
           <Image
-            // src={"/road-to.svg"}
             src="/why-nexus/road.svg"
             alt="Nexus X Logo"
             width={1800}
             height={1200}
-            className="object-cover"
+            className="object-cover h-full w-full"
           />
         </div>
       </div>

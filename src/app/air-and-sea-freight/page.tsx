@@ -107,7 +107,8 @@ const AirAndSeaFreight = () => {
                     <PhotoDescriptionSection
                         title="Air Freight Services"
                         paragraph1="When time is critical, our air freight solutions move your cargo reliably. We tap into a global network of carriers and charter options, ensuring capacity even during peak congestion. You'll have end-to-end visibility from pickup to final delivery - no guesswork, no last-minute rate spikes"
-                        subtitle1="Think air freight is always expensive?"
+                        subtitle2="Think air freight is always expensive?"
+                        subtitle1=""
                         paragraph2="Our experts optimise routes, consolidate compatible loads, and negotiate directly with airlines, so we can secure air freight at rates that keep your margins intact."
                         paragraph3=""
                         buttonText="Book Air Freight"
@@ -123,7 +124,8 @@ const AirAndSeaFreight = () => {
                     <PhotoDescriptionSection
                         title="Sea Freight Services"
                         paragraph1="Our sea freight services are engineered for businesses moving volume across borders, without compromising control. Whether you need FCL, LCL, or break-bulk, we offer consistent scheduling, locked-in rates, and transparent coordination - all backed by powerful systems, efficient tracking, and on-ground expertise."
-                        subtitle1="Our networks provide better pricing..."
+                        subtitle2="Our networks provide better pricing..."
+                        subtitle1=""
                         paragraph2="What matters is strength at destination. Nexus Logix partners with leading global agents who deliver superior pricing, consistent transit times, and hands-on shipment tracking, without passing on inflated overheads - and that's a cost benefit for you."
                         paragraph3=""
                         buttonText="Book Sea Freight"

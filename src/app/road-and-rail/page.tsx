@@ -60,7 +60,8 @@ const roadAndRail = () => {
             title="Road Transport"
             paragraph1="From origin, where our agents secure sharp ex works rates, to port handover, to cross-country highways via hand-picked carriers, and all the way through to final-mile delivery - we manage it all and coordinate the entire journey with precision."
             paragraph3="Whether it's a 100 km hop or a 1,000 km haul, we assign the right operator for each shipment, ensuring reliable transit and competitive pricing every step of the way."
-            subtitle1="Think only global players can offer true end-to-end logistics?"
+            subtitle2="Think only global players can offer true end-to-end logistics?"
+            subtitle1=""
             paragraph2={`Think again. Our global agent network and route-specialist carriers deliver unified origin, domestic, and final-mile service - without the "global" price tag.`}
             buttonText="Book Road Transport"
             buttonLink="/air-freight-quote"
@@ -74,7 +75,8 @@ const roadAndRail = () => {
           <PhotoDescriptionSection
             title="Rail (and Road) Freight"
             paragraph1="For high-volume domestic moves, rail freight offers unbeatable efficiency, especially when paired with our last-mile delivery options. Whether you're transporting containerised freight, pallets, or bulk commodities, we leverage Australia's major rail corridors to keep your costs low and your operations moving."
-            subtitle1="Rail doesn't have to be slow or rigid..."
+            subtitle2="Rail doesn't have to be slow or rigid..."
+            subtitle1=""
             paragraph2="You just need to plan it right, and that's where we shine. Our intermodal planning blends rail's long-haul efficiency with the flexibility of on-road delivery - giving you predictable transit times, scalable capacity, and a serious cost advantage."
             paragraph3=""
             buttonText="Explore Rail Options"
