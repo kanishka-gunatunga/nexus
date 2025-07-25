@@ -172,8 +172,9 @@ export default function ContactPage() {
 
         <HeroSection
           title="DON'T HESITATE TO CONTACT US"
-          imageSrc="/contactUs_hero_banner.svg"
-          imageAlt="Nexus X Logo"
+          desktopImage="/contactUs_hero_banner.svg"
+          mobileImage="/hero_arrow.svg"
+          altText="Contact us hero section"
         />
       </div>
 

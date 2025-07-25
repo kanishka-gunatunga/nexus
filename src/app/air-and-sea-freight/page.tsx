@@ -56,11 +56,12 @@ const AirAndSeaFreight = () => {
             <div className="relative mx-auto block">
 
                 <Nav />
-                <HeroSection
-                    imageSrc="/hero-images/air&sea.svg"
-                    imageAlt="Air and Sea Freight Hero Image"
-                    title="Air & Sea Freight Services"
-                />
+                <HeroSection 
+  title="Air & Sea Freight Services"
+  desktopImage="/hero-images/air&sea.svg"
+  mobileImage="/hero_arrow.svg"
+  altText="Air and Sea Freight Hero Image"
+/>
 
             </div>
 
