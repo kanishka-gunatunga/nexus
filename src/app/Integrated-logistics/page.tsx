@@ -58,7 +58,8 @@ const integratedLogistics = () => {
           <PhotoDescriptionSection
             title="3PL & Warehousing"
             paragraph1="Scalable, secure, and strategically positioned, our warehousing network is designed to flex with your business. From pallet storage to bonded facilities, our third-party logistics solutions ensure your goods are always accessible, protected, and ready to move."
-            subtitle1="Think flexible warehousing is only for enterprise giants?"
+            subtitle2="Think flexible warehousing is only for enterprise giants?"
+            subtitle1=""
             paragraph2="Not at all. Our local presence and global reach mean you can access enterprise-grade service without the bloated overhead."
             paragraph3=""
             buttonText="Explore Contract Logistics"
@@ -73,7 +74,8 @@ const integratedLogistics = () => {
           <PhotoDescriptionSection
             title="Fulfilment & E-Commerce Services"
             paragraph1="We power fulfilment for brands that can't afford to miss a beat. Whether you're managing a multichannel retail operation or shipping direct-to-consumer, we handle pick-pack, kitting, labelling, and returns with speed and precision."
-            subtitle1="Outsourced fulfilment won't cost you control..."
+            subtitle2="Outsourced fulfilment won't cost you control..."
+            subtitle1=""
             paragraph2="If you choose the right logistics provider. Our partner centers use advanced tech and SLA-driven systems to give you real-time visibility and seamless performance for an in-house-like experience."
             paragraph3=""
             buttonText="Get a tailored Assessment and Quote"
@@ -88,7 +90,8 @@ const integratedLogistics = () => {
           <PhotoDescriptionSection
             title="Inventory Management & Optimization"
             paragraph1="Carrying too much stock can tie up your capital, but carrying too little puts order fulfilment at risk. We can help you strike the perfect balance, using advanced WMS platforms and demand forecasting. You'll enjoy reduced storage costs, avoid stockouts, and keep your supply chain agile."
-            subtitle1="You don't need large stocks to minimize disruptions..."
+            subtitle2="You don't need large stocks to minimize disruptions..."
+            subtitle1=""
             paragraph2="You need a reliable, agile logistics partner. Our lean, data-led strategies ensure you only carry what you need - nothing more, nothing less - all while being responsive to shifting demand."
             paragraph3=""
             buttonText="Optimize Your Inventory with Us"
@@ -103,7 +106,8 @@ const integratedLogistics = () => {
           <PhotoDescriptionSection
             title="Special Project Transport"
             paragraph1="From heavy-lift to out-of-gauge, we're always up for the toughest transport challenges. Our team manages permits, escorts, route planning, and intermodal transfers, so your cargo moves smoothly, safely, and on schedule."
-            subtitle1="Project cargo doesn't need to be an endless logistics headache..."
+            subtitle2="Project cargo doesn't need to be an endless logistics headache..."
+            subtitle1=""
             paragraph2="Our in-house consultants plan every move from start to finish, taking complexity off your plate, and serving peace of mind instead."
             paragraph3=""
             buttonText="Book an Unusual Move"
