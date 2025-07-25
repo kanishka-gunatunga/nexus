@@ -170,24 +170,28 @@ export default function Home() {
       alt: "Freight forwarding service",
       label: "Air & Sea Freight",
       description: `Express shipments or cost-effective bulk transport, we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving, by air and sea, while avoiding delays and unexpected costs.`,
+      link: "/air-and-sea-freight"
     },
     {
       src: "/home/Customs_Clearance-new.svg",
       alt: "Customs Clearance & Compliance",
       label: "Customs Clearance & Compliance",
       description: `We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures – including audits – ensuring your goods clear quickly and cost-effectively.`,
+      link: "/customs",
     },
     {
       src: "/warehousing.png",
       alt: "Integrated Logistics & Special Projects",
       label: "Integrated Logistics & Special Projects",
       description: `We offer end-to-end supply chain management, including 3PL and Warehousing, Fulfilment and eCommerce, and Inventory Management and Optimisation, all scalable and tailored to your unique requirements.`,
+      link: "/Integrated-logistics",
     },
     {
       src: "/transport.png",
       alt: "Road & Rail Transport",
       label: "Road & Rail Transport",
       description: `Our comprehensive road and rail services, within Australia, cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport across even the most challenging corridors.`,
+      link: "/road-and-rail",
     },
   ];
 
@@ -776,37 +780,36 @@ export default function Home() {
               </div>
 
               <div className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-                {services.map((item, index) => (
-                  <div
-                    key={index}
-                    className="relative group cursor-pointer"
-                    onMouseEnter={() => setActiveService(item)}
-                    onClick={() => setActiveService(item)}
-                  >
-                    <div className="relative w-full h-40 sm:h-48 lg:h-56 rounded-lg overflow-hidden">
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                      <div
-                        className={`absolute inset-0 transition-all duration-300 ${
-                          activeService.label === item.label
-                            ? "bg-[#002B64]/70"
-                            : "bg-gradient-to-t from-[#002B64]/0 to-[#00255700]/0"
-                        }`}
-                      />
-                      {/*<div*/}
-                      {/*    className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]"*/}
-                      {/*/>*/}
-                      <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-normal text-xs sm:text-sm lg:text-lg">
-                        {item.label}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+  {services.map((item, index) => (
+    <Link key={index} href={item.link}>
+      <div
+        className="relative group cursor-pointer"
+        onMouseEnter={() => setActiveService(item)}
+        onClick={() => setActiveService(item)}
+      >
+        <div className="relative w-full h-40 sm:h-48 lg:h-56 rounded-lg overflow-hidden">
+          <Image
+            src={item.src}
+            alt={item.alt}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div
+            className={`absolute inset-0 transition-all duration-300 ${
+              activeService.label === item.label
+                ? "bg-[#002B64]/70"
+                : "bg-gradient-to-t from-[#002B64]/0 to-[#00255700]/0"
+            }`}
+          />
+          <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-normal text-xs sm:text-sm lg:text-lg">
+            {item.label}
+          </p>
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
+
             </div>
           </div>
 
