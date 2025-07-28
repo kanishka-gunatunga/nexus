@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 interface HeroSectionProps {
   title: string;
@@ -8,11 +8,11 @@ interface HeroSectionProps {
   altText?: string;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ 
-  title, 
-  desktopImage, 
-  mobileImage, 
-  altText = "Hero section" 
+const HeroSection: React.FC<HeroSectionProps> = ({
+  title,
+  desktopImage,
+  mobileImage,
+  altText = "Hero section",
 }) => {
   return (
     <section className="relative w-full -top-2 sm:-top-4 md:-top-28 lg:-top-30 xl:-top-20 2xl:-top-41 max-w-screen-4xl mx-auto z-30">
@@ -26,11 +26,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           priority
         />
         {/* Title overlay for desktop/tablet */}
-        <div className="absolute inset-0 flex items-center justify-start left-5 lg:left-10 xl:left-30 [@media(min-width:2100px)]:left-100 [@media(min-width:2100px)]:left-100">
-          <div className="text-left px-4 max-w-[600px] sm:max-w-[250px] md:max-w-[450px] lg:max-w-[600px]">
-            <h1 className="sm:text-[26px] md:text-[36px] lg:text-[46px] font-normal text-[#0F2043] uppercase">
-              {title}
-            </h1>
+        <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-7xl mx-auto container px-4 sm:px-6 lg:px-8">
+            <div className="text-left max-w-[600px] sm:max-w-[250px] md:max-w-[450px] lg:max-w-[600px]">
+              <h1 className="sm:text-[26px] md:text-[36px] lg:text-[46px] font-normal text-[#0F2043] uppercase">
+                {title}
+              </h1>
+            </div>
           </div>
         </div>
       </div>
@@ -54,7 +56,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
       </div>
-
     </section>
   );
 };
