@@ -616,7 +616,7 @@ const Footer = () => {
                   href="/Integrated-logistics"
                   className="block text-white hover:text-[#bbbbbb] transition-colors text-xs sm:text-sm"
                 >
-                  Integrated Logistics & Special Projects
+                  3PL, Warehousing & Special Projects
                 </Link>
                 <Link
                   href="/road-and-rail"

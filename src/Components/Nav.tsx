@@ -323,7 +323,7 @@ const Nav = () => {
     },
     {
       href: "/Integrated-logistics",
-      label: "Integrated Logistics & Special Projects",
+      label: "3PL, Warehousing & Special Projects",
     },
     { href: "/road-and-rail", label: "Road & Rail Transport" },
   ];

@@ -19,7 +19,7 @@ const integratedLogistics = () => {
         <Nav />
 
         <HeroSection
-          title="INTEGRATED LOGISTICS & SPECIAL PROJECTS"
+          title="3PL, Warehousing & Special Projects"
           desktopImage="/hero-images/intergrated-logi.svg"
           mobileImage="/hero_arrow.svg"
           altText="Track and trace hero section"
