@@ -51,15 +51,15 @@ export default function Home() {
     // }, []);
 
     // console.log(dataTest);
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) =>
-                (prevIndex + 1) % images.length
-            );
-        }, 5000);
-
-        return () => clearInterval(interval);
-    }, [images.length]);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setCurrentImageIndex((prevIndex) =>
+    //             (prevIndex + 1) % images.length
+    //         );
+    //     }, 5000);
+    //
+    //     return () => clearInterval(interval);
+    // }, [images.length]);
 
     useEffect(() => {
         const interval = setInterval(() => {
