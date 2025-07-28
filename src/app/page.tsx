@@ -16,26 +16,26 @@ import "slick-carousel/slick/slick-theme.css";
 // import { homePage } from '../../src/sanity/lib/homePage'
 
 export default function Home() {
-  const images = [
-    "/plane1.png",
-    "/slid1.png",
-    "/slid2.png",
-    "/slid3.png",
-    "/slid4.png",
-    "/slid5.png",
-  ];
-  const mobileImages = [
-    "/home/mobile-slide-1.svg",
-    "/home/mobile-slide-2.svg",
-    "/home/mobile-slide-3.svg",
-    "/home/mobile-slide-4.svg",
-    "/home/mobile-slide-5.svg",
-    "/home/mobile-slide-6.svg",
-  ];
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const images = [
+        "/plane1.png",
+        "/slid1.png",
+        "/slid2.png",
+        "/slid3.png",
+        "/slid4.png",
+        "/slid5.png",
+    ];
+    const mobileImages = [
+        "/home/mobile-slide-1.svg",
+        "/home/mobile-slide-2.svg",
+        "/home/mobile-slide-3.svg",
+        "/home/mobile-slide-4.svg",
+        "/home/mobile-slide-5.svg",
+        "/home/mobile-slide-6.svg",
+    ];
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
-  const [isFading, setIsFading] = useState(false);
+    const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
+    const [isFading, setIsFading] = useState(false);
 
     // const [data, setData] = useState<HomePageData | null>(null);
     // interface HomePageData {
@@ -61,108 +61,108 @@ export default function Home() {
         return () => clearInterval(interval);
     }, [images.length]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsFading(true); // Start fading out
-      setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setIsFading(false); // Start fading in
-      }, 500); // This duration should match your CSS transition duration
-    }, 5000);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIsFading(true); // Start fading out
+            setTimeout(() => {
+                setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+                setIsFading(false); // Start fading in
+            }, 500); // This duration should match your CSS transition duration
+        }, 5000);
 
-    return () => clearInterval(interval);
-  }, [images.length]);
+        return () => clearInterval(interval);
+    }, [images.length]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentMobileImageIndex(
-        (prevIndex) => (prevIndex + 1) % mobileImages.length
-      );
-    }, 5000);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentMobileImageIndex(
+                (prevIndex) => (prevIndex + 1) % mobileImages.length
+            );
+        }, 5000);
 
-    return () => clearInterval(interval);
-  }, [mobileImages.length]);
+        return () => clearInterval(interval);
+    }, [mobileImages.length]);
 
-  const sections = [
-    {
-      title: "Who is Nexus Logix",
-      description:
-        "Homegrown in Australia and backed by global expertise, we strive to be your responsive, agile freight and logistics partner. \n\nAs a player in a global supply chain, you are like an F1 race driver, which means every second counts. That's why we're your dedicated pit crew, ever ready to support your cargo in motion.",
-      imageSrc: "/home/Nexus-Logix.png",
-      imageAlt: "Nexus Logix Team",
-      reverse: false,
-      buttonTitle: "Explore More",
-    },
-    {
-      title: "Your Supply Chain is Now Visible, Measurable, and Transparent",
-      description:
-        "50% of customers track their shipments - You can too! \n\nPowered by Neo, Nexus Logix delivers live tracking that shows your shipment's exact location on an interactive world map in real time. Get automated milestone alerts, 12-month performance stats, financial summaries, and detailed <span class='co2-highlight'>CO₂</span> emission data for every shipment all accessible on any device, right at your fingertips.",
-      imageSrc: "/CargoWise_neo_logo.svg",
-      imageAlt: "Cargo Tracking",
-      reverse: true,
-      buttonTitle: "Learn More",
-    },
-  ];
+    const sections = [
+        {
+            title: "Who is Nexus Logix",
+            description:
+                "Homegrown in Australia and backed by global expertise, we strive to be your responsive, agile freight and logistics partner. \n\nAs a player in a global supply chain, you are like an F1 race driver, which means every second counts. That's why we're your dedicated pit crew, ever ready to support your cargo in motion.",
+            imageSrc: "/home/Nexus-Logix.png",
+            imageAlt: "Nexus Logix Team",
+            reverse: false,
+            buttonTitle: "Explore More",
+        },
+        {
+            title: "Your Supply Chain is Now Visible, Measurable, and Transparent",
+            description:
+                "50% of customers track their shipments - You can too! \n\nPowered by Neo, Nexus Logix delivers live tracking that shows your shipment's exact location on an interactive world map in real time. Get automated milestone alerts, 12-month performance stats, financial summaries, and detailed <span class='co2-highlight'>CO₂</span> emission data for every shipment all accessible on any device, right at your fingertips.",
+            imageSrc: "/CargoWise_neo_logo.svg",
+            imageAlt: "Cargo Tracking",
+            reverse: true,
+            buttonTitle: "Learn More",
+        },
+    ];
 
-  const stats = [
-    { value: 39, label: "Countries", suffix: "+" },
-    { value: 76, label: "Global Partner Offices" },
-  ];
+    const stats = [
+        {value: 39, label: "Countries", suffix: "+"},
+        {value: 76, label: "Global Partner Offices"},
+    ];
 
-  const values = [
-    {
-      icon: "/dependability.png",
-      title: "DEPENDABILITY",
-      subtitle: "You can count on us.",
-    },
-    {
-      icon: "/accountability.png",
-      title: "ACCOUNTABILITY",
-      subtitle: "We accept responsibility.\nNo Excuses.",
-    },
-    {
-      icon: "/transparancy.png",
-      title: "TRANSPARENCY",
-      subtitle: "Clear communication.\nNo Surprises.",
-    },
-    {
-      icon: "/commitment.png",
-      title: "COMMITMENT",
-      subtitle: "We go the extra mile.",
-    },
-    {
-      icon: "/care.png",
-      title: "CARE",
-      subtitle: "Your shipment is our shipment.",
-    },
-  ];
+    const values = [
+        {
+            icon: "/dependability.png",
+            title: "DEPENDABILITY",
+            subtitle: "You can count on us.",
+        },
+        {
+            icon: "/accountability.png",
+            title: "ACCOUNTABILITY",
+            subtitle: "We accept responsibility.\nNo Excuses.",
+        },
+        {
+            icon: "/transparancy.png",
+            title: "TRANSPARENCY",
+            subtitle: "Clear communication.\nNo Surprises.",
+        },
+        {
+            icon: "/commitment.png",
+            title: "COMMITMENT",
+            subtitle: "We go the extra mile.",
+        },
+        {
+            icon: "/care.png",
+            title: "CARE",
+            subtitle: "Your shipment is our shipment.",
+        },
+    ];
 
-  // const services = [
-  //     {
-  //         src: "/forwarding_service.png",
-  //         alt: "Freight forwarding service",
-  //         label: "Air & Sea Freight",
-  //         description: `Be it express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.`,
-  //     },
-  //     {
-  //         src: "/Customs_Clearance.png",
-  //         alt: "Customs Clearance & Compliance",
-  //         label: "Customs Clearance & Compliance",
-  //         description: `Navigating Australia’s vast distances often requires more than one mode of transport, with local expertise at every stage. Our comprehensive road and rail services cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport.`,
-  //     },
-  //     {
-  //         src: "/warehousing.png",
-  //         alt: "3PL, Warehousing & Special Projects",
-  //         label: "3PL, Warehousing & Special Projects",
-  //         description: `From end-to-end supply chain management to specialised project transport for heavy-lift or out-of-gauge cargo, our integrated solutions and experienced consultants streamline warehousing, fulfilment, and special moves – providing a unique personalised approach for each client.`,
-  //     },
-  //     {
-  //         src: "/transport.png",
-  //         alt: "Road & Rail Transport",
-  //         label: "Road & Rail Transport",
-  //         description: `Customs and compliance doesn’t have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits – ensuring your goods clear swiftly and cost-effectively.`,
-  //     },
-  // ];
+    // const services = [
+    //     {
+    //         src: "/forwarding_service.png",
+    //         alt: "Freight forwarding service",
+    //         label: "Air & Sea Freight",
+    //         description: `Be it express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.`,
+    //     },
+    //     {
+    //         src: "/Customs_Clearance.png",
+    //         alt: "Customs Clearance & Compliance",
+    //         label: "Customs Clearance & Compliance",
+    //         description: `Navigating Australia’s vast distances often requires more than one mode of transport, with local expertise at every stage. Our comprehensive road and rail services cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport.`,
+    //     },
+    //     {
+    //         src: "/warehousing.png",
+    //         alt: "3PL, Warehousing & Special Projects",
+    //         label: "3PL, Warehousing & Special Projects",
+    //         description: `From end-to-end supply chain management to specialised project transport for heavy-lift or out-of-gauge cargo, our integrated solutions and experienced consultants streamline warehousing, fulfilment, and special moves – providing a unique personalised approach for each client.`,
+    //     },
+    //     {
+    //         src: "/transport.png",
+    //         alt: "Road & Rail Transport",
+    //         label: "Road & Rail Transport",
+    //         description: `Customs and compliance doesn’t have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits – ensuring your goods clear swiftly and cost-effectively.`,
+    //     },
+    // ];
 
   const services = [
     {
@@ -385,7 +385,7 @@ export default function Home() {
           </div>
         </div>
 
-                <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
+                <div id="hero-content" className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
                     <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
                         <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
                             Supply Chains
@@ -409,7 +409,7 @@ export default function Home() {
 
         <Quote />
 
-        <section className="relative py-6 lg:-top-0 z-40 sm:py-8">
+        <section id="service-content" className="relative py-6 lg:-top-0 z-40 sm:py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
             {/*<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-3">*/}
             {/*    {values.map((value, index) => (*/}
@@ -984,28 +984,29 @@ export default function Home() {
             </div>
           ))}
 
-          <hr className="border-[#D9D9D9] container mx-auto border-b-2 max-w-7xl" />
-        </div>
-      </div>
+                    <hr className="border-[#D9D9D9] container mx-auto border-b-2 max-w-7xl"/>
+                </div>
+            </div>
 
-      <div className="bg-[#F6F6F6] py-2 sm:py-4 lg:py-6">
-        <div className="">
-          <div className="flex flex-col px-4 sm:px-6 mb-2 lg:mb-8 lg:px-8 max-w-7xl mx-auto lg:flex-row justify-between gap-2 lg:gap-8 items-center md:items-start">
-            <h2 className="text-3xl sm:text-3xl lg:text-5xl text-[#0F2043] font-semibold text-center sm:text-left mb-1 leading-[50px] max-w-xl">
-              Success Stories from Our Clients
-            </h2>
-            <p className="text-[#676767] text-sm sm:text-base lg:text-lg font-medium text-center md:text-left mb-6 sm:mb-8 lg:mb-12 max-w-2xl leading-[25px]">
-              For over 25+ years, we&#39;ve moved cargo (and some mountains) to
-              achieve outstanding successes for our customers.
-            </p>
-          </div>
-          <Testimonial />
-        </div>
-      </div>
+            <div className="bg-[#F6F6F6] py-2 sm:py-4 lg:py-6">
+                <div className="">
+                    <div
+                        className="flex flex-col px-4 sm:px-6 mb-2 lg:mb-8 lg:px-8 max-w-7xl mx-auto lg:flex-row justify-between gap-2 lg:gap-8 items-center md:items-start">
+                        <h2 className="text-3xl sm:text-3xl lg:text-5xl text-[#0F2043] font-semibold text-center sm:text-left mb-1 leading-[50px] max-w-xl">
+                            Success Stories from Our Clients
+                        </h2>
+                        <p className="text-[#676767] text-sm sm:text-base lg:text-lg font-medium text-center md:text-left mb-6 sm:mb-8 lg:mb-12 max-w-2xl leading-[25px]">
+                            For over 25+ years, we&#39;ve moved cargo (and some mountains) to
+                            achieve outstanding successes for our customers.
+                        </p>
+                    </div>
+                    <Testimonial/>
+                </div>
+            </div>
 
-      <div className="pb-14">
-        <LinkedinSection />
-      </div>
-    </div>
-  );
+            <div className="pb-14">
+                <LinkedinSection/>
+            </div>
+        </div>
+    );
 }
