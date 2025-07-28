@@ -328,12 +328,12 @@ const Nav = () => {
     { href: "/road-and-rail", label: "Road & Rail Transport" },
   ];
 
-  const navLinks = [
-    { href: "/whyNexus", label: "Why Nexus" },
-    { href: "/leadership", label: "Leadership Team" },
-    { href: "/services", label: "Services" },
-    { href: "/insights", label: "Insights" },
-  ];
+  // const navLinks = [
+  //   { href: "/whyNexus", label: "Why Nexus" },
+  //   { href: "/leadership", label: "Leadership Team" },
+  //   { href: "/services", label: "Services" },
+  //   { href: "/insights", label: "Insights" },
+  // ];
 
   return (
     <header className="relative z-50 poppins">
