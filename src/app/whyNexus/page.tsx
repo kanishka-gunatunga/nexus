@@ -165,7 +165,7 @@ const airAndSeaFreight = () => {
               </span>
               <span className="mx-1"></span>
 
-              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
+              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#5DF706] group-hover:text-[#5DF706] font-poppins font-medium">
                 CO<sub>2</sub>
               </span>
 
@@ -574,7 +574,7 @@ const airAndSeaFreight = () => {
       <div className="w-full hidden lg:block bg-[#0F2043] mt-[20px] lg:mt-[20px] h-[400px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 h-full">
           <Image
-            src="/why-nexus/road.svg"
+            src="/why-nexus/road2.svg"
             alt="Nexus X Logo"
             width={1800}
             height={1200}

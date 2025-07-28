@@ -307,13 +307,15 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef(null);
 
   const services = [
     { href: "/air-and-sea-freight", label: "Air & Sea Freight" },
@@ -327,6 +329,22 @@ const Nav = () => {
     },
     { href: "/road-and-rail", label: "Road & Rail Transport" },
   ];
+
+  // Close desktop dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !(dropdownRef.current as any).contains(event.target)
+      ) {
+        setIsServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   // const navLinks = [
   //   { href: "/whyNexus", label: "Why Nexus" },
@@ -508,18 +526,20 @@ const Nav = () => {
             </Link>
 
             {/* Services dropdown */}
-            <div className="relative group">
-              <Link
-                href="/services"
-                className={`${
-                  pathname === "/services"
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className={`font-semibold inline-flex items-center gap-1 ${
+                  pathname.startsWith("/services")
                     ? "text-[#162F65]"
                     : "text-[#282828] hover:text-[#162F65]"
-                } font-semibold inline-flex items-center gap-1`}
+                }`}
               >
                 Services
                 <svg
-                  className="w-4 h-4 transition-transform group-hover:rotate-180"
+                  className={`w-4 h-4 transition-transform ${
+                    isServicesOpen ? "rotate-180" : ""
+                  }`}
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={2}
@@ -531,22 +551,23 @@ const Nav = () => {
                     d="M19 9l-7 7-7-7"
                   />
                 </svg>
-              </Link>
-
-              <div className="absolute top-full left-0 mt-2 hidden group-hover:block bg-white shadow-md rounded-md z-50">
-                <ul className="py-2 w-64">
-                  {services.map((service) => (
-                    <li key={service.href}>
-                      <Link
-                        href={service.href}
-                        className="block px-4 py-2 text-sm text-[#282828] hover:bg-gray-100 hover:text-[#162F65]"
-                      >
-                        {service.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </button>
+              {isServicesOpen && (
+                <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md z-50 w-64">
+                  <ul className="py-2">
+                    {services.map((service) => (
+                      <li key={service.href}>
+                        <Link
+                          href={service.href}
+                          className="block px-4 py-2 text-sm text-[#282828] hover:bg-gray-100 hover:text-[#162F65]"
+                        >
+                          {service.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             <Link
