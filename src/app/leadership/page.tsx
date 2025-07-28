@@ -79,7 +79,7 @@ const teamMembers = [
     title: "Chief Financial Officer",
     flipBg: "/leadership/flip-2.png",
     description:
-      "Chamath works every day to ensure that logistics and finance do not exist in separate silos. With sharp analytical precision and strategic foresight honed across APAC and Oceania, he ensures that we make prudent fiscal decisions that deliver ultimate value to our customers.\n\n",
+      "Chamath works every day to ensure that logistics and finance do not exist in separate silos. With sharp analytical precision and strategic foresight honed across APAC and Oceania, he ensures that we make prudent fiscal decisions that deliver ultimate value to our customers.\n\nReach out to Chamath about any questions you may have",
     image: "/Chamath Kumarasinghe.png",
   },
   {
@@ -88,7 +88,7 @@ const teamMembers = [
     title: "Operations Coordinator",
     flipBg: "/leadership/flip-6.png",
     description:
-      "With a sharp eye for detail and a customer-first mindset, Nikil ensures every shipment from Purchase Order to final delivery is executed smoothly. He drives proactive communication and service consistency, keeping clients informed at every step.\n\n",
+      "With a sharp eye for detail and a customer-first mindset, Nikil ensures every shipment from Purchase Order to final delivery is executed smoothly. He drives proactive communication and service consistency, keeping clients informed at every step.\n\nReach out to Nikhil  about any questions you may have",
     image: "/Nikhil-Haridas.png",
   },
 ];
