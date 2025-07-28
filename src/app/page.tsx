@@ -346,17 +346,18 @@ export default function Home() {
 
         <div
           id="hero-background-image"
-          className="relative w-full h-[400px] mobile:h-[500px] sm:h-[600px] md:h-[800px] -mt-20 lg:hidden overflow-hidden"
+          className="relative w-full h-full -mt-30 lg:hidden"
         >
           <Image
             key={mobileImages[currentMobileImageIndex]}
             src={mobileImages[currentMobileImageIndex]}
             // src="/insights/Group72.png"
             alt="Airplane"
-            width={1000}
-            height={400}
-            className="w-full h-full object-cover absolute inset-0"
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 100vw"
+            // width={1000}
+            // height={400}
+              fill
+            className="w-full h-full object-contain"
+            // sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 100vw"
           />
         </div>
 

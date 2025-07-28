@@ -1567,7 +1567,7 @@
 
 @media (min-width: 640px) and (max-width: 767px) {
     #hero-background-image {
-        height: 550px !important;
+        height: 700px !important;
     }
 
     #hero-background-image img {
@@ -1579,7 +1579,7 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
     #hero-background-image {
-        height: 700px !important;
+        height: 850px !important;
     }
 
     #hero-background-image img {
