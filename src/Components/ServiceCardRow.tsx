@@ -1,9 +1,8 @@
-'use client';
+"use client";
 
-
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function ServiceCardRow() {
   const pathname = usePathname();
@@ -20,94 +19,107 @@ export default function ServiceCardRow() {
         {/* Card 1 */}
         <Link href="/air-and-sea-freight">
           <div
-            className={`service-single-card group flex flex-col items-center justify-center text-center p-4 rounded-md w-full h-full transition shadow-md ${isActive('/air-and-sea-freight')
-              ? 'bg-[#162F65] text-white'
-              : 'bg-white text-black hover:bg-[#162F65] hover:text-white'
-              }`}
+            className={`service-single-card group flex flex-col items-center justify-center text-center p-4 rounded-md w-full h-full transition shadow-md ${
+              isActive("/air-and-sea-freight")
+                ? "bg-[#162F65] text-white"
+                : "bg-white text-black hover:bg-[#162F65] hover:text-white"
+            }`}
           >
             <Image
               src="/icons/plane-black.svg"
               alt="Air & Sea Freight"
               width={60}
               height={60}
-              className={`mb-3 transition duration-300 ${isActive('/air-and-sea-freight') ? 'invert' : 'group-hover:invert'
-                }`}
+              className={`mb-3 transition duration-300 ${
+                isActive("/air-and-sea-freight")
+                  ? "invert"
+                  : "group-hover:invert"
+              }`}
             />
             <p className="font-poppins text-[17px] font-semibold leading-tight">
-              AIR & SEA<br />FREIGHT
+              AIR & SEA
+              <br />
+              FREIGHT
             </p>
           </div>
         </Link>
-
 
         {/* Card 2 */}
-        <Link href="/road-and-rail">
-          <div
-            className={`group flex flex-col items-center justify-center text-center p-4 rounded-md w-full h-full transition shadow-md ${isActive('/road-and-rail')
-              ? 'bg-[#162F65] text-white'
-              : 'bg-white text-black hover:bg-[#162F65] hover:text-white'
-              }`}
-          >
-            <Image
-              src="/icons/truck.svg"
-              alt="Road & Rail"
-              width={60}
-              height={60}
-              className={`mb-3 transition duration-300 ${isActive('/road-and-rail') ? 'invert' : 'group-hover:invert'
-                }`}
-            />
-            <p className="font-poppins text-[17px] font-semibold leading-tight">
-              ROAD & RAIL<br />TRANSPORT
-            </p>
-          </div>
-        </Link>
-
-
-        {/* Card 3 */}
-        <Link href="/Integrated-logistics">
-          <div
-            className={`group flex flex-col items-center justify-center text-center p-4 rounded-md w-full h-full transition shadow-md ${isActive('/Integrated-logistics')
-              ? 'bg-[#162F65] text-white'
-              : 'bg-white text-black hover:bg-[#162F65] hover:text-white'
-              }`}
-          >
-            <Image
-              src="/icons/box.svg"
-              alt="Integrated Logistics"
-              width={60}
-              height={60}
-              className={`mb-3 transition duration-300 ${isActive('/Integrated-logistics') ? 'invert' : 'group-hover:invert'
-                }`}
-            />
-            <p className="font-poppins text-[17px] font-semibold leading-tight">
-              INTEGRATED<br />LOGISTICS
-            </p>
-          </div>
-        </Link>
-
-
-        {/* Card 4 */}
         <Link href="/customs">
           <div
-            className={`group flex flex-col items-center justify-center text-center p-4 rounded-md w-full h-full transition shadow-md ${isActive('/customs')
-                ? 'bg-[#162F65] text-white'
-                : 'bg-white text-black hover:bg-[#162F65] hover:text-white'
-              }`}
+            className={`group flex flex-col items-center justify-center text-center p-4 rounded-md w-full h-full transition shadow-md ${
+              isActive("/customs")
+                ? "bg-[#162F65] text-white"
+                : "bg-white text-black hover:bg-[#162F65] hover:text-white"
+            }`}
           >
             <Image
               src="/icons/cart.svg"
               alt="Customs Clearance"
               width={60}
               height={60}
-              className={`mb-3 transition duration-300 ${isActive('/customs') ? 'invert' : 'group-hover:invert'
-                }`}
+              className={`mb-3 transition duration-300 ${
+                isActive("/customs") ? "invert" : "group-hover:invert"
+              }`}
             />
             <p className="font-poppins text-[17px] font-semibold leading-tight">
-              CUSTOMS CLEARANCE<br />& COMPLIANCE
+              CUSTOMS CLEARANCE
+              <br />& COMPLIANCE
             </p>
           </div>
         </Link>
 
+        {/* Card 3 */}
+        <Link href="/Integrated-logistics">
+          <div
+            className={`group flex flex-col items-center justify-center text-center p-4 rounded-md w-full h-full transition shadow-md ${
+              isActive("/Integrated-logistics")
+                ? "bg-[#162F65] text-white"
+                : "bg-white text-black hover:bg-[#162F65] hover:text-white"
+            }`}
+          >
+            <Image
+              src="/icons/box.svg"
+              alt="Integrated Logistics"
+              width={60}
+              height={60}
+              className={`mb-3 transition duration-300 ${
+                isActive("/Integrated-logistics")
+                  ? "invert"
+                  : "group-hover:invert"
+              }`}
+            />
+            <p className="font-poppins text-[17px] font-semibold leading-tight">
+              3PL, Warehousing & <br /> Special Projects
+            </p>
+          </div>
+        </Link>
+
+        {/* Card 4 */}
+        <Link href="/road-and-rail">
+          <div
+            className={`group flex flex-col items-center justify-center text-center p-4 rounded-md w-full h-full transition shadow-md ${
+              isActive("/road-and-rail")
+                ? "bg-[#162F65] text-white"
+                : "bg-white text-black hover:bg-[#162F65] hover:text-white"
+            }`}
+          >
+            <Image
+              src="/icons/truck.svg"
+              alt="Road & Rail"
+              width={60}
+              height={60}
+              className={`mb-3 transition duration-300 ${
+                isActive("/road-and-rail") ? "invert" : "group-hover:invert"
+              }`}
+            />
+            <p className="font-poppins text-[17px] font-semibold leading-tight">
+              ROAD & RAIL
+              <br />
+              TRANSPORT
+            </p>
+          </div>
+        </Link>
       </div>
     </div>
   );

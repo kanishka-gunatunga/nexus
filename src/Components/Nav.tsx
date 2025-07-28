@@ -304,7 +304,7 @@
 //
 // export default Nav;
 
-"use client"
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -312,16 +312,28 @@ import { usePathname } from "next/navigation";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const pathname = usePathname();
 
-  const navLinks = [
-    { href: "/whyNexus", label: "Why Nexus" },
-    { href: "/leadership", label: "Leadership Team" },
-    { href: "/services", label: "Services" },
-    { href: "/insights", label: "Insights" },
+  const services = [
+    { href: "/air-and-sea-freight", label: "Air & Sea Freight" },
+    {
+      href: "/customs",
+      label: "Customs Clearance & Compliance",
+    },
+    {
+      href: "/Integrated-logistics",
+      label: "3PL, Warehousing & Special Projects",
+    },
+    { href: "/road-and-rail", label: "Road & Rail Transport" },
   ];
 
-
+  // const navLinks = [
+  //   { href: "/whyNexus", label: "Why Nexus" },
+  //   { href: "/leadership", label: "Leadership Team" },
+  //   { href: "/services", label: "Services" },
+  //   { href: "/insights", label: "Insights" },
+  // ];
 
   return (
     <header className="relative z-50 poppins">
@@ -418,13 +430,13 @@ const Nav = () => {
           <div className="flex-shrink-0 order-2 flex justify-center lg:order-none lg:flex lg:justify-center">
             <Link href="/">
               <Image
-  src="/Logo-Nexus.png"
-  alt="Nexus Logo"
-  width={180}
-  height={180}
-  className="h-20 sm:h-24 lg:h-28 w-auto"
-  priority
-/>
+                src="/Logo-Nexus.png"
+                alt="Nexus Logo"
+                width={180}
+                height={180}
+                className="h-20 sm:h-24 lg:h-28 w-auto"
+                priority
+              />
             </Link>
           </div>
 
@@ -474,23 +486,82 @@ const Nav = () => {
           {/*</nav>*/}
 
           <nav className="hidden lg:flex items-center space-x-6 lg:space-x-8 xl:space-x-12 order-2 text-sm md:text-base xl:text-lg">
-            {navLinks.map((link) => (
-                <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`font-semibold transition-colors duration-200 ${
-                        pathname === link.href
-                            ? "text-[#162F65]" // Active color
-                            : "text-[#282828] hover:text-[#162F65]" // Default and hover
-                    }`}
+            <Link
+              href="/whyNexus"
+              className={`${
+                pathname === "/whyNexus"
+                  ? "text-[#162F65]"
+                  : "text-[#282828] hover:text-[#162F65]"
+              } font-semibold`}
+            >
+              Why Nexus
+            </Link>
+            <Link
+              href="/leadership"
+              className={`${
+                pathname === "/leadership"
+                  ? "text-[#162F65]"
+                  : "text-[#282828] hover:text-[#162F65]"
+              } font-semibold`}
+            >
+              Leadership Team
+            </Link>
+
+            {/* Services dropdown */}
+            <div className="relative group">
+              <Link
+                href="/services"
+                className={`${
+                  pathname === "/services"
+                    ? "text-[#162F65]"
+                    : "text-[#282828] hover:text-[#162F65]"
+                } font-semibold inline-flex items-center gap-1`}
+              >
+                Services
+                <svg
+                  className="w-4 h-4 transition-transform group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
                 >
-                  {link.label}
-                </Link>
-            ))}
-            {/* Desktop Track & Trace Button - Now visible from 'lg' breakpoint */}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </Link>
+
+              <div className="absolute top-full left-0 mt-2 hidden group-hover:block bg-white shadow-md rounded-md z-50">
+                <ul className="py-2 w-64">
+                  {services.map((service) => (
+                    <li key={service.href}>
+                      <Link
+                        href={service.href}
+                        className="block px-4 py-2 text-sm text-[#282828] hover:bg-gray-100 hover:text-[#162F65]"
+                      >
+                        {service.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <Link
+              href="/insights"
+              className={`${
+                pathname === "/insights"
+                  ? "text-[#162F65]"
+                  : "text-[#282828] hover:text-[#162F65]"
+              } font-semibold`}
+            >
+              Insights
+            </Link>
+
             <Link href="/track-and-trace">
-              {" "}
-              <button className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] hover:text-white px-4 sm:px-6 lg:px-8 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-sm rounded-lg font-normal transition-colors">
+              <button className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] hover:text-white px-6 py-2 rounded-lg text-sm transition-colors">
                 Track and Trace
               </button>
             </Link>
@@ -509,42 +580,89 @@ const Nav = () => {
         {/* Mobile Menu Content - Toggles visibility based on isMenuOpen */}
         <div
           id="mobile-menu"
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`${
             isMenuOpen ? "max-h-screen opacity-100 py-4" : "max-h-0 opacity-0"
-          }`}
+          } overflow-hidden transition-all duration-300 ease-in-out`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
             <Link
               href="/whyNexus"
-              className="block px-3 py-2 text-base font-medium text-[#282828] hover:text-[#082049] hover:bg-gray-100 rounded-md transition-colors w-full text-center"
+              className="block px-3 py-2 text-base text-[#282828] hover:text-[#082049] w-full text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Why Nexus
             </Link>
             <Link
               href="/leadership"
-              className="block px-3 py-2 text-base font-medium text-[#282828] hover:text-[#082049] hover:bg-gray-100 rounded-md transition-colors w-full text-center"
+              className="block px-3 py-2 text-base text-[#282828] hover:text-[#082049] w-full text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Leadership Team
             </Link>
-            <Link
-              href="/services"
-              className="block px-3 py-2 text-base font-medium text-[#282828] hover:text-[#082049] hover:bg-gray-100 rounded-md transition-colors w-full text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-            </Link>
+
+            {/* Services with toggle */}
+            <div className="w-full">
+              <div className="flex justify-center items-center gap-2 px-3 py-2 hover:bg-gray-100 rounded-md transition-colors">
+                {/* Services Link */}
+                <Link
+                  href="/services"
+                  className="text-base text-[#282828] hover:text-[#082049] text-center"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Services
+                </Link>
+
+                {/* Dropdown Toggle Button */}
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="focus:outline-none"
+                  aria-label="Toggle Services Dropdown"
+                >
+                  <svg
+                    className={`w-4 h-4 transform transition-transform ${
+                      isServicesOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Dropdown */}
+              {isServicesOpen && (
+                <div className="pl-6 mt-1 space-y-1 bg-white rounded-md">
+                  {services.map((service) => (
+                    <Link
+                      key={service.href}
+                      href={service.href}
+                      className="block px-3 py-1 text-sm text-[#282828] hover:text-[#082049]"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {service.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link
               href="/insights"
-              className="block px-3 py-2 text-base font-medium text-[#282828] hover:text-[#082049] hover:bg-gray-100 rounded-md transition-colors w-full text-center"
+              className="block px-3 py-2 text-base text-[#282828] hover:text-[#082049] w-full text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Insights
             </Link>
             <Link href="/contactUs" className="w-full text-center mt-4">
               <button
-                className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] px-6 py-2 text-sm rounded-lg font-normal w-full transition-colors"
+                className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] px-6 py-2 text-sm rounded-lg w-full transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact Us
