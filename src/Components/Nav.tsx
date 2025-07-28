@@ -332,21 +332,20 @@ const Nav = () => {
 
   // Close desktop dropdown when clicking outside
   useEffect(() => {
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node)
-    ) {
-      setIsServicesOpen(false);
-    }
-  };
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsServicesOpen(false);
+      }
+    };
 
-  document.addEventListener("mousedown", handleClickOutside);
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, []);
-
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   // const navLinks = [
   //   { href: "/whyNexus", label: "Why Nexus" },
@@ -528,16 +527,26 @@ const Nav = () => {
             </Link>
 
             {/* Services dropdown */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className={`font-semibold inline-flex items-center gap-1 ${
+            {/* Services dropdown */}
+            <div className="relative flex items-center gap-1" ref={dropdownRef}>
+              {/* "Services" navigates to /services */}
+              <Link
+                href="/services"
+                className={`font-semibold ${
                   pathname.startsWith("/services")
                     ? "text-[#162F65]"
                     : "text-[#282828] hover:text-[#162F65]"
                 }`}
               >
                 Services
+              </Link>
+
+              {/* Arrow toggles dropdown */}
+              <button
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className="focus:outline-none"
+                aria-label="Toggle Services Dropdown"
+              >
                 <svg
                   className={`w-4 h-4 transition-transform ${
                     isServicesOpen ? "rotate-180" : ""
@@ -554,6 +563,8 @@ const Nav = () => {
                   />
                 </svg>
               </button>
+
+              {/* Dropdown menu */}
               {isServicesOpen && (
                 <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md z-50 w-64">
                   <ul className="py-2">
