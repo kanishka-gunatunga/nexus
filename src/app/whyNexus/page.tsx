@@ -72,15 +72,7 @@ const airAndSeaFreight = () => {
 
             {/* Description */}
             <p className="text-sm text-[#676767] font-poppins text-justify">
-              Nexus Logix is an Australian freight forwarder and logistics
-              provider, headquartered in Brisbane. Founded by a group of
-              seasoned industry professionals who recognised an opportunity to
-              blend deep regional knowledge with modern systems and global
-              networks, Nexus Logix operates akin to a finely tuned F1 pit crew
-              supporting customers as they race ahead towards their goals. From
-              day one, our mission has been clear: to be the steadfast partner
-              that understands your business needs and moves your cargo with
-              precision and care.
+              Nexus Logix is an Australian freight forwarder and logistics provider, headquartered in Brisbane. Founded by a group of seasoned industry professionals who recognised an opportunity to blend deep regional knowledge with modern systems and global networks, Nexus Logix strives to support customers as they seek to achieve their goals. From day one, our mission has been clear: to be the steadfast partner that understands your business needs and moves your cargo with precision and care.
             </p>
           </div>
 
@@ -123,30 +115,30 @@ const airAndSeaFreight = () => {
 
         <div>
           <h3 className="text-[32px] sm:text-[30px] md:text-[32px] lg:text-[50px] font-semibold text-[#162F65] mb-2 text-center">
-            What we Deliver
+            What We Deliver
           </h3>
           <div className="flex flex-col sm:flex-row justify-between gap-4 my-8 px-0 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8   flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
+            <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
+              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Delightful Service
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
+              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Transparent, genuine care that puts you first
               </p>
             </div>
-            <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8  flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
+            <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
+              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Competitive Pricing
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
+              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Through strong global networks
               </p>
             </div>
-            <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8   flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
+            <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
+              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Local Expertise
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
+              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Team with 25 years of Local Experience
               </p>
             </div>
@@ -154,26 +146,26 @@ const airAndSeaFreight = () => {
 
           {/* second row */}
           <div className="flex flex-col sm:flex-row justify-between gap-4 my-8 px-0 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8 w-full lg:max-w-[22rem] sm:w-[100%] flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
+            <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
+              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Real Time Visibility
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
+              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Track every shipment with CargoWise Neo.
               </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8 w-full sm:w-[100%] w-full max-w-full flex-1 ">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
+            <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
+              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Sustainability
               </h3>
 
-              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-medium">
+              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Track
               </span>
               <span className="mx-1"></span>
 
-              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#5DF706] font-medium">
+              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 CO<sub>2</sub>
               </span>
 
@@ -182,16 +174,16 @@ const airAndSeaFreight = () => {
                   dangerouslySetInnerHTML={{ __html: section.description }}
                 /> */}
               <span className="mx-1"></span>
-              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-medium">
+              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 emission of every shipment with CargoWise Neo.
               </span>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-5 sm:p-6 md:p-8  flex-1 w-full sm:w-[100%]">
-              <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65] mb-2">
+            <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
+              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Supply Chain Audits
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
+              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Identify gaps, cut costs, improve performance.
               </p>
             </div>
@@ -199,11 +191,11 @@ const airAndSeaFreight = () => {
 
           {/* third row */}
           <div className="my-8 gap-4 flex flex-wrap justify-center px-0 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-lg shadow px-5 py-2  w-full flex-1 lg:flex lg:flex-row items-center justify-start gap-[5rem]">
-              <h3 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold text-[#162F65]">
+            <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
+              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Powered by CargoWise
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] font-poppins font-medium">
+              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Manage Your Supply Chain with the World&rsquo;s Most trusted ERP
               </p>
             </div>
@@ -234,7 +226,7 @@ const airAndSeaFreight = () => {
             </div>
             <div className="flex flex-col mb-4 w-full lg:w-2/3 px-2">
               <p
-                className="text-white sm:text-[14px] md:text-[16px] lg:text-[18px]  font-normal font-poppins text-justify"
+                className="text-white sm:text-[14px] md:text-[16px] lg:text-[18px]  font-normal font-poppins left-align"
                 style={{ fontStyle: "normal" }}
               >
                 Driven by an ambition to simplify the complexities of global

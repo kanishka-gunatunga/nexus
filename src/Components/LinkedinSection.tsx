@@ -19,7 +19,7 @@ const LinkedinSection = () => {
                         </p>
                     </div>
                     <div className="flex-shrink-0">
-                        <a href="https://www.linkedin.com/company/nexus-logix" target="_blank"  className="cursor-pointer">
+                        <a href="https://www.linkedin.com/company/nexus-logix-pvt-ltd" target="_blank"  className="cursor-pointer">
                             <Image
                                 src="/linkedin-button.svg"
                                 width={200}
