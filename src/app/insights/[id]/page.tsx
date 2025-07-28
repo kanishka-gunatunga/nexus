@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import LinkedinSection from "@/Components/LinkedinSection";
-import {insights}  from "@/sanity/lib/insights";
+import { insights } from "@/sanity/lib/insights";
 
 interface insightData {
     heroTitle?: string;
@@ -51,12 +51,51 @@ interface insightData {
 }
 
 const InsightInner = () => {
+
+    const [pageData, setPageData] = useState<insightData | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setLoading(true);
+                const data = await insights();
+
+
+                if (data && data.length > 0) {
+                    setPageData(data[0]);
+                } else {
+                    setPageData(null);
+                }
+            } catch (err) {
+                console.error("Failed to fetch Air & Sea Freight data:", err);
+                setError("Failed to load page content.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return;
+    }
+
+    if (error) {
+        return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+    }
+
+    if (!pageData) {
+        return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+    }
     return (
         <div className="min-h-screen bg-[#F6F6F6] poppins">
             <div className="relative mx-auto block">
-                <Nav/>
+                <Nav />
                 <div id="hero-section"
-                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
+                    className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
                     <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
                         <Image
                             src="/insights-banner.svg"
@@ -170,7 +209,7 @@ const InsightInner = () => {
                                     {/* Text Overlay */}
                                     <div className="absolute inset-0">
                                         <div
-                                            className="absolute bg-gradient-to-t from-[#002B64] to-[#00255700] inset-0"/>
+                                            className="absolute bg-gradient-to-t from-[#002B64] to-[#00255700] inset-0" />
                                         <div className="absolute bottom-9 left-6 right-6">
                                             <h3 className="text-white font-bold text-sm lg:text-base leading-normal tracking-[0.6px]">
                                                 Eco Freight
@@ -196,7 +235,7 @@ const InsightInner = () => {
             </div>
 
             <div className="-mt-15 lg:-mt-50">
-                <LinkedinSection/>
+                <LinkedinSection />
             </div>
 
         </div>
