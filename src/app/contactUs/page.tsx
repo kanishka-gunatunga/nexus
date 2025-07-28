@@ -277,7 +277,7 @@ export default function ContactPage() {
             <div className="absolute bottom-4 sm:bottom-4 md:bottom-4 lg:bottom-8 left-8 flex space-x-3">
               {/* Twitter */}
               <a
-                href="https://www.facebook.com/YourPage"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -292,7 +292,7 @@ export default function ContactPage() {
 
               {/* Google+ */}
               <a
-                href="https://www.instagram.com/YourProfile"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -307,7 +307,7 @@ export default function ContactPage() {
 
               {/* Facebook */}
               <a
-                href="https://www.linkedin.com/company/YourCompany"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -322,7 +322,7 @@ export default function ContactPage() {
 
               {/* Instagram */}
               <a
-                href="https://www.youtube.com/YourChannel"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
               >
