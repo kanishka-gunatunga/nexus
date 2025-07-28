@@ -83,7 +83,7 @@ const CustomsPage = () => {
       {/* Customs and Border Processing Section */}
       <section className="py-4 bg-[#F6F6F6] poppins relative lg:-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#162F65] mb-6 lg:mb-8">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#162F65] mb-6 lg:mb-8">
             Customs and
             <br />
             Border Processing
@@ -139,10 +139,10 @@ const CustomsPage = () => {
 
           {/* Bottom Section - Tight to Image */}
           <div className="mt-6">
-            <h3 className="font-poppins font-medium text-[24px] text-[#162F65] mb-4">
+            <h3 className="font-poppins font-medium text-[20px] md:text-[24px] text-[#162F65] mb-4">
               Customs doesn&apos;t have to be a block...
             </h3>
-            <p className="font-poppins font-medium text-[18px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed mb-6 text-justify max-w-4xl">
+            <p className="font-poppins font-medium text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed mb-6 text-justify max-w-4xl">
               If you and your goods arrive with a good plan and in compliance
               with local regulations. We make that happen by simplifying
               compliance and reducing inspection delays.

@@ -35,7 +35,7 @@ const InsightInner = () => {
                 {/* Hero Section */}
                 <div className="space-y-6 lg:space-y-8">
                     {/* Main Title */}
-                    <h1 className="text-[#162F65] font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight lg:leading-[60px] tracking-[1.65px] max-w-md lg:max-w-lg">
+                    <h1 className="text-[#162F65] font-bold text-xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight lg:leading-[60px] tracking-[1.65px] max-w-md lg:max-w-lg">
                         Smart Ports and Automation
                     </h1>
 
@@ -102,7 +102,7 @@ const InsightInner = () => {
 
                 {/* Related Insights Section */}
                 <div className="mt-16 lg:mt-20">
-                    <h2 className="text-[#162F65] text-base sm:text-lg lg:text-xl leading-relaxed lg:leading-[32px] font-normal mb-8 lg:mb-12">
+                    <h2 className="text-[#162F65] text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed lg:leading-[32px] font-normal mb-8 lg:mb-12">
                         This Insights may also be of interest to you.
                     </h2>
 

@@ -65,14 +65,14 @@ const ServicesPage = () => {
       </div>
 
       {/* Comprehensive Solutions Section */}
-      <div className="lg:-mt-28 lg:pb-10 px-4 sm:px-6 lg:px-8">
+      <div className="relative md:-mt-20 2xl:-mt-30 lg:pb-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
             <h1 className="text-2xl sm:text-3xl lg:text-[50px] font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-tight mx-auto sm:mx-0">
               Comprehensive
               <br className="hidden sm:block" /> Solutions
             </h1>
-            <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-lg leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left text-justify">
+            <p className="text-[#676767] font-medium z-50 text-xs sm:text-sm lg:text-lg leading-5 sm:leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left text-justify">
               Whether it&#39;s retail, manufacturing, mining, automotive, or any
               other industry, our specialists understand each one&#39;s unique
               challenges, constraints, and regulations. In particular, we
@@ -117,7 +117,7 @@ const ServicesPage = () => {
                 <div className="relative p-6 lg:p-8 flex flex-col justify-between flex-1 text-white">
                   {/* Description */}
                   <div className="flex-1">
-                    <p className="text-left font-medium pt-2 lg:pt-10 px-6 text-sm sm:text-base lg:text-xl text-[#FFFFFF] leading-[30px] whitespace-pre-line">
+                    <p className="text-left font-medium pt-2 lg:pt-10 px-6 text-sm sm:text-base lg:text-xl text-[#FFFFFF] leading-5 sm:leading-5 sm:leading-[30px] whitespace-pre-line">
                       {item.description}
                     </p>
                   </div>
@@ -145,7 +145,7 @@ const ServicesPage = () => {
                         fill="white"
                       />
                     </svg>
-                    <h3 className="text-sm sm:text-base text-left leading-[35px] lg:text-[36px] text-white font-medium">
+                    <h3 className="text-base text-left leading-[35px] lg:text-[36px] text-white font-medium">
                       {item.label}
                     </h3>
                   </div>
