@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import Link from "next/link";
 import Nav from "@/Components/Nav";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
@@ -9,8 +9,101 @@ import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
+import { integratedLogistics } from "@/sanity/lib/intergrated-logistics";
 
-const integratedLogistics = () => {
+
+interface IntegratedLogisticsData {
+  hero_title?: string;
+  heading_title?: string;
+  heading_description?: string;
+  card_1_section?: {
+    card_1_title?: string;
+    card_1_subtitle?: string;
+    card_1_description?: string;
+    card_1_button_text?: string;
+    card_1_button_link?: string;
+    card_1_image?: string;
+  },
+
+
+
+  card_2_section?: {
+    card_2_title?: string;
+    card_2_subtitle?: string;
+    card_2_description?: string;
+    card_2_button_text?: string;
+    card_2_button_link?: string;
+    card_2_image?: string;
+  },
+
+  card_3_section?: {
+    card_3_title?: string;
+    card_3_subtitle?: string;
+    card_3_description?: string;
+    card_3_button_text?: string;
+    card_3_button_link?: string;
+    card_3_image?: string;
+  },
+
+  card_4_section?: {
+    card_4_title?: string;
+    card_4_subtitle?: string;
+    card_4_description?: string;
+    card_4_button_text?: string;
+    card_4_button_link?: string;
+    card_4_image?: string;
+  }
+
+  bottom_banner?: {
+    banner_title?: string;
+    button_text?: string;
+    button_link?: string;
+    image?: string;
+    imageAlt?: string;
+  }
+}
+
+
+const IntegratedLogistics = () => {
+  const [pageData, setPageData] = useState<IntegratedLogisticsData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await integratedLogistics();
+
+        if (data && data.length > 0) {
+          setPageData(data[0]);
+        } else {
+          setPageData(null);
+        }
+      } catch (err) {
+        console.error("Failed to fetch Customs data:", err);
+        setError("Failed to load page content.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+  if (loading) {
+    return;
+  }
+
+  if (error) {
+    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  }
+
+  if (!pageData) {
+    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  }
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -155,4 +248,4 @@ const integratedLogistics = () => {
   );
 };
 
-export default integratedLogistics;
+export default IntegratedLogistics;

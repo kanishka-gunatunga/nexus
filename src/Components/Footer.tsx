@@ -470,12 +470,93 @@
 // }
 //
 // export default Footer;
-
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { footer } from "@/sanity/lib/footer";
+
+interface FooterData {
+    footer_description?: string;
+    footer_button_text?: string;
+    footer_button_link?: string;
+    footer_logo?: string;
+    footer_log_alt?: string;
+    footer_sub_description?: string;
+    footer_column_1_title?: string;
+    footer_links_column_1?: {
+        nav_item_name?: string;
+        nav_item_link?: string;
+    };
+    footer_column_2_title?: string;
+    footer_links_column_2?: {
+        nav_item_name?: string;
+        nav_item_link?: string;
+    };
+
+}
 
 const Footer = () => {
+
+    const [sectionData, setSectionData] = useState<FooterData | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setLoading(true);
+                const data = await footer();
+
+               
+                if (data && data.length > 0) {
+                    setSectionData(data[0]);
+                } else {
+                    setSectionData(null); // No data found
+                }
+            } catch (err) {
+                console.error("Failed to fetch LinkedIn section data:", err);
+                setError("Failed to load LinkedIn section content.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []); // Empty dependency array means this runs once on mount
+
+    // --- Loading, Error, and No Data States ---
+    if (loading) {
+        return (
+            <section className="py-4 sm:py-8 lg:py-12">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="bg-[#E7E6DD] rounded-[10px] p-4 sm:p-6 lg:py-8 lg:px-12 flex flex-col items-center justify-center h-40">
+                        Loading LinkedIn section...
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    if (error) {
+        return (
+            <section className="py-4 sm:py-8 lg:py-12">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="bg-red-100 text-red-700 rounded-[10px] p-4 sm:p-6 lg:py-8 lg:px-12 flex flex-col items-center justify-center h-40">
+                        {error}
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    // If no data is found after loading, you might choose to render nothing or a default message
+    if (!sectionData) {
+        return null; // Or render a default LinkedIn section if you have one
+    }
+
+
     return (
         <footer className="bg-[#222222] text-white relative poppins overflow-hidden">
             <div className="relative">
@@ -511,7 +592,7 @@ const Footer = () => {
                         </button>
                     </div>
 
-                    <hr className="border-white mb-8 sm:mb-10 lg:mb-12"/>
+                    <hr className="border-white mb-8 sm:mb-10 lg:mb-12" />
 
                     {/* Content grid */}
                     <div
@@ -645,7 +726,7 @@ const Footer = () => {
                         <div className="mb-2 sm:mb-0">
                             <span className="text-sm sm:text-base lg:text-lg">
 
-                               
+
                                 © nexusglobal @2025. All Rights Reserved.
                             </span>
                         </div>

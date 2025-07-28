@@ -3,9 +3,55 @@ import { Search } from "lucide-react";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
+import {insights}  from "@/sanity/lib/insights";
+
+interface insightData {
+    heroTitle?: string;
+    Page_subtitle?: string;
+    main_post?: {
+        postTitle?: string;
+        Post_short_description?: string;
+        postContent?: string;
+        slug?: string;
+        postImage?: string;
+    };
+
+    main_post_button_text?: string;
+    right_section_post_1?: {
+        postTitle?: string;
+        Post_short_description?: string;
+        postContent?: string;
+        slug?: string;
+        postImage?: string;
+    };
+
+    right_section_post_2?: {
+        postTitle?: string;
+        Post_short_description?: string;
+        postContent?: string;
+        slug?: string;
+        postImage?: string;
+    };
+
+    latest_insights_title?: {
+        postTitle?: string;
+        Post_short_description?: string;
+        postContent?: string;
+        slug?: string;
+        postImage?: string;
+    }[];
+
+    trending_insights_title?: {
+        postTitle?: string;
+        Post_short_description?: string;
+        postContent?: string;
+        slug?: string;
+        postImage?: string;
+    }[];
+}
 
 const InsightsPage = () => {
   const trendingInsights = [

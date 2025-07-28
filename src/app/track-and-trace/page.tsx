@@ -1,14 +1,97 @@
 "use client";
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "@/Components/Nav";
 import Quote from "@/Components/Quote";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
+import { trackAndTrace } from "@/sanity/lib/track-and-trace";
+
+
+interface IconCard {
+  card_title?: string;
+  card_description?: string;
+  card_icon?: string;
+}
+
+interface traceAndTraceData {
+  heroTitle?: string;
+  section_1_title?: string;
+  section_1?: {
+    title?: string;
+    paragraph1?: string;
+    paragraph2?: string;
+    buttonText?: string;
+    buttonLink?: string;
+    "image"?: string;
+    imageAlt?: string;
+    reverseOrder?: boolean;
+  },
+  section_2_title?: string;
+  section_2_description?: string;
+  section_2_image?: string;
+  IconCard_1?: IconCard;
+  IconCard_2?: IconCard;
+  IconCard_3?: IconCard;
+  IconCard_4?: IconCard;
+  IconCard_5?: IconCard;
+  IconCard_6?: IconCard;
+  contact_text?: string;
+  contact_number?: string;
+  bottom_banner?: {
+    banner_title?: string;
+    button_text?: string;
+    button_link?: string;
+    "image"?: string;
+    imageAlt?: string;
+  };
+}
 
 const TrackAndTrace = () => {
   //   const [activeTab, setActiveTab] = useState("track");
+
+
+
+  const [pageData, setPageData] = useState<traceAndTraceData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await trackAndTrace();
+
+        if (data && data.length > 0) {
+          setPageData(data[0]);
+        } else {
+          setPageData(null);
+        }
+      } catch (err) {
+        console.error("Failed to fetch Track and Trace data:", err);
+        setError("Failed to load page content.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+  if (loading) {
+    return;
+  }
+
+  if (error) {
+    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  }
+
+  if (!pageData) {
+    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  }
 
   const features = [
     {

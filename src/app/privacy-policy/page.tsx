@@ -1,8 +1,14 @@
 "use client";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Nav from "@/Components/Nav";
 import HeroSection from "@/Components/HeroSection";
+import { privacyPolicy } from "@/sanity/lib/privacy-policy";
+
+interface PrivacyPolicyData {
+   hero_title?: string;
+  privacy_policy?: string;
+}
 
 const PrivacyPolicy = () => {
   return (

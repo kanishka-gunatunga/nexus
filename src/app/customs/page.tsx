@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import { ChevronUp, ChevronDown } from "lucide-react";
 import Nav from "@/Components/Nav";
 import Image from "next/image";
@@ -10,8 +10,94 @@ import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import Link from "next/link";
 import Accordian from "@/Components/Accordian";
 import HeroSection from "@/Components/HeroSection";
+import { customs } from "@/sanity/lib/customs";
+
+
+
+interface BottomBanner {
+  banner_title?: string;
+  button_text?: string;
+  button_link?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+interface AccordianItem {
+  accordian_title?: string;
+  accordian_description?: string;
+}
+
+interface CustomsData {
+  hero_title?: string;
+  heading_title?: string;
+  heading_description?: string;
+  accordian_section_title?: string;
+  accordian_section_description?: string;
+  accordian_section_image?: string;
+  accordian_section_image_alt?: string;
+  accordian_1?: AccordianItem;
+  accordian_2?: AccordianItem;
+  accordian_3?: AccordianItem;
+  accordian_4?: AccordianItem;
+  accordian_5?: AccordianItem;
+  accordian_6?: AccordianItem;
+  accordian_7?: AccordianItem;
+  accordian_8?: AccordianItem;
+  accordian_section_subtitle?: string;
+  accordian_section_bottom_description?: string;
+  accordian_section_button_text?: string;
+  card_section?: {
+    card_title?: string;
+    card_subtitle?: string;
+    card_description?: string;
+    card_button_text?: string;
+    card_button_link?: string;
+    card_image?: string;
+  };
+  bottom_banner?: BottomBanner;
+}
 
 const CustomsPage = () => {
+
+  const [pageData, setPageData] = useState<CustomsData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await customs();
+
+        if (data && data.length > 0) {
+          setPageData(data[0]);
+        } else {
+          setPageData(null);
+        }
+      } catch (err) {
+        console.error("Failed to fetch Customs data:", err);
+        setError("Failed to load page content.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+  if (loading) {
+    return;
+  }
+
+  if (error) {
+    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  }
+
+  if (!pageData) {
+    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  }
   // const [isExpanded, setIsExpanded] = useState(false);
   // const [activeService, setActiveService] = useState<string | null>(null);
 

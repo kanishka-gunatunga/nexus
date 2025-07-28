@@ -1,11 +1,41 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
 import LinkedinSection from "@/Components/LinkedinSection";
 import Quote from "@/Components/Quote";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
+import { services } from "@/sanity/lib/services";
+
+interface ServiceCard {
+  card_label?: string;
+  card_description?: string;
+  card_image?: string;
+  card_image_alt?: string;
+  card_link?: string;
+}
+
+interface BottomBanner {
+  banner_title?: string;
+  button_text?: string;
+  button_link?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+
+interface ServiceData {
+  heroTitle?: string;
+  section_1_title?: string;
+  section_1_description?: string;
+  heroImageAlt?: string;
+  service_card_1?: ServiceCard[];
+  service_card_2?: ServiceCard[];
+  service_card_3?: ServiceCard[];
+  service_card_4?: ServiceCard[];
+  bottom_banner?: BottomBanner[];
+}
 
 interface Service {
   label: string;
@@ -16,7 +46,49 @@ interface Service {
 }
 
 const ServicesPage = () => {
-  const services: Service[] = [
+
+  const [pageData, setPageData] = useState<ServiceData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await services();
+
+        if (data && data.length > 0) {
+          setPageData(data[0]);
+        } else {
+          setPageData(null);
+        }
+      } catch (err) {
+        console.error("Failed to fetch Services data:", err);
+        setError("Failed to load page content.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+  if (loading) {
+    return;
+  }
+
+  if (error) {
+    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  }
+
+  if (!pageData) {
+    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  }
+
+
+  const services1: Service[] = [
     {
       label: "Air & Sea Freight",
       description:
@@ -90,7 +162,7 @@ const ServicesPage = () => {
       {/* Services Grid Section */}
       <section className="py-4 lg:py-6 mb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4 sm:px-6 items-stretch">
-          {services.map((item, index) => (
+          {services1.map((item, index) => (
             <Link
               href={item.link}
               key={index}

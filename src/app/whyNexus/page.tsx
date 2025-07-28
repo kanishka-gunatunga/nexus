@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import Link from "next/link";
 import Nav from "@/Components/Nav";
 // import ServiceCardRow from "@/Components/ServiceCardRow";
@@ -14,9 +14,118 @@ import "swiper/css/navigation";
 import Accordian from "@/Components/Accordian";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
+import { whyNexus } from "@/sanity/lib/why-nexus";
 
-const airAndSeaFreight = () => {
+interface cardSection {
+  card_1_title?: string;
+  card_1_description?: string;
+  card_2_title?: string;
+  card_2_description?: string;
+  card_3_title?: string;
+  card_3_description?: string;
+}
+
+interface accordian {
+  accordian_title?: string;
+  accordian_description?: string;
+}
+interface whyNexusData {
+  hero_title?: string;
+  heading_title?: string;
+  heading_description?: string;
+  heading_image?: string;
+  section_1_title?: string;
+  cards_section_1?: cardSection;
+  cards_section_2?: cardSection;
+  cards_section_3?: {
+    card_title?: string;
+    card_description?: string;
+
+  };
+
+  section_2_title?: string;
+  section_2_description?: string;
+  section_3_title_1?: string;
+  section_3_description_1?: string;
+  section_3_main_title?: string;
+  section_3_title_2?: string;
+  section_3_description_2?: string;
+  section_4_title_1?: string;
+  section_4_title_2?: string;
+  section_4_description_1?: string;
+
+  testimonial_details_section?: {
+    testimonial_comment?: string;
+    person_name?: string;
+    person_designation?: string;
+    person_image?: string;
+  }[];
+  section_5_card?: {
+    card_title?: string;
+    card_subtitle?: string;
+    card_description?: string;
+    card_image?: string;
+  };
+
+  accordian_section_title?: string;
+  accordian_section_image?: string;
+  accordian_1?: accordian;
+  accordian_2?: accordian;
+  accordian_3?: accordian;
+  accordian_4?: accordian;
+  accordian_5?: accordian;
+  section_7_image?: string;
+  section_7_image_for_mobile?: string;
+
+  bottom_banner?: {
+    title?: string;
+    description?: string;
+    image?: string;
+  };
+}
+
+const WhyNexus = () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const [pageData, setPageData] = useState<whyNexusData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await whyNexus();
+
+        if (data && data.length > 0) {
+          setPageData(data[0]);
+        } else {
+          setPageData(null);
+        }
+      } catch (err) {
+        console.error("Failed to fetch whyNexus data:", err);
+        setError("Failed to load page content.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+  if (loading) {
+    return;
+  }
+
+  if (error) {
+    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  }
+
+  if (!pageData) {
+    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  }
 
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
@@ -641,4 +750,4 @@ const airAndSeaFreight = () => {
   );
 };
 
-export default airAndSeaFreight;
+export default WhyNexus;

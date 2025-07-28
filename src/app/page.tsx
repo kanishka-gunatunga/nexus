@@ -13,7 +13,88 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// import { homePage } from '../../src/sanity/lib/homePage'
+import { homePage } from '../../src/sanity/lib/homePage'
+
+
+interface iconCard {
+  card_title?: string;
+  card_description?: string;
+  card_icon?: string;
+}
+
+interface service_card {
+  card_label?: string;
+  card_description?: string;
+  card_image?: string;
+  card_image_alt?: string;
+  card_link?: string;
+}
+
+interface homePageData {
+  heroTitle?: string;
+  heroDescription?: string;
+  hero_button_text?: string;
+  hero_button_link?: string;
+  icon_card_1?: iconCard;
+  icon_card_2?: iconCard;
+  icon_card_3?: iconCard;
+  icon_card_4?: iconCard;
+  icon_card_5?: iconCard;
+  section_2_title?: string;
+  section_2_image?: string;
+  section_2_badge_text_row_1?: string;
+  section_2_badge_text_row_2?: string;
+  section_2_badge_text_row_3?: string;
+  section_2_badge_text_row_4?: string;
+  section_2_badge_text_row_5?: string;
+  section_2_description?: string;
+  section_2_subtitle?: string;
+  section_2_button_text?: string;
+  section_2_button_link?: string;
+  section_3_title?: string;
+  section_3_column_1_count?: number;
+  section_3_column_1_text?: string;
+  section_3_column_2_count?: number;
+  section_3_column_2_text?: string;
+  section_3_column_3_text_1?: string;
+  section_3_column_3_text_2?: string;
+  section_4_title?: string;
+  section_4_description?: string;
+  service_card_1?: service_card;
+  service_card_2?: service_card;
+  service_card_3?: service_card;
+  service_card_4?: service_card;
+  section_5?: {
+    title?: string
+    paragraph1?: string;
+    paragraph2?: string;
+    buttonText?: string;
+    buttonLink?: string;
+    image?: string;
+    imageAlt?: string;
+  };
+
+  section_6?: {
+    title?: string
+    paragraph1?: string;
+    paragraph2?: string;
+    buttonText?: string;
+    buttonLink?: string;
+    image?: string;
+    imageAlt?: string;
+
+  }
+
+
+  testimonial_section_title?: string;
+  testimonial_section_title_description?: string;
+  testimonial_details_section?: {
+    testimonial_comment?: string;
+    person_name?: string;
+    person_designation?: string;
+    person_image?: string;
+  }
+}
 
 export default function Home() {
   const images = [
@@ -37,29 +118,44 @@ export default function Home() {
   const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
-    // const [data, setData] = useState<HomePageData | null>(null);
-    // interface HomePageData {
-    //     heroTitle: string;
-    //     heroDescription: string;
-    //     buttonText: string;
-    // }
+  const [pageData, setPageData] = useState<homePageData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-    // const dataTest = homePage();
 
-    // useEffect(() => {
-    //     homePage().then(setData);
-    // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await homePage();
 
-    // console.log(dataTest);
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) =>
-                (prevIndex + 1) % images.length
-            );
-        }, 5000);
+        if (data && data.length > 0) {
+          setPageData(data[0]);
+        } else {
+          setPageData(null);
+        }
+      } catch (err) {
+        console.error("Failed to fetch homePage data:", err);
+        setError("Failed to load page content.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-        return () => clearInterval(interval);
-    }, [images.length]);
+    fetchData();
+  }, []);
+
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        (prevIndex + 1) % images.length
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -235,6 +331,18 @@ export default function Home() {
     ],
   };
 
+  if (loading) {
+    return;
+  }
+
+  if (error) {
+    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  }
+
+  if (!pageData) {
+    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  }
+
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
       {/*<section className="relative mx-auto min-h-[70vh] sm:min-h-[80vh] lg:min-h-[100vh] overflow-hidden max-w-[2400px]">*/}
@@ -320,9 +428,8 @@ export default function Home() {
               width={1200}
               height={1600}
               // className="w-full xl:w-auto lg:-top-0 sm:w-auto h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[620px] object-contain relative z-40"
-              className={`w-full xl:w-auto h-full object-contain relative z-40 duration-500 ease-in-out ${
-                isFading ? "opacity-0" : "opacity-100"
-              }`}
+              className={`w-full xl:w-auto h-full object-contain relative z-40 duration-500 ease-in-out ${isFading ? "opacity-0" : "opacity-100"
+                }`}
               sizes="(max-width: 2560px) 750px, 900px"
             />
           </div>
@@ -385,27 +492,27 @@ export default function Home() {
           </div>
         </div>
 
-                <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
-                    <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
-                        <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
-                            Supply Chains
-                            <br />
-                            Never Sleep.
-                            <br />
-                            Neither Do We.
-                            {/* {data?.heroTitle} */}
-                        </h1>
-                        <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
-                            As your agile logistics partner, we operate as an extension of your
-                            business, so you enjoy peace of mind, and responsive service.
-                        </p>
-                        <button
-                            className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
-                        >
-                            Explore More
-                        </button>
-                    </div>
-                </div>
+        <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
+          <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
+            <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
+              Supply Chains
+              <br />
+              Never Sleep.
+              <br />
+              Neither Do We.
+              {/* {data?.heroTitle} */}
+            </h1>
+            <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
+              As your agile logistics partner, we operate as an extension of your
+              business, so you enjoy peace of mind, and responsive service.
+            </p>
+            <button
+              className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
+            >
+              Explore More
+            </button>
+          </div>
+        </div>
 
         <Quote />
 
@@ -609,8 +716,8 @@ export default function Home() {
                         enableScrollSpy={false}
                         redraw={false}
                         startOnMount={false}
-                        onStart={() => {}}
-                        onEnd={() => {}}
+                        onStart={() => { }}
+                        onEnd={() => { }}
                       >
                         {({ countUpRef }) => <span ref={countUpRef} />}
                       </CountUp>
@@ -780,35 +887,34 @@ export default function Home() {
               </div>
 
               <div className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-  {services.map((item, index) => (
-    <Link key={index} href={item.link}>
-      <div
-        className="relative group cursor-pointer"
-        onMouseEnter={() => setActiveService(item)}
-        onClick={() => setActiveService(item)}
-      >
-        <div className="relative w-full h-40 sm:h-48 lg:h-56 rounded-lg overflow-hidden">
-          <Image
-            src={item.src}
-            alt={item.alt}
-            fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-          <div
-            className={`absolute inset-0 transition-all duration-300 ${
-              activeService.label === item.label
-                ? "bg-[#002B64]/70"
-                : "bg-gradient-to-t from-[#002B64]/0 to-[#00255700]/0"
-            }`}
-          />
-          <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-normal text-xs sm:text-sm lg:text-lg">
-            {item.label}
-          </p>
-        </div>
-      </div>
-    </Link>
-  ))}
-</div>
+                {services.map((item, index) => (
+                  <Link key={index} href={item.link}>
+                    <div
+                      className="relative group cursor-pointer"
+                      onMouseEnter={() => setActiveService(item)}
+                      onClick={() => setActiveService(item)}
+                    >
+                      <div className="relative w-full h-40 sm:h-48 lg:h-56 rounded-lg overflow-hidden">
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div
+                          className={`absolute inset-0 transition-all duration-300 ${activeService.label === item.label
+                            ? "bg-[#002B64]/70"
+                            : "bg-gradient-to-t from-[#002B64]/0 to-[#00255700]/0"
+                            }`}
+                        />
+                        <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-normal text-xs sm:text-sm lg:text-lg">
+                          {item.label}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
 
             </div>
           </div>
@@ -822,11 +928,10 @@ export default function Home() {
                 >
                   <div
                     className={`relative group cursor-pointer rounded-lg overflow-hidden transition-all duration-300
-                                            ${
-                                              activeService.label === item.label
-                                                ? "scale-[1.05] bg-[#002453] shadow-lg"
-                                                : "scale-[0.9]"
-                                            }`}
+                                            ${activeService.label === item.label
+                        ? "scale-[1.05] bg-[#002453] shadow-lg"
+                        : "scale-[0.9]"
+                      }`}
                     style={{
                       height:
                         activeService.label === item.label ? "280px" : "270px",
@@ -844,11 +949,10 @@ export default function Home() {
 
                     <div
                       className={`absolute inset-0 transition-all duration-300
-                                            ${
-                                              activeService.label === item.label
-                                                ? "bg-[#002B64]/10"
-                                                : "bg-gradient-to-t from-[#002B64]/40 to-[#00255700]/10"
-                                            }`}
+                                            ${activeService.label === item.label
+                          ? "bg-[#002B64]/10"
+                          : "bg-gradient-to-t from-[#002B64]/40 to-[#00255700]/10"
+                        }`}
                     />
 
                     {activeService.label === item.label ? (
@@ -914,24 +1018,21 @@ export default function Home() {
 
               {/* Desktop & Tablet layout (md+) */}
               <div
-                className={`max-w-7xl relative mx-auto items-center hidden md:flex ${
-                  section.reverse ? "flex-row-reverse" : "flex-row"
-                } container mx-auto lg:px-8 gap-16 p-6`}
+                className={`max-w-7xl relative mx-auto items-center hidden md:flex ${section.reverse ? "flex-row-reverse" : "flex-row"
+                  } container mx-auto lg:px-8 gap-16 p-6`}
               >
                 <div className="w-3/5 flex flex-col justify-between">
                   <h2
-                    className={`font-semibold ${
-                      section.reverse
-                        ? "lg:text-[41px] lg:leading-[56px]"
-                        : "lg:text-[50px] lg:leading-[72px]"
-                    } text-xl sm:text-2xl text-[#162F65] max-w-3xl text-left`}
+                    className={`font-semibold ${section.reverse
+                      ? "lg:text-[41px] lg:leading-[56px]"
+                      : "lg:text-[50px] lg:leading-[72px]"
+                      } text-xl sm:text-2xl text-[#162F65] max-w-3xl text-left`}
                   >
                     {section.title}
                   </h2>
                   <p
-                    className={`text-sm lg:text-lg font-medium ${
-                      section.reverse ? "mt-2" : "mt-4"
-                    } text-[#676767] max-w-2xl leading-[25px] text-left whitespace-pre-line`}
+                    className={`text-sm lg:text-lg font-medium ${section.reverse ? "mt-2" : "mt-4"
+                      } text-[#676767] max-w-2xl leading-[25px] text-left whitespace-pre-line`}
                     dangerouslySetInnerHTML={{ __html: section.description }}
                   />
                   <div className="mt-8 text-left">

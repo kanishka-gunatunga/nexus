@@ -1,192 +1,218 @@
 "use client"
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React from "react";
-// import Link from "next/link";
+import React, { useEffect, useState } from "react"; // Import useEffect and useState
 import Nav from "@/Components/Nav";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
-// import { airAndFreightService } from "@/sanity/lib/air-and-freight-service";
-// import { useEffect, useState } from "react";
+import { airAndFreightService } from "@/sanity/lib/air-and-freight-service"; // Ensure this path is correct
 
+
+interface CardSection {
+    card_1_title?: string;
+    card_1_subtitle?: string;
+    card_1_description?: string;
+    card_1_button_text?: string;
+    card_1_button_link?: string;
+    card_1_image?: string;
+    card_2_title?: string;
+    card_2_subtitle?: string;
+    card_2_description?: string;
+    card_2_button_text?: string;
+    card_2_button_link?: string;
+    card_2_image?: string;
+    card_3_title?: string;
+    card_3_subtitle_1?: string;
+    card_3_description_1?: string;
+    card_3_subtitle_2?: string;
+    card_3_description_2?: string;
+    card_3_button_text?: string;
+    card_3_button_link?: string;
+    card_3_image?: string;
+}
+
+interface BottomBanner {
+    banner_title?: string;
+    button_text?: string;
+    button_link?: string;
+    image?: string;
+    imageAlt?: string;
+}
+
+interface AirAndFreightData {
+    hero_title?: string;
+    heading_title?: string;
+    heading_description?: string;
+    card_1_section?: CardSection;
+    card_2_section?: CardSection;
+    card_3_section?: CardSection;
+    bottom_banner?: BottomBanner;
+}
 
 
 const AirAndSeaFreight = () => {
+    // State to hold the fetched data
+    const [pageData, setPageData] = useState<AirAndFreightData | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
-    // interface Section {
-    //     _type: string;
-    //     title: string;
-    //     paragraph1: string;
-    //     paragraph2: string;
-    //     paragraph3: string;
-    //     subtitle: string;
-    //     buttonText: string;
-    //     buttonLink: string;
-    //     image: {
-    //         asset?: {
-    //             _id: string;
-    //             url: string;
-    //         };
-    //     };
-    //     imageAlt: string;
-    //     reverseOrder: boolean;
-    // }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setLoading(true);
+                const data = await airAndFreightService();
+                
+              
+                if (data && data.length > 0) {
+                    setPageData(data[0]);
+                } else {
+                    setPageData(null); 
+                }
+            } catch (err) {
+                console.error("Failed to fetch Air & Sea Freight data:", err);
+                setError("Failed to load page content.");
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    // interface AirAndFreightServiceData {
-    //     title: string;
-    //     sections: Section[];
-    // }
-    // const [data, setData] = useState<AirAndFreightServiceData[] | null>(null);
+        fetchData();
+    }, []); 
 
+    if (loading) {
+        return ;
+    }
 
-    // useEffect(() => {
-    //     airAndFreightService().then((res) => {
-    //         console.log("Air and Sea Freight Data:", res)
-    //         setData(res)
-    //     })
-    // }, [])
+    if (error) {
+        return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+    }
 
-    // const [isMenuOpen, setIsMenuOpen] = useState(false);
+    if (!pageData) {
+        return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+    }
 
     return (
         <div className="min-h-screen bg-[#F6F6F6] poppins">
             <div className="relative mx-auto block">
-
                 <Nav />
-                <HeroSection 
-  title="Air & Sea Freight Services"
-  desktopImage="/hero-images/air&sea.svg"
-  mobileImage="/hero_arrow.svg"
-  altText="Air and Sea Freight Hero Image"
-/>
-
+                <HeroSection
+                    // Use data from Sanity for hero title
+                    title={pageData.hero_title || "Air & Sea Freight Services"}
+                    
+                    desktopImage="/hero-images/air&sea.svg"
+                    mobileImage="/hero_arrow.svg"
+                    altText="Air and Sea Freight Hero Image"
+                />
             </div>
 
             <div className="relative top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
                 <HeroTitleAndParagraph
-                    title="Air & Sea Freight Services"
-                    paragraph1="Offering speed, cost-effectiveness, and reliability, our air and sea freight services are built to match your urgency, budget, and cargo complexity. Whether you're racing against a deadline or coordinating large-scale shipments, we deliver precision logistics, reliable tracking, and personal attention."
-                    paragraph2=""
+                    
+                    title={pageData.heading_title || "Air & Sea Freight Services"}
+                    paragraph1={pageData.heading_description || "Offering speed, cost-effectiveness, and reliability, our air and sea freight services are built to match your urgency, budget, and cargo complexity. Whether you're racing against a deadline or coordinating large-scale shipments, we deliver precision logistics, reliable tracking, and personal attention."}
+                    paragraph2="" 
                 />
 
-                {/* {data?.map((page, pageIndex) => (
-                    <div key={pageIndex}>
-                       
-
-                        {page.sections.map((section, sectionIndex) => {
-                            if (!section) return null;
-                            if (section._type === "photoDescriptionSection") {
-                                return (
-                                    <PhotoDescriptionSection
-                                        key={sectionIndex}
-                                        title={section.title}
-                                        paragraph1={section.paragraph1}
-                                        paragraph2={section.paragraph2}
-                                        paragraph3={section.paragraph3}
-                                        subtitle1={section.subtitle}
-                                        buttonText={section.buttonText}
-                                        buttonLink={section.buttonLink}
-                                        imageSrc={section.image?.asset?.url || ''}
-                                        imageAlt={section.imageAlt}
-                                        reverse={section.reverseOrder ?? false}
-                                    />
-                                );
-                            }
-
-                            return null;
-                        })}
+                {/* Card 1 Section (Air Freight) */}
+                {pageData.card_1_section && (
+                    <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+                        <PhotoDescriptionSection
+                            title={pageData.card_1_section.card_1_title || ""}
+                            paragraph1={pageData.card_1_section.card_1_description || ""}
+                            subtitle1={pageData.card_1_section.card_1_subtitle || ""} 
+                            buttonText={pageData.card_1_section.card_1_button_text || ""}
+                            buttonLink={pageData.card_1_section.card_1_button_link || ""}
+                            imageSrc={pageData.card_1_section.card_1_image || ""}
+                            reverse={false}
+                           
+                            paragraph2=""
+                            paragraph3=""
+                            subtitle2=""
+                        />
                     </div>
-                ))} */}
+                )}
 
+                {/* Card 2 Section (Sea Freight) */}
+                {pageData.card_2_section && (
+                    <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+                        <PhotoDescriptionSection
+                            title={pageData.card_2_section.card_2_title || ""}
+                            paragraph1={pageData.card_2_section.card_2_description || ""}
+                            subtitle1={pageData.card_2_section.card_2_subtitle || ""} 
+                            buttonText={pageData.card_2_section.card_2_button_text || ""}
+                            buttonLink={pageData.card_2_section.card_2_button_link || ""}
+                            imageSrc={pageData.card_2_section.card_2_image || ""}
+                            reverse={true}
+                           
+                            paragraph2=""
+                            paragraph3=""
+                            subtitle2=""
+                        />
+                    </div>
+                )}
 
-                <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
-                    <PhotoDescriptionSection
-                        title="Air Freight Services"
-                        paragraph1="When time is critical, our air freight solutions move your cargo reliably. We tap into a global network of carriers and charter options, ensuring capacity even during peak congestion. You'll have end-to-end visibility from pickup to final delivery - no guesswork, no last-minute rate spikes"
-                        subtitle2="Think air freight is always expensive?"
-                        subtitle1=""
-                        paragraph2="Our experts optimise routes, consolidate compatible loads, and negotiate directly with airlines, so we can secure air freight at rates that keep your margins intact."
-                        paragraph3=""
-                        buttonText="Book Air Freight"
-                        buttonLink="/air-freight-quote"
-                        imageSrc="/services/airplaneservice (2).png"
-                        reverse={false}
-                    />
-                </div>
-
-
-                
-                <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
-                    <PhotoDescriptionSection
-                        title="Sea Freight Services"
-                        paragraph1="Our sea freight services are engineered for businesses moving volume across borders, without compromising control. Whether you need FCL, LCL, or break-bulk, we offer consistent scheduling, locked-in rates, and transparent coordination - all backed by powerful systems, efficient tracking, and on-ground expertise."
-                        subtitle2="Our networks provide better pricing..."
-                        subtitle1=""
-                        paragraph2="What matters is strength at destination. Nexus Logix partners with leading global agents who deliver superior pricing, consistent transit times, and hands-on shipment tracking, without passing on inflated overheads - and that's a cost benefit for you."
-                        paragraph3=""
-                        buttonText="Book Sea Freight"
-                        buttonLink="/sea-freight-quote"
-                        imageSrc="/services/seafrieght.png"
-                        reverse={true}
-                    />
-                </div>
-
-
-
-                
-                <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
-                    <PhotoDescriptionSection
-                        title="Sea-Air Combination"
-                        paragraph1="For shipments that can't justify full air freight costs but can't afford full sea timelines, our sea-air hybrid options provide a strategic alternative. We ship to a transhipment hub via sea, then fly the cargo to its final destination, slashing lead times but without high air freight premiums."
-                        subtitle2="You don't have to choose between slow and expensive..."
-                        subtitle1="Faster than sea, cheaper than air."
-                        paragraph2="You can choose efficient instead. With smart planning, our sea-air options give you the best of both worlds; cost savings and time efficiency - all tailored to your specific delivery window."
-                        paragraph3=""
-                        buttonText="Explore Sea-Air Options"
-                        buttonLink="/air-freight-quote"
-                        imageSrc="/services/sea-air.png"
-                        reverse={false}
-                    />
-                </div>
+                {/* Card 3 Section (Sea-Air Combination) */}
+                {pageData.card_3_section && (
+                    <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+                        <PhotoDescriptionSection
+                            title={pageData.card_3_section.card_3_title || ""}
+                            paragraph1={pageData.card_3_section.card_3_description_1 || ""}
+                            subtitle1={pageData.card_3_section.card_3_subtitle_1 || ""}
+                            subtitle2={pageData.card_3_section.card_3_subtitle_2 || ""}
+                            paragraph2={pageData.card_3_section.card_3_description_2 || ""}
+                            buttonText={pageData.card_3_section.card_3_button_text || ""}
+                            buttonLink={pageData.card_3_section.card_3_button_link || ""}
+                            imageSrc={pageData.card_3_section.card_3_image || ""}
+                            reverse={false} 
+                            paragraph3="" 
+                        />
+                    </div>
+                )}
             </div>
+
+           
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ServiceCardRow />
             </div>
 
-            <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden" style={{ marginTop: '100px' }}>
-                <div className="absolute inset-0">
-                    <Image
-                        src="/sea-bottom-banner (2).svg"
-                        alt="Airport"
-                        width={1000}
-                        height={400}
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/10"></div>
-                </div>
+            {/* Bottom Banner */}
+            {pageData.bottom_banner && (
+                <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden" style={{ marginTop: '100px' }}>
+                    <div className="absolute inset-0">
+                        {pageData.bottom_banner.image && (
+                            <Image
+                                src={pageData.bottom_banner.image}
+                                alt={pageData.bottom_banner.imageAlt || "Bottom banner image"}
+                                width={1920}
+                                height={400}
+                                className="w-full h-full object-cover"
+                            />
+                        )}
+                        <div className="absolute inset-0 bg-black/10"></div>
+                    </div>
 
-                <div
-                    className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
-                    <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-                        Australian Expertise,
-                        <br />
-                        Global Strength
-                    </h2>
-                    <button
-                        className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-                        Why Nexus
-                    </button>
+                    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
+                        <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
+                            {pageData.bottom_banner.banner_title}
+                        </h2>
+                        {pageData.bottom_banner.button_text && (
+                            <button
+                                className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal"
+                                onClick={() => {
+                                    if (pageData.bottom_banner?.button_link) {
+                                        window.location.href = pageData.bottom_banner.button_link;
+                                    }
+                                }}
+                            >
+                                {pageData.bottom_banner.button_text}
+                            </button>
+                        )}
+                    </div>
                 </div>
-
-                {/*<div*/}
-                {/*    className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 text-white text-sm sm:text-base lg:text-lg font-light">*/}
-                {/*    Sydney Airport*/}
-                {/*</div>*/}
-            </div>
+            )}
             <Quote />
             <div className="py-6 lg:py-12">
                 <LinkedinSection />

@@ -310,6 +310,9 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 
+
+
+
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -418,13 +421,13 @@ const Nav = () => {
           <div className="flex-shrink-0 order-2 flex justify-center lg:order-none lg:flex lg:justify-center">
             <Link href="/">
               <Image
-  src="/Logo-Nexus.png"
-  alt="Nexus Logo"
-  width={180}
-  height={180}
-  className="h-20 sm:h-24 lg:h-28 w-auto"
-  priority
-/>
+                src="/Logo-Nexus.png"
+                alt="Nexus Logo"
+                width={180}
+                height={180}
+                className="h-20 sm:h-24 lg:h-28 w-auto"
+                priority
+              />
             </Link>
           </div>
 
@@ -475,17 +478,16 @@ const Nav = () => {
 
           <nav className="hidden lg:flex items-center space-x-6 lg:space-x-8 xl:space-x-12 order-2 text-sm md:text-base xl:text-lg">
             {navLinks.map((link) => (
-                <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`font-semibold transition-colors duration-200 ${
-                        pathname === link.href
-                            ? "text-[#162F65]" // Active color
-                            : "text-[#282828] hover:text-[#162F65]" // Default and hover
-                    }`}
-                >
-                  {link.label}
-                </Link>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`font-semibold transition-colors duration-200 ${pathname === link.href
+                    ? "text-[#162F65]" // Active color
+                    : "text-[#282828] hover:text-[#162F65]" // Default and hover
+                  }`}
+              >
+                {link.label}
+              </Link>
             ))}
             {/* Desktop Track & Trace Button - Now visible from 'lg' breakpoint */}
             <Link href="/track-and-trace">
@@ -509,9 +511,8 @@ const Nav = () => {
         {/* Mobile Menu Content - Toggles visibility based on isMenuOpen */}
         <div
           id="mobile-menu"
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "max-h-screen opacity-100 py-4" : "max-h-0 opacity-0"
-          }`}
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? "max-h-screen opacity-100 py-4" : "max-h-0 opacity-0"
+            }`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
             <Link
