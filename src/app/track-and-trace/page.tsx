@@ -223,7 +223,7 @@ const TrackAndTrace = () => {
 
               {/* Text with links */}
               <p className="font-poppins sm:text-[24px] md:text-[24px] lg:text-[26px] text-white leading-snug">
-                Call Richard on{" "}
+                Call{" "}
                 <span
                   className="underline cursor-pointer"
                   onClick={() => {
@@ -235,7 +235,7 @@ const TrackAndTrace = () => {
                     }
                   }}
                 >
-                  Number
+                  Richard
                 </span>{" "}
                 for a free demo or to{" "}
                 <Link href="/contactUs" className="underline cursor-pointer">

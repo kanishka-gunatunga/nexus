@@ -39,25 +39,25 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
       link: "/air-and-sea-freight",
     },
     {
-      id: "road-rail",
-      title: "ROAD & RAIL",
-      subtitle: "TRANSPORT",
-      image: "/icons/truck.svg",
-      link: "/road-and-rail",
-    },
-    {
-      id: "logistics",
-      title: "INTEGRATED",
-      subtitle: "LOGISTICS",
-      image: "/icons/box.svg",
-      link: "/integrated-logistics",
-    },
-    {
       id: "customs",
       title: "CUSTOMS CLEARANCE",
       subtitle: "& COMPLIANCE",
       image: "/icons/cart.svg",
       link: "/customs",
+    },
+    {
+      id: "logistics",
+      title: "3PL,WAREHOUSING",
+      subtitle: "& SPECIAL PROJECTS",
+      image: "/icons/box.svg",
+      link: "/integrated-logistics",
+    },
+    {
+      id: "road-rail",
+      title: "ROAD & RAIL",
+      subtitle: "TRANSPORT",
+      image: "/icons/truck.svg",
+      link: "/road-and-rail",
     },
   ];
 
@@ -321,7 +321,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    placeholder="+61 7 1234 5678"
+                    placeholder=""
                     className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors text-[#647FBB] placeholder-[#647FBB] ${
                       errors.phone
                         ? "border-red-500 text-red-500"

@@ -181,8 +181,8 @@ export default function Home() {
     },
     {
       src: "/warehousing.png",
-      alt: "Integrated Logistics & Special Projects",
-      label: "Integrated Logistics & Special Projects",
+      alt: "3PL, Warehousing & Special Projects",
+      label: "3PL, Warehousing & Special Projects",
       description: `We offer end-to-end supply chain management, including 3PL and Warehousing, Fulfilment and eCommerce, and Inventory Management and Optimisation, all scalable and tailored to your unique requirements.`,
       link: "/Integrated-logistics",
     },
