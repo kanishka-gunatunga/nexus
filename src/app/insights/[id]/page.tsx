@@ -2,36 +2,44 @@ import Image from "next/image";
 import Nav from "@/Components/Nav";
 import React from "react";
 import LinkedinSection from "@/Components/LinkedinSection";
+import HeroSection from "@/Components/HeroSection";
 
 const InsightInner = () => {
     return (
         <div className="min-h-screen bg-[#F6F6F6] poppins">
             <div className="relative mx-auto block">
                 <Nav/>
-                <div id="hero-section"
-                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
-                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
-                        <Image
-                            src="/insights-banner.svg"
-                            alt="Nexus X Logo"
-                            width={1000}
-                            height={400}
-                            className="w-full h-full object-cover absolute inset-0"
-                        />
-                        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
-                            <div className="text-left px-4">
-                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
-                                    INSIGHTS
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {/*<div id="hero-section"*/}
+                {/*     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">*/}
+                {/*    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">*/}
+                {/*        <Image*/}
+                {/*            src="/insights-banner.svg"*/}
+                {/*            alt="Nexus X Logo"*/}
+                {/*            width={1000}*/}
+                {/*            height={400}*/}
+                {/*            className="w-full h-full object-cover absolute inset-0"*/}
+                {/*        />*/}
+                {/*        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">*/}
+                {/*            <div className="text-left px-4">*/}
+                {/*                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">*/}
+                {/*                    INSIGHTS*/}
+                {/*                </h1>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+                <HeroSection
+                    title="INSIGHTS"
+                    desktopImage="/insights-banner.svg"
+                    mobileImage="/hero_arrow.svg"
+                    altText="Contact us hero section"
+                />
 
             </div>
 
 
-            <div className="container relative -top-22 lg:-top-50 mx-auto px-8 py-8 lg:py-12 max-w-7xl">
+            <div className="container relative -mt-10 md:-mt-40 lg:-mt-60 xl:-mt-30 2xl:-mt-50 mx-auto px-8 py-8 lg:py-12 max-w-7xl">
                 {/* Hero Section */}
                 <div className="space-y-6 lg:space-y-8">
                     {/* Main Title */}
