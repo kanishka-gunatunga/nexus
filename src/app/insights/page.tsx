@@ -99,7 +99,7 @@ const InsightsPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container relative max-w-7xl -mt-10 md:-mt-40 lg:-mt-30 mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-16">
+      <div className="container relative max-w-7xl -mt-10 md:-mt-40 lg:-mt-60 xl:-mt-30 2xl:-mt-50 mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-16">
         <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold">
           Insights
         </h1>
