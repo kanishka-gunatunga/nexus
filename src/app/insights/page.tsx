@@ -358,7 +358,7 @@ const InsightsPage = () => {
           </div>
         </div>
       </div>
-      <div className="-mt-15 lg:-mt-50">
+      <div className="">
         <LinkedinSection />
       </div>
     </div>
