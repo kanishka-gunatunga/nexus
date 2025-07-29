@@ -288,7 +288,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
+        <div className="relative hidden lg:block z-40 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
           <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
             <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
               Supply Chains
