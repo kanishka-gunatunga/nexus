@@ -253,7 +253,7 @@ const airAndSeaFreight = () => {
 
       <div className="max-w-7xl hidden lg:block mx-auto mt-[50px] lg:mt-[100px] px-4 sm:px-6 lg:px-8">
         <Image
-          src={"/nexus-core.svg"}
+          src={"/nexus-core2.png"}
           alt="Nexus X Logo"
           width={1000}
           height={400}
@@ -278,7 +278,7 @@ const airAndSeaFreight = () => {
 
         {/* The Nexus Way - Australian Culture Section */}
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-[#8c8c8c] text-5xl sm:text-7xl font-bold text-center leading-tight mb-2">
+          <h1 className="text-[#162F65] text-5xl sm:text-7xl font-bold text-center leading-tight mb-2">
             The Nexus Way
           </h1>
           <h2 className="text-[#737887] mr-6 text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-right leading-tight">
@@ -578,29 +578,31 @@ const airAndSeaFreight = () => {
         />
       </div>
 
-      <div className="w-full hidden lg:block bg-[#0F2043] mt-[20px] lg:mt-[20px] h-[400px]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 h-full">
-          <Image
-            src="/why-nexus/road2.svg"
-            alt="Nexus X Logo"
-            width={1800}
-            height={1200}
-            className="object-cover h-full w-full"
-          />
-        </div>
-      </div>
+      <div className="w-full hidden [@media(min-width:1087px)]:block bg-[#0F2043] mt-[20px] h-[400px]">
+  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 h-full">
+    <Image
+      src="/why-nexus/road3.png"
+      alt="Nexus X Logo"
+      width={1800}
+      height={1200}
+      className="object-cover h-full w-full"
+    />
+  </div>
+</div>
 
-      <div className="w-full block lg:hidden bg-[#0F2043] mt-[50px] lg:mt-[100px]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 h-full lg:h-[400px]">
-          <Image
-            src="/why-nexus/road-map.svg"
-            alt="Nexus X Logo"
-            width={800}
-            height={1200}
-            className="object-cover h-full lg:h-[400px]"
-          />
-        </div>
-      </div>
+
+      <div className="w-full block [@media(min-width:1087px)]:hidden bg-[#0F2043] mt-[50px]">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-between gap-8 h-full">
+    <Image
+      src="/why-nexus/road-map.svg"
+      alt="Nexus X Logo"
+      width={800}
+      height={1200}
+      className="w-full h-auto object-contain"
+    />
+  </div>
+</div>
+
 
       <div className="relative h-64 sm:h-80 lg:h-96 mt-2 overflow-hidden">
         <div className="absolute inset-0">
