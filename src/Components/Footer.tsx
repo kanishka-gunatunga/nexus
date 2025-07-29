@@ -58,7 +58,7 @@ const Footer = () => {
                 <Link href="/" className="block text-white hover:text-[#bbbbbb] text-xs sm:text-sm">Home</Link>
                 <Link href="/whyNexus" className="block text-white hover:text-[#bbbbbb] text-xs sm:text-sm">Why Nexus</Link>
                 <Link href="/leadership" className="block text-white hover:text-[#bbbbbb] text-xs sm:text-sm">Leadership Team</Link>
-                <Link href="/insights" className="block text-white hover:text-[#bbbbbb] text-xs sm:text-sm">Insights</Link>
+                {/* <Link href="/insights" className="block text-white hover:text-[#bbbbbb] text-xs sm:text-sm">Insights</Link> */}
                 <Link href="/contactUs" className="block text-white hover:text-[#bbbbbb] text-xs sm:text-sm">Contact Us</Link>
                 <Link href="/track-and-trace" className="block text-white hover:text-[#bbbbbb] text-xs sm:text-sm">Track and Trace</Link>
               </div>

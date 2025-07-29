@@ -26,8 +26,8 @@ const PrivacyPolicy = () => {
               </h1>
 
               <p>
-                <span className="font-semibold">Effective Date:</span> [Insert
-                Date]
+                <span className="font-semibold">Effective Date:</span>{" "}
+                03/02/2025
               </p>
               <p>
                 <span className="font-semibold">Entity:</span> Nexus Logix Pty
@@ -214,6 +214,7 @@ const PrivacyPolicy = () => {
                 <p>
                   <span className="block">Privacy Officer</span>
                   <span className="block">Nexus Logix Pty Ltd</span>
+                  <span className="block">Effective Date: 03/02/2025</span>
                   <span className="block">
                     Email:{" "}
                     <a
@@ -223,9 +224,9 @@ const PrivacyPolicy = () => {
                       privacy@nexuslogix.com.au
                     </a>
                   </span>
-                  <span className="block">Phone: [Insert phone number]</span>
+                  <span className="block">Phone: +61 73 7374 310</span>
                   <span className="block">
-                    Postal Address: [Insert address]
+                    Postal Address: Level 38, 71 Eagle Street, Brisbane CBD, 4000, Australia
                   </span>
                 </p>
               </div>
