@@ -30,11 +30,11 @@ interface ServiceData {
   section_1_title?: string;
   section_1_description?: string;
   heroImageAlt?: string;
-  service_card_1?: ServiceCard[];
-  service_card_2?: ServiceCard[];
-  service_card_3?: ServiceCard[];
-  service_card_4?: ServiceCard[];
-  bottom_banner?: BottomBanner[];
+  service_card_1?: ServiceCard;
+  service_card_2?: ServiceCard;
+  service_card_3?: ServiceCard;
+  service_card_4?: ServiceCard;
+  bottom_banner?: BottomBanner;
 }
 
 interface Service {
@@ -87,39 +87,45 @@ const ServicesPage = () => {
     return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
   }
 
+  const servicescards:ServiceCard[] = [
+    pageData.service_card_1,
+    pageData.service_card_2,
+    pageData.service_card_3,
+    pageData.service_card_4,
+  ].filter(Boolean) as ServiceCard[];
 
   const services1: Service[] = [
+
     {
-      label: "Air & Sea Freight",
+      label: pageData.service_card_1?.card_label || "Air & Sea Freight",
       description:
-        "Looking for express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport?\n\nWe optimize routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.",
-      src: "/air-sea-freight.svg",
-      alt: "Air and Sea Freight Services",
-      link: "/air-and-sea-freight",
+        pageData.service_card_1?.card_description || "Looking for express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport?\n\nWe optimize routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.",
+      src: pageData.service_card_1?.card_image || "/air-sea-freight.svg",
+      alt: pageData.service_card_1?.card_image_alt || "Air and Sea Freight Services",
+      link: pageData.service_card_1?.card_link || "/air-and-sea-freight",
     },
     {
-      label: "Customs Clearance & Compliance",
-      description:
-        "Customs and compliance doesn't have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits - ensuring your goods clear swiftly and cost-effectively.",
-      src: "/Customs_Clearance.svg",
-      alt: "Customs Clearance Services",
-      link: "/customs",
+      label: pageData.service_card_2?.card_label || "Customs Clearance & Compliance",
+      description:pageData.service_card_2?.card_description || "Customs and compliance doesn't have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits - ensuring your goods clear swiftly and cost-effectively.",
+      src: pageData.service_card_2?.card_image || "/Customs_Clearance.svg",
+      alt: pageData.service_card_2?.card_image_alt || "Customs Clearance Services",
+      link: pageData.service_card_2?.card_link || "/customs",
     },
     {
-      label: "3PL, Warehousing & Special Projects",
+      label: pageData.service_card_3?.card_label || "3PL, Warehousing & Special Projects",
       description:
-        "From end-to-end supply chain management to specialized project transport for heavy-lift or out-of-gauge cargo, our integrated solutions and experienced consultants streamline warehousing, fulfilment, and special moves - providing a unique personalized approach for each client. We offer 3PL and Warehousing, Fulfilment and eCommerce, and Inventory Management and Optimization, all scalable and tailored to your unique requirements.",
-      src: "/warehousing.svg",
-      alt: "Warehousing and 3PL Services",
-      link: "/Integrated-logistics",
+        pageData.service_card_3?.card_description || "From end-to-end supply chain management to specialized project transport for heavy-lift or out-of-gauge cargo, our integrated solutions and experienced consultants streamline warehousing, fulfilment, and special moves - providing a unique personalized approach for each client. We offer 3PL and Warehousing, Fulfilment and eCommerce, and Inventory Management and Optimization, all scalable and tailored to your unique requirements.",
+      src: pageData.service_card_3?.card_image || "/warehousing.svg",
+      alt: pageData.service_card_3?.card_image_alt || "Warehousing and 3PL Services",
+      link: pageData.service_card_3?.card_link || "/Integrated-logistics",
     },
     {
-      label: "Road & Rail Transport",
+      label: pageData.service_card_4?.card_label || "Road & Rail Transport",
       description:
-        "Navigating Australia's vast distances often requires more than one mode of transport, with local expertise at every stage. Our comprehensive road and rail services cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport across even the most challenging corridors.",
-      src: "/road-rail.svg",
-      alt: "Road and Rail Transport Services",
-      link: "/road-and-rail",
+        pageData.service_card_4?.card_description || "Navigating Australia's vast distances often requires more than one mode of transport, with local expertise at every stage. Our comprehensive road and rail services cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport across even the most challenging corridors.",
+      src: pageData.service_card_4?.card_image || "/road-rail.svg",
+      alt: pageData.service_card_4?.card_image_alt || "Road and Rail Transport Services",
+      link: pageData.service_card_4?.card_link || "/road-and-rail",
     },
   ];
 
@@ -141,11 +147,14 @@ const ServicesPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
             <h1 className="text-2xl sm:text-3xl lg:text-[50px] font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-tight mx-auto sm:mx-0">
-              Comprehensive
-              <br className="hidden sm:block" /> Solutions
+              {pageData.section_1_title || "Comprehensive Solutions"}
+              {/* Comprehensive */}
+              {/* <br className="hidden sm:block" /> Solutions */}
             </h1>
             <p className="text-[#676767] font-medium text-xs sm:text-sm lg:text-lg leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left text-justify">
-              Whether it&#39;s retail, manufacturing, mining, automotive, or any
+              {pageData.section_1_description ||
+                "Whether it's retail, manufacturing, mining, automotive, or any other industry, our specialists understand each one's unique challenges, constraints, and regulations. In particular, we understand the value of proactive, swift communication, and we strive to keep our customers in the loop at all times - you'll notice this difference immediately and we'll earn your trust within the first month. Our dedicated teams work with you, as an extension of your office, to deliver compliant, tailored solutions that scale with your business."}
+              {/* Whether it&#39;s retail, manufacturing, mining, automotive, or any
               other industry, our specialists understand each one&#39;s unique
               challenges, constraints, and regulations. In particular, we
               understand the value of proactive, swift communication, and we
@@ -153,7 +162,7 @@ const ServicesPage = () => {
               notice this difference immediately and we&#x27;ll earn your trust
               within the first month. Our dedicated teams work with you, as an
               extension of your office, to deliver compliant, tailored solutions
-              that scale with your business.
+              that scale with your business. */}
             </p>
           </div>
         </div>
@@ -233,20 +242,21 @@ const ServicesPage = () => {
       <section className="relative py-4 lg:py-2">
         <div className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
           <Image
-            src="/services-banner2.svg"
-            alt="Airport"
+            src={pageData.bottom_banner?.image || "/services-banner2.svg"}
+            alt={pageData.bottom_banner?.imageAlt || "Airport"}
             fill
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/[0.6]"></div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
-            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-              Trusted Partners,
+            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight max-w-2xl">
+              {pageData.bottom_banner?.banner_title || "Trusted Partners, Reliable Freight Solutions"}
+              {/* Trusted Partners,
               <br />
-              Reliable Freight Solutions
+              Reliable Freight Solutions */}
             </h2>
             <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-              Why Nexus
+              {pageData.bottom_banner?.button_text || "Why Nexus"}
             </button>
           </div>
 

@@ -28,7 +28,7 @@ export default function HeroTitleAndParagraph({
           {title}
         </h2>
 
-        <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] mb-4 leading-relaxed text-justify sm:text-left">
+        <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] mb-4 leading-relaxed text-justify sm:text-left whitespace-pre-line">
           {paragraph1}
         </p>
 

@@ -18,6 +18,7 @@ interface TeamMemberSanity {
   imageAlt?: string;
   link_text?: string; 
   link?: string; 
+  description?: string; 
 }
 
 interface LeadershipPageData {
@@ -77,7 +78,7 @@ const LeadershipPage = () => {
                     name: san_member.person_name,
                     title: san_member.person_designation || '',
                     flipBg: san_member.person_background_image || '',
-                    descriptionMain: san_member.imageAlt || '', 
+                    descriptionMain: san_member.description || '', 
                     linkText: san_member.link_text || '',
                     linkUrl: san_member.link || '/contactUs', 
                     image: san_member.person_photo || '',
@@ -100,7 +101,7 @@ const LeadershipPage = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array means this runs once on mount
+  }, []); 
 
   if (loading) {
     return (

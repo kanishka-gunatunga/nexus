@@ -11,6 +11,7 @@ export const integratedLogistics = async () => {
     card_1_title,
     card_1_subtitle,
     card_1_description,
+    card_1_description_2,
     card_1_button_text,
     card_1_button_link,
     "card_1_image": card_1_image.asset->url
@@ -19,6 +20,7 @@ export const integratedLogistics = async () => {
     card_2_title,
     card_2_subtitle,
     card_2_description,
+     card_2_description_2,
     card_2_button_text,
     card_2_button_link,
     "card_2_image": card_2_image.asset->url
@@ -27,6 +29,7 @@ export const integratedLogistics = async () => {
     card_3_title,
     card_3_subtitle,
     card_3_description,
+     card_3_description_2,
     card_3_button_text,
     card_3_button_link,
     "card_3_image": card_3_image.asset->url
@@ -35,6 +38,7 @@ export const integratedLogistics = async () => {
     card_4_title,
     card_4_subtitle,
     card_4_description,
+     card_4_description_2,
     card_4_button_text,
     card_4_button_link,
     "card_4_image": card_4_image.asset->url

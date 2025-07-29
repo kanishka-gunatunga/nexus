@@ -1,19 +1,19 @@
+// src/Components/Accordian.tsx
 "use client";
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 
-
-type AccordionItem = {
-  title: string;
-  content: string;
+type AccordianItemProp = {
+  accordian_title?: string;
+  accordian_description?: string;
 };
 
 type AccordianProps = {
   image: string;
   description?: string;
-  accordionItems: AccordionItem[];
+  accordionItems: AccordianItemProp[]; // Now expects an array of your Sanity AccordianItem structure
   classname?: string;
 };
 
@@ -34,7 +34,7 @@ const Accordian: React.FC<AccordianProps> = ({
       <div className="grid lg:grid-cols-2 gap-8 items-stretch">
         {/* Left Column - Image */}
         <div className="flex flex-col h-full">
-          <div className="relative flex-1 flex justify-center  h-full">
+          <div className="relative flex-1 flex justify-center h-full">
             <Image
               src={image}
               alt="Focus"
@@ -74,7 +74,7 @@ const Accordian: React.FC<AccordianProps> = ({
                         isActive ? "text-white" : ""
                       }`}
                     >
-                      {item.title}
+                      {item.accordian_title} {/* Use accordian_title */}
                     </span>
                     <ChevronDown
                       className={`transform transition-transform duration-500 ${
@@ -85,7 +85,7 @@ const Accordian: React.FC<AccordianProps> = ({
                   </button>
                   {isActive && (
                     <div className="px-4 py-3 font-poppins font-medium text-[16px] text-[#676767] sm:text-[16px]">
-                      {item.content}
+                      {item.accordian_description} {/* Use accordian_description */}
                     </div>
                   )}
                 </div>
@@ -94,8 +94,6 @@ const Accordian: React.FC<AccordianProps> = ({
           </div>
         </div>
       </div>
-
-      {/* Accordion Section */}
     </section>
   );
 };

@@ -2,13 +2,63 @@
 
 
 "use client"
-
 import LinkedinSection from "@/Components/LinkedinSection";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "@/Components/Nav";
 import HeroSection from "@/Components/HeroSection";
+import { termsAndConditions } from "@/sanity/lib/terms-and-conditions";
+import { PortableText } from "@portabletext/react";
+
+interface TermsAndConditionsData {
+  hero_title?: string;
+  terms_and_conditions?: Array<any>;
+}
 
 const TermsAndConditions = () => {
+
+  const [pageData, setPageData] = useState<TermsAndConditionsData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await termsAndConditions();
+
+        if (data && data.length > 0) {
+         
+          setPageData(data[0]);
+        } else {
+          setPageData(null);
+        }
+      } catch (err) {
+        console.error("Failed to fetch Terms and Conditions data:", err);
+        setError("Failed to load page content.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+  if (loading) {
+    return;
+  }
+
+  if (error) {
+    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  }
+
+  if (!pageData) {
+    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  }
+
+
+
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
       <div className="relative mx-auto block">
@@ -78,10 +128,19 @@ const TermsAndConditions = () => {
       <div className="relative ">
         <div className="">
           <div className="max-w-7xl mx-auto px-8 sm:px-8 lg:px-8">
-           <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold">
-          Terms and Conditions
+            <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold mb-6">
+              {pageData.hero_title || "Terms and Conditions"}
             </h1>
-            <p className="text-xs sm:text-sm lg:text-base text-gray-600 mb-4 leading-relaxed text-center">
+
+            {/* This is the other key fix! It correctly renders your Portable Text. */}
+            {pageData.terms_and_conditions && pageData.terms_and_conditions.length > 0 ? (
+              <div className="text-[#676767] text-base leading-relaxed space-y-4">
+                <PortableText value={pageData.terms_and_conditions} />
+              </div>
+            ) : (
+              <p className="text-[#676767] text-base leading-relaxed">No terms and conditions available.</p>
+            )}
+            {/* <p className="text-xs sm:text-sm lg:text-base text-gray-600 mb-4 leading-relaxed text-center">
               All business undertaken and Services supplied by NEXUS LOGIX PTY
               LTD (NEXUS) will be subject to the terms and conditions of this
               Agreement, which may be amended by NEXUS from time to time by
@@ -93,9 +152,9 @@ const TermsAndConditions = () => {
                 www.nexuslogix.com.au
               </a>
               :
-            </p>
+            </p> */}
 
-            <section className="mb-8">
+            {/* <section className="mb-8">
               <h2 className="text-xl sm:text-2xl font-medium text-gray-800 mb-4">
                 1. Definitions
               </h2>
@@ -458,9 +517,9 @@ const TermsAndConditions = () => {
                   risk and expense at any place or places.
                 </li>
               </ul>
-            </section>
+            </section> */}
 
-            <section className="mb-8">
+            {/* <section className="mb-8">
               <h2 className="text-xl sm:text-2xl font-medium text-gray-800 mb-4">
                 6. Declaration Forms and Inspection
               </h2>
@@ -533,9 +592,9 @@ const TermsAndConditions = () => {
                   rendering any Services by any date.
                 </li>
               </ul>
-            </section>
+            </section> */}
 
-            <section className="mb-8">
+            {/* <section className="mb-8">
               <h2 className="text-xl sm:text-2xl font-medium text-gray-800 mb-4">
                 8. Liability of NEXUS and Risk
               </h2>
@@ -771,9 +830,9 @@ const TermsAndConditions = () => {
                   and survives termination of this Agreement for any reason.
                 </li>
               </ul>
-            </section>
+            </section> */}
 
-            <section className="mb-8">
+            {/* <section className="mb-8">
               <h2 className="text-xl sm:text-2xl font-medium text-gray-800 mb-4">
                 10. Insurance
               </h2>
@@ -843,9 +902,9 @@ const TermsAndConditions = () => {
                   laws or regulations.
                 </li>
               </ul>
-            </section>
+            </section> */}
 
-            <section className="mb-8">
+            {/* <section className="mb-8">
               <h2 className="text-xl sm:text-2xl font-medium text-gray-800 mb-4">
                 12. Payment of NEXUS&apos;s Charges
               </h2>
@@ -979,9 +1038,9 @@ const TermsAndConditions = () => {
                   </ul>
                 </li>
               </ul>
-            </section>
+            </section> */}
 
-            <section className="mb-8">
+            {/* <section className="mb-8">
               <h2 className="text-xl sm:text-2xl font-medium text-gray-800 mb-4">
                 14. Dangerous Goods
               </h2>
@@ -1124,9 +1183,9 @@ const TermsAndConditions = () => {
                   the provisions of this clause 15.
                 </li>
               </ul>
-            </section>
+            </section> */}
 
-            <section className="mb-8">
+            {/* <section className="mb-8">
               <h2 className="text-xl sm:text-2xl font-medium text-gray-800 mb-4">
                 16. GST
               </h2>
@@ -1185,9 +1244,9 @@ const TermsAndConditions = () => {
                 Subject to clause 8.7, NEXUS and its Sub-contractors give and
                 are bound by no warranties whatsoever.
               </p>
-            </section>
+            </section> */}
 
-            <section className="mb-8">
+            {/* <section className="mb-8">
               <h2 className="text-xl sm:text-2xl font-medium text-gray-800 mb-4">
                 18. General
               </h2>
@@ -1239,9 +1298,9 @@ const TermsAndConditions = () => {
                 indemnity basis in respect of any dispute or legal proceedings
                 arising from the Goods, Carriage of the Goods, or the Services.
               </p>
-            </section>
+            </section> */}
 
-            <section className="mb-8">
+            {/* <section className="mb-8">
               <h2 className="text-xl sm:text-2xl font-medium text-gray-800 mb-4">
                 19. Special Conditions
               </h2>
@@ -1258,7 +1317,7 @@ const TermsAndConditions = () => {
                 Carriage will be on the terms and conditions contained herein,
                 unless otherwise agreed in writing by NEXUS.
               </p>
-            </section>
+            </section> */}
           </div>
         </div>
       </div>

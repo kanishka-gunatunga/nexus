@@ -54,7 +54,7 @@ export default function PhotoDescriptionSection({
           </p>
         )}
 
-        <p className="font-poppins text-[16px] text-[#676767] mb-2 leading-relaxed text-justify">
+        <p className="font-poppins text-[16px] text-[#676767] mb-2 leading-relaxed text-justify whitespace-pre-line">
           {paragraph1}
         </p>
 

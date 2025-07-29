@@ -15,6 +15,7 @@ export const leadership = async () => {
     imageAlt,
     link_text,
     link,
+    description
   },
   terms_member_2{
    person_name,
@@ -24,6 +25,7 @@ export const leadership = async () => {
     imageAlt,
     link_text,
     link,
+    description
   },
   terms_member_3{
    person_name,
@@ -33,6 +35,7 @@ export const leadership = async () => {
     imageAlt,
     link_text,
     link,
+    description
   },
   terms_member_4{
     person_name,
@@ -42,6 +45,7 @@ export const leadership = async () => {
     imageAlt,
     link_text,
     link,
+    description
   },
   terms_member_5{
     person_name,
@@ -51,6 +55,7 @@ export const leadership = async () => {
     imageAlt,
     link_text,
     link,
+    description
   },
   terms_member_6{
    person_name,
@@ -60,6 +65,7 @@ export const leadership = async () => {
     imageAlt,
     link_text,
     link,
+    description
   },
   terms_member_7{
     person_name,
@@ -69,6 +75,7 @@ export const leadership = async () => {
     imageAlt,
     link_text,
     link,
+    description
   },
   terms_member_8{
    person_name,
@@ -78,6 +85,7 @@ export const leadership = async () => {
     imageAlt,
     link_text,
     link,
+    description
   },
   terms_member_9{
     person_name,
@@ -87,6 +95,7 @@ export const leadership = async () => {
     imageAlt,
     link_text,
     link,
+    description
   }
 }
   

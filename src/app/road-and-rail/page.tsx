@@ -19,6 +19,7 @@ interface roadAndRailData {
     card_1_title?: string;
     card_1_subtitle?: string;
     card_1_description?: string;
+    card_1_description_2?: string;
     card_1_button_text?: string;
     card_1_button_link?: string;
     card_1_image?: string;
@@ -30,6 +31,7 @@ interface roadAndRailData {
     card_2_title?: string;
     card_2_subtitle?: string;
     card_2_description?: string;
+    card_2_description_2?: string;
     card_2_button_text?: string;
     card_2_button_link?: string;
     card_2_image?: string;
@@ -124,23 +126,23 @@ const RoadAndRail = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28">
         <HeroTitleAndParagraph
-          title="Road & Rail Transport"
-          paragraph1="Wheels and tracks alone aren't enough to successfully navigate Australia's scale - you'll need strategy, strong partnerships, on-ground expertise, and industry experience."
-          paragraph2="Our experts build road and rail services that provide reliable coverage across every corridor, from regional pickups to metro deliveries and everything in between. With over 25 years of experience, our teams match every job to the right provider and mode, so that your freight arrives safely, on-time."
+          title={pageData.heading_title || "Road & Rail Transport"}
+          paragraph1={pageData.heading_description || "Wheels and tracks alone aren't enough to successfully navigate Australia's scale - you'll need strategy, strong partnerships, on-ground expertise, and industry experience. Our experts build road and rail services that provide reliable coverage across every corridor, from regional pickups to metro deliveries and everything in between. With over 25 years of experience, our teams match every job to the right provider and mode, so that your freight arrives safely, on-timeee."}
+          paragraph2=""
         />
 
         {/* first card */}
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
-            title="Road Transport"
-            paragraph1="From origin, where our agents secure sharp ex works rates, to port handover, to cross-country highways via hand-picked carriers, and all the way through to final-mile delivery - we manage it all and coordinate the entire journey with precision."
-            paragraph3="Whether it's a 100 km hop or a 1,000 km haul, we assign the right operator for each shipment, ensuring reliable transit and competitive pricing every step of the way."
-            subtitle2="Think only global players can offer true end-to-end logistics?"
+            title={pageData.card_1_section?.card_1_title || "Road Transport"}
+            paragraph1={pageData.card_1_section?.card_1_description ||"From origin, where our agents secure sharp ex works rates, to port handover, to cross-country highways via hand-picked carriers, and all the way through to final-mile delivery - we manage it all and coordinate the entire journey with precision. Whether it's a 100 km hop or a 1,000 km haul, we assign the right operator for each shipment, ensuring reliable transit and competitive pricing every step of the way."}
+            paragraph3=""
+            subtitle2={pageData.card_1_section?.card_1_subtitle || "Think only global players can offer true end-to-end logistics?"}
             subtitle1=""
-            paragraph2={`Think again. Our global agent network and route-specialist carriers deliver unified origin, domestic, and final-mile service - without the "global" price tag.`}
-            buttonText="Book Road Transport"
-            buttonLink="/air-freight-quote"
-            imageSrc="/road-and-rail-img1.svg"
+            paragraph2={pageData.card_1_section?.card_1_description_2 || `Think again. Our global agent network and route-specialist carriers deliver unified origin, domestic, and final-mile service - without the "global" price tag.`}
+            buttonText={pageData.card_1_section?.card_1_button_text || "Book Road Transport"}
+            buttonLink={pageData.card_1_section?.card_1_button_link || "/air-freight-quote"}
+            imageSrc={pageData.card_1_section?.card_1_image || "/road-and-rail-img1.svg"}
             reverse={false}
           />
         </div>
@@ -148,15 +150,15 @@ const RoadAndRail = () => {
         {/* second card */}
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
-            title="Rail (and Road) Freight"
-            paragraph1="For high-volume domestic moves, rail freight offers unbeatable efficiency, especially when paired with our last-mile delivery options. Whether you're transporting containerised freight, pallets, or bulk commodities, we leverage Australia's major rail corridors to keep your costs low and your operations moving."
-            subtitle2="Rail doesn't have to be slow or rigid..."
+            title={pageData.card_2_section?.card_2_title || "Rail (and Road) Freight"}
+            paragraph1={pageData.card_2_section?.card_2_description || "For high-volume domestic moves, rail freight offers unbeatable efficiency, especially when paired with our last-mile delivery options. Whether you're transporting containerised freight, pallets, or bulk commodities, we leverage Australia's major rail corridors to keep your costs low and your operations moving."}
+            subtitle2={pageData.card_2_section?.card_2_subtitle || "Rail doesn't have to be slow or rigid..."}
             subtitle1=""
-            paragraph2="You just need to plan it right, and that's where we shine. Our intermodal planning blends rail's long-haul efficiency with the flexibility of on-road delivery - giving you predictable transit times, scalable capacity, and a serious cost advantage."
+            paragraph2={pageData.card_2_section?.card_2_description_2 || "You just need to plan it right, and that's where we shine. Our intermodal planning blends rail's long-haul efficiency with the flexibility of on-road delivery - giving you predictable transit times, scalable capacity, and a serious cost advantage."}
             paragraph3=""
-            buttonText="Explore Rail Options"
-            buttonLink="/sea-freight-quote"
-            imageSrc="/road-and-rail-img2.png"
+            buttonText={pageData.card_2_section?.card_2_button_text || "Explore Rail Options"}
+            buttonLink={pageData.card_2_section?.card_2_button_link || "/sea-freight-quote"}
+            imageSrc={pageData.card_2_section?.card_2_image || "/road-and-rail-img2.png"}
             reverse={true}
           />
         </div>
@@ -171,8 +173,8 @@ const RoadAndRail = () => {
       >
         <div className="absolute inset-0">
           <Image
-            src="/roadAndRail_banner.png"
-            alt="Airport"
+            src={pageData.bottom_banner?.image || "/roadAndRail_banner.png"}
+            alt={pageData.bottom_banner?.imageAlt || "Airport"}
             width={1000}
             height={400}
             className="w-full h-full object-cover"
@@ -182,13 +184,14 @@ const RoadAndRail = () => {
         <Quote />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
-          <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-            Global Reach
+          <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight max-w-xl">
+            {pageData.bottom_banner?.banner_title || "Global Reach Australian Expertise"}
+            {/* Global Reach
             <br />
-            Australian Expertise
+            Australian Expertise */}
           </h2>
           <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-            Why Nexus
+            {pageData.bottom_banner?.button_text || "Why Nexus"}
           </button>
         </div>
 
