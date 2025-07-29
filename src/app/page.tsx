@@ -37,29 +37,6 @@ export default function Home() {
     const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
 
-    // const [data, setData] = useState<HomePageData | null>(null);
-    // interface HomePageData {
-    //     heroTitle: string;
-    //     heroDescription: string;
-    //     buttonText: string;
-    // }
-
-    // const dataTest = homePage();
-
-    // useEffect(() => {
-    //     homePage().then(setData);
-    // }, []);
-
-    // console.log(dataTest);
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrentImageIndex((prevIndex) =>
-    //             (prevIndex + 1) % images.length
-    //         );
-    //     }, 5000);
-    //
-    //     return () => clearInterval(interval);
-    // }, [images.length]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -84,16 +61,6 @@ export default function Home() {
 
         return () => clearInterval(interval);
     }, [mobileImages.length]);
-
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrentMobileImageIndex(
-    //             (prevIndex) => (prevIndex + 1) % mobileImages.length
-    //         );
-    //     }, 5000);
-    //
-    //     return () => clearInterval(interval);
-    // }, [mobileImages.length]);
 
     const sections = [
         {
@@ -149,32 +116,6 @@ export default function Home() {
         },
     ];
 
-    // const services = [
-    //     {
-    //         src: "/forwarding_service.png",
-    //         alt: "Freight forwarding service",
-    //         label: "Air & Sea Freight",
-    //         description: `Be it express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.`,
-    //     },
-    //     {
-    //         src: "/Customs_Clearance.png",
-    //         alt: "Customs Clearance & Compliance",
-    //         label: "Customs Clearance & Compliance",
-    //         description: `Navigating Australia’s vast distances often requires more than one mode of transport, with local expertise at every stage. Our comprehensive road and rail services cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport.`,
-    //     },
-    //     {
-    //         src: "/warehousing.png",
-    //         alt: "3PL, Warehousing & Special Projects",
-    //         label: "3PL, Warehousing & Special Projects",
-    //         description: `From end-to-end supply chain management to specialised project transport for heavy-lift or out-of-gauge cargo, our integrated solutions and experienced consultants streamline warehousing, fulfilment, and special moves – providing a unique personalised approach for each client.`,
-    //     },
-    //     {
-    //         src: "/transport.png",
-    //         alt: "Road & Rail Transport",
-    //         label: "Road & Rail Transport",
-    //         description: `Customs and compliance doesn’t have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits – ensuring your goods clear swiftly and cost-effectively.`,
-    //     },
-    // ];
 
     const services = [
         {
@@ -320,23 +261,6 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/*<div*/}
-                {/*  id="hero-background-image"*/}
-                {/*  className="relative w-full h-full -mt-30 lg:hidden"*/}
-                {/*>*/}
-                {/*  <Image*/}
-                {/*    key={mobileImages[currentMobileImageIndex]}*/}
-                {/*    src={mobileImages[currentMobileImageIndex]}*/}
-                {/*    // src="/insights/Group72.png"*/}
-                {/*    alt="Airplane"*/}
-                {/*    // width={1000}*/}
-                {/*    // height={400}*/}
-                {/*      fill*/}
-                {/*    className="w-full h-full object-contain"*/}
-                {/*    // sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 100vw"*/}
-                {/*  />*/}
-                {/*</div>*/}
-
                 <div
                     id="mobile-hero-content"
                     className="relative flex flex-col border-[#D9D9D9] container mx-auto border-b-2 pb-4 mt-4 justify-center items-center text-center
@@ -353,12 +277,14 @@ export default function Home() {
                             As your agile logistics partner, we operate as an extension of
                             your business, so you enjoy peace of mind, and responsive service.
                         </p>
-                        <button
-                            className="bg-[#162F65] text-white
+                        <Link href="/services" passHref>
+                            <button
+                                className="bg-[#162F65] text-white
                                    px-6 py-2 mobile:px-8 mobile:py-3 text-sm font-medium  rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
-                        >
-                            Explore More
-                        </button>
+                            >
+                                Explore More
+                            </button>
+                        </Link>
                     </div>
                 </div>
 
@@ -377,11 +303,13 @@ export default function Home() {
                             As your agile logistics partner, we operate as an extension of your
                             business, so you enjoy peace of mind, and responsive service.
                         </p>
-                        <button
-                            className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
-                        >
-                            Explore More
-                        </button>
+                        <Link href="/services" passHref>
+                            <button
+                                className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
+                            >
+                                Explore More
+                            </button>
+                        </Link>
                     </div>
                 </div>
 

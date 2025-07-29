@@ -9,6 +9,8 @@ import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
+// import FreightQuoteWidget from "@/Components/FreightQuoteWidget";
+import Link from "next/link";
 // import { airAndFreightService } from "@/sanity/lib/air-and-freight-service";
 // import { useEffect, useState } from "react";
 
@@ -112,7 +114,7 @@ const AirAndSeaFreight = () => {
                         paragraph2="Our experts optimise routes, consolidate compatible loads, and negotiate directly with airlines, so we can secure air freight at rates that keep your margins intact."
                         paragraph3=""
                         buttonText="Book Air Freight"
-                        buttonLink="/air-freight-quote"
+                        buttonLink="/FreightQuoteWidget"
                         imageSrc="/services/airplaneservice (2).png"
                         reverse={false}
                     />
@@ -176,10 +178,12 @@ const AirAndSeaFreight = () => {
                         <br />
                         Global Strength
                     </h2>
+                    <Link href="/whyNexus">
                     <button
                         className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
                         Why Nexus
                     </button>
+                    </Link>
                 </div>
 
                 {/*<div*/}
