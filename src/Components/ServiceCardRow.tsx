@@ -11,7 +11,7 @@ export default function ServiceCardRow() {
 
   return (
     <div className="bg-[#F6F6F6] py-6 px-4">
-      <h3 className="font-poppins font-medium text-[22px] text-[#162F65] mb-8">
+      <h3 className="font-poppins font-medium text-lg md:text-[22px] text-[#162F65] mb-8">
         These services may also be of interest to you.
       </h3>
 
@@ -36,7 +36,7 @@ export default function ServiceCardRow() {
                   : "group-hover:invert"
               }`}
             />
-            <p className="font-poppins text-[17px] font-semibold leading-tight">
+            <p className="font-poppins text-sm md:text-[17px] font-semibold leading-tight">
               AIR & SEA
               <br />
               FREIGHT
@@ -62,7 +62,7 @@ export default function ServiceCardRow() {
                 isActive("/customs") ? "invert" : "group-hover:invert"
               }`}
             />
-            <p className="font-poppins text-[17px] font-semibold leading-tight">
+            <p className="font-poppins text-sm md:text-[17px] font-semibold leading-tight">
               CUSTOMS CLEARANCE
               <br />& COMPLIANCE
             </p>
@@ -89,7 +89,7 @@ export default function ServiceCardRow() {
                   : "group-hover:invert"
               }`}
             />
-            <p className="font-poppins text-[17px] font-semibold leading-tight">
+            <p className="font-poppins text-sm md:text-[17px] font-semibold leading-tight">
               3PL, Warehousing & <br /> Special Projects
             </p>
           </div>
@@ -113,7 +113,7 @@ export default function ServiceCardRow() {
                 isActive("/road-and-rail") ? "invert" : "group-hover:invert"
               }`}
             />
-            <p className="font-poppins text-[17px] font-semibold leading-tight">
+            <p className="font-poppins text-sm md:text-[17px] font-semibold leading-tight">
               ROAD & RAIL
               <br />
               TRANSPORT
