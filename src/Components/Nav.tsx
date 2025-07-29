@@ -583,7 +583,7 @@ const Nav = () => {
               )}
             </div>
 
-            <Link
+            {/* <Link
               href="/insights"
               className={`${
                 pathname === "/insights"
@@ -592,7 +592,7 @@ const Nav = () => {
               } font-semibold`}
             >
               Insights
-            </Link>
+            </Link> */}
 
             <Link href="/track-and-trace">
               <button className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] hover:text-white px-6 py-2 rounded-lg text-sm transition-colors">
@@ -687,13 +687,13 @@ const Nav = () => {
               )}
             </div>
 
-            <Link
+            {/* <Link
               href="/insights"
               className="block px-3 py-2 text-base text-[#282828] hover:text-[#082049] w-full text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Insights
-            </Link>
+            </Link> */}
             <Link href="/contactUs" className="w-full text-center mt-4">
               <button
                 className="bg-[#e6b333] text-[#282828] hover:bg-[#162f65] px-6 py-2 text-sm rounded-lg w-full transition-colors"

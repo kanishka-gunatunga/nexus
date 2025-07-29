@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import React, { useState } from "react";
+import FreightQuoteWidget from "./FreightQuoteWidget";
 
 type Props = {
   title: string;
@@ -15,6 +17,7 @@ type Props = {
   imageSrc: string;
   imageAlt?: string;
   reverse?: boolean;
+  useWidget?: boolean;
 };
 
 export default function PhotoDescriptionSection({
@@ -29,12 +32,18 @@ export default function PhotoDescriptionSection({
   imageSrc,
   imageAlt = "Image",
   reverse = false,
+  useWidget = false,
 }: Props) {
+  const [isWidgetOpen, setIsWidgetOpen] = useState(false);
+
+  const handleOpenWidget = () => setIsWidgetOpen(true);
+  const handleCloseWidget = () => setIsWidgetOpen(false);
+
   return (
     <>
       {/* 📱 Mobile layout */}
       <div className="bg-transparent px-4 py-6 md:py-10 flex flex-col gap-4 lg:hidden">
-        <h2 className="font-poppins font-semibold text-[22px] lg:text-[28px] text-[#162F65] mb-2">
+        <h2 className="font-poppins font-semibold text-[28px] text-[#162F65] mb-2">
           {title}
         </h2>
 
@@ -49,36 +58,47 @@ export default function PhotoDescriptionSection({
         </div>
 
         {subtitle1 && (
-          <p className="font-poppins font-medium text-base sm:text-[22px] text-[#162F65] mb-1">
+          <p className="font-poppins font-medium text-[22px] text-[#162F65] mb-1">
             {subtitle1}
           </p>
         )}
 
-        <p className="font-poppins text-sm sm:text-[16px] text-[#676767] mb-2 leading-relaxed text-justify">
+        <p className="font-poppins text-[16px] text-[#676767] mb-2 leading-relaxed text-justify">
           {paragraph1}
         </p>
 
         {paragraph3 && (
-          <p className="font-poppins text-sm sm:text-[16px] text-[#676767] mb-4 leading-relaxed text-justify">
+          <p className="font-poppins text-[16px] text-[#676767] mb-4 leading-relaxed text-justify">
             {paragraph3}
           </p>
         )}
 
         {subtitle2 && (
-          <p className="font-poppins font-medium text-base sm:text-[22px] text-[#162F65] mb-1">
+          <p className="font-poppins font-medium text-[22px] text-[#162F65] mb-1">
             {subtitle2}
           </p>
         )}
 
-        <p className="font-poppins text-sm sm:text-[16px] text-[#676767] mb-2 leading-relaxed text-justify">
+        <p className="font-poppins text-[16px] text-[#676767] mb-2 leading-relaxed text-justify">
           {paragraph2}
         </p>
 
-        <Link href={buttonLink}>
-          <button className="bg-[#162F65] text-white rounded-[10px] px-6 py-2 font-poppins text-xs sm:text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
-            {buttonText}
-          </button>
-        </Link>
+        {useWidget ? (
+          <div className="inline-block">
+            <button
+              onClick={handleOpenWidget}
+              className="bg-[#162F65] text-white rounded-[10px] px-6 py-2 font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+            >
+              {buttonText}
+            </button>
+          </div>
+        ) : (
+          <Link href={buttonLink}>
+            <button className="bg-[#162F65] text-white rounded-[10px] px-6 py-2 font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
+              {buttonText}
+            </button>
+          </Link>
+        )}
       </div>
 
       {/* 💻 Desktop & Tablet layout */}
@@ -113,11 +133,13 @@ export default function PhotoDescriptionSection({
           <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
             {paragraph1}
           </p>
+
           {paragraph3 && (
-            <p className="font-poppins font-medium text-sm sm:text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
+            <p className="font-poppins font-medium text-[18px] text-[#676767] mb-4 leading-relaxed text-justify md:text-left">
               {paragraph3}
             </p>
           )}
+
           {subtitle2 && (
             <p className="font-poppins font-medium text-[25px] text-[#162F65] mb-2">
               {subtitle2}
@@ -128,13 +150,28 @@ export default function PhotoDescriptionSection({
             {paragraph2}
           </p>
 
-          <Link href={buttonLink}>
-            <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
-              {buttonText}
-            </button>
-          </Link>
+          {useWidget ? (
+            <div className="inline-block">
+              <button
+                onClick={handleOpenWidget}
+                className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+              >
+                {buttonText}
+              </button>
+            </div>
+          ) : (
+            <Link href={buttonLink}>
+              <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
+                {buttonText}
+              </button>
+            </Link>
+          )}
         </div>
       </div>
+
+      {useWidget && (
+        <FreightQuoteWidget isOpen={isWidgetOpen} onClose={handleCloseWidget} />
+      )}
     </>
   );
 }

@@ -138,7 +138,7 @@ const TrackAndTrace = () => {
               <h2 className="font-poppins font-bold text-[35px] lg:text-[55px] text-[#162F65] mb-8 lg:mb-2 leading-tight">
                 Route Visualiser
               </h2>
-              <p className="font-poppins font-medium text-sm sm:text-base md:text-[18px] lg:text-[22px] text-[#676767] leading-relaxed">
+              <p className="font-poppins font-medium text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
                 View your shipment&apos;s journey on a global map powered by
                 satellite AIS and flight transponders for complete visibility
                 from Purchase order to delivery. Color-coded alerts highlight

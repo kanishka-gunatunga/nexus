@@ -66,6 +66,7 @@ const roadAndRail = () => {
             paragraph2={`Think again. Our global agent network and route-specialist carriers deliver unified origin, domestic, and final-mile service - without the "global" price tag.`}
             buttonText="Book Road Transport"
             buttonLink="/air-freight-quote"
+            useWidget={true}
             imageSrc="/road-and-rail-img1.svg"
             reverse={false}
           />
@@ -82,6 +83,7 @@ const roadAndRail = () => {
             paragraph3=""
             buttonText="Explore Rail Options"
             buttonLink="/sea-freight-quote"
+            useWidget={true}
             imageSrc="/road-and-rail-img2.png"
             reverse={true}
           />
