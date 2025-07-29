@@ -37,29 +37,27 @@ export default function Home() {
   const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
-    // const [data, setData] = useState<HomePageData | null>(null);
-    // interface HomePageData {
-    //     heroTitle: string;
-    //     heroDescription: string;
-    //     buttonText: string;
-    // }
+  // const [data, setData] = useState<HomePageData | null>(null);
+  // interface HomePageData {
+  //     heroTitle: string;
+  //     heroDescription: string;
+  //     buttonText: string;
+  // }
 
-    // const dataTest = homePage();
+  // const dataTest = homePage();
 
-    // useEffect(() => {
-    //     homePage().then(setData);
-    // }, []);
+  // useEffect(() => {
+  //     homePage().then(setData);
+  // }, []);
 
-    // console.log(dataTest);
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) =>
-                (prevIndex + 1) % images.length
-            );
-        }, 5000);
+  // console.log(dataTest);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
 
-        return () => clearInterval(interval);
-    }, [images.length]);
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -92,6 +90,7 @@ export default function Home() {
       imageAlt: "Nexus Logix Team",
       reverse: false,
       buttonTitle: "Explore More",
+      // buttonLink: "/whyNexus",
     },
     {
       title: "Your Supply Chain is Now Visible, Measurable, and Transparent",
@@ -101,6 +100,7 @@ export default function Home() {
       imageAlt: "Cargo Tracking",
       reverse: true,
       buttonTitle: "Learn More",
+      // buttonLink: "/track-and-trace",
     },
   ];
 
@@ -170,7 +170,7 @@ export default function Home() {
       alt: "Freight forwarding service",
       label: "Air & Sea Freight",
       description: `Express shipments or cost-effective bulk transport, we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving, by air and sea, while avoiding delays and unexpected costs.`,
-      link: "/air-and-sea-freight"
+      link: "/air-and-sea-freight",
     },
     {
       src: "/home/Customs_Clearance-new.svg",
@@ -376,36 +376,40 @@ export default function Home() {
               As your agile logistics partner, we operate as an extension of
               your business, so you enjoy peace of mind, and responsive service.
             </p>
-            <button
-              className="bg-[#162F65] text-white
-                                   px-6 py-2 mobile:px-8 mobile:py-3 text-sm font-medium  rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
-            >
-              Explore More
-            </button>
+            <Link href="/services" passHref>
+              <button
+                className="bg-[#162F65] text-white
+               px-6 py-2 mobile:px-8 mobile:py-3 text-sm font-medium  
+               rounded-[10px] hover:bg-blue-950 hover:scale-105 
+               transition-all duration-300"
+              >
+                Explore More
+              </button>
+            </Link>
           </div>
         </div>
 
-                <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
-                    <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
-                        <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
-                            Supply Chains
-                            <br />
-                            Never Sleep.
-                            <br />
-                            Neither Do We.
-                            {/* {data?.heroTitle} */}
-                        </h1>
-                        <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
-                            As your agile logistics partner, we operate as an extension of your
-                            business, so you enjoy peace of mind, and responsive service.
-                        </p>
-                        <button
-                            className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
-                        >
-                            Explore More
-                        </button>
-                    </div>
-                </div>
+        <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
+          <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
+            <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
+              Supply Chains
+              <br />
+              Never Sleep.
+              <br />
+              Neither Do We.
+              {/* {data?.heroTitle} */}
+            </h1>
+            <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
+              As your agile logistics partner, we operate as an extension of
+              your business, so you enjoy peace of mind, and responsive service.
+            </p>
+            <Link href="/services" passHref>
+              <button className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button">
+                Explore More
+              </button>
+            </Link>
+          </div>
+        </div>
 
         <Quote />
 
@@ -780,36 +784,35 @@ export default function Home() {
               </div>
 
               <div className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-  {services.map((item, index) => (
-    <Link key={index} href={item.link}>
-      <div
-        className="relative group cursor-pointer"
-        onMouseEnter={() => setActiveService(item)}
-        onClick={() => setActiveService(item)}
-      >
-        <div className="relative w-full h-40 sm:h-48 lg:h-56 rounded-lg overflow-hidden">
-          <Image
-            src={item.src}
-            alt={item.alt}
-            fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-          <div
-            className={`absolute inset-0 transition-all duration-300 ${
-              activeService.label === item.label
-                ? "bg-[#002B64]/70"
-                : "bg-gradient-to-t from-[#002B64]/0 to-[#00255700]/0"
-            }`}
-          />
-          <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-normal text-xs sm:text-sm lg:text-lg">
-            {item.label}
-          </p>
-        </div>
-      </div>
-    </Link>
-  ))}
-</div>
-
+                {services.map((item, index) => (
+                  <Link key={index} href={item.link}>
+                    <div
+                      className="relative group cursor-pointer"
+                      onMouseEnter={() => setActiveService(item)}
+                      onClick={() => setActiveService(item)}
+                    >
+                      <div className="relative w-full h-40 sm:h-48 lg:h-56 rounded-lg overflow-hidden">
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div
+                          className={`absolute inset-0 transition-all duration-300 ${
+                            activeService.label === item.label
+                              ? "bg-[#002B64]/70"
+                              : "bg-gradient-to-t from-[#002B64]/0 to-[#00255700]/0"
+                          }`}
+                        />
+                        <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-normal text-xs sm:text-sm lg:text-lg">
+                          {item.label}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 

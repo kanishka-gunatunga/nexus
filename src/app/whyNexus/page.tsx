@@ -72,7 +72,14 @@ const airAndSeaFreight = () => {
 
             {/* Description */}
             <p className="text-sm text-[#676767] font-poppins text-justify">
-              Nexus Logix is an Australian freight forwarder and logistics provider, headquartered in Brisbane. Founded by a group of seasoned industry professionals who recognised an opportunity to blend deep regional knowledge with modern systems and global networks, Nexus Logix strives to support customers as they seek to achieve their goals. From day one, our mission has been clear: to be the steadfast partner that understands your business needs and moves your cargo with precision and care.
+              Nexus Logix is an Australian freight forwarder and logistics
+              provider, headquartered in Brisbane. Founded by a group of
+              seasoned industry professionals who recognised an opportunity to
+              blend deep regional knowledge with modern systems and global
+              networks, Nexus Logix strives to support customers as they seek to
+              achieve their goals. From day one, our mission has been clear: to
+              be the steadfast partner that understands your business needs and
+              moves your cargo with precision and care.
             </p>
           </div>
 
@@ -321,18 +328,18 @@ const airAndSeaFreight = () => {
                 </p>
                 <div className="flex items-center gap-4">
                   <Image
-                    src="/avatar2.png"
-                    alt="Amit Fernando"
+                    src="/avatar-woman.png"
+                    alt="Rachel Silva"
                     width={50}
                     height={50}
                     className="rounded-full"
                   />
                   <div>
                     <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg">
-                      Amit Fernando
+                      Rachel Silva
                     </p>
                     <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg">
-                      Founder &amp; CEO, NovaTech Solutions
+                      Supply Chain Manager
                     </p>
                   </div>
                 </div>
@@ -373,13 +380,13 @@ const airAndSeaFreight = () => {
             <SwiperSlide>
               <div className="bg-white p-8 rounded-lg shadow">
                 <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg leading-relaxed mb-4">
-                  &quot;Working with Nexus Logix has really eased the stress off
-                  of our supply chain. Their team handles everything and keeps
-                  us in the loop, which makes a huge difference&quot;
+                  I appreciate how reliable Nexus Logix is. With them on board,
+                  our timelines are met without surprises, and that personal
+                  touch means a lot.
                 </p>
                 <div className="flex items-center gap-4">
                   <Image
-                    src="/avatar2.png"
+                    src="/avatar-woman.png"
                     alt="Amit Fernando"
                     width={50}
                     height={50}
@@ -387,10 +394,10 @@ const airAndSeaFreight = () => {
                   />
                   <div>
                     <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg">
-                      Amit Fernando
+                      Priya Nair
                     </p>
                     <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg">
-                      Founder &amp; CEO, NovaTech Solutions
+                      Operations Manager
                     </p>
                   </div>
                 </div>

@@ -9,6 +9,7 @@ import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
+import Link from "next/link";
 
 const integratedLogistics = () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,7 +64,7 @@ const integratedLogistics = () => {
             paragraph2="Not at all. Our local presence and global reach mean you can access enterprise-grade service without the bloated overhead."
             paragraph3=""
             buttonText="Explore Contract Logistics"
-            buttonLink="/air-freight-quote"
+            buttonLink="/contactUs"
             imageSrc="/services/3pl.png"
             reverse={false}
           />
@@ -79,7 +80,7 @@ const integratedLogistics = () => {
             paragraph2="If you choose the right logistics provider. Our partner centers use advanced tech and SLA-driven systems to give you real-time visibility and seamless performance for an in-house-like experience."
             paragraph3=""
             buttonText="Get a tailored Assessment and Quote"
-            buttonLink="/sea-freight-quote"
+            buttonLink="/contactUs"
             imageSrc="/services/fullfillment.png"
             reverse={true}
           />
@@ -95,7 +96,7 @@ const integratedLogistics = () => {
             paragraph2="You need a reliable, agile logistics partner. Our lean, data-led strategies ensure you only carry what you need - nothing more, nothing less - all while being responsive to shifting demand."
             paragraph3=""
             buttonText="Optimize Your Inventory with Us"
-            buttonLink="/air-freight-quote"
+            buttonLink="/contactUs"
             imageSrc="/services/inventory-management.png"
             reverse={false}
           />
@@ -111,7 +112,7 @@ const integratedLogistics = () => {
             paragraph2="Our in-house consultants plan every move from start to finish, taking complexity off your plate, and serving peace of mind instead."
             paragraph3=""
             buttonText="Book an Unusual Move"
-            buttonLink="/air-freight-quote"
+            buttonLink="/contactUs"
             imageSrc="/services/special-project.png"
             reverse={true}
           />
@@ -142,9 +143,11 @@ const integratedLogistics = () => {
             <br />
             Personalized Service
           </h2>
+          <Link href="/whyNexus">
           <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
             Why Nexus
           </button>
+          </Link>
         </div>
       </div>
       <Quote />
