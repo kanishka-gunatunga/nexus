@@ -74,7 +74,7 @@ const CustomsPage = () => {
 
         <HeroSection
           title="Customs Clearance & Compliance"
-          desktopImage="/leadership.svg"
+          desktopImage="/customs_hero_banner.svg"
           mobileImage="/hero_arrow.svg"
           altText="Customs Clearance hero section"
         />
