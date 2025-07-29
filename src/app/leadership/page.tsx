@@ -131,7 +131,7 @@ const LeadershipPage = () => {
       </div>
       <div
         id="member-section"
-        className="relative container max-w-7xl mx-auto -top-22 lg:-top-50"
+        className="relative container max-w-7xl mx-auto md:-top-50 lg:-top-40 xl:-top-30 2xl:-top-60"
       >
         <div className="">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -253,7 +253,7 @@ const LeadershipPage = () => {
         </div>
       </div>
 
-      <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden">
+      <div className="relative h-64 sm:h-80 lg:h-96 mt-4 md:-mt-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/leader-banner.png"

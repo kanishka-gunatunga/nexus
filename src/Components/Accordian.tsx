@@ -48,7 +48,7 @@ const Accordian: React.FC<AccordianProps> = ({
         {/* Right Column - Content */}
         <div className="flex flex-col h-full">
           {/* Description */}
-          <div className="font-poppins font-medium text-[18px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed mb-4">
+          <div className="font-poppins font-medium text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed mb-4">
             {description}
           </div>
 
@@ -70,7 +70,7 @@ const Accordian: React.FC<AccordianProps> = ({
                     onClick={() => handleToggle(index)}
                   >
                     <span
-                      className={`text-left font-poppins font-semibold text-[18px] text-[#162F65] ${
+                      className={`text-left font-poppins font-semibold text-[15px] sm:text-[18px] text-[#162F65] ${
                         isActive ? "text-white" : ""
                       }`}
                     >
@@ -84,7 +84,7 @@ const Accordian: React.FC<AccordianProps> = ({
                     />
                   </button>
                   {isActive && (
-                    <div className="px-4 py-3 font-poppins font-medium text-[16px] text-[#676767] sm:text-[16px]">
+                    <div className="px-4 py-3 font-poppins font-medium text-[14px] text-[#676767] sm:text-[16px]">
                       {item.content}
                     </div>
                   )}

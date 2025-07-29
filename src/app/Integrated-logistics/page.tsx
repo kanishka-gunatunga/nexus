@@ -47,7 +47,7 @@ const integratedLogistics = () => {
                 </div> */}
       </div>
 
-      <div className="relative top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative md:-mt-25 lg:-mt-20 xl:-mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <HeroTitleAndParagraph
           title="Integrated Logistics & Special Projects"
           paragraph1="Seamlessly manage your entire supply chain with integrated logistics designed for Australia's unique challenges. Our scalable solutions bring together warehousing, fulfilment, and specialised transport - giving you full visibility, tighter control, and cost efficiency in one streamlined service."

@@ -57,7 +57,7 @@ const airAndSeaFreight = () => {
           {/* Mobile Layout: title → image → description */}
           <div className="block md:hidden flex flex-col items-center gap-4">
             {/* Title */}
-            <h2 className="font-bold text-[28px] sm:text-[32px] text-[#162F65] font-poppins text-center">
+            <h2 className="font-bold text-[24px] sm:text-[32px] text-[#162F65] font-poppins text-center">
               History &amp; Inspiration
             </h2>
 
@@ -84,7 +84,7 @@ const airAndSeaFreight = () => {
           </div>
 
           {/* Tablet & Desktop Layout: keep your current structure */}
-          <div className="hidden md:flex flex-col lg:flex-row gap-6 items-center lg:items-start">
+          <div className="hidden md:flex flex-col lg:flex-row gap-6 items-center md:-mt-30 lg:mt-20 2xl:mt-0 lg:items-start">
             {/* Image Section */}
             <div className="w-full lg:w-[30%] flex justify-center">
               <Image
@@ -121,31 +121,31 @@ const airAndSeaFreight = () => {
         {/* cards */}
 
         <div>
-          <h3 className="text-[32px] sm:text-[30px] md:text-[32px] lg:text-[50px] font-semibold text-[#162F65] mb-2 text-center">
+          <h3 className="text-[24px] sm:text-[30px] md:text-[32px] lg:text-[50px] font-semibold text-[#162F65] mb-2 text-center">
             What We Deliver
           </h3>
           <div className="flex flex-col sm:flex-row justify-between gap-4 my-8 px-0 sm:px-6 lg:px-8">
             <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
+              <h3 className="text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Delightful Service
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
+              <p className="lg:text-paragraph text-[14px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Transparent, genuine care that puts you first
               </p>
             </div>
             <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
+              <h3 className="text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Competitive Pricing
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
+              <p className="lg:text-paragraph text-[14px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Through strong global networks
               </p>
             </div>
             <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
+              <h3 className="text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Local Expertise
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
+              <p className="lg:text-paragraph text-[14px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Team with 25 years of Local Experience
               </p>
             </div>
@@ -154,25 +154,25 @@ const airAndSeaFreight = () => {
           {/* second row */}
           <div className="flex flex-col sm:flex-row justify-between gap-4 my-8 px-0 sm:px-6 lg:px-8">
             <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
+              <h3 className="text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Real Time Visibility
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
+              <p className="lg:text-paragraph text-[14px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Track every shipment with CargoWise Neo.
               </p>
             </div>
 
             <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
+              <h3 className="[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Sustainability
               </h3>
 
-              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
+              <span className="lg:text-paragraph text-[14px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Track
               </span>
               <span className="mx-1"></span>
 
-              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#5DF706] group-hover:text-[#5DF706] font-poppins font-medium">
+              <span className="lg:text-paragraph text-[14px] md:text-[18px] text-[#5DF706] group-hover:text-[#5DF706] font-poppins font-medium">
                 CO<sub>2</sub>
               </span>
 
@@ -181,16 +181,16 @@ const airAndSeaFreight = () => {
                   dangerouslySetInnerHTML={{ __html: section.description }}
                 /> */}
               <span className="mx-1"></span>
-              <span className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
+              <span className="lg:text-paragraph text-[14px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 emission of every shipment with CargoWise Neo.
               </span>
             </div>
 
             <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
+              <h3 className="text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Supply Chain Audits
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
+              <p className="lg:text-paragraph text-[14px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Identify gaps, cut costs, improve performance.
               </p>
             </div>
@@ -199,10 +199,10 @@ const airAndSeaFreight = () => {
           {/* third row */}
           <div className="my-8 gap-4 flex flex-wrap justify-center px-0 sm:px-6 lg:px-8">
             <div className="group bg-white hover:bg-[#0F2043] transition-all duration-300 rounded-lg shadow p-5 sm:p-6 md:p-8 flex-1">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
+              <h3 className="text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-semibold text-[#162F65] group-hover:text-white mb-2">
                 Powered by CargoWise
               </h3>
-              <p className="lg:text-paragraph sm:text-[16px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
+              <p className="lg:text-paragraph text-[14px] md:text-[18px] text-[#676767] group-hover:text-white font-poppins font-medium">
                 Manage Your Supply Chain with the World&rsquo;s Most trusted ERP
               </p>
             </div>
@@ -224,10 +224,10 @@ const airAndSeaFreight = () => {
         <div className="absolute inset-0 flex items-center z-10 justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6  lg:pl-8  flex flex-col lg:flex-row justify-between items-center gap-8 vision-achievements">
             <div className="flex flex-col mb-4 text-center lg:text-left w-full lg:w-1/3  mr:[0] lg:mr-[60px] ">
-              <h2 className="text-white font-poppins font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[66px] leading-tight font-poppins ">
+              <h2 className="text-white font-poppins font-semibold text-[28px] sm:text-[40px] md:text-[48px] lg:text-[66px] leading-tight font-poppins ">
                 Vision &
               </h2>
-              <h2 className="text-white font-poppins font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[66px] leading-tight font-poppins">
+              <h2 className="text-white font-poppins font-semibold text-[28px] sm:text-[40px] md:text-[48px] lg:text-[66px] leading-tight font-poppins">
                 Achievements
               </h2>
             </div>
@@ -261,7 +261,7 @@ const airAndSeaFreight = () => {
         />
       </div>
 
-      <div className="max-w-7xl block lg:hidden mx-auto  px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl block lg:hidden mx-auto mt-2 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto mb-4 md:mb-10">
           <h2 className="text-[#737887] text-3xl ml-6 sm:text-4xl md:text-5xl font-bold mb-2 text-left leading-tight">
             Our Core Values
@@ -541,7 +541,7 @@ const airAndSeaFreight = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-row justify-center mb-6">
-          <h2 className="font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[50px] leading-[1.1] text-[#162F65] font-poppins">
+          <h2 className="font-bold mt-4 text-[28px] sm:text-[40px] md:text-[48px] lg:text-[50px] leading-[1.1] text-[#162F65] font-poppins">
             Our Focus Areas
           </h2>
         </div>

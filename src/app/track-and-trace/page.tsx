@@ -108,11 +108,11 @@ const TrackAndTrace = () => {
             {/* Right side - Content */}
             <div className="order-1 lg:order-2 space-y-6">
               <div className="space-y-4">
-                <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
+                <p className="font-poppins font-medium text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
                   Track and trace your cargo as it makes its journey with the
                   Neo dashboard from Cargowise.
                 </p>
-                <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
+                <p className="font-poppins font-medium text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
                   Real-time insights of your transactions, shipments,
                   declarations, and orders give you the visibility you have been
                   asking for.
@@ -121,7 +121,7 @@ const TrackAndTrace = () => {
 
               <div className="pt-4">
                 <Link href="https://www-n60prd.wisegrid.net/Portals/NEO/Desktop#/login/index">
-                  <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
+                  <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-xs sm:text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
                     Check My Tracking
                   </button>
                 </Link>
@@ -138,7 +138,7 @@ const TrackAndTrace = () => {
               <h2 className="font-poppins font-bold text-[35px] lg:text-[55px] text-[#162F65] mb-8 lg:mb-2 leading-tight">
                 Route Visualiser
               </h2>
-              <p className="font-poppins font-medium sm:text-[18px] md:text-[18px] lg:text-[22px] text-[#676767] leading-relaxed">
+              <p className="font-poppins font-medium text-sm sm:text-base md:text-[18px] lg:text-[22px] text-[#676767] leading-relaxed">
                 View your shipment&apos;s journey on a global map powered by
                 satellite AIS and flight transponders for complete visibility
                 from Purchase order to delivery. Color-coded alerts highlight
@@ -186,7 +186,7 @@ const TrackAndTrace = () => {
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-poppins text-xl sm:text-2xl font-semibold text-[#162F65] mb-3 sm:mb-4 leading-tight">
+                      <h3 className="font-poppins text-lg sm:text-xl md:text-2xl font-semibold text-[#162F65] mb-3 sm:mb-4 leading-tight">
                         {feature.title.includes("CO₂") ? (
                           <>
                             <span style={{ color: "#72942E" }}>CO₂</span>{" "}
@@ -197,7 +197,7 @@ const TrackAndTrace = () => {
                         )}
                       </h3>
 
-                      <p className="font-poppins text-sm sm:text-base lg:text-lg text-[#162F65] font-medium leading-[28px]">
+                      <p className="font-poppins text-sm sm:text-base lg:text-lg text-[#162F65] font-medium leading-6 sm:leading-[28px]">
                         {feature.description}
                       </p>
                     </div>

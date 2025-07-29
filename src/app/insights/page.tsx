@@ -99,13 +99,13 @@ const InsightsPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container relative max-w-7xl -top-22 lg:-top-50 mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-16">
+      <div className="container relative max-w-7xl -mt-10 md:-mt-40 lg:-mt-60 xl:-mt-30 2xl:-mt-50 mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-16">
         <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold">
           Insights
         </h1>
         {/* Subtitle */}
         <div className="mb-8 lg:mb-16">
-          <p className="text-[#162F65] text-base md:text-lg lg:text-xl leading-relaxed max-w-6xl">
+          <p className="text-[#162F65] text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-6xl">
             Stay ahead with expert opinions, market updates, and actionable
             insights designed to drive smarter supply chain decisions.
           </p>

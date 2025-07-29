@@ -67,7 +67,7 @@ const AirAndSeaFreight = () => {
 
             </div>
 
-            <div className="relative top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative md:-mt-25 lg:-mt-20 xl:-mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <HeroTitleAndParagraph
                     title="Air & Sea Freight Services"
@@ -159,7 +159,7 @@ const AirAndSeaFreight = () => {
                 <ServiceCardRow />
             </div>
 
-            <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden" style={{ marginTop: '100px' }}>
+            <div className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden" style={{ marginTop: '50px' }}>
                 <div className="absolute inset-0">
                     <Image
                         src="/sea-bottom-banner (2).svg"
