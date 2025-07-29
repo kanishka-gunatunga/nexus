@@ -37,29 +37,6 @@ export default function Home() {
     const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
 
-  // const [data, setData] = useState<HomePageData | null>(null);
-  // interface HomePageData {
-  //     heroTitle: string;
-  //     heroDescription: string;
-  //     buttonText: string;
-  // }
-
-  // const dataTest = homePage();
-
-  // useEffect(() => {
-  //     homePage().then(setData);
-  // }, []);
-
-    // console.log(dataTest);
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) =>
-                (prevIndex + 1) % images.length
-            );
-        }, 5000);
-
-        return () => clearInterval(interval);
-    }, [images.length]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -85,36 +62,26 @@ export default function Home() {
         return () => clearInterval(interval);
     }, [mobileImages.length]);
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrentMobileImageIndex(
-    //             (prevIndex) => (prevIndex + 1) % mobileImages.length
-    //         );
-    //     }, 5000);
-    //
-    //     return () => clearInterval(interval);
-    // }, [mobileImages.length]);
-
-  const sections = [
-    {
-      title: "Who is Nexus Logix",
-      description:
-        "Homegrown in Australia and backed by global expertise, we strive to be your responsive, agile freight and logistics partner. \n\nAs a player in a global supply chain, you are like an F1 race driver, which means every second counts. That's why we're your dedicated pit crew, ever ready to support your cargo in motion.",
-      imageSrc: "/home/Nexus-Logix.png",
-      imageAlt: "Nexus Logix Team",
-      reverse: false,
-      buttonTitle: "Explore More",
-    },
-    {
-      title: "Your Supply Chain is Now Visible, Measurable, and Transparent",
-      description:
-        "50% of customers track their shipments - You can too! \n\nPowered by Neo, Nexus Logix delivers live tracking that shows your shipment's exact location on an interactive world map in real time. Get automated milestone alerts, 12-month performance stats, financial summaries, and detailed <span class='co2-highlight'>CO₂</span> emission data for every shipment all accessible on any device, right at your fingertips.",
-      imageSrc: "/CargoWise_neo_logo.svg",
-      imageAlt: "Cargo Tracking",
-      reverse: true,
-      buttonTitle: "Learn More",
-    },
-  ];
+    const sections = [
+        {
+            title: "Who is Nexus Logix",
+            description:
+                "Homegrown in Australia and backed by global expertise, we strive to be your responsive, agile freight and logistics partner. \n\nAs a player in a global supply chain, you are like an F1 race driver, which means every second counts. That's why we're your dedicated pit crew, ever ready to support your cargo in motion.",
+            imageSrc: "/home/Nexus-Logix.png",
+            imageAlt: "Nexus Logix Team",
+            reverse: false,
+            buttonTitle: "Explore More",
+        },
+        {
+            title: "Your Supply Chain is Now Visible, Measurable, and Transparent",
+            description:
+                "50% of customers track their shipments - You can too! \n\nPowered by Neo, Nexus Logix delivers live tracking that shows your shipment's exact location on an interactive world map in real time. Get automated milestone alerts, 12-month performance stats, financial summaries, and detailed <span class='co2-highlight'>CO₂</span> emission data for every shipment all accessible on any device, right at your fingertips.",
+            imageSrc: "/CargoWise_neo_logo.svg",
+            imageAlt: "Cargo Tracking",
+            reverse: true,
+            buttonTitle: "Learn More",
+        },
+    ];
 
     const stats = [
         {value: 39, label: "Countries", suffix: "+"},
@@ -149,32 +116,6 @@ export default function Home() {
         },
     ];
 
-    // const services = [
-    //     {
-    //         src: "/forwarding_service.png",
-    //         alt: "Freight forwarding service",
-    //         label: "Air & Sea Freight",
-    //         description: `Be it express air shipments for urgent deliveries or cost-effective sea freight solutions for bulk transport we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving without unexpected costs or challenges, while avoiding delays.`,
-    //     },
-    //     {
-    //         src: "/Customs_Clearance.png",
-    //         alt: "Customs Clearance & Compliance",
-    //         label: "Customs Clearance & Compliance",
-    //         description: `Navigating Australia’s vast distances often requires more than one mode of transport, with local expertise at every stage. Our comprehensive road and rail services cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport.`,
-    //     },
-    //     {
-    //         src: "/warehousing.png",
-    //         alt: "3PL, Warehousing & Special Projects",
-    //         label: "3PL, Warehousing & Special Projects",
-    //         description: `From end-to-end supply chain management to specialised project transport for heavy-lift or out-of-gauge cargo, our integrated solutions and experienced consultants streamline warehousing, fulfilment, and special moves – providing a unique personalised approach for each client.`,
-    //     },
-    //     {
-    //         src: "/transport.png",
-    //         alt: "Road & Rail Transport",
-    //         label: "Road & Rail Transport",
-    //         description: `Customs and compliance doesn’t have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits – ensuring your goods clear swiftly and cost-effectively.`,
-    //     },
-    // ];
 
   const services = [
     {
@@ -320,47 +261,32 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/*<div*/}
-                {/*  id="hero-background-image"*/}
-                {/*  className="relative w-full h-full -mt-30 lg:hidden"*/}
-                {/*>*/}
-                {/*  <Image*/}
-                {/*    key={mobileImages[currentMobileImageIndex]}*/}
-                {/*    src={mobileImages[currentMobileImageIndex]}*/}
-                {/*    // src="/insights/Group72.png"*/}
-                {/*    alt="Airplane"*/}
-                {/*    // width={1000}*/}
-                {/*    // height={400}*/}
-                {/*      fill*/}
-                {/*    className="w-full h-full object-contain"*/}
-                {/*    // sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 100vw"*/}
-                {/*  />*/}
-                {/*</div>*/}
-
                 <div
                     id="mobile-hero-content"
                     className="relative flex flex-col border-[#D9D9D9] container mx-auto border-b-2 pb-4 mt-4 justify-center items-center text-center
                             w-full px-4 sm:px-6 lg:hidden z-10"
-        >
-          <div className="w-full max-w-lg mx-auto">
-            <h1 className="text-2xl mobile:text-3xl sm:text-4xl font-bold text-[#114284] leading-tight mb-4 sm:mb-6">
-              Supply Chains Never Sleep.
-              {/* {dataTest?.heroTitle} */}
-              <br className="sm:hidden" />
-              Neither Do We.
-            </h1>
-            <p className="text-sm mobile:text-base sm:text-lg text-[#676767] font-medium mb-6 sm:mb-8 leading-relaxed">
-              As your agile logistics partner, we operate as an extension of
-              your business, so you enjoy peace of mind, and responsive service.
-            </p>
-            <button
-              className="bg-[#162F65] text-white
+                >
+                    <div className="w-full max-w-lg mx-auto">
+                        <h1 className="text-2xl mobile:text-3xl sm:text-4xl font-bold text-[#114284] leading-tight mb-4 sm:mb-6">
+                            Supply Chains Never Sleep.
+                            {/* {dataTest?.heroTitle} */}
+                            <br className="sm:hidden"/>
+                            Neither Do We.
+                        </h1>
+                        <p className="text-sm mobile:text-base sm:text-lg text-[#676767] font-medium mb-6 sm:mb-8 leading-relaxed">
+                            As your agile logistics partner, we operate as an extension of
+                            your business, so you enjoy peace of mind, and responsive service.
+                        </p>
+                        <Link href="/services" passHref>
+                            <button
+                                className="bg-[#162F65] text-white
                                    px-6 py-2 mobile:px-8 mobile:py-3 text-sm font-medium  rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
-            >
-              Explore More
-            </button>
-          </div>
-        </div>
+                            >
+                                Explore More
+                            </button>
+                        </Link>
+                    </div>
+                </div>
 
                 <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
                     <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
@@ -376,11 +302,13 @@ export default function Home() {
                             As your agile logistics partner, we operate as an extension of your
                             business, so you enjoy peace of mind, and responsive service.
                         </p>
-                        <button
-                            className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
-                        >
-                            Explore More
-                        </button>
+                        <Link href="/services" passHref>
+                            <button
+                                className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
+                            >
+                                Explore More
+                            </button>
+                        </Link>
                     </div>
                 </div>
 
@@ -769,39 +697,41 @@ export default function Home() {
                                 </div>
                             </div>
 
-              <div className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-  {services.map((item, index) => (
-    <Link key={index} href={item.link}>
-      <div
-        className="relative group cursor-pointer"
-        onMouseEnter={() => setActiveService(item)}
-        onClick={() => setActiveService(item)}
-      >
-        <div className="relative w-full h-40 sm:h-48 lg:h-56 rounded-lg overflow-hidden">
-          <Image
-            src={item.src}
-            alt={item.alt}
-            fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-          <div
-            className={`absolute inset-0 transition-all duration-300 ${
-              activeService.label === item.label
-                ? "bg-[#002B64]/70"
-                : "bg-gradient-to-t from-[#002B64]/0 to-[#00255700]/0"
-            }`}
-          />
-          <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-normal text-xs sm:text-sm lg:text-lg">
-            {item.label}
-          </p>
-        </div>
-      </div>
-    </Link>
-  ))}
-</div>
+                            <div
+                                className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+                                {services.map((item, index) => (
+                                    <Link key={index} href={item.link}>
+                                        <div
+                                            className="relative group cursor-pointer"
+                                            onMouseEnter={() => setActiveService(item)}
+                                            onClick={() => setActiveService(item)}
+                                        >
+                                            <div
+                                                className="relative w-full h-40 sm:h-48 lg:h-56 rounded-lg overflow-hidden">
+                                                <Image
+                                                    src={item.src}
+                                                    alt={item.alt}
+                                                    fill
+                                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                                />
+                                                <div
+                                                    className={`absolute inset-0 transition-all duration-300 ${
+                                                        activeService.label === item.label
+                                                            ? "bg-[#002B64]/70"
+                                                            : "bg-gradient-to-t from-[#002B64]/0 to-[#00255700]/0"
+                                                    }`}
+                                                />
+                                                <p className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white font-normal text-xs sm:text-sm lg:text-lg">
+                                                    {item.label}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
 
-            </div>
-          </div>
+                        </div>
+                    </div>
 
                     <div className="lg:hidden w-full">
                         <Slider {...settings}>
