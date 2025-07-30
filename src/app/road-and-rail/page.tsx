@@ -48,7 +48,7 @@ const roadAndRail = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-18 lg:-mt-28">
         <HeroTitleAndParagraph
           title="Road & Rail Transport"
           paragraph1="Wheels and tracks alone aren't enough to successfully navigate Australia's scale - you'll need strategy, strong partnerships, on-ground expertise, and industry experience."
@@ -56,7 +56,7 @@ const roadAndRail = () => {
         />
 
         {/* first card */}
-        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
             title="Road Transport"
             paragraph1="From origin, where our agents secure sharp ex works rates, to port handover, to cross-country highways via hand-picked carriers, and all the way through to final-mile delivery - we manage it all and coordinate the entire journey with precision."
@@ -73,7 +73,7 @@ const roadAndRail = () => {
         </div>
 
         {/* second card */}
-        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
             title="Rail (and Road) Freight"
             paragraph1="For high-volume domestic moves, rail freight offers unbeatable efficiency, especially when paired with our last-mile delivery options. Whether you're transporting containerised freight, pallets, or bulk commodities, we leverage Australia's major rail corridors to keep your costs low and your operations moving."

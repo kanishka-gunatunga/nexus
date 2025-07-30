@@ -313,7 +313,7 @@ import { usePathname } from "next/navigation";
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  // const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -357,8 +357,6 @@ const Nav = () => {
   return (
     <header className="relative z-50 poppins">
       <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-full [@media(min-width:1900px)]:max-w-[1216px] [@media(min-width:1200px)]:max-w-[1200px]">
-
-
         <div className="flex items-center justify-between py-3 sm:py-4 lg:py-2 relative">
           {/* Mobile Menu Button - Visible on small screens */}
           <div className="lg:hidden flex-shrink-0 order-1">
@@ -650,7 +648,7 @@ const Nav = () => {
 
                 {/* Dropdown Toggle Button */}
                 <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                   className="focus:outline-none"
                   aria-label="Toggle Services Dropdown"
                 >
@@ -673,7 +671,7 @@ const Nav = () => {
               </div>
 
               {/* Dropdown */}
-              {isServicesOpen && (
+              {isMobileServicesOpen && (
                 <div className="pl-6 mt-1 space-y-1 bg-white rounded-md">
                   {services.map((service) => (
                     <Link

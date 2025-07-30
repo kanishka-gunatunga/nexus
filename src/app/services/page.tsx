@@ -66,7 +66,7 @@ const ServicesPage = () => {
 
       {/* Comprehensive Solutions Section */}
       <div className="relative md:-mt-20 2xl:-mt-30 lg:pb-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-18">
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
             <h1 className="text-2xl sm:text-3xl lg:text-[50px] font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-tight mx-auto sm:mx-0">
               Comprehensive
@@ -89,7 +89,7 @@ const ServicesPage = () => {
 
       {/* Services Grid Section */}
       <section className="py-4 lg:py-6 mb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4 sm:px-6 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto px-8 sm:px-6 lg:px-18 items-stretch">
           {services.map((item, index) => (
             <Link
               href={item.link}
