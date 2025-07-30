@@ -84,7 +84,7 @@ const TrackAndTrace = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-8 lg:px-8 lg:-mt-28">
+      <div className="max-w-7xl mx-auto px-8 lg:px-8 lg:-mt-28 md:-mt-28">
         {/* Track Now Section */}
         <div className="py-6 md:py-10">
           {/* Title */}

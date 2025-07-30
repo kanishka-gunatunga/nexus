@@ -59,7 +59,7 @@ const CustomsPage = () => {
       </div>
 
       {/* Customs and Border Processing Section */}
-      <section className="py-4 bg-[#F6F6F6] poppins relative lg:-mt-28">
+      <section className="py-4 bg-[#F6F6F6] poppins relative lg:-mt-28 md:-mt-28">
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#162F65] mb-6 lg:mb-8">
             Customs and
