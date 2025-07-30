@@ -65,7 +65,7 @@ const ServicesPage = () => {
       </div>
 
       {/* Comprehensive Solutions Section */}
-      <div className="relative md:-mt-20 2xl:-mt-30 lg:pb-10 px-4 sm:px-6 lg:px-8">
+      <div className="relative lg:-mt-28 md:-mt-28 lg:pb-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-18">
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
             <h1 className="text-2xl sm:text-3xl lg:text-[50px] font-semibold text-[#162F65] text-center lg:text-left mb-4 sm:mb-0 leading-tight mx-auto sm:mx-0">
@@ -173,9 +173,11 @@ const ServicesPage = () => {
               <br />
               Reliable Freight Solutions
             </h2>
+            <Link href="/whyNexus">
             <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
               Why Nexus
             </button>
+          </Link>
           </div>
 
           {/*<div*/}

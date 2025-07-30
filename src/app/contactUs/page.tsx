@@ -438,7 +438,7 @@ export default function ContactPage() {
             </div>
 
             {/* Main Container */}
-            <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 lg:-mt-28 poppins">
+            <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 lg:-mt-28 md:-mt-28 poppins">
                 {/* Top Section - Contact Form */}
                 <div className="flex flex-col lg:flex-row  overflow-hidden">
                     {/* Left Panel - Contact Info */}

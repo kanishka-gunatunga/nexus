@@ -48,7 +48,7 @@ const roadAndRail = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28 md:-mt-28">
         <HeroTitleAndParagraph
           title="Road & Rail Transport"
           paragraph1="Wheels and tracks alone aren't enough to successfully navigate Australia's scale - you'll need strategy, strong partnerships, on-ground expertise, and industry experience."

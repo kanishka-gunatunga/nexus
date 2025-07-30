@@ -579,30 +579,28 @@ const airAndSeaFreight = () => {
       </div>
 
       <div className="w-full hidden [@media(min-width:1087px)]:block bg-[#0F2043] mt-[20px] h-[400px]">
-  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 h-full">
-    <Image
-      src="/why-nexus/road3.png"
-      alt="Nexus X Logo"
-      width={1800}
-      height={1200}
-      className="object-cover h-full w-full"
-    />
-  </div>
-</div>
-
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 h-full">
+          <Image
+            src="/why-nexus/road3.png"
+            alt="Nexus X Logo"
+            width={1800}
+            height={1200}
+            className="object-cover h-full w-full"
+          />
+        </div>
+      </div>
 
       <div className="w-full block [@media(min-width:1087px)]:hidden bg-[#0F2043] mt-[50px]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-between gap-8 h-full">
-    <Image
-      src="/why-nexus/road-map.svg"
-      alt="Nexus X Logo"
-      width={800}
-      height={1200}
-      className="w-full h-auto object-contain"
-    />
-  </div>
-</div>
-
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-between gap-8 h-full">
+          <Image
+            src="/why-nexus/road-map.svg"
+            alt="Nexus X Logo"
+            width={800}
+            height={1200}
+            className="w-full h-auto object-contain"
+          />
+        </div>
+      </div>
 
       <div className="relative h-64 sm:h-80 lg:h-96 mt-2 overflow-hidden">
         <div className="absolute inset-0">
