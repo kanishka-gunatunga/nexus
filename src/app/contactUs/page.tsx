@@ -134,17 +134,89 @@ export default function ContactPage() {
     const validateField = (name: keyof FormData, value: string) => {
         const newErrors = {...errors};
 
+        // switch (name) {
+        //     case "firstName":
+        //         newErrors.firstName = value.trim() ? "" : "First name is required.";
+        //         break;
+        //     case "lastName":
+        //         newErrors.lastName = value.trim() ? "" : "Last name is required.";
+        //         break;
+        //     case "companyEmail":
+        //         if (!value.trim()) {
+        //             newErrors.companyEmail = "Company email is required.";
+        //         } else if (!/^[a-z][a-z0-9._%+-]*@[a-z0-9.-]+\.[a-z]{2,}$/.test(value.trim())) {
+        //             newErrors.companyEmail = "Please enter a valid lowercase email (e.g., user@company.com).";
+        //         } else if (value.trim().length < 6 || value.trim().length > 254) {
+        //             newErrors.companyEmail = "Email must be between 6 and 254 characters.";
+        //         } else {
+        //             newErrors.companyEmail = "";
+        //         }
+        //         break;
+        //     case "phone":
+        //         if (!value.trim()) {
+        //             newErrors.phone = "Phone number is required.";
+        //         } else if (!/^\+\d{1,4}\s?\d{6,}$/.test(value.trim())) {
+        //             newErrors.phone = "Please enter a valid phone number (e.g., +61712345678).";
+        //         } else {
+        //             newErrors.phone = "";
+        //         }
+        //         break;
+        //     case "companyName":
+        //         newErrors.companyName = value.trim() ? "" : "Company name is required.";
+        //         break;
+        //     case "website":
+        //         if (value.trim() && !/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(value.trim())) {
+        //             newErrors.website = "Please enter a valid URL (e.g., https://example.com).";
+        //         } else {
+        //             newErrors.website = "";
+        //         }
+        //         break;
+        //     case "city":
+        //         if (value.trim() && !/^[a-zA-Z\s'-]+$/.test(value.trim())) {
+        //             newErrors.city = "City must contain only letters, spaces, or hyphens.";
+        //         } else {
+        //             newErrors.city = "";
+        //         }
+        //         break;
+        //     case "province":
+        //         if (value.trim() && !/^[a-zA-Z\s'-]+$/.test(value.trim())) {
+        //             newErrors.province = "State must contain only letters, spaces, or hyphens.";
+        //         } else {
+        //             newErrors.province = "";
+        //         }
+        //         break;
+        //     case "message":
+        //         newErrors.message = "";
+        //         break;
+        // }
+
         switch (name) {
             case "firstName":
-                newErrors.firstName = value.trim() ? "" : "First name is required.";
+                if (!value.trim()) {
+                    newErrors.firstName = "First name is required.";
+                } else if (value.trim().length < 2 || value.trim().length > 50) {
+                    newErrors.firstName = "First name must be between 2 and 50 characters.";
+                } else if (!/^[a-zA-Z\s'-]+$/.test(value.trim())) {
+                    newErrors.firstName = "First name can only contain letters, spaces, hyphens, or apostrophes.";
+                } else {
+                    newErrors.firstName = "";
+                }
                 break;
             case "lastName":
-                newErrors.lastName = value.trim() ? "" : "Last name is required.";
+                if (!value.trim()) {
+                    newErrors.lastName = "Last name is required.";
+                } else if (value.trim().length < 2 || value.trim().length > 50) {
+                    newErrors.lastName = "Last name must be between 2 and 50 characters.";
+                } else if (!/^[a-zA-Z\s'-]+$/.test(value.trim())) {
+                    newErrors.lastName = "Last name can only contain letters, spaces, hyphens, or apostrophes.";
+                } else {
+                    newErrors.lastName = "";
+                }
                 break;
             case "companyEmail":
                 if (!value.trim()) {
                     newErrors.companyEmail = "Company email is required.";
-                } else if (!/^[a-z][a-z0-9._%+-]*@[a-z0-9.-]+\.[a-z]{2,}$/.test(value.trim())) {
+                } else if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(value.trim())) {
                     newErrors.companyEmail = "Please enter a valid lowercase email (e.g., user@company.com).";
                 } else if (value.trim().length < 6 || value.trim().length > 254) {
                     newErrors.companyEmail = "Email must be between 6 and 254 characters.";
@@ -155,38 +227,65 @@ export default function ContactPage() {
             case "phone":
                 if (!value.trim()) {
                     newErrors.phone = "Phone number is required.";
-                } else if (!/^\+\d{1,4}\s?\d{6,}$/.test(value.trim())) {
-                    newErrors.phone = "Please enter a valid phone number (e.g., +61712345678).";
-                } else {
+                } else if (!/^\+\d{1,3}\s?\d{6,14}$/.test(value.trim())) { // Allows for +CountryCode and 6-14 digits, with optional space
+                    newErrors.phone = "Please enter a valid phone number (e.g.,+1234567890).";
+                } else if (value.trim().length < 7 || value.trim().length > 20) { // Example length limits for phone numbers
+                    newErrors.phone = "Phone number must be between 7 and 20 characters.";
+                }
+                else {
                     newErrors.phone = "";
                 }
                 break;
             case "companyName":
-                newErrors.companyName = value.trim() ? "" : "Company name is required.";
+                if (!value.trim()) {
+                    newErrors.companyName = "Company name is required.";
+                } else if (value.trim().length < 2 || value.trim().length > 100) {
+                    newErrors.companyName = "Company name must be between 2 and 100 characters.";
+                } else {
+                    newErrors.companyName = "";
+                }
                 break;
             case "website":
-                if (value.trim() && !/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(value.trim())) {
+                if (value.trim() && !/^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+(?:\/[^/#?]+)*(?:[?][^#]*)?(?:#.*)?$/.test(value.trim())) {
                     newErrors.website = "Please enter a valid URL (e.g., https://example.com).";
-                } else {
+                } else if (value.trim().length > 200) { // Example length limit for URLs
+                    newErrors.website = "Website URL cannot exceed 200 characters.";
+                }
+                else {
                     newErrors.website = "";
+                }
+                break;
+            case "address":
+                if (value.trim().length > 200) {
+                    newErrors.address = "Address cannot exceed 200 characters.";
+                } else {
+                    newErrors.address = "";
                 }
                 break;
             case "city":
                 if (value.trim() && !/^[a-zA-Z\s'-]+$/.test(value.trim())) {
-                    newErrors.city = "City must contain only letters, spaces, or hyphens.";
+                    newErrors.city = "City must contain only letters, spaces, hyphens, or apostrophes.";
+                } else if (value.trim().length > 100) {
+                    newErrors.city = "City name cannot exceed 100 characters.";
                 } else {
                     newErrors.city = "";
                 }
                 break;
             case "province":
                 if (value.trim() && !/^[a-zA-Z\s'-]+$/.test(value.trim())) {
-                    newErrors.province = "State must contain only letters, spaces, or hyphens.";
+                    newErrors.province = "State must contain only letters, spaces, hyphens, or apostrophes.";
+                } else if (value.trim().length > 100) {
+                    newErrors.province = "State name cannot exceed 100 characters.";
                 } else {
                     newErrors.province = "";
                 }
                 break;
             case "message":
-                newErrors.message = "";
+                if (value.trim().length > 1000) {
+                    newErrors.message = "Message cannot exceed 1000 characters.";
+                } else {
+                    newErrors.message = "";
+                }
                 break;
         }
 

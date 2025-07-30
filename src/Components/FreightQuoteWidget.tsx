@@ -120,6 +120,18 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 "Please enter a valid phone number (e.g., +61712345678).";
         }
 
+        if (formData.originPort.trim().length > 100) {
+            newErrors.originPort = "Origin port or country cannot exceed 100 characters.";
+        }
+
+        if (formData.destinationPort.trim().length > 100) {
+            newErrors.destinationPort = "Destination port or country cannot exceed 100 characters.";
+        }
+
+        if (formData.enquiry.trim().length > 500) {
+            newErrors.enquiry = "Enquiry cannot exceed 500 characters.";
+        }
+
         if (!privacyAccepted) {
             newErrors.privacy = "You must accept the privacy policy";
         }
@@ -559,6 +571,11 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                                     placeholder="Include a description of the cargo"
                                     className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-white placeholder-[#647FBB] py-2 px-0 focus:outline-none focus:border-white transition-colors resize-none"
                                 />
+                                {errors.enquiry && (
+                                    <p className="text-red-500 text-xs mt-1">
+                                        {errors.enquiry}
+                                    </p>
+                                )}
                             </div>
 
                             {/* Privacy Policy */}
