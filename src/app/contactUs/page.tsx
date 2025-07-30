@@ -276,11 +276,7 @@ export default function ContactPage() {
             {/* Social Media Icons - Bottom Left */}
             <div className="absolute bottom-4 sm:bottom-4 md:bottom-4 lg:bottom-8 left-8 flex space-x-3">
               {/* Twitter */}
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/x_icon.png"
                   alt="Facebook"
@@ -291,11 +287,7 @@ export default function ContactPage() {
               </a>
 
               {/* Google+ */}
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/linkedin_icon.png"
                   alt="Instagram"
@@ -306,11 +298,7 @@ export default function ContactPage() {
               </a>
 
               {/* Facebook */}
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/facebook_icon.png"
                   alt="LinkedIn"
@@ -321,11 +309,7 @@ export default function ContactPage() {
               </a>
 
               {/* Instagram */}
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/instagram_icon.png"
                   alt="YouTube"
@@ -631,8 +615,7 @@ export default function ContactPage() {
               <div className="text-right">
                 <button
                   onClick={handleSubmit}
-                  className="px-8 py-3 font-poppins font-medium text-[16px] md:text-[20px] lg:text-[25px] leading-[100%] tracking-[0em] text-white rounded-md hover:bg-blue-950 hover:scale-105 transition-all duration-300"
-                  style={{ backgroundColor: "#162F65" }}
+                  className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-xs sm:text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
                 >
                   Submit My Request
                 </button>

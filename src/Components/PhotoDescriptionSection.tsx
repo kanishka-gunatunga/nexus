@@ -43,7 +43,7 @@ export default function PhotoDescriptionSection({
     <>
       {/* 📱 Mobile layout */}
       <div className="bg-transparent px-4 py-6 md:py-10 flex flex-col gap-4 lg:hidden">
-        <h2 className="font-poppins font-semibold text-[28px] text-[#162F65] mb-2">
+        <h2 className="font-poppins font-semibold text-[24px] text-[#162F65] mb-2">
           {title}
         </h2>
 
@@ -58,28 +58,28 @@ export default function PhotoDescriptionSection({
         </div>
 
         {subtitle1 && (
-          <p className="font-poppins font-medium text-[22px] text-[#162F65] mb-1">
+          <p className="font-poppins font-medium text-[22px] text-[#162F65] mb-1 leading-[26px]">
             {subtitle1}
           </p>
         )}
 
-        <p className="font-poppins text-[16px] text-[#676767] mb-2 leading-relaxed text-justify">
+        <p className="font-poppins text-[14px] text-[#676767] mb-2 leading-relaxed text-justify">
           {paragraph1}
         </p>
 
         {paragraph3 && (
-          <p className="font-poppins text-[16px] text-[#676767] mb-4 leading-relaxed text-justify">
+          <p className="font-poppins text-[14px] text-[#676767] mb-4 leading-relaxed text-justify">
             {paragraph3}
           </p>
         )}
 
         {subtitle2 && (
-          <p className="font-poppins font-medium text-[22px] text-[#162F65] mb-1">
+          <p className="font-poppins font-medium text-[22px] text-[#162F65] mb-1 leading-[26px]">
             {subtitle2}
           </p>
         )}
 
-        <p className="font-poppins text-[16px] text-[#676767] mb-2 leading-relaxed text-justify">
+        <p className="font-poppins text-[14px] text-[#676767] mb-2 leading-relaxed text-justify">
           {paragraph2}
         </p>
 
@@ -125,7 +125,7 @@ export default function PhotoDescriptionSection({
           </h2>
 
           {subtitle1 && (
-            <p className="font-poppins font-medium text-[25px] text-[#162F65] mb-2">
+            <p className="font-poppins font-medium text-[25px] text-[#162F65] mb-2 leading-[26px]">
               {subtitle1}
             </p>
           )}
@@ -141,7 +141,7 @@ export default function PhotoDescriptionSection({
           )}
 
           {subtitle2 && (
-            <p className="font-poppins font-medium text-[25px] text-[#162F65] mb-2">
+            <p className="font-poppins font-medium text-[25px] text-[#162F65] mb-2 leading-[28px]">
               {subtitle2}
             </p>
           )}

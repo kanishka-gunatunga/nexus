@@ -11,7 +11,7 @@ export default function ServiceCardRow() {
 
   return (
     <div className="bg-[#F6F6F6] py-6 px-4">
-      <h3 className="font-poppins font-medium text-lg md:text-[22px] text-[#162F65] mb-8">
+      <h3 className="font-poppins font-medium text-[22px] md:text-[25px] text-[#162F65] mb-8 leading-[26px] md:leading-[36px]">
         These services may also be of interest to you.
       </h3>
 
