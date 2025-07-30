@@ -7,7 +7,7 @@ import Nav from "@/Components/Nav";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
 
-// Define the shape of your form data
+
 interface FormData {
   firstName: string;
   lastName: string;
