@@ -214,7 +214,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
         <>
             {/* Backdrop */}
             <div
-                className="fixed inset-0 backdrop-blur-[4px] bg-black/10 z-40 transition-opacity duration-300"
+                className="fixed inset-0 backdrop-blur-[3px] bg-black/10 z-50 transition-opacity duration-300"
                 onClick={onClose}
             />
 
@@ -430,7 +430,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                                         <option value="25-50" className="bg-[#2A2A2A] text-white">
                                             25 to 50
                                         </option>
-                                        <option value="50" className="bg-[#2A2A2A] text-white">
+                                        <option value="More than 50" className="bg-[#2A2A2A] text-white">
                                             More than 50
                                         </option>
                                     </select>

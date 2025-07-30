@@ -356,7 +356,9 @@ const Nav = () => {
 
   return (
     <header className="relative z-50 poppins">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full xl:max-w-[1600px] 2xl:max-w-[1800px] [@media(min-width:1900px)]:max-w-[1920px]">
+      <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-full [@media(min-width:1900px)]:max-w-[1216px] [@media(min-width:1200px)]:max-w-[1200px]">
+
+
         <div className="flex items-center justify-between py-3 sm:py-4 lg:py-2 relative">
           {/* Mobile Menu Button - Visible on small screens */}
           <div className="lg:hidden flex-shrink-0 order-1">

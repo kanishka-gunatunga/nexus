@@ -52,7 +52,7 @@ const airAndSeaFreight = () => {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-0 lg:px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-4 sm:px-6 lg:px-8">
         <div className="bg-transparent -mt-0 lg:-mt-45 px-4 py-6 md:py-10">
           {/* Mobile Layout: title → image → description */}
           <div className="block md:hidden flex flex-col items-center gap-4">
@@ -222,7 +222,7 @@ const airAndSeaFreight = () => {
         </div>
 
         <div className="absolute inset-0 flex items-center z-10 justify-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6  lg:pl-8  flex flex-col lg:flex-row justify-between items-center gap-8 vision-achievements">
+          <div className="max-w-7xl mx-auto px-6 sm:px-6  lg:pl-8  flex flex-col lg:flex-row justify-between items-center gap-8 vision-achievements">
             <div className="flex flex-col mb-4 text-center lg:text-left w-full lg:w-1/3  mr:[0] lg:mr-[60px] ">
               <h2 className="text-white font-poppins font-semibold text-[28px] sm:text-[40px] md:text-[48px] lg:text-[66px] leading-tight font-poppins ">
                 Vision &
@@ -261,7 +261,7 @@ const airAndSeaFreight = () => {
         />
       </div>
 
-      <div className="max-w-7xl block lg:hidden mx-auto mt-2 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl block lg:hidden mx-auto mt-2 px-8 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto mb-4 md:mb-10">
           <h2 className="text-[#737887] text-3xl ml-6 sm:text-4xl md:text-5xl font-bold mb-2 text-left leading-tight">
             Our Core Values
@@ -294,7 +294,7 @@ const airAndSeaFreight = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 mt-[50px] lg:mt-[100px]">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-8 sm:px-6 lg:px-8 mt-[50px] lg:mt-[100px]">
         <div className="w-full md:w-1/3 text-center md:text-left">
           <h2 className="text-[32px] sm:text-[30px] md:text-[36px] lg:text-[48px] font-semibold text-[#6E7483] leading-tight">
             Our customers&rsquo;
@@ -461,7 +461,7 @@ const airAndSeaFreight = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 mt-[50px] lg:mt-[100px]">
+      <div className="max-w-7xl mx-auto px-8 sm:px-8 lg:px-8 mt-[50px] lg:mt-[100px]">
         {/* Mobile Layout */}
         <div className="block md:hidden">
           {/* Title */}
@@ -539,7 +539,7 @@ const airAndSeaFreight = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
         <div className="flex flex-row justify-center mb-6">
           <h2 className="font-bold mt-4 text-[28px] sm:text-[40px] md:text-[48px] lg:text-[50px] leading-[1.1] text-[#162F65] font-poppins">
             Our Focus Areas

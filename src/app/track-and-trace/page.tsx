@@ -84,14 +84,16 @@ const TrackAndTrace = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28">
+      <div className="max-w-7xl mx-auto px-8 lg:px-8 lg:-mt-28">
         {/* Track Now Section */}
         <div className="py-6 md:py-10">
-          <h2 className="font-poppins font-bold text-[35px] lg:text-[50px] text-[#162F65] mb-8 lg:mb-16 leading-tight">
+          {/* Title */}
+          <h2 className="font-poppins font-bold text-[28px] lg:text-[50px] text-[#162F65] mb-8 lg:mb-16 leading-tight">
             Track Now
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* 🖥️ Desktop Layout */}
+          <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left side - Dashboard Image */}
             <div className="order-2 lg:order-1 lg:-ml-42">
               <div className="relative w-full">
@@ -118,7 +120,6 @@ const TrackAndTrace = () => {
                   asking for.
                 </p>
               </div>
-
               <div className="pt-4">
                 <Link href="https://www-n60prd.wisegrid.net/Portals/NEO/Desktop#/login/index">
                   <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-xs sm:text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
@@ -128,17 +129,81 @@ const TrackAndTrace = () => {
               </div>
             </div>
           </div>
+
+          {/* 📱 Mobile Layout */}
+          <div className="block lg:hidden space-y-6">
+            {/* Image first */}
+            <div className="w-full">
+              <Image
+                src="/trackAndTrace_img1.svg"
+                alt="Tracking Portal Dashboard"
+                width={600}
+                height={450}
+                className="w-full h-auto object-contain drop-shadow-2xl"
+              />
+            </div>
+
+            {/* Description */}
+            <div className="space-y-4">
+              <p className="font-poppins font-medium text-[14px] text-[#676767] leading-relaxed">
+                Track and trace your cargo as it makes its journey with the Neo
+                dashboard from Cargowise.
+              </p>
+              <p className="font-poppins font-medium text-[14px] text-[#676767] leading-relaxed">
+                Real-time insights of your transactions, shipments,
+                declarations, and orders give you the visibility you have been
+                asking for.
+              </p>
+            </div>
+
+            {/* Button */}
+            <div className="pt-2">
+              <Link href="https://www-n60prd.wisegrid.net/Portals/NEO/Desktop#/login/index">
+                <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-sm hover:bg-blue-950 hover:scale-105 transition-all duration-300">
+                  Check My Tracking
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Route Visualiser Section */}
         <div className="py-6 md:py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative">
+          {/* Mobile & Tablet Layout */}
+          <div className="block lg:hidden space-y-6">
+            {/* Title */}
+            <h2 className="font-poppins font-bold text-[28px] lg:text-[50px] text-[#162F65] leading-tight">
+              Route Visualiser
+            </h2>
+
+            {/* Image */}
+            <div className="w-full">
+              <Image
+                src="/trackAndTrace_img2.svg"
+                alt="Route Current Booking Log"
+                width={1200}
+                height={650}
+                className="w-full h-auto object-contain drop-shadow-2xl"
+              />
+            </div>
+
+            {/* Description */}
+            <p className="font-poppins font-medium text-[14px] sm:text-[16px] text-[#676767] leading-relaxed">
+              View your shipment&apos;s journey on a global map powered by
+              satellite AIS and flight transponders for complete visibility from
+              Purchase order to delivery. Color-coded alerts highlight delays in
+              departure or arrival, giving you actionable insights.
+            </p>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden lg:grid grid-cols-2 gap-16 items-center relative">
             {/* Left side - Content */}
-            <div className="order-1 lg:order-1 space-y-6 z-10">
-              <h2 className="font-poppins font-bold text-[35px] lg:text-[55px] text-[#162F65] mb-8 lg:mb-2 leading-tight">
+            <div className="order-1 space-y-6 z-10">
+              <h2 className="font-poppins font-bold text-[55px] text-[#162F65] mb-2 leading-tight">
                 Route Visualiser
               </h2>
-              <p className="font-poppins font-medium text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
+              <p className="font-poppins font-medium text-[18px] text-[#676767] leading-relaxed">
                 View your shipment&apos;s journey on a global map powered by
                 satellite AIS and flight transponders for complete visibility
                 from Purchase order to delivery. Color-coded alerts highlight
@@ -147,7 +212,7 @@ const TrackAndTrace = () => {
             </div>
 
             {/* Right side - Route Map Image */}
-            <div className="order-2 lg:order-2 relative -ml-10 lg:-ml-92">
+            <div className="order-2 relative -ml-92">
               <div className="w-full max-w-[1200px] h-auto">
                 <Image
                   src="/trackAndTrace_img2.svg"
