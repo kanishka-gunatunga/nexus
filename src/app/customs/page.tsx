@@ -50,28 +50,6 @@ const CustomsPage = () => {
     <div className="min-h-screen bg-[#F6F6F6] poppins">
       <div className="relative mx-auto block">
         <Nav />
-
-        {/* <div id="hero-section"
-                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
-                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
-                        <Image
-                            src="/why-nexus/banner.svg"
-                            alt="Nexus X Logo"
-                            width={1000}
-                            height={400}
-                            className="w-full h-full object-cover absolute inset-0"
-                        />
-                        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
-                            <div className="text-left px-4">
-                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
-                                    Why Nexus
-                                </h1>
-
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-
         <HeroSection
           title="Customs Clearance & Compliance"
           desktopImage="/customs_hero_banner.svg"
@@ -82,7 +60,7 @@ const CustomsPage = () => {
 
       {/* Customs and Border Processing Section */}
       <section className="py-4 bg-[#F6F6F6] poppins relative lg:-mt-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#162F65] mb-6 lg:mb-8">
             Customs and
             <br />
@@ -175,7 +153,7 @@ const CustomsPage = () => {
 
       {/* Supply Chain Consultancy Section */}
       <section className="py-6 md:py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <PhotoDescriptionSection
             title="Supply Chain Consultancy & Audits"
             paragraph1="Our comprehensive audits uncover inefficiencies across your entire supply chain from procurement to last-mile delivery. We provide actionable insights and customised roadmaps that cut costs and improve service quality. We also guide you through the process of becoming an Australian Trusted Trader (ATT), unlocking benefits such as reduced red tape at the border, priority goods processing, duty deferral options, and a dedicated Australian Border Force account manager."

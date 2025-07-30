@@ -61,7 +61,7 @@ const AirAndSeaFreight = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-18 lg:-mt-28">
         <HeroTitleAndParagraph
           title="Air & Sea Freight Services"
           paragraph1="Offering speed, cost-effectiveness, and reliability, our air and sea freight services are built to match your urgency, budget, and cargo complexity. Whether you're racing against a deadline or coordinating large-scale shipments, we deliver precision logistics, reliable tracking, and personal attention."
@@ -97,7 +97,7 @@ const AirAndSeaFreight = () => {
                     </div>
                 ))} */}
 
-        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl  sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
             title="Air Freight Services"
             paragraph1="When time is critical, our air freight solutions move your cargo reliably. We tap into a global network of carriers and charter options, ensuring capacity even during peak congestion. You'll have end-to-end visibility from pickup to final delivery - no guesswork, no last-minute rate spikes"
@@ -113,7 +113,7 @@ const AirAndSeaFreight = () => {
           />
         </div>
 
-        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
             title="Sea Freight Services"
             paragraph1="Our sea freight services are engineered for businesses moving volume across borders, without compromising control. Whether you need FCL, LCL, or break-bulk, we offer consistent scheduling, locked-in rates, and transparent coordination - all backed by powerful systems, efficient tracking, and on-ground expertise."
@@ -129,7 +129,7 @@ const AirAndSeaFreight = () => {
           />
         </div>
 
-        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
             title="Sea-Air Combination"
             paragraph1="For shipments that can't justify full air freight costs but can't afford full sea timelines, our sea-air hybrid options provide a strategic alternative. We ship to a transhipment hub via sea, then fly the cargo to its final destination, slashing lead times but without high air freight premiums."

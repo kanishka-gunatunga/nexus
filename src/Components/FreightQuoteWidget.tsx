@@ -202,7 +202,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
         <>
             {/* Backdrop */}
             <div
-                className="fixed inset-0 backdrop-blur-[4px] bg-black/10 z-40 transition-opacity duration-300"
+                className="fixed inset-0 backdrop-blur-[3px] bg-black/10 z-50 transition-opacity duration-300"
                 onClick={onClose}
             />
 
