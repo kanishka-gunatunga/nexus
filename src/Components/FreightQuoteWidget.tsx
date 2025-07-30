@@ -418,7 +418,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                                         <option value="25-50" className="bg-[#2A2A2A] text-white">
                                             25 to 50
                                         </option>
-                                        <option value="50" className="bg-[#2A2A2A] text-white">
+                                        <option value="More than 50" className="bg-[#2A2A2A] text-white">
                                             More than 50
                                         </option>
                                     </select>
