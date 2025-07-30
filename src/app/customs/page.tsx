@@ -196,9 +196,9 @@ const CustomsPage = () => {
               Global Strength
             </h2>
             <Link href="/whyNexus">
-            <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-              Why Nexus
-            </button>
+              <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
+                Why Nexus
+              </button>
             </Link>
           </div>
 

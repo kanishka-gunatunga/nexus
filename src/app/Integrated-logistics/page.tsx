@@ -47,7 +47,7 @@ const integratedLogistics = () => {
                 </div> */}
       </div>
 
-      <div className="relative md:-mt-25 lg:-mt-20 xl:-mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-188">
+      <div className="relative md:-mt-25 lg:-mt-20 xl:-mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <HeroTitleAndParagraph
           title="Integrated Logistics & Special Projects"
           paragraph1="Seamlessly manage your entire supply chain with integrated logistics designed for Australia's unique challenges. Our scalable solutions bring together warehousing, fulfilment, and specialised transport - giving you full visibility, tighter control, and cost efficiency in one streamlined service."
@@ -55,7 +55,7 @@ const integratedLogistics = () => {
         />
 
         {/* first card */}
-        <div className="max-w-7xl sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
             title="3PL & Warehousing"
             paragraph1="Scalable, secure, and strategically positioned, our warehousing network is designed to flex with your business. From pallet storage to bonded facilities, our third-party logistics solutions ensure your goods are always accessible, protected, and ready to move."
@@ -71,7 +71,7 @@ const integratedLogistics = () => {
         </div>
 
         {/* second card */}
-        <div className="max-w-7xl sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
             title="Fulfilment & E-Commerce Services"
             paragraph1="We power fulfilment for brands that can't afford to miss a beat. Whether you're managing a multichannel retail operation or shipping direct-to-consumer, we handle pick-pack, kitting, labelling, and returns with speed and precision."
@@ -87,7 +87,7 @@ const integratedLogistics = () => {
         </div>
 
         {/* third card */}
-        <div className="max-w-7xl sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
             title="Inventory Management & Optimization"
             paragraph1="Carrying too much stock can tie up your capital, but carrying too little puts order fulfilment at risk. We can help you strike the perfect balance, using advanced WMS platforms and demand forecasting. You'll enjoy reduced storage costs, avoid stockouts, and keep your supply chain agile."
@@ -103,7 +103,7 @@ const integratedLogistics = () => {
         </div>
 
         {/* fourth card */}
-        <div className="max-w-7xl sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
           <PhotoDescriptionSection
             title="Special Project Transport"
             paragraph1="From heavy-lift to out-of-gauge, we're always up for the toughest transport challenges. Our team manages permits, escorts, route planning, and intermodal transfers, so your cargo moves smoothly, safely, and on schedule."
@@ -144,9 +144,9 @@ const integratedLogistics = () => {
             Personalized Service
           </h2>
           <Link href="/whyNexus">
-          <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-            Why Nexus
-          </button>
+            <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
+              Why Nexus
+            </button>
           </Link>
         </div>
       </div>
