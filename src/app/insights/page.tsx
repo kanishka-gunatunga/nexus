@@ -3,85 +3,92 @@ import { Search } from "lucide-react";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React, { useEffect, useState } from "react";
+import React from "react";
+// import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
-import { insights } from "@/sanity/lib/insights";
+// import { insights } from "@/sanity/lib/insights";
 
-interface insightData {
-  heroTitle?: string;
-  Page_subtitle?: string;
-  main_post?: {
-    postTitle?: string;
-    Post_short_description?: string;
-    postContent?: string;
-    slug?: string;
-    postImage?: string;
-  };
+// interface insightData {
+//   heroTitle?: string;
+//   Page_subtitle?: string;
+//   main_post?: {
+//     postTitle?: string;
+//     Post_short_description?: string;
+//     postContent?: string;
+//     slug?: string;
+//     postImage?: string;
+//   };
 
-  main_post_button_text?: string;
-  right_section_post_1?: {
-    postTitle?: string;
-    Post_short_description?: string;
-    postContent?: string;
-    slug?: string;
-    postImage?: string;
-  };
+//   main_post_button_text?: string;
+//   right_section_post_1?: {
+//     postTitle?: string;
+//     Post_short_description?: string;
+//     postContent?: string;
+//     slug?: string;
+//     postImage?: string;
+//   };
 
-  right_section_post_2?: {
-    postTitle?: string;
-    Post_short_description?: string;
-    postContent?: string;
-    slug?: string;
-    postImage?: string;
-  };
+//   right_section_post_2?: {
+//     postTitle?: string;
+//     Post_short_description?: string;
+//     postContent?: string;
+//     slug?: string;
+//     postImage?: string;
+//   };
 
-  latest_insights_title?: {
-    postTitle?: string;
-    Post_short_description?: string;
-    postContent?: string;
-    slug?: string;
-    postImage?: string;
-  }[];
+//   latest_insights_title?: {
+//     postTitle?: string;
+//     Post_short_description?: string;
+//     postContent?: string;
+//     slug?: string;
+//     postImage?: string;
+//   }[];
 
-  trending_insights_title?: {
-    postTitle?: string;
-    Post_short_description?: string;
-    postContent?: string;
-    slug?: string;
-    postImage?: string;
-  }[];
-}
+//   trending_insights_title?: {
+//     postTitle?: string;
+//     Post_short_description?: string;
+//     postContent?: string;
+//     slug?: string;
+//     postImage?: string;
+//   }[];
+// }
 
 const InsightsPage = () => {
 
 
-  const [pageData, setPageData] = useState<insightData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await insights();
+  // const [pageData, setPageData] = useState<insightData | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
 
 
-        if (data && data.length > 0) {
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch Air & Sea Freight data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await insights();
 
-    fetchData();
-  }, []);
+  //       // should be remove
+  //       console.log(pageData);
+  //       console.log("loading", loading);
+  //       console.log("error", error);
+
+
+  //       if (data && data.length > 0) {
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch Air & Sea Freight data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   // if (loading) {
   //   return;

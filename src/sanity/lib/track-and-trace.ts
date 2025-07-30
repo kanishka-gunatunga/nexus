@@ -51,8 +51,13 @@ export const trackAndTrace = async () => {
     card_description,
     "card_icon": card_icon.asset->url
   },
-  contact_text,
-  contact_number,
+ contact_first_text,
+ underline_text,
+ alert_message,
+ middle_text,
+ contact_number,
+ underline_text_2,
+ contact_link,
   bottom_banner{
     banner_title,
     button_text,

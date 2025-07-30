@@ -1,17 +1,13 @@
-
-
-
 "use client"
 import LinkedinSection from "@/Components/LinkedinSection";
 import React, { useEffect, useState } from "react";
 import Nav from "@/Components/Nav";
 import HeroSection from "@/Components/HeroSection";
 import { termsAndConditions } from "@/sanity/lib/terms-and-conditions";
-import { PortableText } from "@portabletext/react";
-
+import { PortableText, PortableTextBlock } from "@portabletext/react";
 interface TermsAndConditionsData {
   hero_title?: string;
-  terms_and_conditions?: Array<any>;
+  terms_and_conditions?: PortableTextBlock[]; 
 }
 
 const TermsAndConditions = () => {

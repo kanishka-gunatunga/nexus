@@ -31,6 +31,7 @@ export const whyNexus = async () => {
   },
   section_2_title,
   section_2_description,
+  "section_3_image": section_3_image.asset->url,
   section_3_title_1,
   section_3_description_1,
   section_3_main_title,

@@ -13,7 +13,7 @@ type AccordianItemProp = {
 type AccordianProps = {
   image: string;
   description?: string;
-  accordionItems: AccordianItemProp[]; // Now expects an array of your Sanity AccordianItem structure
+  accordionItems: AccordianItemProp[];
   classname?: string;
 };
 

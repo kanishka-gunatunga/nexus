@@ -87,12 +87,12 @@ const ServicesPage = () => {
     return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
   }
 
-  const servicescards:ServiceCard[] = [
-    pageData.service_card_1,
-    pageData.service_card_2,
-    pageData.service_card_3,
-    pageData.service_card_4,
-  ].filter(Boolean) as ServiceCard[];
+  // const servicescards:ServiceCard[] = [
+  //   pageData.service_card_1,
+  //   pageData.service_card_2,
+  //   pageData.service_card_3,
+  //   pageData.service_card_4,
+  // ].filter(Boolean) as ServiceCard[];
 
   const services1: Service[] = [
 

@@ -37,8 +37,13 @@ interface traceAndTraceData {
   IconCard_4?: IconCard;
   IconCard_5?: IconCard;
   IconCard_6?: IconCard;
-  contact_text?: string;
+  contact_link?: string;
+  underline_text_2?: string;
   contact_number?: string;
+  middle_text?: string;
+  alert_message?: string;
+  underline_text?: string;
+  contact_first_text?: string;
   bottom_banner?: {
     banner_title?: string;
     button_text?: string;
@@ -93,43 +98,49 @@ const TrackAndTrace = () => {
     return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
   }
 
+  const IconCardArray: IconCard[] = [
+    pageData.IconCard_1,
+    pageData.IconCard_2,
+    pageData.IconCard_3,
+    pageData.IconCard_4,
+    pageData.IconCard_5,
+  ].filter(Boolean) as IconCard[];
+
   const features = [
     {
-      icon: "/cargo_icon.svg",
-      title: "Cargo Tracker",
+      icon: IconCardArray[0]?.card_icon || "/cargo_icon.svg",
+      title: IconCardArray[0]?.card_title || "Cargo Tracker",
       description:
-        "A Global map, showing a complete view of your air and sea freight status end-to-end, including every consignment's current location with accurate ETAs, so you can plan better.",
+        IconCardArray[0]?.card_description || "A Global map, showing a complete view of your air and sea freight status end-to-end, including every consignment's current location with accurate ETAs, so you can plan better.",
     },
     {
-      icon: "/performance_icon.svg",
-      title: "Performance Reports",
+      icon: IconCardArray[1]?.card_icon || "/performance_icon.svg",
+      title: IconCardArray[1]?.card_title || "Performance Reports",
       description:
-        "Access 12-month trends on shipping performance, container behaviour across carriers and ports, and potential delays. Visual performance data lets you identify patterns and model future outcomes, helping you optimize your operations.",
+        IconCardArray[1]?.card_description || "Access 12-month trends on shipping performance, container behaviour across carriers and ports, and potential delays. Visual performance data lets you identify patterns and model future outcomes, helping you optimize your operations.",
     },
     {
-      icon: "/order_icon.svg",
-      title:
-        "Order Manager for customers with large volumes and multiple shipments",
-      description:
-        "Full Control from purchase order to Delivery, including providing your team and suppliers with secure, real-time access to shipment data. Manage cargo releases, shipment optimization, packing manifests, exceptions, and approvals in one central platform, streamlining the entire fulfilment process.",
+      icon: IconCardArray[2]?.card_icon || "/order_icon.svg",
+      title: IconCardArray[2]?.card_title || "Order Manager for customers with large volumes and multiple shipments",
+      description: IconCardArray[2]?.card_description || "Full Control from purchase order to Delivery, including providing your team and suppliers with secure, real-time access to shipment data. Manage cargo releases, shipment optimization, packing manifests, exceptions, and approvals in one central platform, streamlining the entire fulfilment process.",
     },
     {
-      icon: "/time_icon.svg",
-      title: "Real-Time Alerts",
+      icon: IconCardArray[3]?.card_icon || "/time_icon.svg",
+      title: IconCardArray[3]?.card_title || "Real-Time Alerts",
       description:
-        "Automated notifications on delays, disruptions, and milestone updates let your team take immediate action, avoiding surprises and improving customer service.",
+        IconCardArray[3]?.card_description || "Automated notifications on delays, disruptions, and milestone updates let your team take immediate action, avoiding surprises and improving customer service.",
     },
     {
-      icon: "/co2_icon.svg",
-      title: "CO₂ Visibility",
+      icon: IconCardArray[4]?.card_icon || "/co2_icon.svg",
+      title: IconCardArray[4]?.card_title || "CO₂ Visibility",
       description:
-        "Neo provides full visibility into your carbon emissions per shipment, enabling your team to track sustainability goals, reduce waste, and support greener supply chain initiatives.",
+        IconCardArray[4]?.card_description || "Neo provides full visibility into your carbon emissions per shipment, enabling your team to track sustainability goals, reduce waste, and support greener supply chain initiatives.",
     },
     {
-      icon: "/multiplatform_icon.svg",
-      title: "Multiplatform Accessibility",
+      icon: IconCardArray[5]?.card_icon || "/multiplatform_icon.svg",
+      title: IconCardArray[5]?.card_title || "Multiplatform Accessibility",
       description:
-        "Neo's mobile-responsive dashboards provide instant access to real-time insights from any device.",
+        IconCardArray[5]?.card_description || "Neo's mobile-responsive dashboards provide instant access to real-time insights from any device.",
     },
   ];
 
@@ -171,7 +182,7 @@ const TrackAndTrace = () => {
         {/* Track Now Section */}
         <div className="py-6 md:py-10">
           <h2 className="font-poppins font-bold text-[35px] lg:text-[50px] text-[#162F65] mb-8 lg:mb-16 leading-tight">
-            Track Now
+            {pageData.section_1_title || "Track Now"}
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -179,7 +190,7 @@ const TrackAndTrace = () => {
             <div className="order-2 lg:order-1 lg:-ml-42">
               <div className="relative w-full">
                 <Image
-                  src="/trackAndTrace_img1.svg"
+                  src={pageData.section_1?.image || "/trackAndTrace_img1.svg"}
                   alt="Tracking Portal Dashboard"
                   width={600}
                   height={450}
@@ -192,20 +203,17 @@ const TrackAndTrace = () => {
             <div className="order-1 lg:order-2 space-y-6">
               <div className="space-y-4">
                 <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
-                  Track and trace your cargo as it makes its journey with the
-                  Neo dashboard from Cargowise.
+                  {pageData.section_1?.paragraph1 || "Track and trace your cargo as it makes its journey with the Neo dashboard from Cargowise."}
                 </p>
                 <p className="font-poppins font-medium sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed">
-                  Real-time insights of your transactions, shipments,
-                  declarations, and orders give you the visibility you have been
-                  asking for.
+                  {pageData.section_1?.paragraph2 || "Real-time insights of your transactions, shipments, declarations, and orders give you the visibility you have been asking for."}
                 </p>
               </div>
 
               <div className="pt-4">
-                <Link href="https://www-n60prd.wisegrid.net/Portals/NEO/Desktop#/login/index">
+                <Link href={pageData.section_1?.buttonLink || "https://www-n60prd.wisegrid.net/Portals/NEO/Desktop#/login/index"}>
                   <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
-                    Check My Tracking
+                    {pageData.section_1?.buttonText || "Check My Tracking"}
                   </button>
                 </Link>
               </div>
@@ -219,13 +227,10 @@ const TrackAndTrace = () => {
             {/* Left side - Content */}
             <div className="order-1 lg:order-1 space-y-6 z-10">
               <h2 className="font-poppins font-bold text-[35px] lg:text-[55px] text-[#162F65] mb-8 lg:mb-2 leading-tight">
-                Route Visualiser
+                {pageData.section_2_title || "Route Visualiser"}
               </h2>
               <p className="font-poppins font-medium sm:text-[18px] md:text-[18px] lg:text-[22px] text-[#676767] leading-relaxed">
-                View your shipment&apos;s journey on a global map powered by
-                satellite AIS and flight transponders for complete visibility
-                from Purchase order to delivery. Color-coded alerts highlight
-                delays in departure or arrival, giving you actionable insights.
+                {pageData.section_2_description || "View your shipment&apos;s journey on a global map powered by satellite AIS and flight transponders for complete visibility from Purchase order to delivery. Color-coded alerts highlight delays in departure or arrival, giving you actionable insights."}
               </p>
             </div>
 
@@ -233,7 +238,7 @@ const TrackAndTrace = () => {
             <div className="order-2 lg:order-2 relative -ml-10 lg:-ml-92">
               <div className="w-full max-w-[1200px] h-auto">
                 <Image
-                  src="/trackAndTrace_img2.svg"
+                  src={pageData.section_2_image || "/trackAndTrace_img2.svg"}
                   alt="Route Current Booking Log"
                   width={1200}
                   height={650}
@@ -306,32 +311,33 @@ const TrackAndTrace = () => {
 
               {/* Text with links */}
               <p className="font-poppins sm:text-[24px] md:text-[24px] lg:text-[26px] text-white leading-snug">
-                Call Richard on{" "}
+                {pageData.contact_first_text || "Call Richard on"}{" "}
                 <span
                   className="underline cursor-pointer"
                   onClick={() => {
+                    const message = pageData.alert_message || "Do you want to call Richard?"; 
                     const confirmed = window.confirm(
-                      "Do you want to call Richard?"
+                      message || "Do you want to call Richard?"
                     );
                     if (confirmed) {
-                      window.location.href = "tel:+61730643904";
+                      window.location.href = `tel:${pageData.contact_number || "+61730643904"}`;
                     }
                   }}
                 >
-                  Number
-                </span>{" "}
-                for a free demo or to{" "}
-                <Link href="/contactUs" className="underline cursor-pointer">
-                  Reach Us
-                </Link>
-                .
-              </p>
-            </div>
+                {pageData.underline_text || "Number"}
+              </span>{" "}
+              {pageData.middle_text || "for a free demo or to"}{" "}
+              <Link href={pageData.contact_link || "/contactUs"} className="underline cursor-pointer">
+                {pageData.underline_text_2 || "Reach Us"}
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </div>
+    </div>
 
-      {/* Bottom Section with Background Image */}
+      {/* Bottom Section with Background Image */ }
       <div
         className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden"
         style={{ marginTop: "100px" }}
@@ -366,7 +372,7 @@ const TrackAndTrace = () => {
       <div className="py-6 lg:py-12">
         <LinkedinSection />
       </div>
-    </div>
+    </div >
   );
 };
 
