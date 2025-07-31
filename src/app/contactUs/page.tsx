@@ -1,12 +1,35 @@
 "use client";
 
-import React, { useState, ChangeEvent, FormEvent } from "react";
-import { ChevronDown } from "lucide-react";
+import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { ChevronDown, Send } from "lucide-react";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
+import { contactUs } from "@/sanity/lib/contact-us";
+// Import the Sanity client from your client file
+import client from "../../../client";
 
+interface contactItem {
+  icon?: string;
+  title?: string;
+  contact_info?: string;
+}
+
+interface pageData {
+  heroTitle: string;
+  contact_form_title: string;
+  contact_form_description_1: string;
+  contact_form_description_2: string;
+  contact_item_1: contactItem;
+  contact_item_2: contactItem;
+  contact_item_3: contactItem;
+  x_link?: string;
+  linkedin_link?: string;
+  facebook_link?: string;
+  instagram_link?: string;
+  map_link?: string;
+}
 
 interface FormData {
   firstName: string;
@@ -23,6 +46,8 @@ interface FormData {
 }
 
 export default function ContactPage() {
+  const [submissionStatus, setSubmissionStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -56,6 +81,44 @@ export default function ContactPage() {
     }));
   };
 
+  const [pageData, setPageData] = useState<pageData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await contactUs();
+
+        if (data && data.length > 0) {
+          setPageData(data[0]);
+        } else {
+          setPageData(null);
+        }
+      } catch (err) {
+        console.error("Failed to fetch contactUs data:", err);
+        setError("Failed to load page content.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  }
+
+  if (!pageData) {
+    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  }
+
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
 
@@ -84,26 +147,24 @@ export default function ContactPage() {
         "Company email must be between 6 and 254 characters.";
     }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required.";
-    } else if (!/^\+\d{1,4}(?:\s\d{1,4}){1,4}$/.test(formData.phone)) {
-      newErrors.phone =
-        "Phone number must start with + and be in a valid format (e.g., +61 X XXXX XXXX).";
-    }
+    // if (!formData.phone.trim()) {
+    //   newErrors.phone = "Phone number is required.";
+    // } else if (!/^\+\d{1,4}(?:\s\d{1,4}){1,4}$/.test(formData.phone)) {
+    //   newErrors.phone =
+    //     "Phone number must start with + and be in a valid format (e.g., +61 X XXXX XXXX).";
+    // }
 
     if (!formData.companyName.trim()) {
       newErrors.companyName = "Company name is required.";
     }
 
-    if (
-      formData.website.trim() &&
-      !/^https?:\/\/\S+\.\S+$/.test(formData.website)
-    ) {
-      newErrors.website = "Invalid website URL.";
-    }
+    // if (
+    //   formData.website.trim() &&
+    //   !/^https?:\/\/\S+\.\S+$/.test(formData.website)
+    // ) {
+    //   newErrors.website = "Invalid website URL.";
+    // }
 
-    // Optional: address and message — no required validation
-    // Only validate city and province if filled
     if (formData.city.trim() && !/^[a-zA-Z\s'-]+$/.test(formData.city)) {
       newErrors.city = "City must contain only letters.";
     }
@@ -119,11 +180,49 @@ export default function ContactPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  // Updated handleSubmit to use the imported client
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Form submitted:", formData);
-      // You can submit your form here
+      setSubmissionStatus("submitting");
+      try {
+        // Use the imported client to create a new contact submission document in Sanity
+        const result = await client.create({
+          _type: "contactSubmission",
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          companyEmail: formData.companyEmail,
+          phone: formData.phone,
+          companyName: formData.companyName,
+          website: formData.website,
+          address: formData.address,
+          city: formData.city,
+          province: formData.province,
+          topic: formData.topic,
+          message: formData.message,
+          submittedAt: new Date().toISOString(),
+        });
+
+        console.log("Form submitted to Sanity:", result);
+        setSubmissionStatus("success");
+        // Reset form after successful submission
+        setFormData({
+          firstName: "",
+          lastName: "",
+          companyEmail: "",
+          phone: "",
+          companyName: "",
+          website: "",
+          address: "",
+          city: "",
+          province: "",
+          topic: "HS Classifications & Duty Optimisation",
+          message: "",
+        });
+      } catch (err) {
+        console.error("Failed to submit form to Sanity:", err);
+        setSubmissionStatus("error");
+      }
     } else {
       console.log("Validation failed!");
     }
@@ -148,28 +247,6 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[#F6F6F6] poppins">
       <div className="relative mx-auto block">
         <Nav />
-
-        {/* <div id="hero-section"
-                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
-                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
-                        <Image
-                            src="/why-nexus/banner.svg"
-                            alt="Nexus X Logo"
-                            width={1000}
-                            height={400}
-                            className="w-full h-full object-cover absolute inset-0"
-                        />
-                        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
-                            <div className="text-left px-4">
-                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
-                                    Why Nexus
-                                </h1>
-
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-
         <HeroSection
           title="DON'T HESITATE TO CONTACT US"
           desktopImage="/contactUs_hero_banner.svg"
@@ -181,7 +258,7 @@ export default function ContactPage() {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 lg:-mt-28 poppins">
         {/* Top Section - Contact Form */}
-        <div className="flex flex-col lg:flex-row  overflow-hidden">
+        <div className="flex flex-col lg:flex-row overflow-hidden">
           {/* Left Panel - Contact Info */}
           <div
             className="lg:w-2/5 xl:w-[555px] p-8 lg:p-12 relative rounded-lg"
@@ -192,81 +269,78 @@ export default function ContactPage() {
                 className="mb-4 font-poppins font-semibold text-[28px] leading-[40px] tracking-[0.03em] md:text-[32px] md:leading-[48px] lg:text-[39px] lg:leading-[38px]"
                 style={{ color: "#162F65" }}
               >
-                We&apos;re here to help.
+                {pageData?.heroTitle || "We&apos;re here to help."}
               </h1>
 
               <p className="mb-2 font-poppins font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] text-left text-[#0F2043]">
-                Tell us as much as you can... Nothing is too complex for us...
+                {pageData?.contact_form_description_1 || "Tell us as much as you can... Nothing is too complex for us..."}
               </p>
 
               <p className="mb-2 font-poppins font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] text-left text-[#0F2043]">
-                Commercial shipments only - no personal effects.
+                {pageData?.contact_form_description_2 || "Commercial shipments only - no personal effects."}
               </p>
 
               {/* Contact Methods */}
               <div className="space-y-6 mb-8 lg:mt-26 sm:mt-4 mt-4">
                 <div className="flex items-start space-x-3">
                   <Image
-                    src="/call_icon.png"
+                    src={pageData?.contact_item_1.icon || "/call_icon.png"}
                     alt="Phone Icon"
                     width={20}
                     height={20}
                     className="mt-1"
                   />
-
                   <div>
                     <h3
                       className="font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] tracking-[0.013em] mb-1 font-poppins"
                       style={{ color: "#162F65" }}
                     >
-                      Call Us
+                      {pageData?.contact_item_1.title || "Call Us"}
                     </h3>
                     <p className="font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-justify text-[#162F65]">
-                      +61 7 3737 4310
+                      {pageData?.contact_item_1.contact_info || "+61 7 3737 4310"}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3">
                   <Image
-                    src="/mail_icon.png"
+                    src={pageData?.contact_item_2.icon || "/mail_icon.png"}
                     alt="mail Icon"
                     width={20}
                     height={20}
                     className="mt-1"
                   />
-
                   <div>
                     <h3
                       className="font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] tracking-[0.013em] mb-1 font-poppins"
                       style={{ color: "#162F65" }}
                     >
-                      Send Us Mail
+                      {pageData?.contact_item_2.title || "Send Us Mail"}
                     </h3>
                     <p className="font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-justify text-[#162F65]">
-                      enquiries@nexuslogix.com.au
+                      {pageData?.contact_item_2.contact_info || "enquiries@nexuslogix.com.au"}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3">
                   <Image
-                    src="/location_icon.png"
+                    src={pageData?.contact_item_3.icon || "/location_icon.png"}
                     alt="location Icon"
                     width={20}
                     height={20}
                     className="mt-1"
                   />
-
                   <div>
                     <h3
                       className="font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] tracking-[0.013em] mb-1 font-poppins"
                       style={{ color: "#162F65" }}
                     >
-                      We Are Located
+                      {pageData?.contact_item_3.title || "We Are Located"}
                     </h3>
                     <p className="font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-justify text-[#162F65]">
-                      Level 38, 71 Eagle Street, Brisbane
+                      {pageData?.contact_item_3.contact_info || "Level 38, 71 Eagle Street, Brisbane"}
                     </p>
                   </div>
                 </div>
@@ -275,9 +349,8 @@ export default function ContactPage() {
 
             {/* Social Media Icons - Bottom Left */}
             <div className="absolute bottom-4 sm:bottom-4 md:bottom-4 lg:bottom-8 left-8 flex space-x-3">
-              {/* Twitter */}
               <a
-                href="https://www.facebook.com/YourPage"
+                href={pageData?.x_link || "https://www.facebook.com"}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -289,10 +362,8 @@ export default function ContactPage() {
                   className="w-8 h-8"
                 />
               </a>
-
-              {/* Google+ */}
               <a
-                href="https://www.instagram.com/YourProfile"
+                href={pageData?.linkedin_link || "https://www.linkedin.com"}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -304,10 +375,8 @@ export default function ContactPage() {
                   className="w-8 h-8"
                 />
               </a>
-
-              {/* Facebook */}
               <a
-                href="https://www.linkedin.com/company/YourCompany"
+                href={pageData?.facebook_link || "https://www.facebook.com"}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -319,10 +388,8 @@ export default function ContactPage() {
                   className="w-8 h-8"
                 />
               </a>
-
-              {/* Instagram */}
               <a
-                href="https://www.youtube.com/YourChannel"
+                href={pageData?.instagram_link || "https://www.youtube.com"}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -340,6 +407,16 @@ export default function ContactPage() {
           {/* Right Panel - Contact Form */}
           <div className="lg:w-3/5 xl:w-2/3 p-8 lg:p-12 bg-[#F6F6F6]">
             <div className="max-w-2xl">
+              {submissionStatus === "submitting" && (
+                <p className="text-blue-600 text-sm mb-4">Submitting your request...</p>
+              )}
+              {submissionStatus === "success" && (
+                <p className="text-green-600 text-sm mb-4">Your request has been submitted successfully!</p>
+              )}
+              {submissionStatus === "error" && (
+                <p className="text-red-600 text-sm mb-4">Failed to submit your request. Please try again later.</p>
+              )}
+
               {/* Contact Information */}
               <div className="mb-8">
                 <h2
@@ -362,14 +439,10 @@ export default function ContactPage() {
                         required
                         className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                       />
-                      <span className="absolute right-0 bottom-2 text-black">
-                        *
-                      </span>
+                      <span className="absolute right-0 bottom-2 text-black">*</span>
                     </div>
                     {errors.firstName && (
-                      <p className="text-red-600 text-sm mt-1">
-                        {errors.firstName}
-                      </p>
+                      <p className="text-red-600 text-sm mt-1">{errors.firstName}</p>
                     )}
                   </div>
                   <div className="relative">
@@ -385,14 +458,10 @@ export default function ContactPage() {
                         required
                         className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                       />
-                      <span className="absolute right-0 bottom-2 text-black">
-                        *
-                      </span>
+                      <span className="absolute right-0 bottom-2 text-black">*</span>
                     </div>
-                    {errors.firstName && (
-                      <p className="text-red-600 text-sm mt-1">
-                        {errors.lastName}
-                      </p>
+                    {errors.lastName && (
+                      <p className="text-red-600 text-sm mt-1">{errors.lastName}</p>
                     )}
                   </div>
                   <div className="relative">
@@ -408,14 +477,10 @@ export default function ContactPage() {
                         required
                         className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                       />
-                      <span className="absolute right-0 bottom-2 text-black">
-                        *
-                      </span>
+                      <span className="absolute right-0 bottom-2 text-black">*</span>
                     </div>
-                    {errors.firstName && (
-                      <p className="text-red-600 text-sm mt-1">
-                        {errors.companyEmail}
-                      </p>
+                    {errors.companyEmail && (
+                      <p className="text-red-600 text-sm mt-1">{errors.companyEmail}</p>
                     )}
                   </div>
                   <div className="relative">
@@ -432,14 +497,10 @@ export default function ContactPage() {
                         required
                         className="w-full font-poppins font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
                       />
-                      <span className="absolute right-0 bottom-2 text-black">
-                        *
-                      </span>
+                      <span className="absolute right-0 bottom-2 text-black">*</span>
                     </div>
-                    {errors.firstName && (
-                      <p className="text-red-600 text-sm mt-1">
-                        {errors.phone}
-                      </p>
+                    {errors.phone && (
+                      <p className="text-red-600 text-sm mt-1">{errors.phone}</p>
                     )}
                   </div>
                 </div>
@@ -467,14 +528,10 @@ export default function ContactPage() {
                         required
                         className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                       />
-                      <span className="absolute right-0 bottom-2 text-black">
-                        *
-                      </span>
+                      <span className="absolute right-0 bottom-2 text-black">*</span>
                     </div>
-                    {errors.firstName && (
-                      <p className="text-red-600 text-sm mt-1">
-                        {errors.companyName}
-                      </p>
+                    {errors.companyName && (
+                      <p className="text-red-600 text-sm mt-1">{errors.companyName}</p>
                     )}
                   </div>
                   <div>
@@ -488,10 +545,8 @@ export default function ContactPage() {
                       onChange={handleInputChange}
                       className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                     />
-                    {errors.firstName && (
-                      <p className="text-red-600 text-sm mt-1">
-                        {errors.website}
-                      </p>
+                    {errors.website && (
+                      <p className="text-red-600 text-sm mt-1">{errors.website}</p>
                     )}
                   </div>
                 </div>
@@ -507,9 +562,7 @@ export default function ContactPage() {
                     className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                   />
                   {errors.address && (
-                    <p className="text-red-600 text-sm mt-1">
-                      {errors.address}
-                    </p>
+                    <p className="text-red-600 text-sm mt-1">{errors.address}</p>
                   )}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -540,9 +593,7 @@ export default function ContactPage() {
                       className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2 placeholder-[#676767]"
                     />
                     {errors.province && (
-                      <p className="text-red-600 text-sm mt-1">
-                        {errors.province}
-                      </p>
+                      <p className="text-red-600 text-sm mt-1">{errors.province}</p>
                     )}
                   </div>
                 </div>
@@ -566,9 +617,7 @@ export default function ContactPage() {
                       {formData.topic}
                     </span>
                     <ChevronDown
-                      className={`w-5 h-5 transition-transform ${
-                        isTopicOpen ? "rotate-180" : ""
-                      }`}
+                      className={`w-5 h-5 transition-transform ${isTopicOpen ? "rotate-180" : ""}`}
                     />
                   </button>
                   {isTopicOpen && (
@@ -631,7 +680,8 @@ export default function ContactPage() {
               <div className="text-right">
                 <button
                   onClick={handleSubmit}
-                  className="px-8 py-3 font-poppins font-medium text-[16px] md:text-[20px] lg:text-[25px] leading-[100%] tracking-[0em] text-white rounded-md hover:bg-blue-950 hover:scale-105 transition-all duration-300"
+                  disabled={submissionStatus === "submitting"}
+                  className={`px-8 py-3 font-poppins font-medium text-[16px] md:text-[20px] lg:text-[25px] leading-[100%] tracking-[0em] text-white rounded-md hover:bg-blue-950 hover:scale-105 transition-all duration-300 ${submissionStatus === "submitting" ? "opacity-50 cursor-not-allowed" : ""}`}
                   style={{ backgroundColor: "#162F65" }}
                 >
                   Submit My Request

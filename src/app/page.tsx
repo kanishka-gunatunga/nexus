@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { homePage } from '../../src/sanity/lib/homePage'
+// import { p } from "framer-motion/client";
 
 
 interface iconCard {
@@ -51,7 +52,8 @@ interface homePageData {
   section_2_subtitle?: string;
   section_2_button_text?: string;
   section_2_button_link?: string;
-  section_3_title?: string;
+  section_3_title_line_1?: string;
+  section_3_title_line_2?: string;
   section_3_column_1_count?: number;
   section_3_column_1_text?: string;
   section_3_column_2_count?: number;
@@ -179,59 +181,100 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [mobileImages.length]);
 
-  const sections = [
+
+  interface photoSectionDescriptionItem {
+    title: string;
+    paragraph_1: string;
+    paragraph_2: string;
+    imageSrc: string;
+    imageAlt: string;
+    reverse: boolean;
+    buttonTitle: string;
+    buttonLink: string;
+  }
+
+  const sections: photoSectionDescriptionItem[] = [
     {
-      title: "Who is Nexus Logix",
-      description:
-        "Homegrown in Australia and backed by global expertise, we strive to be your responsive, agile freight and logistics partner. \n\nAs a player in a global supply chain, you are like an F1 race driver, which means every second counts. That's why we're your dedicated pit crew, ever ready to support your cargo in motion.",
-      imageSrc: "/home/Nexus-Logix.png",
-      imageAlt: "Nexus Logix Team",
+      title: pageData?.section_5?.title || "Who is Nexus Logix",
+      paragraph_1:
+        pageData?.section_5?.paragraph1 ||
+        "Homegrown in Australia and backed by global expertise, we strive to be your responsive, agile freight and logistics partner.",
+      paragraph_2:
+        pageData?.section_5?.paragraph2 ||
+        "As a player in a global supply chain, you are like an F1 race driver, which means every second counts. That's why we're your dedicated pit crew, ever ready to support your cargo in motion.",
+      imageSrc: pageData?.section_5?.image || "/home/Nexus-Logix.png",
+      imageAlt: pageData?.section_5?.imageAlt || "Nexus Logix Team",
       reverse: false,
-      buttonTitle: "Explore More",
+      buttonTitle: pageData?.section_5?.buttonText || "Explore More",
+      buttonLink: pageData?.section_5?.buttonLink || "/whyNexus",
     },
     {
-      title: "Your Supply Chain is Now Visible, Measurable, and Transparent",
-      description:
-        "50% of customers track their shipments - You can too! \n\nPowered by Neo, Nexus Logix delivers live tracking that shows your shipment's exact location on an interactive world map in real time. Get automated milestone alerts, 12-month performance stats, financial summaries, and detailed <span class='co2-highlight'>CO₂</span> emission data for every shipment all accessible on any device, right at your fingertips.",
-      imageSrc: "/CargoWise_neo_logo.svg",
-      imageAlt: "Cargo Tracking",
+      title: pageData?.section_6?.title || "Your Supply Chain is Now Visible, Measurable, and Transparent",
+      paragraph_1:
+        pageData?.section_6?.paragraph1 ||
+        "50% of customers track their shipments - You can too! \n\n",
+      paragraph_2:
+        pageData?.section_6?.paragraph2 ||
+        "Powered by Neo, Nexus Logix delivers live tracking that shows your shipment's exact location on an interactive world map in real time. Get automated milestone alerts, 12-month performance stats, financial summaries, and detailed <span class='co2-highlight'>CO₂</span> emission data for every shipment all accessible on any device, right at your fingertips.",
+      imageSrc: pageData?.section_6?.image || "/CargoWise_neo_logo.svg",
+      imageAlt: pageData?.section_6?.imageAlt || "Cargo Tracking",
       reverse: true,
-      buttonTitle: "Learn More",
+      buttonTitle: pageData?.section_6?.buttonText || "Learn More",
+      buttonLink: pageData?.section_6?.buttonLink || "/track-and-trace",
     },
-  ];
+  ].filter(Boolean);
 
-  const stats = [
-    { value: 39, label: "Countries", suffix: "+" },
-    { value: 76, label: "Global Partner Offices" },
-  ];
+  interface StatsItem {
+    value: number;
+    label: string;
+    suffix?: string;
+  }
 
-  const values = [
+  const stats: StatsItem[] = [
     {
-      icon: "/dependability.png",
-      title: "DEPENDABILITY",
-      subtitle: "You can count on us.",
+      value: pageData?.section_3_column_1_count || 39,
+      label: pageData?.section_3_column_1_text || "Countries",
+      suffix: "+"
     },
     {
-      icon: "/accountability.png",
-      title: "ACCOUNTABILITY",
-      subtitle: "We accept responsibility.\nNo Excuses.",
+      value: pageData?.section_3_column_2_count || 76,
+      label: pageData?.section_3_column_2_text || "Global Partner Offices"
+    },
+  ].filter(Boolean);
+
+  interface ValueItem {
+    icon: string;
+    title: string;
+    subtitle: string;
+  }
+
+  const values: ValueItem[] = [
+    {
+      icon: pageData?.icon_card_1?.card_icon || "/dependability.png",
+      title: pageData?.icon_card_1?.card_title || "DEPENDABILITY",
+      subtitle: pageData?.icon_card_1?.card_description || "You can count on us.",
     },
     {
-      icon: "/transparancy.png",
-      title: "TRANSPARENCY",
-      subtitle: "Clear communication.\nNo Surprises.",
+      icon: pageData?.icon_card_2?.card_icon || "/accountability.png",
+      title: pageData?.icon_card_2?.card_title || "ACCOUNTABILITY",
+      subtitle: pageData?.icon_card_2?.card_description || "We accept responsibility.\nNo Excuses.",
     },
     {
-      icon: "/commitment.png",
-      title: "COMMITMENT",
-      subtitle: "We go the extra mile.",
+      icon: pageData?.icon_card_3?.card_icon || "/transparancy.png",
+      title: pageData?.icon_card_3?.card_title || "TRANSPARENCY",
+      subtitle: pageData?.icon_card_3?.card_description || "Clear communication.\nNo Surprises.",
     },
     {
-      icon: "/care.png",
-      title: "CARE",
-      subtitle: "Your shipment is our shipment.",
+      icon: pageData?.icon_card_4?.card_icon || "/commitment.png",
+      title: pageData?.icon_card_4?.card_title || "COMMITMENT",
+      subtitle: pageData?.icon_card_4?.card_description || "We go the extra mile.",
     },
-  ];
+    {
+      icon: pageData?.icon_card_5?.card_icon || "/care.png",
+      title: pageData?.icon_card_5?.card_title || "CARE",
+      subtitle: pageData?.icon_card_5?.card_description || "Your shipment is our shipment.",
+    },
+  ].filter(Boolean);
 
   // const services = [
   //     {
@@ -260,36 +303,44 @@ export default function Home() {
   //     },
   // ];
 
-  const services = [
+  interface serviceCardItem {
+    src: string;
+    alt: string;
+    label: string;
+    description: string;
+    link: string;
+  }
+
+  const services: serviceCardItem[] = [
     {
-      src: "/forwarding_service.png",
-      alt: "Freight forwarding service",
-      label: "Air & Sea Freight",
-      description: `Express shipments or cost-effective bulk transport, we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving, by air and sea, while avoiding delays and unexpected costs.`,
-      link: "/air-and-sea-freight"
+      src: pageData?.service_card_1?.card_image || "/forwarding_service.png",
+      alt: pageData?.service_card_1?.card_image_alt || "Freight forwarding service",
+      label: pageData?.service_card_1?.card_label || "Air & Sea Freight",
+      description: pageData?.service_card_1?.card_description || `Express shipments or cost-effective bulk transport, we optimise routes, consolidate loads, and secure competitive rates to keep your cargo moving, by air and sea, while avoiding delays and unexpected costs.`,
+      link: pageData?.service_card_1?.card_link || "/air-and-sea-freight"
     },
     {
-      src: "/home/Customs_Clearance-new.svg",
-      alt: "Customs Clearance & Compliance",
-      label: "Customs Clearance & Compliance",
-      description: `We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures – including audits – ensuring your goods clear quickly and cost-effectively.`,
-      link: "/customs",
+      src: pageData?.service_card_2?.card_image || "/home/Customs_Clearance-new.svg",
+      alt: pageData?.service_card_2?.card_image_alt || "Customs Clearance & Compliance",
+      label: pageData?.service_card_2?.card_label || "Customs Clearance & Compliance",
+      description: pageData?.service_card_2?.card_description || `We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures – including audits – ensuring your goods clear quickly and cost-effectively.`,
+      link: pageData?.service_card_2?.card_link || "/customs",
     },
     {
-      src: "/warehousing.png",
-      alt: "Integrated Logistics & Special Projects",
-      label: "Integrated Logistics & Special Projects",
-      description: `We offer end-to-end supply chain management, including 3PL and Warehousing, Fulfilment and eCommerce, and Inventory Management and Optimisation, all scalable and tailored to your unique requirements.`,
-      link: "/Integrated-logistics",
+      src: pageData?.service_card_3?.card_image || "/warehousing.png",
+      alt: pageData?.service_card_3?.card_image_alt || "Integrated Logistics & Special Projects",
+      label: pageData?.service_card_3?.card_label || "Integrated Logistics & Special Projects",
+      description: pageData?.service_card_3?.card_description || `We offer end-to-end supply chain management, including 3PL and Warehousing, Fulfilment and eCommerce, and Inventory Management and Optimisation, all scalable and tailored to your unique requirements.`,
+      link: pageData?.service_card_3?.card_link || "/Integrated-logistics",
     },
     {
-      src: "/transport.png",
-      alt: "Road & Rail Transport",
-      label: "Road & Rail Transport",
-      description: `Our comprehensive road and rail services, within Australia, cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport across even the most challenging corridors.`,
-      link: "/road-and-rail",
+      src: pageData?.service_card_4?.card_image || "/transport.png",
+      alt: pageData?.service_card_4?.card_image_alt || "Road & Rail Transport",
+      label: pageData?.service_card_4?.card_label || "Road & Rail Transport",
+      description: pageData?.service_card_4?.card_description || `Our comprehensive road and rail services, within Australia, cover everything from onsite collection to final delivery, ensuring reliable and cost-effective transport across even the most challenging corridors.`,
+      link: pageData?.service_card_4?.card_link || "/road-and-rail",
     },
-  ];
+  ].filter(Boolean);
 
   const [activeService, setActiveService] = useState(services[0]);
 
@@ -474,43 +525,45 @@ export default function Home() {
         >
           <div className="w-full max-w-lg mx-auto">
             <h1 className="text-2xl mobile:text-3xl sm:text-4xl font-bold text-[#114284] leading-tight mb-4 sm:mb-6">
-              Supply Chains Never Sleep.
+              {pageData?.heroTitle || "Supply Chains Never Sleep."}
               {/* {dataTest?.heroTitle} */}
               <br className="sm:hidden" />
-              Neither Do We.
+              {/* Neither Do We. */}
             </h1>
             <p className="text-sm mobile:text-base sm:text-lg text-[#676767] font-medium mb-6 sm:mb-8 leading-relaxed">
-              As your agile logistics partner, we operate as an extension of
-              your business, so you enjoy peace of mind, and responsive service.
+              {pageData?.heroDescription || " As your agile logistics partner, we operate as an extension of your business, so you enjoy peace of mind, and responsive service."}
             </p>
-            <button
-              className="bg-[#162F65] text-white
+            <Link href={pageData?.hero_button_link || "/services"} className="inline-block">
+              <button
+                className="bg-[#162F65] text-white
                                    px-6 py-2 mobile:px-8 mobile:py-3 text-sm font-medium  rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300"
-            >
-              Explore More
-            </button>
+              >
+                {pageData?.hero_button_text || " Explore More"}
+              </button>
+            </Link>
           </div>
         </div>
 
         <div className="relative hidden lg:block z-50 mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
           <div className="w-full sm:w-3/4 lg:w-1/2 text-center sm:text-left">
-            <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title">
-              Supply Chains
+            <h1 className="text-2xl sm:text-3xl lg:text-[30px] xl:text-[45px] font-bold text-[#114284] leading-[54px] mb-4 sm:mb-6 head-title max-w-md">
+              {/* Supply Chains
               <br />
               Never Sleep.
               <br />
-              Neither Do We.
-              {/* {data?.heroTitle} */}
+              Neither Do We. */}
+              {pageData?.heroTitle}
             </h1>
             <p className="text-sm sm:text-base lg:text-base xl:text-lg text-[#676767] font-medium mb-6 sm:mb-8 max-w-60 xl:max-w-md leading-[25px] head-para">
-              As your agile logistics partner, we operate as an extension of your
-              business, so you enjoy peace of mind, and responsive service.
+              {pageData?.heroDescription || " As your agile logistics partner, we operate as an extension of your business, so you enjoy peace of mind, and responsive service."}
             </p>
-            <button
-              className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
-            >
-              Explore More
-            </button>
+            <Link href={pageData?.hero_button_link || "/services"} className="inline-block">
+              <button
+                className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-xl font-medium rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300 head-button"
+              >
+                {pageData.hero_button_text || " Explore More"}
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -561,7 +614,7 @@ export default function Home() {
                   <h3 className="text-[#225395] font-semibold text-base sm:text-lg lg:text-xl italic">
                     {value.title}
                   </h3>
-                  <p className="text-[#0C2D59] font-medium text-[10px] lg:text-xs leading-4 whitespace-pre-line">
+                  <p className="text-[#0C2D59] font-medium text-[10px] lg:text-xs leading-4 whitespace-pre-line max-w-none lg:max-w-xs ">
                     {value.subtitle}
                   </p>
                 </div>
@@ -577,7 +630,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative w-full h-[200px] sm:h-[250px] lg:h-[500px] rounded-xl overflow-hidden">
                 <Image
-                  src="/truck.png"
+                  src={pageData?.section_2_image || "/truck.png"}
                   alt="truck in logistics operation"
                   fill
                   className="object-cover"
@@ -588,18 +641,18 @@ export default function Home() {
               <div className="absolute text-center rounded-[10px] -bottom-4 sm:-bottom-5 lg:-bottom-6 left-4 sm:left-5 lg:left-6 bg-[#225395] text-white px-6 sm:px-8 lg:px-10 py-2 sm:py-2.5 lg:py-3 shadow-lg">
                 <div className="text-center">
                   <p className="text-sm sm:text-base lg:text-lg font-semibold mb-0.5 sm:mb-1">
-                    Team with
+                    {pageData?.section_2_badge_text_row_1 || "Team with"}
                   </p>
                   <p className="text-3xl sm:text-5xl lg:text-6xl font-bold">
-                    25
+                    {pageData?.section_2_badge_text_row_2 || "25"}
                   </p>
                   <p className="text-lg sm:text-xl lg:text-3xl font-semibold">
-                    Years
+                    {pageData?.section_2_badge_text_row_3 || "Years"}
                   </p>
                   <p className="text-xs sm:text-sm lg:text-sm mt-0.5 sm:mt-1">
-                    Industry
+                    {pageData?.section_2_badge_text_row_4 || "Industry"}
                     <br />
-                    Experience
+                    {pageData?.section_2_badge_text_row_5 || "Experience"}
                   </p>
                 </div>
               </div>
@@ -607,10 +660,14 @@ export default function Home() {
 
             <div className="flex flex-col">
               <h2 className="text-2xl sm:text-3xl -mt-0 lg:text-[50px] font-bold text-[#162F65] mb-4 sm:mb-6 lg:mb-6 text-left lg:-mt-5">
-                Why Nexus Logix
+                {pageData?.section_2_title || "Why Nexus Logix"}
               </h2>
               <div className="space-y-4 sm:space-y-5 lg:space-y-6 text-sm sm:text-base lg:text-lg text-[#676767] font-medium leading-[25px] text-left">
-                <p>
+
+                <p className="whitespace-pre-line">
+                  {pageData.section_2_description || ""}
+                </p>
+                {/* <p>
                   Established in Australia by a group of logistics
                   professionals, each with over 25+ years of experience across
                   Australia, Oceania, and Asia Pacific, our business is built on
@@ -632,14 +689,14 @@ export default function Home() {
                   act with integrity, and provide personalized support at a
                   moment&#39;s notice, functioning as an extension of your
                   office.
-                </p>
+                </p> */}
               </div>
               <p className="text-[#225395] text-lg sm:text-xl lg:text-[21px] font-medium mt-4 sm:mt-6 lg:mt-8 text-left">
-                - This is the Nexus Way
+                {pageData?.section_2_subtitle || "- This is the Nexus Way"}
               </p>
-              <Link href="/whyNexus">
+              <Link href={pageData?.section_2_button_link || "/whyNexus"}>
                 <button className="bg-[#162F65] text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-medium mt-4 sm:mt-6 lg:mt-8  rounded-[10px] hover:bg-blue-950 flex items-left lg:items-center w-fit mx-0 hover:scale-105 transition-all duration-300">
-                  Explore More
+                  {pageData?.section_2_button_text || "Explore More"}
                 </button>
               </Link>
             </div>
@@ -655,8 +712,8 @@ export default function Home() {
           <div className="flex flex-col items-start md:items-center gap-6 lg:gap-8 md:flex-row md:justify-between">
             {/* Title */}
             <h2 className="text-xl sm:text-2xl lg:text-5xl font-semibold text-[#FFFFFF] text-left leading-tight sm:leading-[48px] lg:leading-[57px]">
-              Connecting
-              <br className="hidden lg:block" /> you worldwide...
+              {pageData?.section_3_title_line_1 || "Connecting"}
+              <br className="hidden lg:block" /> {pageData?.section_3_title_line_2 || "you worldwide..."}
             </h2>
 
             {/* Stats */}
@@ -696,9 +753,9 @@ export default function Home() {
                 {/* CO₂ row */}
                 <div className="flex justify-start items-center gap-2">
                   <div className="w-16">
-                    <p className="text-xl font-semibold text-[#559000]">CO₂</p>
+                    <p className="text-xl font-semibold text-[#559000]">{pageData.section_3_column_3_text_1 || "CO₂"}</p>
                   </div>
-                  <p className="text-sm text-[#559000]">Track & Trace</p>
+                  <p className="text-sm text-[#559000]">{pageData.section_3_column_3_text_2 || "Track & Trace"}</p>
                 </div>
               </div>
 
@@ -729,10 +786,10 @@ export default function Home() {
                 ))}
                 <div className="group text-left">
                   <p className="text-2xl lg:text-6xl font-semibold text-[#559000] mb-2 group-hover:scale-105 transition-transform duration-300">
-                    CO₂
+                    {pageData?.section_3_column_3_text_1 || "CO₂"}
                   </p>
                   <p className="text-sm lg:text-xl text-[#559000]">
-                    Track & Trace
+                    {pageData?.section_3_column_3_text_2 || "Track & Trace"}
                   </p>
                 </div>
               </div>
@@ -826,19 +883,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-6 lg:gap-10 mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl lg:text-[50px] font-semibold text-[#162F65] text-center lg:text-left mb-1 sm:mb-0 lg:leading-[72px] mx-auto sm:mx-0">
-              Comprehensive
-              <br className="hidden sm:block" /> Solutions
+              {pageData.section_4_title || "Comprehensive"}
+              {/* <br className="hidden sm:block" /> Solutions */}
             </h2>
             <p className="text-[#676767] font-medium text-sm sm:text-base lg:text-lg leading-[25px] max-w-lg sm:max-w-xl text-center sm:text-left">
-              Whether it&#39;s retail, manufacturing, mining, automotive, or any
-              other industry, our specialists understand each one&#39;s unique
-              challenges, constraints, and regulations. In particular, we
-              understand the value of proactive, swift communication, and we
-              strive to keep our customers in the loop at all times - you&#39;ll
-              notice this difference immediately and we&#x27;ll earn your trust
-              within the first month. Our dedicated teams work with you, as an
-              extension of your office, to deliver compliant, tailored solutions
-              that scale with your business.
+              {pageData?.section_4_description || "Whether it&#39;s retail, manufacturing, mining, automotive, or any other industry, our specialists understand each one&#39;s unique challenges, constraints, and regulations. In particular, we understand the value of proactive, swift communication, and we strive to keep our customers in the loop at all times - you&#39;ll notice this difference immediately and we&#x27;ll earn your trust within the first month. Our dedicated teams work with you, as an extension of your office, to deliver compliant, tailored solutions that scale with your business."}
             </p>
           </div>
 
@@ -1033,10 +1082,19 @@ export default function Home() {
                   <p
                     className={`text-sm lg:text-lg font-medium ${section.reverse ? "mt-2" : "mt-4"
                       } text-[#676767] max-w-2xl leading-[25px] text-left whitespace-pre-line`}
-                    dangerouslySetInnerHTML={{ __html: section.description }}
-                  />
+                    // dangerouslySetInnerHTML={{ __html: section.description }}
+                  >
+                    {section.paragraph_1 || ""}
+                  </p>
+                  <p
+                    className={`text-sm lg:text-lg font-medium ${section.reverse ? "mt-2" : "mt-4"
+                      } text-[#676767] max-w-2xl leading-[25px] text-left whitespace-pre-line`}
+                    // dangerouslySetInnerHTML={{ __html: section.description }}
+                  >
+                    {section.paragraph_2 || ""}
+                  </p>
                   <div className="mt-8 text-left">
-                    <Link href="#">
+                    <Link href={section.buttonLink || "/whyNexus"}>
                       <button className="bg-[#162F65] cursor-pointer text-white text-base lg:text-lg font-medium px-6 py-3 rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
                         {section.buttonTitle}
                       </button>
@@ -1072,10 +1130,18 @@ export default function Home() {
                 </div>
                 <p
                   className="text-sm font-medium text-[#676767] leading-[25px] whitespace-pre-line text-center"
-                  dangerouslySetInnerHTML={{ __html: section.description }}
-                />
+                // dangerouslySetInnerHTML={{ __html: section.description }}
+                >
+                  {section.paragraph_1 || ""}
+                </p>
+                <p
+                  className="text-sm font-medium text-[#676767] leading-[25px] whitespace-pre-line text-center"
+                // dangerouslySetInnerHTML={{ __html: section.description }}
+                >
+                  {section.paragraph_2 || ""}
+                </p>
                 <div className="text-center mt-4">
-                  <Link href="#">
+                  <Link href={section.buttonLink || "/whyNexus"}>
                     <button className="bg-[#162F65] cursor-pointer text-white text-sm sm:text-base font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-[10px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
                       {section.buttonTitle}
                     </button>
@@ -1093,11 +1159,10 @@ export default function Home() {
         <div className="">
           <div className="flex flex-col px-4 sm:px-6 mb-2 lg:mb-8 lg:px-8 max-w-7xl mx-auto lg:flex-row justify-between gap-2 lg:gap-8 items-center md:items-start">
             <h2 className="text-3xl sm:text-3xl lg:text-5xl text-[#0F2043] font-semibold text-center sm:text-left mb-1 leading-[50px] max-w-xl">
-              Success Stories from Our Clients
+              {pageData.testimonial_section_title || "Success Stories from Our Clients"}
             </h2>
             <p className="text-[#676767] text-sm sm:text-base lg:text-lg font-medium text-center md:text-left mb-6 sm:mb-8 lg:mb-12 max-w-2xl leading-[25px]">
-              For over 25+ years, we&#39;ve moved cargo (and some mountains) to
-              achieve outstanding successes for our customers.
+              {pageData.testimonial_section_title_description || "For over 25+ years, we&#39;ve moved cargo (and some mountains) to achieve outstanding successes for our customers."}
             </p>
           </div>
           <Testimonial />
