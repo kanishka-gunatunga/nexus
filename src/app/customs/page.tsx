@@ -60,7 +60,7 @@ const CustomsPage = () => {
 
       {/* Customs and Border Processing Section */}
       <section className="py-4 bg-[#F6F6F6] poppins relative lg:-mt-28 md:-mt-28">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-10 lg:px-14">
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#162F65] mb-6 lg:mb-8">
             Customs and
             <br />
@@ -116,7 +116,7 @@ const CustomsPage = () => {
           />
 
           {/* Bottom Section - Tight to Image */}
-          <div className="mt-6">
+          <div className="mt-6 px-1 lg:px-0">
             <h3 className="font-poppins font-medium text-[20px] md:text-[24px] text-[#162F65] mb-4">
               Customs doesn&apos;t have to be a block...
             </h3>
@@ -153,7 +153,7 @@ const CustomsPage = () => {
 
       {/* Supply Chain Consultancy Section */}
       <section className="py-6 md:py-10">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-10 lg:px-14">
           <PhotoDescriptionSection
             title="Supply Chain Consultancy & Audits"
             paragraph1="Our comprehensive audits uncover inefficiencies across your entire supply chain from procurement to last-mile delivery. We provide actionable insights and customised roadmaps that cut costs and improve service quality. We also guide you through the process of becoming an Australian Trusted Trader (ATT), unlocking benefits such as reduced red tape at the border, priority goods processing, duty deferral options, and a dedicated Australian Border Force account manager."

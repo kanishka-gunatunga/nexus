@@ -42,7 +42,7 @@ export default function PhotoDescriptionSection({
   return (
     <>
       {/* 📱 Mobile layout */}
-      <div className="bg-transparent px-4 py-6 md:py-10 flex flex-col gap-4 lg:hidden">
+      <div className="bg-transparent md:px-4 py-6 md:py-10 flex flex-col gap-4 lg:hidden">
         <h2 className="font-poppins font-semibold text-[24px] text-[#162F65] mb-2">
           {title}
         </h2>

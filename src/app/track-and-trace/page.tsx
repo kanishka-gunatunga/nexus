@@ -88,14 +88,14 @@ const TrackAndTrace = () => {
         {/* Track Now Section */}
         <div className="py-6 md:py-10">
           {/* Title */}
-          <h2 className="font-poppins font-bold text-[28px] lg:text-[50px] text-[#162F65] mb-8 lg:mb-16 leading-tight">
+          <h2 className="font-poppins font-bold text-[28px] lg:text-[50px] text-[#162F65] mb-8 lg:mb-16 leading-tight lg:px-8">
             Track Now
           </h2>
 
           {/* 🖥️ Desktop Layout */}
           <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left side - Dashboard Image */}
-            <div className="order-2 lg:order-1 lg:-ml-42">
+            <div className="order-2 lg:order-1 lg:-ml-42 lg:px-8">
               <div className="relative w-full">
                 <Image
                   src="/trackAndTrace_img1.svg"
@@ -200,10 +200,10 @@ const TrackAndTrace = () => {
           <div className="hidden lg:grid grid-cols-2 gap-16 items-center relative">
             {/* Left side - Content */}
             <div className="order-1 space-y-6 z-10">
-              <h2 className="font-poppins font-bold text-[55px] text-[#162F65] mb-2 leading-tight">
+              <h2 className="font-poppins font-bold text-[55px] text-[#162F65] mb-2 leading-tight lg:px-8">
                 Route Visualiser
               </h2>
-              <p className="font-poppins font-medium text-[18px] text-[#676767] leading-relaxed">
+              <p className="font-poppins font-medium text-[18px] text-[#676767] leading-relaxed lg:px-8">
                 View your shipment&apos;s journey on a global map powered by
                 satellite AIS and flight transponders for complete visibility
                 from Purchase order to delivery. Color-coded alerts highlight
@@ -227,7 +227,7 @@ const TrackAndTrace = () => {
         </div>
 
         {/* Features Grid */}
-        <section className="py-6 md:py-10">
+        <section className="py-6 md:py-10 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid gap-6 sm:gap-8 md:grid-cols-1 lg:grid-cols-1">
               {features.map((feature, index) => (
@@ -274,7 +274,7 @@ const TrackAndTrace = () => {
         </section>
 
         {/* Call to Action */}
-        <div className="py-6 md:py-10">
+        <div className="py-6 md:py-10 lg:px-8">
           <div className="bg-[#162F65] rounded-lg px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-12">
             <div className="max-w-4xl mx-auto flex flex-row items-center justify-center gap-3 sm:gap-4 text-left">
               {/* Icon Image */}
