@@ -66,7 +66,7 @@ const teamMembers = [
   },
   {
     id: 7,
-    name: "Guhashanka Cumarasamy",
+    name: "Guha Shanka",
     title: "Chief Marketing Officer",
     flipBg: "/leadership/flip-3.png",
     description:
