@@ -11,6 +11,7 @@ import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
 // import FreightQuoteWidget from "@/Components/FreightQuoteWidget";
 import Link from "next/link";
+import AnimatedSection from "@/Components/AnimatedSection";
 // import { airAndFreightService } from "@/sanity/lib/air-and-freight-service";
 // import { useEffect, useState } from "react";
 
@@ -62,11 +63,13 @@ const AirAndSeaFreight = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-0 lg:px-8 lg:-mt-28 md:-mt-28">
-        <HeroTitleAndParagraph
-          title="Air & Sea Freight Services"
-          paragraph1="Offering speed, cost-effectiveness, and reliability, our air and sea freight services are built to match your urgency, budget, and cargo complexity. Whether you're racing against a deadline or coordinating large-scale shipments, we deliver precision logistics, reliable tracking, and personal attention."
-          paragraph2=""
-        />
+        <AnimatedSection direction="up" delay={0.2}>
+          <HeroTitleAndParagraph
+            title="Air & Sea Freight Services"
+            paragraph1="Offering speed, cost-effectiveness, and reliability, our air and sea freight services are built to match your urgency, budget, and cargo complexity. Whether you're racing against a deadline or coordinating large-scale shipments, we deliver precision logistics, reliable tracking, and personal attention."
+            paragraph2=""
+          />
+        </AnimatedSection>
 
         {/* {data?.map((page, pageIndex) => (
                     <div key={pageIndex}>
@@ -145,9 +148,12 @@ const AirAndSeaFreight = () => {
           />
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ServiceCardRow />
-      </div>
+
+      <AnimatedSection direction="up" delay={0.2}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceCardRow />
+        </div>
+      </AnimatedSection>
 
       <div
         className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden"
@@ -165,16 +171,21 @@ const AirAndSeaFreight = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
-          <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-            Australian Expertise,
-            <br />
-            Global Strength
-          </h2>
-          <Link href="/whyNexus">
-            <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-              Why Nexus
-            </button>
-          </Link>
+          <AnimatedSection direction="up" delay={0.2}>
+            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
+              Australian Expertise,
+              <br />
+              Global Strength
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection direction="up" delay={0.2}>
+            <Link href="/whyNexus">
+              <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
+                Why Nexus
+              </button>
+            </Link>
+          </AnimatedSection>
         </div>
 
         {/*<div*/}
@@ -183,9 +194,12 @@ const AirAndSeaFreight = () => {
         {/*</div>*/}
       </div>
       <Quote />
-      <div className="py-6 lg:py-12">
-        <LinkedinSection />
-      </div>
+
+      <AnimatedSection direction="up" delay={0.2}>
+        <div className="py-6 lg:py-12">
+          <LinkedinSection />
+        </div>
+      </AnimatedSection>
     </div>
   );
 };

@@ -10,6 +10,7 @@ import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import Link from "next/link";
 import Accordian from "@/Components/Accordian";
 import HeroSection from "@/Components/HeroSection";
+import AnimatedSection from "@/Components/AnimatedSection";
 
 const CustomsPage = () => {
   // const [isExpanded, setIsExpanded] = useState(false);
@@ -61,11 +62,13 @@ const CustomsPage = () => {
       {/* Customs and Border Processing Section */}
       <section className="py-4 bg-[#F6F6F6] poppins relative lg:-mt-28 md:-mt-28">
         <div className="max-w-7xl mx-auto px-10 lg:px-14">
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#162F65] mb-6 lg:mb-8">
-            Customs and
-            <br />
-            Border Processing
-          </h2>
+          <AnimatedSection direction="up" delay={0.2}>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#162F65] mb-6 lg:mb-8">
+              Customs and
+              <br />
+              Border Processing
+            </h2>
+          </AnimatedSection>
 
           <Accordian
             image="/customs_img1.svg"
@@ -117,19 +120,21 @@ const CustomsPage = () => {
 
           {/* Bottom Section - Tight to Image */}
           <div className="mt-6 px-1 lg:px-0">
-            <h3 className="font-poppins font-medium text-[20px] md:text-[24px] text-[#162F65] mb-4">
-              Customs doesn&apos;t have to be a block...
-            </h3>
-            <p className="font-poppins font-medium text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed mb-6 text-justify max-w-4xl">
-              If you and your goods arrive with a good plan and in compliance
-              with local regulations. We make that happen by simplifying
-              compliance and reducing inspection delays.
-            </p>
-            <Link href="/contactUs">
-              <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
-                Simplify Customs with Us
-              </button>
-            </Link>
+            <AnimatedSection direction="up" delay={0.2}>
+              <h3 className="font-poppins font-medium text-[20px] md:text-[24px] text-[#162F65] mb-4">
+                Customs doesn&apos;t have to be a block...
+              </h3>
+              <p className="font-poppins font-medium text-[14px] md:text-[16px] lg:text-[18px] text-[#676767] leading-relaxed mb-6 text-justify max-w-4xl">
+                If you and your goods arrive with a good plan and in compliance
+                with local regulations. We make that happen by simplifying
+                compliance and reducing inspection delays.
+              </p>
+              <Link href="/contactUs">
+                <button className="bg-[#162F65] text-white rounded-[10px] px-[25.86px] py-[7.89px] font-poppins text-[14px] hover:bg-blue-950 hover:scale-105 transition-all duration-300">
+                  Simplify Customs with Us
+                </button>
+              </Link>
+            </AnimatedSection>
           </div>
         </div>
 
@@ -169,10 +174,12 @@ const CustomsPage = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ServiceCardRow />
-      </div>
+      <AnimatedSection direction="up" delay={0.2}>
+        {/* Services Grid */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceCardRow />
+        </div>
+      </AnimatedSection>
       <Quote />
 
       {/* CTA Section */}
@@ -190,16 +197,21 @@ const CustomsPage = () => {
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
-            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-              Australian Expertise,
-              <br />
-              Global Strength
-            </h2>
-            <Link href="/whyNexus">
-              <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-                Why Nexus
-              </button>
-            </Link>
+            <AnimatedSection direction="up" delay={0.2}>
+              <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
+                Australian Expertise,
+                <br />
+                Global Strength
+              </h2>
+            </AnimatedSection>
+
+            <AnimatedSection direction="up" delay={0.2}>
+              <Link href="/whyNexus">
+                <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
+                  Why Nexus
+                </button>
+              </Link>
+            </AnimatedSection>
           </div>
 
           {/*<div*/}
@@ -210,9 +222,11 @@ const CustomsPage = () => {
       </section>
 
       {/* LinkedIn Section */}
-      <div className="py-4">
-        <LinkedinSection />
-      </div>
+      <AnimatedSection direction="up" delay={0.2}>
+        <div className="py-4">
+          <LinkedinSection />
+        </div>
+      </AnimatedSection>
     </div>
   );
 };

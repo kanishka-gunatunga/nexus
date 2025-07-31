@@ -7,6 +7,7 @@ import React from "react";
 import Nav from "@/Components/Nav";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
+import AnimatedSection from "@/Components/AnimatedSection";
 
 const teamMembers = [
   {
@@ -136,14 +137,16 @@ const LeadershipPage = () => {
         <div className="">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mb-4">
-              <div className="flex items-center space-x-4">
-                <div className="w-3 bg-[#E7E6DD] rounded-[9px] h-25 mt-1"></div>
-                <p className="text-[#0F2043] font-medium text-sm z-50 md:text-base lg:text-[24px] leading-relaxed">
-                  Like a finely tuned F1 pit crew, our team is always on standby
-                  – ready to keep your supply chain racing ahead at peak
-                  performance.
-                </p>
-              </div>
+              <AnimatedSection direction="up" delay={0.2}>
+                <div className="flex items-center space-x-4">
+                  <div className="w-3 bg-[#E7E6DD] rounded-[9px] h-25 mt-1"></div>
+                  <p className="text-[#0F2043] font-medium text-sm z-50 md:text-base lg:text-[24px] leading-relaxed">
+                    Like a finely tuned F1 pit crew, our team is always on
+                    standby – ready to keep your supply chain racing ahead at
+                    peak performance.
+                  </p>
+                </div>
+              </AnimatedSection>
             </div>
 
             {/*<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">*/}
@@ -185,69 +188,71 @@ const LeadershipPage = () => {
             {/*    ))}*/}
             {/*</div>*/}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-7xl mx-auto">
-              {teamMembers.map((member) => {
-                const paragraphs = member.description.split("\n\n");
-                const lastParagraph = paragraphs[paragraphs.length - 1];
-                const otherParagraphs = paragraphs.slice(
-                  0,
-                  paragraphs.length - 1
-                );
+            <AnimatedSection direction="up" delay={0.2}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-7xl mx-auto">
+                {teamMembers.map((member) => {
+                  const paragraphs = member.description.split("\n\n");
+                  const lastParagraph = paragraphs[paragraphs.length - 1];
+                  const otherParagraphs = paragraphs.slice(
+                    0,
+                    paragraphs.length - 1
+                  );
 
-                return (
-                  <div
-                    key={member.id}
-                    className="relative w-full max-w-86 mx-auto sm:max-w-full h-80 sm:h-96 lg:h-[416px] flip-card-container"
-                    style={{ boxSizing: "border-box" }}
-                  >
-                    <div className="flip-card-inner rounded-md shadow-lg w-full h-full">
-                      <div className="flip-card-front bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden w-full h-full">
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          layout="fill"
-                          objectFit="cover"
-                          quality={80}
-                          className="absolute inset-0 z-0"
-                        />
-                        <div className="absolute inset-0 text-start z-10 flex flex-col justify-end p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                          <h3 className="text-white text-lg sm:text-xl font-bold mb-0.5">
-                            {member.name}
-                          </h3>
-                          <p className="text-gray-300 text-xs sm:text-sm font-medium">
-                            {member.title}
-                          </p>
+                  return (
+                    <div
+                      key={member.id}
+                      className="relative w-full max-w-86 mx-auto sm:max-w-full h-80 sm:h-96 lg:h-[416px] flip-card-container"
+                      style={{ boxSizing: "border-box" }}
+                    >
+                      <div className="flip-card-inner rounded-md shadow-lg w-full h-full">
+                        <div className="flip-card-front bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden w-full h-full">
+                          <Image
+                            src={member.image}
+                            alt={member.name}
+                            layout="fill"
+                            objectFit="cover"
+                            quality={80}
+                            className="absolute inset-0 z-0"
+                          />
+                          <div className="absolute inset-0 text-start z-10 flex flex-col justify-end p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                            <h3 className="text-white text-lg sm:text-xl font-bold mb-0.5">
+                              {member.name}
+                            </h3>
+                            <p className="text-gray-300 text-xs sm:text-sm font-medium">
+                              {member.title}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div
+                          className={`flip-card-back relative bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 bg-no-repeat bg-cover bg-center w-full h-full`}
+                          style={{ backgroundImage: `url(${member.flipBg})` }}
+                        >
+                          {/*<p className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight whitespace-pre-line text-left">*/}
+                          {/*    {member.description}*/}
+                          {/*</p>*/}
+                          {otherParagraphs.map((para, index) => (
+                            <p
+                              key={index}
+                              className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight text-left mb-3"
+                            >
+                              {para}
+                            </p>
+                          ))}
+                          {lastParagraph && (
+                            <Link href="/contactUs" passHref>
+                              <p className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight text-left underline mb-2 cursor-pointer">
+                                {lastParagraph}
+                              </p>
+                            </Link>
+                          )}
                         </div>
                       </div>
-
-                      <div
-                        className={`flip-card-back relative bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 bg-no-repeat bg-cover bg-center w-full h-full`}
-                        style={{ backgroundImage: `url(${member.flipBg})` }}
-                      >
-                        {/*<p className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight whitespace-pre-line text-left">*/}
-                        {/*    {member.description}*/}
-                        {/*</p>*/}
-                        {otherParagraphs.map((para, index) => (
-                          <p
-                            key={index}
-                            className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight text-left mb-3"
-                          >
-                            {para}
-                          </p>
-                        ))}
-                        {lastParagraph && (
-                          <Link href="/contactUs" passHref>
-                            <p className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight text-left underline mb-2 cursor-pointer">
-                              {lastParagraph}
-                            </p>
-                          </Link>
-                        )}
-                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            </AnimatedSection>
           </div>
           <Quote />
         </div>
@@ -267,16 +272,21 @@ const LeadershipPage = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
-          <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-            Commitment to
-            <br />
-            Personalised Service
-          </h2>
-          <Link href="/services">
-            <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-              View Services
-            </button>
-          </Link>
+          <AnimatedSection direction="up" delay={0.2}>
+            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
+              Commitment to
+              <br />
+              Personalised Service
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection direction="up" delay={0.2}>
+            <Link href="/services">
+              <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
+                View Services
+              </button>
+            </Link>
+          </AnimatedSection>
         </div>
 
         {/*<div*/}
@@ -285,9 +295,11 @@ const LeadershipPage = () => {
         {/*</div>*/}
       </div>
 
-      <div className="py-6 lg:py-2">
-        <LinkedinSection />
-      </div>
+      <AnimatedSection direction="up" delay={0.2}>
+        <div className="py-6 lg:py-2">
+          <LinkedinSection />
+        </div>
+      </AnimatedSection>
     </div>
   );
 };

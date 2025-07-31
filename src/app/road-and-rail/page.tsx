@@ -10,6 +10,7 @@ import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
 import Link from "next/link";
+import AnimatedSection from "@/Components/AnimatedSection";
 
 const roadAndRail = () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,11 +50,13 @@ const roadAndRail = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-0 lg:px-8 lg:-mt-28 md:-mt-28">
-        <HeroTitleAndParagraph
-          title="Road & Rail Transport"
-          paragraph1="Wheels and tracks alone aren't enough to successfully navigate Australia's scale - you'll need strategy, strong partnerships, on-ground expertise, and industry experience."
-          paragraph2="Our experts build road and rail services that provide reliable coverage across every corridor, from regional pickups to metro deliveries and everything in between. With over 25 years of experience, our teams match every job to the right provider and mode, so that your freight arrives safely, on-time."
-        />
+        <AnimatedSection direction="up" delay={0.2}>
+          <HeroTitleAndParagraph
+            title="Road & Rail Transport"
+            paragraph1="Wheels and tracks alone aren't enough to successfully navigate Australia's scale - you'll need strategy, strong partnerships, on-ground expertise, and industry experience."
+            paragraph2="Our experts build road and rail services that provide reliable coverage across every corridor, from regional pickups to metro deliveries and everything in between. With over 25 years of experience, our teams match every job to the right provider and mode, so that your freight arrives safely, on-time."
+          />
+        </AnimatedSection>
 
         {/* first card */}
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
@@ -89,9 +92,12 @@ const roadAndRail = () => {
           />
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ServiceCardRow />
-      </div>
+
+      <AnimatedSection direction="up" delay={0.2}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceCardRow />
+        </div>
+      </AnimatedSection>
 
       <div
         className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden"
@@ -110,16 +116,21 @@ const roadAndRail = () => {
         <Quote />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
-          <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-            Global Reach
-            <br />
-            Australian Expertise
-          </h2>
-          <Link href="/whyNexus">
-            <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-              Why Nexus
-            </button>
-          </Link>
+          <AnimatedSection direction="up" delay={0.2}>
+            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
+              Global Reach
+              <br />
+              Australian Expertise
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection direction="up" delay={0.2}>
+            <Link href="/whyNexus">
+              <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
+                Why Nexus
+              </button>
+            </Link>
+          </AnimatedSection>
         </div>
 
         {/*<div*/}
@@ -128,9 +139,11 @@ const roadAndRail = () => {
         {/*</div>*/}
       </div>
 
-      <div className="py-6 lg:py-12">
-        <LinkedinSection />
-      </div>
+      <AnimatedSection direction="up" delay={0.2}>
+        <div className="py-6 lg:py-12">
+          <LinkedinSection />
+        </div>
+      </AnimatedSection>
     </div>
   );
 };
