@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import FreightQuoteWidget from "./FreightQuoteWidget";
+import AnimatedSection from "@/Components/AnimatedSection";
 
 type Props = {
   title: string;
@@ -42,7 +43,9 @@ export default function PhotoDescriptionSection({
   return (
     <>
       {/* 📱 Mobile layout */}
+      <AnimatedSection direction="up" delay={0.2}>
       <div className="bg-transparent md:px-4 py-6 md:py-10 flex flex-col gap-4 lg:hidden">
+        
         <h2 className="font-poppins font-semibold text-[24px] text-[#162F65] mb-2">
           {title}
         </h2>
@@ -99,7 +102,9 @@ export default function PhotoDescriptionSection({
             </button>
           </Link>
         )}
+        
       </div>
+      </AnimatedSection>
 
       {/* 💻 Desktop & Tablet layout */}
       <div
@@ -107,8 +112,10 @@ export default function PhotoDescriptionSection({
           reverse ? "flex-row-reverse" : "flex-row"
         }`}
       >
+        
         {/* Image */}
         <div className="flex-1 flex justify-center items-center">
+          <AnimatedSection direction="left" delay={0.2}>
           <Image
             src={imageSrc}
             alt={imageAlt}
@@ -116,10 +123,13 @@ export default function PhotoDescriptionSection({
             height={460}
             className="rounded-[10px] sm:w-full md:w-full lg:max-w-[620px] h-auto lg:max-h-[660px] min-h-auto lg:min-h-[460px] object-cover"
           />
+          </AnimatedSection>
         </div>
+        
 
         {/* Text Content */}
         <div className="flex-1 flex flex-col justify-center">
+          <AnimatedSection direction="right" delay={0.2}>
           <h2 className="font-poppins font-semibold text-[35px] text-[#162F65] mb-4">
             {title}
           </h2>
@@ -166,7 +176,9 @@ export default function PhotoDescriptionSection({
               </button>
             </Link>
           )}
+          </AnimatedSection>
         </div>
+        
       </div>
 
       {useWidget && (

@@ -10,6 +10,7 @@ import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
 import Link from "next/link";
+import AnimatedSection from "@/Components/AnimatedSection";
 
 const integratedLogistics = () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,12 +48,14 @@ const integratedLogistics = () => {
                 </div> */}
       </div>
 
-      <div className="relative lg:-mt-28 md:-mt-28 max-w-7xl mx-auto px-4 sm:px-6 md:px-0 lg:px-8">  
-        <HeroTitleAndParagraph
-          title="Integrated Logistics & Special Projects"
-          paragraph1="Seamlessly manage your entire supply chain with integrated logistics designed for Australia's unique challenges. Our scalable solutions bring together warehousing, fulfilment, and specialised transport - giving you full visibility, tighter control, and cost efficiency in one streamlined service."
-          paragraph2=""
-        />
+      <div className="relative lg:-mt-28 md:-mt-28 max-w-7xl mx-auto px-4 sm:px-6 md:px-0 lg:px-8">
+        <AnimatedSection direction="up" delay={0.2}>
+          <HeroTitleAndParagraph
+            title="Integrated Logistics & Special Projects"
+            paragraph1="Seamlessly manage your entire supply chain with integrated logistics designed for Australia's unique challenges. Our scalable solutions bring together warehousing, fulfilment, and specialised transport - giving you full visibility, tighter control, and cost efficiency in one streamlined service."
+            paragraph2=""
+          />
+        </AnimatedSection>
 
         {/* first card */}
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8 ">
@@ -118,9 +121,12 @@ const integratedLogistics = () => {
           />
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ServiceCardRow />
-      </div>
+
+      <AnimatedSection direction="up" delay={0.2}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceCardRow />
+        </div>
+      </AnimatedSection>
 
       <div
         className="relative h-64 sm:h-80 lg:h-96 lg:-mt-20 overflow-hidden"
@@ -138,22 +144,30 @@ const integratedLogistics = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center">
-          <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
-            Commitment to
-            <br />
-            Personalized Service
-          </h2>
-          <Link href="/whyNexus">
-            <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
-              Why Nexus
-            </button>
-          </Link>
+          <AnimatedSection direction="up" delay={0.2}>
+            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-medium text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
+              Commitment to
+              <br />
+              Personalized Service
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection direction="up" delay={0.2}>
+            <Link href="/whyNexus">
+              <button className="bg-[#E8AF30] text-[#282828] px-6 hover:text-white cursor-pointer duration-300 transition sm:px-8 py-1 sm:py-2 text-sm sm:text-base lg:text-base rounded-lg font-normal">
+                Why Nexus
+              </button>
+            </Link>
+          </AnimatedSection>
         </div>
       </div>
       <Quote />
-      <div className="py-6 lg:py-12">
-        <LinkedinSection />
-      </div>
+
+      <AnimatedSection direction="up" delay={0.2}>
+        <div className="py-6 lg:py-12">
+          <LinkedinSection />
+        </div>
+      </AnimatedSection>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import LinkedinSection from "@/Components/LinkedinSection";
 import React from "react";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
+import AnimatedSection from "@/Components/AnimatedSection";
 
 const InsightsPage = () => {
   const trendingInsights = [
@@ -100,16 +101,18 @@ const InsightsPage = () => {
 
       {/* Main Content */}
       <div className="container relative max-w-7xl -mt-10 md:-mt-40 lg:-mt-60 xl:-mt-30 2xl:-mt-50 mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-16">
-        <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold">
-          Insights
-        </h1>
-        {/* Subtitle */}
-        <div className="mb-8 lg:mb-16">
-          <p className="text-[#162F65] text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-6xl">
-            Stay ahead with expert opinions, market updates, and actionable
-            insights designed to drive smarter supply chain decisions.
-          </p>
-        </div>
+        <AnimatedSection direction="up" delay={0.2}>
+          <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold">
+            Insights
+          </h1>
+          {/* Subtitle */}
+          <div className="mb-8 lg:mb-16">
+            <p className="text-[#162F65] text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-6xl">
+              Stay ahead with expert opinions, market updates, and actionable
+              insights designed to drive smarter supply chain decisions.
+            </p>
+          </div>
+        </AnimatedSection>
 
         {/* Hero Cards Section */}
         {/*<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 lg:mb-24">*/}
@@ -207,19 +210,22 @@ const InsightsPage = () => {
             />
             <div className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]" />
             <div className="absolute inset-0 flex flex-col justify-end p-6 lg:p-8">
-              <h2 className="text-white text-xl md:text-3xl font-bold mb-4 tracking-wide">
-                Freight Hurdles
-              </h2>
-              <p className="text-white text-xs md:text-sm mb-6 leading-4 lg:leading-6 max-w-2xl">
-                Australia&#39;s cargo industry faces challenges like fuel price
-                hikes, port congestion, and supply chain disruptions. Forward
-                planning and smart tech are essential to stay on track.
-              </p>
-              <Link href="/insights/train">
-                <button className="bg-white text-[#162F65] px-4 py-2 cursor-pointer rounded-lg text-xs lg:text-sm font-medium w-fit hover:scale-105 transition-all duration-300">
-                  Read More
-                </button>
-              </Link>
+              <AnimatedSection direction="up" delay={0.2}>
+                <h2 className="text-white text-xl md:text-3xl font-bold mb-4 tracking-wide">
+                  Freight Hurdles
+                </h2>
+                <p className="text-white text-xs md:text-sm mb-6 leading-4 lg:leading-6 max-w-2xl">
+                  Australia&#39;s cargo industry faces challenges like fuel
+                  price hikes, port congestion, and supply chain disruptions.
+                  Forward planning and smart tech are essential to stay on
+                  track.
+                </p>
+                <Link href="/insights/train">
+                  <button className="bg-white text-[#162F65] px-4 py-2 cursor-pointer rounded-lg text-xs lg:text-sm font-medium w-fit hover:scale-105 transition-all duration-300">
+                    Read More
+                  </button>
+                </Link>
+              </AnimatedSection>
             </div>
           </div>
 
@@ -237,14 +243,16 @@ const InsightsPage = () => {
               />
               <div className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]" />
               <div className="absolute inset-0 flex flex-col justify-end p-4 lg:p-6">
-                <h3 className="text-white text-lg md:text-xl font-bold mb-2 tracking-wide">
-                  Eco Freight
-                </h3>
-                <p className="text-white text-xs md:text-xs max-w-2xl leading-4">
-                  Sustainability is now a key focus in logistics. Electric
-                  trucks low-emission ships, and green warehouse practices are
-                  helping Australia move toward cleaner cargo operations.
-                </p>
+                <AnimatedSection direction="up" delay={0.2}>
+                  <h3 className="text-white text-lg md:text-xl font-bold mb-2 tracking-wide">
+                    Eco Freight
+                  </h3>
+                  <p className="text-white text-xs md:text-xs max-w-2xl leading-4">
+                    Sustainability is now a key focus in logistics. Electric
+                    trucks low-emission ships, and green warehouse practices are
+                    helping Australia move toward cleaner cargo operations.
+                  </p>
+                </AnimatedSection>
               </div>
             </div>
 
@@ -260,14 +268,16 @@ const InsightsPage = () => {
               />
               <div className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-[#002B64] to-[#00255700]" />
               <div className="absolute inset-0 flex flex-col justify-end p-4 lg:p-6">
-                <h3 className="text-white text-lg md:text-xl font-bold mb-2 tracking-wide">
-                  Eco Freight
-                </h3>
-                <p className="text-white text-xs md:text-xs max-w-2xl leading-4">
-                  Sustainability is now a key focus in logistics. Electric
-                  trucks low-emission ships, and green warehouse practices are
-                  helping Australia move toward cleaner cargo operations.
-                </p>
+                <AnimatedSection direction="up" delay={0.2}>
+                  <h3 className="text-white text-lg md:text-xl font-bold mb-2 tracking-wide">
+                    Eco Freight
+                  </h3>
+                  <p className="text-white text-xs md:text-xs max-w-2xl leading-4">
+                    Sustainability is now a key focus in logistics. Electric
+                    trucks low-emission ships, and green warehouse practices are
+                    helping Australia move toward cleaner cargo operations.
+                  </p>
+                </AnimatedSection>
               </div>
             </div>
           </div>
@@ -277,90 +287,100 @@ const InsightsPage = () => {
         <div className="grid grid-cols-1 xl:grid-cols-6 gap-8 lg:gap-12">
           {/* Main Content */}
           <div className="xl:col-span-4">
-            <h2 className="text-[#162F65] text-3xl md:text-4xl lg:text-[41px] font-semibold mb-8 lg:mb-12">
-              Latest Insights
-            </h2>
+            <AnimatedSection direction="up" delay={0.2}>
+              <h2 className="text-[#162F65] text-3xl md:text-4xl lg:text-[41px] font-semibold mb-8 lg:mb-12">
+                Latest Insights
+              </h2>
+            </AnimatedSection>
 
-            <div className="space-y-8 grid sm:grid-cols-2 lg:grid-cols-1 lg:space-y-12">
-              {latestInsights.map((insight, index) => (
-                <div
-                  key={index}
-                  className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-86 sm:max-w-none mx-auto sm:mx-0 lg:gap-8"
-                >
-                  <div className="md:col-span-1">
-                    <Image
-                      width={600}
-                      height={600}
-                      src={insight.image}
-                      alt={insight.title}
-                      className="w-full h-48 md:h-56 object-cover rounded-lg"
-                    />
-                  </div>
-                  <div className="md:col-span-2 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-[#162F65] text-base md:text-lg lg:text-2xl font-semibold mb-2 lg:mb-4 tracking-wide">
-                        {insight.title}
-                      </h3>
-                      <p className="text-[#676767] text-sm lg:text-base leading-[22px] mb-6 lg:mb-8">
-                        {insight.description}
-                      </p>
+            <AnimatedSection direction="left" delay={0.2}>
+              <div className="space-y-8 grid sm:grid-cols-2 lg:grid-cols-1 lg:space-y-12">
+                {latestInsights.map((insight, index) => (
+                  <div
+                    key={index}
+                    className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-86 sm:max-w-none mx-auto sm:mx-0 lg:gap-8"
+                  >
+                    <div className="md:col-span-1">
+                      <Image
+                        width={600}
+                        height={600}
+                        src={insight.image}
+                        alt={insight.title}
+                        className="w-full h-48 md:h-56 object-cover rounded-lg"
+                      />
                     </div>
-                    <Link href="/insights/train">
-                      <button className="bg-[#162F65] text-white px-6 py-3 cursor-pointer rounded-xl text-xs lg:text-sm font-medium w-fit hover:bg-blue-950 hover:scale-105 transition-all duration-300">
-                        Read More
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="xl:col-span-2">
-            <div className="bg-[#E7E6DD] rounded-xl p-6 lg:p-8 sticky top-8">
-              <h3 className="text-[#162F65] text-xl md:text-2xl lg:text-3xl font-medium mb-6 lg:mb-8 tracking-wide">
-                Trending Insights
-              </h3>
-
-              {/* Search Bar */}
-              <div className="relative mb-8 lg:mb-12">
-                <div className="bg-white rounded-xl p-4 flex items-center gap-3">
-                  <Search className="w-6 h-6 text-[#162F65] flex-shrink-0" />
-                  <span className="text-[#676767] text-lg">Search</span>
-                </div>
-              </div>
-
-              {/* Trending Items */}
-              <div className="space-y-6 lg:space-y-8">
-                {trendingInsights.map((item, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="w-3 lg:w-6 h-14 bg-[#162F65] rounded-xl flex-shrink-0 -ml-7 lg:-ml-11"></div>
-                    <div className="flex-1 px-5">
-                      <h4 className="text-[#162F65] text-base lg:text-lg font-medium mb-2 leading-tight">
-                        {item.title}
-                      </h4>
-                      <p className="text-[#0F2043] text-sm lg:text-base leading-relaxed mb-3">
-                        {item.description}
-                      </p>
-                      <div className="text-right">
-                        <Link href="/insights/train">
-                          <button className="text-[#0F2043] self-end text-sm cursor-pointer underline hover:text-[#162F65] transition-colors">
-                            View More
-                          </button>
-                        </Link>
+                    <div className="md:col-span-2 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-[#162F65] text-base md:text-lg lg:text-2xl font-semibold mb-2 lg:mb-4 tracking-wide">
+                          {insight.title}
+                        </h3>
+                        <p className="text-[#676767] text-sm lg:text-base leading-[22px] mb-6 lg:mb-8">
+                          {insight.description}
+                        </p>
                       </div>
+                      <Link href="/insights/train">
+                        <button className="bg-[#162F65] text-white px-6 py-3 cursor-pointer rounded-xl text-xs lg:text-sm font-medium w-fit hover:bg-blue-950 hover:scale-105 transition-all duration-300">
+                          Read More
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </AnimatedSection>
+          </div>
+
+          {/* Sidebar */}
+
+          <div className="xl:col-span-2">
+            <AnimatedSection direction="right" delay={0.2}>
+              <div className="bg-[#E7E6DD] rounded-xl p-6 lg:p-8 sticky top-8">
+                <h3 className="text-[#162F65] text-xl md:text-2xl lg:text-3xl font-medium mb-6 lg:mb-8 tracking-wide">
+                  Trending Insights
+                </h3>
+
+                {/* Search Bar */}
+                <div className="relative mb-8 lg:mb-12">
+                  <div className="bg-white rounded-xl p-4 flex items-center gap-3">
+                    <Search className="w-6 h-6 text-[#162F65] flex-shrink-0" />
+                    <span className="text-[#676767] text-lg">Search</span>
+                  </div>
+                </div>
+
+                {/* Trending Items */}
+                <div className="space-y-6 lg:space-y-8">
+                  {trendingInsights.map((item, index) => (
+                    <div key={index} className="flex gap-4">
+                      <div className="w-3 lg:w-6 h-14 bg-[#162F65] rounded-xl flex-shrink-0 -ml-7 lg:-ml-11"></div>
+                      <div className="flex-1 px-5">
+                        <h4 className="text-[#162F65] text-base lg:text-lg font-medium mb-2 leading-tight">
+                          {item.title}
+                        </h4>
+                        <p className="text-[#0F2043] text-sm lg:text-base leading-relaxed mb-3">
+                          {item.description}
+                        </p>
+                        <div className="text-right">
+                          <Link href="/insights/train">
+                            <button className="text-[#0F2043] self-end text-sm cursor-pointer underline hover:text-[#162F65] transition-colors">
+                              View More
+                            </button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </div>
-      <div className="">
-        <LinkedinSection />
-      </div>
+
+      <AnimatedSection direction="up" delay={0.2}>
+        <div className="">
+          <LinkedinSection />
+        </div>
+      </AnimatedSection>
     </div>
   );
 };
