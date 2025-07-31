@@ -57,7 +57,7 @@ const teamMembers = [
   },
   {
     id: 6,
-    name: "Amber Weber",
+    name: "Amber Webber",
     title: "Portfolio Manager, Exports",
     flipBg: "/leadership/flip-1.png",
     description:
@@ -66,7 +66,7 @@ const teamMembers = [
   },
   {
     id: 7,
-    name: "Guha Shanka",
+    name: "Guhashanka Cumarasamy",
     title: "Chief Marketing Officer",
     flipBg: "/leadership/flip-3.png",
     description:
@@ -131,7 +131,7 @@ const LeadershipPage = () => {
       </div>
       <div
         id="member-section"
-        className="relative container max-w-7xl mx-auto md:-top-50 lg:-top-40 xl:-top-30 2xl:-top-60"
+        className="relative container max-w-7xl mx-auto md:-top-50 lg:-top-40 xl:-top-30 2xl:-top-60 px-4 sm:px-6 md:px-6 lg:px-8"
       >
         <div className="">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
