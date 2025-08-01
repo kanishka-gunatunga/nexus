@@ -57,7 +57,7 @@ const airAndSeaFreight = () => {
         <div className="bg-transparent -mt-0 lg:-mt-45 px-4 py-6 md:py-10">
           {/* Mobile Layout: title → image → description */}
           <AnimatedSection direction="up" delay={0.2}>
-            <div className="block md:hidden flex flex-col items-center gap-4">
+            <div className="block lg:hidden flex flex-col items-center gap-4">
               {/* Title */}
               <h2 className="font-bold text-[24px] sm:text-[32px] text-[#162F65] font-poppins text-center">
                 History &amp; Inspiration
@@ -88,7 +88,7 @@ const airAndSeaFreight = () => {
 
           <AnimatedSection direction="up" delay={0.2}>
             {/* Tablet & Desktop Layout: keep your current structure */}
-            <div className="hidden md:flex flex-col lg:flex-row gap-6 items-center md:-mt-30 lg:mt-20 2xl:mt-0 lg:items-start">
+            <div className="hidden lg:flex flex-col lg:flex-row gap-6 items-center md:-mt-30 lg:mt-20 2xl:mt-0 lg:items-start">
               {/* Image Section */}
               <div className="w-full lg:w-[30%] flex justify-center">
                 <Image
@@ -487,12 +487,10 @@ const airAndSeaFreight = () => {
       <div className="max-w-7xl mx-auto px-8 sm:px-8 lg:px-8 mt-[50px] lg:mt-[100px]">
         <AnimatedSection direction="up" delay={0.2}>
           {/* Mobile Layout */}
-          <div className="block md:hidden">
+          <div className="block lg:hidden">
             {/* Title */}
             <h2 className="font-bold text-[28px] sm:text-[32px] text-[#162F65] font-poppins mb-2 text-center">
-              Sustainability
-              <br />
-              at Nexus Logix
+              Sustainability at Nexus Logix
             </h2>
 
             {/* Image */}
@@ -526,7 +524,7 @@ const airAndSeaFreight = () => {
         </AnimatedSection>
 
         {/* Tablet and Desktop Layout */}
-        <div className="hidden md:flex bg-transparent px-0 py-6 md:py-10 flex-col lg:flex-row gap-10">
+        <div className="hidden lg:flex bg-transparent px-0 py-6 md:py-10 flex-col lg:flex-row gap-10">
           {/* Image */}
           <div className="flex-1 flex justify-center items-center">
             <AnimatedSection direction="left" delay={0.2}>
