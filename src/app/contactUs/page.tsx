@@ -7,6 +7,7 @@ import Nav from "@/Components/Nav";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
 import AnimatedSection from "@/Components/AnimatedSection";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Define the shape of your form data
 interface FormData {
@@ -39,14 +40,14 @@ export default function ContactPage() {
   });
 
   const [isTopicOpen, setIsTopicOpen] = useState<boolean>(false);
-  // const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [errors, setErrors] = useState<
-    Partial<Record<keyof FormData | "privacy", string>>
+    Partial<Record<keyof FormData | "privacy" | "recaptcha", string>>
   >({});
   const [isLoading, setIsLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -57,141 +58,14 @@ export default function ContactPage() {
       [name]: value,
     }));
 
-    // Clear error on input change
-    // setErrors((prev) => ({
-    //     ...prev,
-    //     [name]: "",
-    // }));
-
     validateField(name as keyof FormData, value);
 
     setSuccessMessage("");
     setErrorMessage("");
   };
 
-  // const validateForm = () => {
-  //     const newErrors: { [key: string]: string } = {};
-  //
-  //     if (!formData.firstName.trim()) {
-  //         newErrors.firstName = "First name is required.";
-  //     }
-  //
-  //     if (!formData.lastName.trim()) {
-  //         newErrors.lastName = "Last name is required.";
-  //     }
-  //
-  //     if (!formData.companyEmail.trim()) {
-  //         newErrors.companyEmail = "Company email is required.";
-  //     } else if (
-  //         !/^[a-z][a-z0-9._%+-]*@[a-z0-9.-]+\.[a-z]{2,}$/.test(
-  //             formData.companyEmail.trim()
-  //         )
-  //     ) {
-  //         newErrors.companyEmail =
-  //             "Company email is invalid or must be all lowercase and start with a lowercase letter.";
-  //     } else if (
-  //         formData.companyEmail.trim().length < 6 ||
-  //         formData.companyEmail.trim().length > 254
-  //     ) {
-  //         newErrors.companyEmail =
-  //             "Company email must be between 6 and 254 characters.";
-  //     }
-  //
-  //     if (!formData.phone.trim()) {
-  //         newErrors.phone = "Phone number is required.";
-  //     } else if (!/^\+\d{1,4}(?:\s\d{1,4}){1,4}$/.test(formData.phone)) {
-  //         newErrors.phone =
-  //             "Phone number must start with + and be in a valid format (e.g., +61 X XXXX XXXX).";
-  //     }
-  //
-  //     if (!formData.companyName.trim()) {
-  //         newErrors.companyName = "Company name is required.";
-  //     }
-  //
-  //     if (
-  //         formData.website.trim() &&
-  //         !/^https?:\/\/\S+\.\S+$/.test(formData.website)
-  //     ) {
-  //         newErrors.website = "Invalid website URL.";
-  //     }
-  //
-  //     // Optional: address and message — no required validation
-  //     // Only validate city and province if filled
-  //     if (formData.city.trim() && !/^[a-zA-Z\s'-]+$/.test(formData.city)) {
-  //         newErrors.city = "City must contain only letters.";
-  //     }
-  //
-  //     if (
-  //         formData.province.trim() &&
-  //         !/^[a-zA-Z\s'-]+$/.test(formData.province)
-  //     ) {
-  //         newErrors.province = "State must contain only letters.";
-  //     }
-  //
-  //     if (!privacyAccepted) newErrors.privacy = "You must accept the privacy policy";
-  //
-  //     setErrors(newErrors);
-  //     return Object.keys(newErrors).length === 0;
-  // };
-
   const validateField = (name: keyof FormData, value: string) => {
     const newErrors = { ...errors };
-
-    // switch (name) {
-    //     case "firstName":
-    //         newErrors.firstName = value.trim() ? "" : "First name is required.";
-    //         break;
-    //     case "lastName":
-    //         newErrors.lastName = value.trim() ? "" : "Last name is required.";
-    //         break;
-    //     case "companyEmail":
-    //         if (!value.trim()) {
-    //             newErrors.companyEmail = "Company email is required.";
-    //         } else if (!/^[a-z][a-z0-9._%+-]*@[a-z0-9.-]+\.[a-z]{2,}$/.test(value.trim())) {
-    //             newErrors.companyEmail = "Please enter a valid lowercase email (e.g., user@company.com).";
-    //         } else if (value.trim().length < 6 || value.trim().length > 254) {
-    //             newErrors.companyEmail = "Email must be between 6 and 254 characters.";
-    //         } else {
-    //             newErrors.companyEmail = "";
-    //         }
-    //         break;
-    //     case "phone":
-    //         if (!value.trim()) {
-    //             newErrors.phone = "Phone number is required.";
-    //         } else if (!/^\+\d{1,4}\s?\d{6,}$/.test(value.trim())) {
-    //             newErrors.phone = "Please enter a valid phone number (e.g., +61712345678).";
-    //         } else {
-    //             newErrors.phone = "";
-    //         }
-    //         break;
-    //     case "companyName":
-    //         newErrors.companyName = value.trim() ? "" : "Company name is required.";
-    //         break;
-    //     case "website":
-    //         if (value.trim() && !/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(value.trim())) {
-    //             newErrors.website = "Please enter a valid URL (e.g., https://example.com).";
-    //         } else {
-    //             newErrors.website = "";
-    //         }
-    //         break;
-    //     case "city":
-    //         if (value.trim() && !/^[a-zA-Z\s'-]+$/.test(value.trim())) {
-    //             newErrors.city = "City must contain only letters, spaces, or hyphens.";
-    //         } else {
-    //             newErrors.city = "";
-    //         }
-    //         break;
-    //     case "province":
-    //         if (value.trim() && !/^[a-zA-Z\s'-]+$/.test(value.trim())) {
-    //             newErrors.province = "State must contain only letters, spaces, or hyphens.";
-    //         } else {
-    //             newErrors.province = "";
-    //         }
-    //         break;
-    //     case "message":
-    //         newErrors.message = "";
-    //         break;
-    // }
 
     switch (name) {
       case "firstName":
@@ -237,12 +111,10 @@ export default function ContactPage() {
       case "phone":
         if (!value.trim()) {
           newErrors.phone = "Phone number is required.";
-        } else if (!/^\+\d{1,3}\s?\d{6,14}$/.test(value.trim())) {
-          // Allows for +CountryCode and 6-14 digits, with optional space
-          newErrors.phone =
-            "Please enter a valid phone number (e.g.,+1234567890).";
+        } else if (!/^[\d\s()+-]{7,20}$/.test(value.trim())) {
+          // Allows digits, spaces, parentheses, + and - signs
+          newErrors.phone = "Please enter a valid phone number (e.g., 0435231833 or +61435231833).";
         } else if (value.trim().length < 7 || value.trim().length > 20) {
-          // Example length limits for phone numbers
           newErrors.phone = "Phone number must be between 7 and 20 characters.";
         } else {
           newErrors.phone = "";
@@ -261,14 +133,13 @@ export default function ContactPage() {
       case "website":
         if (
           value.trim() &&
-          !/^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+(?:\/[^/#?]+)*(?:[?][^#]*)?(?:#.*)?$/.test(
+          !/^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/.test(
             value.trim()
           )
         ) {
           newErrors.website =
-            "Please enter a valid URL (e.g., https://example.com).";
+            "Please enter a valid URL (e.g., example.com or https://example.com).";
         } else if (value.trim().length > 200) {
-          // Example length limit for URLs
           newErrors.website = "Website URL cannot exceed 200 characters.";
         } else {
           newErrors.website = "";
@@ -314,7 +185,7 @@ export default function ContactPage() {
   };
 
   const validateForm = () => {
-    const newErrors: Partial<Record<keyof FormData | "privacy", string>> = {};
+    const newErrors: Partial<Record<keyof FormData | "privacy" | "recaptcha", string>> = {};
 
     if (!formData.firstName.trim())
       newErrors.firstName = "First name is required.";
@@ -337,18 +208,17 @@ export default function ContactPage() {
     }
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required.";
-    } else if (!/^\+\d+$/.test(formData.phone.trim())) {
-      newErrors.phone =
-        "Please enter a valid phone number (e.g., +61712345678).";
+    } else if (!/^[\d\s()+-]{7,20}$/.test(formData.phone.trim())) {
+      newErrors.phone = "Please enter a valid phone number (e.g., 0435231833 or +61435231833).";
     }
     if (!formData.companyName.trim())
       newErrors.companyName = "Company name is required.";
     if (
       formData.website.trim() &&
-      !/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(formData.website.trim())
+      !/^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/.test(formData.website.trim())
     ) {
       newErrors.website =
-        "Please enter a valid URL (e.g., https://example.com).";
+        "Please enter a valid URL (e.g., example.com or https://example.com).";
     }
     if (formData.city.trim() && !/^[a-zA-Z\s'-]+$/.test(formData.city.trim())) {
       newErrors.city = "City must contain only letters, spaces, or hyphens.";
@@ -362,20 +232,12 @@ export default function ContactPage() {
     }
     if (!privacyAccepted)
       newErrors.privacy = "You must accept the privacy policy.";
+    if (!recaptchaValue)
+      newErrors.recaptcha = "Please complete the reCAPTCHA verification.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
-  // const handleSubmit = (e: FormEvent) => {
-  //   e.preventDefault();
-  //   if (validateForm()) {
-  //     console.log("Form submitted:", formData);
-  //     // You can submit your form here
-  //   } else {
-  //     console.log("Validation failed!");
-  //   }
-  // };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -389,7 +251,11 @@ export default function ContactPage() {
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formType: "contactUs", ...formData }),
+        body: JSON.stringify({ 
+          formType: "contactUs", 
+          ...formData,
+          recaptchaValue 
+        }),
       });
 
       if (response.ok) {
@@ -408,6 +274,7 @@ export default function ContactPage() {
           message: "",
         });
         setPrivacyAccepted(false);
+        setRecaptchaValue(null);
         setErrors({});
         setTimeout(() => {
           setSuccessMessage("");
@@ -451,27 +318,6 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[#F6F6F6] poppins">
       <div className="relative mx-auto block">
         <Nav />
-
-        {/* <div id="hero-section"
-                     className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
-                    <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
-                        <Image
-                            src="/why-nexus/banner.svg"
-                            alt="Nexus X Logo"
-                            width={1000}
-                            height={400}
-                            className="w-full h-full object-cover absolute inset-0"
-                        />
-                        <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
-                            <div className="text-left px-4">
-                                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
-                                    Why Nexus
-                                </h1>
-
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
 
         <HeroSection
           title="DON'T HESITATE TO CONTACT US"
@@ -791,6 +637,7 @@ export default function ContactPage() {
                           name="website"
                           value={formData.website}
                           onChange={handleInputChange}
+                          placeholder=""
                           className="w-full border-b-2 border-black focus:border-blue-500 outline-none pb-2"
                         />
                         {errors.website && (
@@ -918,6 +765,20 @@ export default function ContactPage() {
                     {errors.message && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.message}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* reCAPTCHA */}
+                  <div className="mb-4">
+                    
+                    <ReCAPTCHA
+  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "YOUR_SITE_KEY"}
+  onChange={(value: string | null) => setRecaptchaValue(value)}
+/>
+                    {errors.recaptcha && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.recaptcha}
                       </p>
                     )}
                   </div>
