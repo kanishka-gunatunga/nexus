@@ -792,22 +792,21 @@ export default function ContactPage() {
                   </div>
 
                   {/* reCAPTCHA */}
-                  <div className="mb-4">
-                    <ReCAPTCHA
-                      sitekey={
-                        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
-                        "YOUR_SITE_KEY"
-                      }
-                      onChange={(value: string | null) =>
-                        setRecaptchaValue(value)
-                      }
-                    />
-                    {errors.recaptcha && (
-                      <p className="text-red-600 text-sm mt-1">
-                        {errors.recaptcha}
-                      </p>
-                    )}
-                  </div>
+                  <div className="mb-4 flex sm:justify-start md:justify-start">
+  <div className="transform scale-100 sm:scale-90 max-[480px]:scale-80 origin-top">
+    <ReCAPTCHA
+      sitekey={
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "YOUR_SITE_KEY"
+      }
+      onChange={(value: string | null) => setRecaptchaValue(value)}
+    />
+  </div>
+
+  {errors.recaptcha && (
+    <p className="text-red-600 text-sm mt-1">{errors.recaptcha}</p>
+  )}
+</div>
+
 
                   {/* Privacy Policy */}
                   <div className="mb-8">
