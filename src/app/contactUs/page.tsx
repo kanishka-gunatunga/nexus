@@ -111,11 +111,19 @@ export default function ContactPage() {
       case "phone":
         if (!value.trim()) {
           newErrors.phone = "Phone number is required.";
-        } else if (!/^[\d\s()+-]{7,20}$/.test(value.trim())) {
-          // Allows digits, spaces, parentheses, + and - signs
-          newErrors.phone = "Please enter a valid phone number (e.g., 0435231833 or +61435231833).";
+        } else if (!/^[\d\s()-]+$/.test(value.trim())) {
+          // Only allows digits, spaces, parentheses, and hyphens (removed +)
+          newErrors.phone =
+            "Please enter a valid phone number (e.g., 0435231833).";
         } else if (value.trim().length < 7 || value.trim().length > 20) {
           newErrors.phone = "Phone number must be between 7 and 20 characters.";
+        } else if (/^[^0-9]/.test(value.trim())) {
+          // Doesn't start with a digit
+          newErrors.phone = "Phone number must start with a digit.";
+        } else if (/\D\D/.test(value.trim())) {
+          // Has consecutive non-digit characters
+          newErrors.phone =
+            "Phone number cannot have consecutive special characters.";
         } else {
           newErrors.phone = "";
         }
@@ -185,7 +193,9 @@ export default function ContactPage() {
   };
 
   const validateForm = () => {
-    const newErrors: Partial<Record<keyof FormData | "privacy" | "recaptcha", string>> = {};
+    const newErrors: Partial<
+      Record<keyof FormData | "privacy" | "recaptcha", string>
+    > = {};
 
     if (!formData.firstName.trim())
       newErrors.firstName = "First name is required.";
@@ -208,14 +218,26 @@ export default function ContactPage() {
     }
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required.";
-    } else if (!/^[\d\s()+-]{7,20}$/.test(formData.phone.trim())) {
-      newErrors.phone = "Please enter a valid phone number (e.g., 0435231833 or +61435231833).";
+    } else if (!/^[\d\s()-]+$/.test(formData.phone.trim())) {
+      newErrors.phone = "Please enter a valid phone number (e.g., 0435231833).";
+    } else if (/^[^0-9]/.test(formData.phone.trim())) {
+      newErrors.phone = "Phone number must start with a digit.";
+    } else if (/\D\D/.test(formData.phone.trim())) {
+      newErrors.phone =
+        "Phone number cannot have consecutive special characters.";
+    } else if (
+      formData.phone.trim().length < 7 ||
+      formData.phone.trim().length > 20
+    ) {
+      newErrors.phone = "Phone number must be between 7 and 20 characters.";
     }
     if (!formData.companyName.trim())
       newErrors.companyName = "Company name is required.";
     if (
       formData.website.trim() &&
-      !/^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/.test(formData.website.trim())
+      !/^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/.test(
+        formData.website.trim()
+      )
     ) {
       newErrors.website =
         "Please enter a valid URL (e.g., example.com or https://example.com).";
@@ -251,10 +273,10 @@ export default function ContactPage() {
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          formType: "contactUs", 
+        body: JSON.stringify({
+          formType: "contactUs",
           ...formData,
-          recaptchaValue 
+          recaptchaValue,
         }),
       });
 
@@ -771,11 +793,15 @@ export default function ContactPage() {
 
                   {/* reCAPTCHA */}
                   <div className="mb-4">
-                    
                     <ReCAPTCHA
-  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "YOUR_SITE_KEY"}
-  onChange={(value: string | null) => setRecaptchaValue(value)}
-/>
+                      sitekey={
+                        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+                        "YOUR_SITE_KEY"
+                      }
+                      onChange={(value: string | null) =>
+                        setRecaptchaValue(value)
+                      }
+                    />
                     {errors.recaptcha && (
                       <p className="text-red-600 text-sm mt-1">
                         {errors.recaptcha}
