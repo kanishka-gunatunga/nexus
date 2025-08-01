@@ -4,7 +4,10 @@ import client from '../../../client';
 export const contactUs = async () => {
     const query = `
  *[_type == "contactUs"]{
-  heroTitle,
+ heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   contact_form_title,
   contact_form_description_1,
   contact_form_description_2,

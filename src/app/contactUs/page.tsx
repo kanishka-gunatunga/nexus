@@ -32,6 +32,7 @@ interface pageData {
 }
 
 interface FormData {
+  privacyPolicyAccepted: boolean;
   firstName: string;
   lastName: string;
   companyEmail: string;
@@ -49,6 +50,7 @@ export default function ContactPage() {
   const [submissionStatus, setSubmissionStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   const [formData, setFormData] = useState<FormData>({
+    privacyPolicyAccepted: false,
     firstName: "",
     lastName: "",
     companyEmail: "",
@@ -80,6 +82,21 @@ export default function ContactPage() {
       [name]: "",
     }));
   };
+
+
+  const handlePrivacyChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      privacyPolicyAccepted: checked,
+    }));
+    setErrors((prev) => ({
+      ...prev,
+      privacyPolicyAccepted: "",
+    }));
+  };
+
+
 
   const [pageData, setPageData] = useState<pageData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -130,6 +147,10 @@ export default function ContactPage() {
       newErrors.lastName = "Last name is required.";
     }
 
+    if (!formData.privacyPolicyAccepted) {
+    newErrors.privacyPolicyAccepted = "You must accept the privacy policy.";
+  }
+
     if (!formData.companyEmail.trim()) {
       newErrors.companyEmail = "Company email is required.";
     } else if (
@@ -176,6 +197,8 @@ export default function ContactPage() {
       newErrors.province = "State must contain only letters.";
     }
 
+    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -186,7 +209,7 @@ export default function ContactPage() {
     if (validateForm()) {
       setSubmissionStatus("submitting");
       try {
-        // Use the imported client to create a new contact submission document in Sanity
+       
         const result = await client.create({
           _type: "contactSubmission",
           firstName: formData.firstName,
@@ -200,6 +223,7 @@ export default function ContactPage() {
           province: formData.province,
           topic: formData.topic,
           message: formData.message,
+          privacyPolicyAccepted: formData.privacyPolicyAccepted,
           submittedAt: new Date().toISOString(),
         });
 
@@ -207,6 +231,7 @@ export default function ContactPage() {
         setSubmissionStatus("success");
         // Reset form after successful submission
         setFormData({
+          privacyPolicyAccepted: false,
           firstName: "",
           lastName: "",
           companyEmail: "",
@@ -225,6 +250,7 @@ export default function ContactPage() {
       }
     } else {
       console.log("Validation failed!");
+      setSubmissionStatus("idle");
     }
   };
 
@@ -659,22 +685,37 @@ export default function ContactPage() {
               </div>
 
               {/* Privacy Policy */}
-              <div className="mb-8">
+                <div className="mb-8">
                 <div className="flex items-start space-x-2">
-                  <input type="checkbox" id="privacy" className="mt-1" />
+                  <input
+                  type="checkbox"
+                  id="privacy"
+                  name="privacyPolicyAccepted"
+                  className="mt-1"
+                  checked={formData.privacyPolicyAccepted || false}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                    ...prev,
+                    privacyPolicyAccepted: e.target.checked,
+                    }))
+                  }
+                  />
                   <label
-                    htmlFor="privacy"
-                    className="font-poppins font-normal text-[12px] md:text-[14px] lg:text-[15px] leading-[25px] tracking-[0em] text-[#676767]"
+                  htmlFor="privacy"
+                  className="font-poppins font-normal text-[12px] md:text-[14px] lg:text-[15px] leading-[25px] tracking-[0em] text-[#676767]"
                   >
-                    Our{" "}
-                    <a href="/privacy-policy" className="underline">
-                      privacy policy
-                    </a>{" "}
-                    contains detailed information about our handling of personal
-                    information.
+                  Our{" "}
+                  <a href="/privacy-policy" className="underline">
+                    privacy policy
+                  </a>{" "}
+                  contains detailed information about our handling of personal
+                  information.
                   </label>
                 </div>
-              </div>
+                {errors.privacyPolicyAccepted && (
+                  <p className="text-red-600 text-sm mt-1">{errors.privacyPolicyAccepted}</p>
+                )}
+                </div>
 
               {/* Submit Button */}
               <div className="text-right">
@@ -696,7 +737,7 @@ export default function ContactPage() {
       {/* Map Section - Full Width */}
       <div className="py-12 w-full h-96 lg:h-[500px] overflow-hidden shadow-lg">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.060111295403!2d153.0303199!3d-27.4673879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915b171910d4d5%3A0x85ac0d5597492f4!2sLevel%2038%2F71%20Eagle%20St%2C%20Brisbane%20City%20QLD%204000%2C%20Australia!5e0!3m2!1sen!2slk!4v1752561333604!5m2!1sen!2slk"
+          src= {pageData.map_link || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.060111295403!2d153.0303199!3d-27.4673879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915b171910d4d5%3A0x85ac0d5597492f4!2sLevel%2038%2F71%20Eagle%20St%2C%20Brisbane%20City%20QLD%204000%2C%20Australia!5e0!3m2!1sen!2slk!4v1752561333604!5m2!1sen!2slk"}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -706,3 +747,4 @@ export default function ContactPage() {
     </div>
   );
 }
+

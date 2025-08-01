@@ -5,7 +5,10 @@ export const customs = async () => {
     const query = `
   
   *[_type == "customs"]{
-  hero_title,
+  heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   accordian_section_title,
   accordian_section_description,
   "accordian_section_image": accordian_section_image.asset->url,

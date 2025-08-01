@@ -4,7 +4,10 @@ import client from '../../../client';
 export const trackAndTrace = async () => {
     const query = `
  *[_type == "trackAndTrace"]{
-  heroTitle,
+  heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   section_1_title,
   section_1{
    

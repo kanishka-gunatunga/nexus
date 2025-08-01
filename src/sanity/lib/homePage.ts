@@ -4,34 +4,42 @@ import client from '../../../client';
 export const homePage = async () => {
   const query = `
   *[_type == "homepage"]{
-  heroTitle,
+  heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   heroDescription,
   hero_button_text,
   hero_button_link,
   icon_card_1{
    
     card_title,
-    card_description,
+    card_description_1,
+    card_description_2,
     "card_icon": card_icon.asset->url
   },
   icon_card_2{
     card_title,
-    card_description,
+    card_description_1,
+    card_description_2,
     "card_icon": card_icon.asset->url
   },
   icon_card_3{
     card_title,
-    card_description,
+    card_description_1,
+    card_description_2,
     "card_icon": card_icon.asset->url
   },
   icon_card_4{
     card_title,
-    card_description,
+    card_description_1,
+    card_description_2,
     "card_icon": card_icon.asset->url
   },
   icon_card_5{
     title,
-    description,
+    card_description_1,
+    card_description_2,
     "card_icon": card_icon.asset->url
   },
   section_2_title,

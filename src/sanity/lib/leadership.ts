@@ -4,7 +4,10 @@ import client from '../../../client';
 export const leadership = async () => {
     const query = `
  *[_type == "leadership"]{
-  hero_title,
+  heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   Page_subtitle,
   terms_member_1{
     

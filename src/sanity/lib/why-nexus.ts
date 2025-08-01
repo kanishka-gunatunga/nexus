@@ -4,7 +4,10 @@ import client from '../../../client';
 export const whyNexus = async () => {
     const query = `
 *[_type == "whyNexus"]{
-  hero_title,
+  heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   heading_title,
   heading_description,
   "heading_image": heading_image.asset->url,

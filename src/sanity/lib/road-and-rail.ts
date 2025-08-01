@@ -4,7 +4,10 @@ import client from '../../../client';
 export const roadAndRail = async () => {
     const query = `
 *[_type == "roadAndRail"]{
-  hero_title,
+  heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   heading_title,
   heading_description,
   card_1_section{

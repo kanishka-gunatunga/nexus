@@ -4,7 +4,10 @@ import client from '../../../client';
 export const termsAndConditions = async () => {
     const query = `
  *[_type == "termsAndConditions"]{
-  hero_title,
+  heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   terms_and_conditions[]
 }
   

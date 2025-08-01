@@ -2,9 +2,12 @@ import client from '../../../client';
 
 
 export const insights = async () => {
-    const query = `
+  const query = `
  *[_type == "Insights"]{
-  heroTitle,
+  heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   Page_subtitle,
   main_post->{
     
@@ -53,7 +56,27 @@ export const insights = async () => {
 }
   
 `
-    const data = await client.fetch(query)
-    console.log("Insights Data:", data)
-    return data;
+  const data = await client.fetch(query)
+  console.log("Insights Data:", data)
+  return data;
+}
+
+
+export async function PostData(slug: string) {
+  const post = await client.fetch(
+    `*[_type == "Posts" && slug.current == $slug][0]{
+      postTitle,
+      Post_short_description,
+      postContent,
+      "slug": slug.current,
+      "postImage": postImage.asset->url,
+      
+    }`,
+    { slug } 
+  );
+  console.log("Post Data:", post);
+  if (!post) {
+    throw new Error(`Post with slug "${slug}" not found`);
+  }
+  return post;
 }

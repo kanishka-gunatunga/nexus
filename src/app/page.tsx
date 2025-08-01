@@ -19,7 +19,8 @@ import { homePage } from '../../src/sanity/lib/homePage'
 
 interface iconCard {
   card_title?: string;
-  card_description?: string;
+  card_description_1?: string;
+  card_description_2?: string;
   card_icon?: string;
 }
 
@@ -246,33 +247,39 @@ export default function Home() {
     icon: string;
     title: string;
     subtitle: string;
+    subtitle_2?: string;
   }
 
   const values: ValueItem[] = [
     {
       icon: pageData?.icon_card_1?.card_icon || "/dependability.png",
       title: pageData?.icon_card_1?.card_title || "DEPENDABILITY",
-      subtitle: pageData?.icon_card_1?.card_description || "You can count on us.",
+      subtitle: pageData?.icon_card_1?.card_description_1 || "You can count on us.",
+      subtitle_2: pageData?.icon_card_1?.card_description_2 || "",
     },
     {
       icon: pageData?.icon_card_2?.card_icon || "/accountability.png",
       title: pageData?.icon_card_2?.card_title || "ACCOUNTABILITY",
-      subtitle: pageData?.icon_card_2?.card_description || "We accept responsibility.\nNo Excuses.",
+      subtitle: pageData?.icon_card_2?.card_description_1 || "We accept responsibility.\nNo Excuses.",
+      subtitle_2: pageData?.icon_card_2?.card_description_2 || "No Excuses.",
     },
     {
       icon: pageData?.icon_card_3?.card_icon || "/transparancy.png",
       title: pageData?.icon_card_3?.card_title || "TRANSPARENCY",
-      subtitle: pageData?.icon_card_3?.card_description || "Clear communication.\nNo Surprises.",
+      subtitle: pageData?.icon_card_3?.card_description_1 || "Clear communication.\nNo Surprises.",
+      subtitle_2: pageData?.icon_card_3?.card_description_2 || "No Surprises.",
     },
     {
       icon: pageData?.icon_card_4?.card_icon || "/commitment.png",
       title: pageData?.icon_card_4?.card_title || "COMMITMENT",
-      subtitle: pageData?.icon_card_4?.card_description || "We go the extra mile.",
+      subtitle: pageData?.icon_card_4?.card_description_1 || "We go the extra mile.",
+      subtitle_2: pageData?.icon_card_4?.card_description_2 || "",
     },
     {
       icon: pageData?.icon_card_5?.card_icon || "/care.png",
       title: pageData?.icon_card_5?.card_title || "CARE",
-      subtitle: pageData?.icon_card_5?.card_description || "Your shipment is our shipment.",
+      subtitle: pageData?.icon_card_5?.card_description_1 || "Your shipment is our shipment.",
+      subtitle_2: pageData?.icon_card_5?.card_description_2 || "",
     },
   ].filter(Boolean);
 
@@ -616,6 +623,9 @@ export default function Home() {
                   </h3>
                   <p className="text-[#0C2D59] font-medium text-[10px] lg:text-xs leading-4 whitespace-pre-line max-w-none lg:max-w-xs ">
                     {value.subtitle}
+                  </p>
+                  <p className="text-[#0C2D59] font-medium text-[10px] lg:text-xs leading-4 whitespace-pre-line max-w-none lg:max-w-xs ">
+                    {value.subtitle_2}
                   </p>
                 </div>
               ))}

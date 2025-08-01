@@ -3,7 +3,10 @@ import client from '../../../client';
 
 export const airAndFreightService = async () => {
   const query = `*[_type == "airAndFreight"]{
-  hero_title,
+  heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   heading_title,
   heading_description,
   card_1_section{

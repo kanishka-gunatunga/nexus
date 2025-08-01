@@ -4,7 +4,10 @@ import client from '../../../client';
 export const privacyPolicy = async () => {
     const query = `
  *[_type == "privacyPolicy"]{
-  hero_title,
+  heroSection{
+    heroTitle,
+    "heroImage": heroImage.asset->url,
+    },
   privacy_policy[]
 }
   
