@@ -792,8 +792,27 @@ export default function ContactPage() {
                   </div>
 
                   {/* reCAPTCHA */}
-                  <div className="mb-4 flex sm:justify-start md:justify-start">
-  <div className="transform scale-100 sm:scale-90 max-[480px]:scale-80 origin-top">
+{/* reCAPTCHA */}
+<div className="w-full md:w-1/2 md:pl-6 lg:pl-0 xl:pl-0">
+  <div
+    className="
+      flex
+      justify-center
+      lg:justify-start
+      w-full
+      sm:w-auto
+      max-w-[260px]
+      sm:max-w-none
+      mx-auto
+      sm:mx-0
+      transform
+      scale-95
+      sm:scale-90
+      max-[480px]:scale-75
+      origin-top
+    "
+    style={{ minWidth: 180 }}
+  >
     <ReCAPTCHA
       sitekey={
         process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "YOUR_SITE_KEY"
@@ -801,7 +820,6 @@ export default function ContactPage() {
       onChange={(value: string | null) => setRecaptchaValue(value)}
     />
   </div>
-
   {errors.recaptcha && (
     <p className="text-red-600 text-sm mt-1">{errors.recaptcha}</p>
   )}
