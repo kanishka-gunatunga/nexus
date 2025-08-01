@@ -115,15 +115,15 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required.";
-    } else if (!/^[\d\s()+-]{7,20}$/.test(formData.phone.trim())) {
-      newErrors.phone =
-        "Please enter a valid phone number (e.g., 0435231833 or +61435231833).";
-    } else if (
-      formData.phone.trim().length < 7 ||
-      formData.phone.trim().length > 20
-    ) {
-      newErrors.phone = "Phone number must be between 7 and 20 characters.";
+        newErrors.phone = "Phone number is required.";
+    } else if (!/^[\d\s()-]+$/.test(formData.phone.trim())) {
+        newErrors.phone = "Please enter a valid phone number (e.g., 0435231833).";
+    } else if (/^[^0-9]/.test(formData.phone.trim())) {
+        newErrors.phone = "Phone number must start with a digit.";
+    } else if (/\D\D/.test(formData.phone.trim())) {
+        newErrors.phone = "Phone number cannot have consecutive special characters.";
+    } else if (formData.phone.trim().length < 7 || formData.phone.trim().length > 20) {
+        newErrors.phone = "Phone number must be between 7 and 20 characters.";
     }
 
     if (formData.originPort.trim().length > 100) {
