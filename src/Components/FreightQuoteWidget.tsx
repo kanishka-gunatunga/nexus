@@ -1,8 +1,9 @@
 "use client";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {ChevronDown} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface FreightQuoteWidgetProps {
     isOpen: boolean;
@@ -27,11 +28,12 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
     });
 
     const [privacyAccepted, setPrivacyAccepted] = useState(false);
-    // const [selectedService, setSelectedService] = useState<string | null>(null);
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [isLoading, setIsLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+    const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
 
     const services = [
         {
@@ -63,6 +65,20 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
             link: "/road-and-rail",
         },
     ];
+
+    useEffect(() => {
+        // Load reCAPTCHA script dynamically
+        const script = document.createElement('script');
+        script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+        script.async = true;
+        script.defer = true;
+        script.onload = () => setRecaptchaLoaded(true);
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
 
     const handleInputChange = (
         e: React.ChangeEvent<
@@ -115,9 +131,9 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
 
         if (!formData.phone.trim()) {
             newErrors.phone = "Phone number is required.";
-        } else if (!/^\+\d+$/.test(formData.phone.trim())) {
+        } else if (!/^[\d\s+\-()]+$/.test(formData.phone.trim())) {
             newErrors.phone =
-                "Please enter a valid phone number (e.g., +61712345678).";
+                "Please enter a valid phone number (e.g., 0435231833 or +61712345678).";
         }
 
         if (formData.originPort.trim().length > 100) {
@@ -136,29 +152,23 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
             newErrors.privacy = "You must accept the privacy policy";
         }
 
-        // Optional: Check that originPort and destinationPort are not empty if needed
-        // if (!formData.originPort.trim()) {
-        //   newErrors.originPort = "Origin port or country is required";
-        // }
-
-        // if (!formData.destinationPort.trim()) {
-        //   newErrors.destinationPort = "Destination port or country is required";
-        // }
+        if (!recaptchaToken) {
+            newErrors.recaptcha = "Please complete the reCAPTCHA verification";
+        }
 
         setErrors(newErrors);
 
         return Object.keys(newErrors).length === 0;
     };
 
-    // const handleSubmit = (e: React.FormEvent) => {
-    //   e.preventDefault();
-    //
-    //   if (validate()) {
-    //     // All validations passed
-    //     console.log("Form submitted:", formData);
-    //     // You can reset form or call API here
-    //   }
-    // };
+    const handleRecaptchaChange = (token: string | null) => {
+        setRecaptchaToken(token);
+        setErrors(prev => {
+            const newErrors = {...prev};
+            delete newErrors.recaptcha;
+            return newErrors;
+        });
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -172,7 +182,11 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
             const response = await fetch("/api/send-email", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({formType: "freightQuote", ...formData}),
+                body: JSON.stringify({
+                    formType: "freightQuote",
+                    ...formData,
+                    recaptchaToken
+                }),
             });
 
             if (response.ok) {
@@ -182,6 +196,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     shipmentsPerMonth: "", mode: "", originPort: "", destinationPort: "", enquiry: "",
                 });
                 setPrivacyAccepted(false);
+                setRecaptchaToken(null);
                 setTimeout(() => {
                     if (confirm("Your request was submitted. Would you like to close the form?")) {
                         onClose();
@@ -395,7 +410,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                                         value={formData.phone}
                                         onChange={handleInputChange}
                                         required
-                                        placeholder=""
+                                        placeholder="e.g., 0435231833 or +61712345678"
                                         className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors text-[#647FBB] placeholder-[#647FBB] ${
                                             errors.phone
                                                 ? "border-red-500 text-red-500"
@@ -598,6 +613,25 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                                     contains detailed information about our handling of personal
                                     information.
                                 </label>
+                            </div>
+
+                            {/* reCAPTCHA */}
+                            <div className="my-4">
+                                {recaptchaLoaded && (
+                                    <>
+                                        <ReCAPTCHA
+                                            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+                                            onChange={handleRecaptchaChange}
+                                            onExpired={() => setRecaptchaToken(null)}
+                                            onErrored={() => setRecaptchaToken(null)}
+                                        />
+                                        {errors.recaptcha && (
+                                            <p className="text-red-500 text-xs mt-1">
+                                                {errors.recaptcha}
+                                            </p>
+                                        )}
+                                    </>
+                                )}
                             </div>
 
                             {/* Submit Button */}
