@@ -5,7 +5,7 @@ export const customs = async () => {
     const query = `
   
   *[_type == "customs"]{
-  heroSection{
+  hero_section{
     heroTitle,
     "heroImage": heroImage.asset->url,
     },
@@ -62,6 +62,18 @@ export const customs = async () => {
     button_link,
     "image": image.asset->url,
     imageAlt
+  },
+
+  
+  seo{
+    page,
+    title,
+    description,
+    keywords [],
+    ogTitle,
+    ogDescription,
+    "ogImage": ogImage.asset->url,
+    canonicalUrl
   }
 }
   

@@ -2,9 +2,9 @@ import client from '../../../client';
 
 
 export const trackAndTrace = async () => {
-    const query = `
+  const query = `
  *[_type == "trackAndTrace"]{
-  heroSection{
+  hero_section{
     heroTitle,
     "heroImage": heroImage.asset->url,
     },
@@ -68,10 +68,22 @@ export const trackAndTrace = async () => {
     "image": image.asset->url,
     imageAlt
   }
-}
+},
+
+
+  seo{
+    page,
+    title,
+    description,
+    keywords [],
+    ogTitle,
+    ogDescription,
+    "ogImage": ogImage.asset->url,
+    canonicalUrl
+  }
   
 `
-    const data = await client.fetch(query)
-    console.log("trackAndTrace Data:", data)
-    return data;
+  const data = await client.fetch(query)
+  console.log("trackAndTrace Data:", data)
+  return data;
 }

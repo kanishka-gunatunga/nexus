@@ -12,8 +12,14 @@ import HeroSection from "@/Components/HeroSection";
 import { integratedLogistics } from "@/sanity/lib/intergrated-logistics";
 
 
+
+interface HeroSection {
+    heroTitle?: string;
+    heroImage?: string;
+}
+
 interface IntegratedLogisticsData {
-  hero_title?: string;
+  hero_section?: HeroSection;
   heading_title?: string;
   heading_description?: string;
   card_1_section?: {
@@ -116,8 +122,8 @@ const IntegratedLogistics = () => {
         <Nav />
 
         <HeroSection
-          title="INTEGRATED LOGISTICS & SPECIAL PROJECTS"
-          desktopImage="/hero-images/intergrated-logi.svg"
+          title={pageData.hero_section?.heroTitle || "INTEGRATED LOGISTICS & SPECIAL PROJECTS"}
+          desktopImage={pageData.hero_section?.heroImage || "/hero-images/intergrated-logi.svg"}
           mobileImage="/hero_arrow.svg"
           altText="Track and trace hero section"
         />

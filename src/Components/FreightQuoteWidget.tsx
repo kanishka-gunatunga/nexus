@@ -1,8 +1,36 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { freight_quote } from "@/sanity/lib/freight-quote";
+import { ServiceCardRowSection } from "@/sanity/lib/service-card-row";
+import client from "../../client";
+
+interface ServiceCardData {
+  section_title?: string;
+  card_1_icon?: string;
+  card_1_title?: string;
+  card_1_button_link?: string;
+  card_2_icon?: string;
+  card_2_title?: string;
+  card_2_button_link?: string;
+  card_3_icon?: string;
+  card_3_title?: string;
+  card_3_button_link?: string;
+  card_4_icon?: string;
+  card_4_title?: string;
+  card_4_button_link?: string;
+}
+
+interface FreightQuoteData {
+  quote_form_title_1?: string;
+  quote_form_title_2?: string;
+  quote_form_subtitle_1?: string;
+  quote_form_subtitle_2?: string;
+  quote_form_bottom_logo?: string;
+  quote_form_bottom_text?: string;
+}
 
 interface FreightQuoteWidgetProps {
   isOpen: boolean;
@@ -19,57 +47,87 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
     companyName: "",
     email: "",
     phone: "",
-    shipmentsPerMonth: "",
-    mode: "",
+    shipmentsPerMonth: "10-25", // Default value
+    mode: "Air Freight Services", // Default value
     originPort: "",
     destinationPort: "",
     enquiry: "",
+    privacyAccepted: false,
   });
 
-  const [privacyAccepted, setPrivacyAccepted] = useState(false);
-  // const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [sectionData, setSectionData] = useState<ServiceCardData | null>(null);
+  const [freightQuoteData, setFreightQuoteData] = useState<FreightQuoteData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [submissionStatus, setSubmissionStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await ServiceCardRowSection();
+        const freightData = await freight_quote();
+
+        if (data && data.length > 0) {
+          setSectionData(data[0]);
+          setFreightQuoteData(freightData[0]);
+        } else {
+          setSectionData(null);
+          setFreightQuoteData(null);
+        }
+      } catch (err) {
+        console.error("Failed to fetch data:", err);
+        setError("Failed to load content.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const services = [
     {
       id: "air-sea",
-      title: "AIR & SEA",
-      subtitle: "FREIGHT",
+      title: sectionData?.card_1_title || "AIR & SEA FREIGHT",
+      subtitle: "",
       image: "/icons/plane-black.svg",
       link: "/air-and-sea-freight",
     },
     {
       id: "road-rail",
-      title: "ROAD & RAIL",
-      subtitle: "TRANSPORT",
+      title: sectionData?.card_2_title || "ROAD & RAIL TRANSPORT",
+      subtitle: "",
       image: "/icons/truck.svg",
       link: "/road-and-rail",
     },
     {
       id: "logistics",
-      title: "INTEGRATED",
-      subtitle: "LOGISTICS",
+      title: sectionData?.card_3_title || "INTEGRATED LOGISTICS",
+      subtitle: "",
       image: "/icons/box.svg",
       link: "/integrated-logistics",
     },
     {
       id: "customs",
-      title: "CUSTOMS CLEARANCE",
-      subtitle: "& COMPLIANCE",
+      title: sectionData?.card_4_title || "CUSTOMS CLEARANCE & COMPLIANCE",
+      subtitle: "",
       image: "/icons/cart.svg",
       link: "/customs",
     },
-  ];
+  ].filter(Boolean);
 
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target as HTMLInputElement;
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     }));
 
     // Clear error on input change
@@ -112,36 +170,75 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required.";
-    } else if (!/^\+\d{1,4}(?:\s\d{1,4}){1,4}$/.test(formData.phone)) {
+    } else if (!/^\+\d{11}$/.test(formData.phone.replace(/\s/g, ''))) {
       newErrors.phone =
-        "Phone number must start with + and be in a valid format (e.g., +61 X XXXX XXXX).";
+        "Phone number must start with + and contain exactly 11 digits (e.g., +61123456789).";
     }
 
-    if (!privacyAccepted) {
-      newErrors.privacy = "You must accept the privacy policy";
+    // Add validation for other fields if they are required.
+    if (!formData.originPort.trim()) {
+      newErrors.originPort = "Origin port or country is required";
     }
 
-    // Optional: Check that originPort and destinationPort are not empty if needed
-    // if (!formData.originPort.trim()) {
-    //   newErrors.originPort = "Origin port or country is required";
-    // }
+    if (!formData.destinationPort.trim()) {
+      newErrors.destinationPort = "Destination port or country is required";
+    }
 
-    // if (!formData.destinationPort.trim()) {
-    //   newErrors.destinationPort = "Destination port or country is required";
-    // }
+    if (!formData.privacyAccepted) {
+      newErrors.privacyAccepted = "You must accept the privacy policy";
+    }
 
     setErrors(newErrors);
 
     return Object.keys(newErrors).length === 0;
   };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (validate()) {
       // All validations passed
-      console.log("Form submitted:", formData);
-      // You can reset form or call API here
+      setSubmissionStatus("submitting");
+      try {
+        const result = await client.create({
+          _type: "quotationSubmission",
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          companyName: formData.companyName,
+          email: formData.email,
+          phone: formData.phone,
+          shipmentsPerMonth: formData.shipmentsPerMonth,
+          mode: formData.mode,
+          originPort: formData.originPort,
+          destinationPort: formData.destinationPort,
+          enquiry: formData.enquiry,
+          privacyAccepted: formData.privacyAccepted,
+          submittedAt: new Date().toISOString(),
+        });
+
+        console.log("Form submitted to Sanity:", result);
+        setSubmissionStatus("success");
+        // Reset form after successful submission
+        setFormData({
+          firstName: "",
+          lastName: "",
+          companyName: "",
+          email: "",
+          phone: "",
+          shipmentsPerMonth: "10-25",
+          mode: "Air Freight Services",
+          originPort: "",
+          destinationPort: "",
+          enquiry: "",
+          privacyAccepted: false,
+        });
+      } catch (err) {
+        console.error("Failed to submit form to Sanity:", err);
+        setSubmissionStatus("error");
+      }
+    } else {
+      // If validation fails, show the error message.
+      setSubmissionStatus("idle");
     }
   };
 
@@ -175,17 +272,22 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
           <div className="w-full max-w-3xl p-6 sm:p-8 bg-[#1B1B1B]">
             {/* Header */}
             <div className="mb-8">
-              <h2 className="font-poppins font-bold text-[32px] sm:text-[42px] lg:text-[51px] text-white leading-[69px] mb-4">
-                Request a<br />
-                freight rate today
+              <h2 className="font-poppins font-bold text-[32px] sm:text-[42px] lg:text-[51px] text-white leading-[69px]">
+                {freightQuoteData?.quote_form_title_1 || "Request a"}
+              </h2>
+
+              <h2 className="font-poppins font-bold text-[32px] sm:text-[42px] lg:text-[51px] text-white leading-[69px] mb-4 ">
+                {freightQuoteData?.quote_form_title_2 || "freight rate today"}
               </h2>
 
               <p className="font-poppins font-medium text-[14px] sm:text-[16px] lg:text-[19px] leading-[29px] tracking-[0.003em] text-gray-300 mb-2">
-                Tell us as much as you can... Nothing is too complex for us...
+                {freightQuoteData?.quote_form_subtitle_1 ||
+                  "Tell us as much as you can... Nothing is too complex for us..."}
               </p>
 
               <p className="font-poppins font-medium italic text-[14px] sm:text-[16px] lg:text-[19px] leading-[29px] tracking-[0.003em] text-gray-300">
-                Commercial shipments only - no personal effects.
+                {freightQuoteData?.quote_form_subtitle_2 ||
+                  "Commercial shipments only - no personal effects."}
               </p>
             </div>
 
@@ -348,7 +450,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="shipmentsPerMonth"
                     value={formData.shipmentsPerMonth}
                     onChange={handleInputChange}
-                    className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
+                    className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-white py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
                   >
                     <option value="10-25" className="bg-[#2A2A2A] text-white">
                       10 to 25
@@ -380,7 +482,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="mode"
                     value={formData.mode}
                     onChange={handleInputChange}
-                    className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-[#647FBB] py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
+                    className="w-full font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] bg-transparent border-b-[1px] border-[#A5A5A5] text-white py-2 pr-8 focus:outline-none focus:border-white transition-colors appearance-none"
                   >
                     <option
                       value="Air Freight Services"
@@ -433,7 +535,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     htmlFor="originPort"
                     className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
-                    Origin Port or Country
+                    Origin Port or Country*
                   </label>
                   <input
                     type="text"
@@ -441,6 +543,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="originPort"
                     value={formData.originPort}
                     onChange={handleInputChange}
+                    required
                     className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
                       errors.originPort
                         ? "border-red-500 text-red-500"
@@ -455,10 +558,10 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 </div>
                 <div>
                   <label
-                    htmlFor="originPort"
+                    htmlFor="destinationPort"
                     className="block font-poppins font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[25px] tracking-[0.013em] text-white mb-2"
                   >
-                    Destination port or Country
+                    Destination port or Country*
                   </label>
                   <input
                     type="text"
@@ -466,6 +569,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     name="destinationPort"
                     value={formData.destinationPort}
                     onChange={handleInputChange}
+                    required
                     className={`w-full bg-transparent border-b-[1px] py-2 focus:outline-none focus:border-white transition-colors placeholder-gray-400 ${
                       errors.destinationPort
                         ? "border-red-500 text-red-500"
@@ -500,36 +604,63 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
               </div>
 
               {/* Privacy Policy */}
-              <div className="flex items-start gap-3">
-                <input
-                  type="checkbox"
-                  id="privacy"
-                  checked={privacyAccepted}
-                  onChange={(e) => setPrivacyAccepted(e.target.checked)}
-                  className="mt-1 w-4 h-4 text-blue-600 bg-transparent border-gray-300 rounded focus:ring-blue-500"
-                />
-                <label
-                  htmlFor="privacy"
-                  className="font-poppins font-normal text-[12px] md:text-[14px] lg:text-[15px] leading-[25px] tracking-[0em] text-white"
-                >
-                  Our{" "}
-                  <a href="/privacy-policy" className="underline">
-                    privacy policy
-                  </a>{" "}
-                  contains detailed information about our handling of personal
-                  information.
-                </label>
+              <div>
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="privacyAccepted"
+                    name="privacyAccepted"
+                    checked={formData.privacyAccepted}
+                    onChange={handleInputChange}
+                    className={`mt-1 w-4 h-4 text-blue-600 bg-transparent border-gray-300 rounded focus:ring-blue-500 ${
+                      errors.privacyAccepted ? "border-red-500" : ""
+                    }`}
+                  />
+                  <label
+                    htmlFor="privacyAccepted"
+                    className={`font-poppins font-normal text-[12px] md:text-[14px] lg:text-[15px] leading-[25px] tracking-[0em] ${
+                      errors.privacyAccepted ? "text-red-500" : "text-white"
+                    }`}
+                  >
+                    Our{" "}
+                    <a href="/privacy-policy" className="underline">
+                      privacy policy
+                    </a>{" "}
+                    contains detailed information about our handling of personal
+                    information.
+                  </label>
+                </div>
+                {errors.privacyAccepted && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.privacyAccepted}
+                  </p>
+                )}
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                onClick={handleSubmit}
-                className="ml-auto block px-8 py-3 font-poppins font-medium text-[16px] md:text-[20px] lg:text-[25px] leading-[100%] tracking-[0em] text-white rounded-md hover:bg-blue-950 hover:scale-105 transition-all duration-300"
-                style={{ backgroundColor: "#162F65" }}
+                disabled={submissionStatus === "submitting"}
+                className={`ml-auto block px-8 py-3 font-poppins font-medium text-[16px] md:text-[20px] lg:text-[25px] leading-[100%] tracking-[0em] text-white rounded-md transition-all duration-300 ${
+                  submissionStatus === "submitting"
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "bg-[#162F65] hover:bg-blue-950 hover:scale-105"
+                }`}
               >
-                Submit
+                {submissionStatus === "submitting" ? "Submitting..." : "Submit"}
               </button>
+
+              {/* Submission Status Messages */}
+              {submissionStatus === "success" && (
+                <p className="text-green-500 text-center mt-4">
+                  Your request has been submitted successfully!
+                </p>
+              )}
+              {submissionStatus === "error" && (
+                <p className="text-red-500 text-center mt-4">
+                  There was an error submitting your request. Please try again.
+                </p>
+              )}
             </form>
 
             {/* Footer Icons */}
@@ -561,19 +692,19 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
             <div className="mt-12 pt-8 flex items-center gap-10">
               <div className="w-24 h-auto">
                 <Image
-                  src="/footer_logo.png"
+                  src={
+                    freightQuoteData?.quote_form_bottom_logo ||
+                    "/footer_logo.png"
+                  }
                   alt="neXus Logo"
                   width={96}
                   height={40}
                   className="object-contain"
                 />
               </div>
-              <div className="font-poppins font-medium text-gray-300 leading-[17px] text-[11px] sm:text-[12px] lg:text-[13px] leading-tight">
-                A proudly Australian logistics pit crew with a global reach,
-                <br />
-                delivering agile, reliable freight solutions that keep your
-                <br />
-                supply chain moving.
+              <div className="font-poppins font-medium text-gray-300 leading-[17px] text-[11px] sm:text-[12px] lg:text-[13px] leading-tight max-w-sm">
+                {freightQuoteData?.quote_form_bottom_text ||
+                  "A proudly Australian logistics pit crew with a global reach, delivering agile, reliable freight solutions that keep your supply chain moving."}
               </div>
             </div>
           </div>

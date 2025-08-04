@@ -4,7 +4,7 @@ import client from '../../../client';
 export const insights = async () => {
   const query = `
  *[_type == "Insights"]{
-  heroSection{
+  hero_section{
     heroTitle,
     "heroImage": heroImage.asset->url,
     },
@@ -52,6 +52,18 @@ export const insights = async () => {
     postContent,
     "slug": slug.current,
     "postImage": postImage.asset->url,
+  },
+
+  
+  seo{
+    page,
+    title,
+    description,
+    keywords [],
+    ogTitle,
+    ogDescription,
+    "ogImage": ogImage.asset->url,
+    canonicalUrl
   }
 }
   

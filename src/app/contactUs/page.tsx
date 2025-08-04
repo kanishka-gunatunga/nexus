@@ -9,6 +9,8 @@ import HeroSection from "@/Components/HeroSection";
 import { contactUs } from "@/sanity/lib/contact-us";
 // Import the Sanity client from your client file
 import client from "../../../client";
+import { Metadata } from "next";
+import imageUrlBuilder from '@sanity/image-url';
 
 interface contactItem {
   icon?: string;
@@ -16,8 +18,22 @@ interface contactItem {
   contact_info?: string;
 }
 
+interface SeoData {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: { asset: { _ref: string } }; // Sanity image format
+  canonicalUrl?: string;
+}
+interface HeroSection {
+  heroTitle?: string;
+  heroImage?: string;
+}
+
 interface pageData {
-  heroTitle: string;
+  hero_section?: HeroSection;
   contact_form_title: string;
   contact_form_description_1: string;
   contact_form_description_2: string;
@@ -148,8 +164,8 @@ export default function ContactPage() {
     }
 
     if (!formData.privacyPolicyAccepted) {
-    newErrors.privacyPolicyAccepted = "You must accept the privacy policy.";
-  }
+      newErrors.privacyPolicyAccepted = "You must accept the privacy policy.";
+    }
 
     if (!formData.companyEmail.trim()) {
       newErrors.companyEmail = "Company email is required.";
@@ -197,7 +213,7 @@ export default function ContactPage() {
       newErrors.province = "State must contain only letters.";
     }
 
-    
+
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -209,7 +225,7 @@ export default function ContactPage() {
     if (validateForm()) {
       setSubmissionStatus("submitting");
       try {
-       
+
         const result = await client.create({
           _type: "contactSubmission",
           firstName: formData.firstName,
@@ -274,8 +290,8 @@ export default function ContactPage() {
       <div className="relative mx-auto block">
         <Nav />
         <HeroSection
-          title="DON'T HESITATE TO CONTACT US"
-          desktopImage="/contactUs_hero_banner.svg"
+          title={pageData?.hero_section?.heroTitle || "DON'T HESITATE TO CONTACT US"}
+          desktopImage={pageData?.hero_section?.heroImage || "/contactUs_hero_banner.svg"}
           mobileImage="/hero_arrow.svg"
           altText="Contact us hero section"
         />
@@ -295,7 +311,7 @@ export default function ContactPage() {
                 className="mb-4 font-poppins font-semibold text-[28px] leading-[40px] tracking-[0.03em] md:text-[32px] md:leading-[48px] lg:text-[39px] lg:leading-[38px]"
                 style={{ color: "#162F65" }}
               >
-                {pageData?.heroTitle || "We&apos;re here to help."}
+                {pageData?.contact_form_title || "We're here to help."}
               </h1>
 
               <p className="mb-2 font-poppins font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[25px] text-left text-[#0F2043]">
@@ -685,37 +701,37 @@ export default function ContactPage() {
               </div>
 
               {/* Privacy Policy */}
-                <div className="mb-8">
+              <div className="mb-8">
                 <div className="flex items-start space-x-2">
                   <input
-                  type="checkbox"
-                  id="privacy"
-                  name="privacyPolicyAccepted"
-                  className="mt-1"
-                  checked={formData.privacyPolicyAccepted || false}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                    ...prev,
-                    privacyPolicyAccepted: e.target.checked,
-                    }))
-                  }
+                    type="checkbox"
+                    id="privacy"
+                    name="privacyPolicyAccepted"
+                    className="mt-1"
+                    checked={formData.privacyPolicyAccepted || false}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        privacyPolicyAccepted: e.target.checked,
+                      }))
+                    }
                   />
                   <label
-                  htmlFor="privacy"
-                  className="font-poppins font-normal text-[12px] md:text-[14px] lg:text-[15px] leading-[25px] tracking-[0em] text-[#676767]"
+                    htmlFor="privacy"
+                    className="font-poppins font-normal text-[12px] md:text-[14px] lg:text-[15px] leading-[25px] tracking-[0em] text-[#676767]"
                   >
-                  Our{" "}
-                  <a href="/privacy-policy" className="underline">
-                    privacy policy
-                  </a>{" "}
-                  contains detailed information about our handling of personal
-                  information.
+                    Our{" "}
+                    <a href="/privacy-policy" className="underline">
+                      privacy policy
+                    </a>{" "}
+                    contains detailed information about our handling of personal
+                    information.
                   </label>
                 </div>
                 {errors.privacyPolicyAccepted && (
                   <p className="text-red-600 text-sm mt-1">{errors.privacyPolicyAccepted}</p>
                 )}
-                </div>
+              </div>
 
               {/* Submit Button */}
               <div className="text-right">
@@ -737,7 +753,7 @@ export default function ContactPage() {
       {/* Map Section - Full Width */}
       <div className="py-12 w-full h-96 lg:h-[500px] overflow-hidden shadow-lg">
         <iframe
-          src= {pageData.map_link || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.060111295403!2d153.0303199!3d-27.4673879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915b171910d4d5%3A0x85ac0d5597492f4!2sLevel%2038%2F71%20Eagle%20St%2C%20Brisbane%20City%20QLD%204000%2C%20Australia!5e0!3m2!1sen!2slk!4v1752561333604!5m2!1sen!2slk"}
+          src={pageData.map_link || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.060111295403!2d153.0303199!3d-27.4673879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915b171910d4d5%3A0x85ac0d5597492f4!2sLevel%2038%2F71%20Eagle%20St%2C%20Brisbane%20City%20QLD%204000%2C%20Australia!5e0!3m2!1sen!2slk!4v1752561333604!5m2!1sen!2slk"}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"

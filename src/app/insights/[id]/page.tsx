@@ -16,8 +16,13 @@ interface RelatedPost {
     postImage: string;
 }
 
-interface InsightsPageData {
+interface HeroSection {
     heroTitle?: string;
+    heroImage?: string;
+}
+
+interface InsightsPageData {
+    hero_section?: HeroSection;
     Page_subtitle?: string;
 }
 
@@ -93,7 +98,7 @@ const InsightInner = () => {
                 <div id="hero-section" className="relative mx-auto -top-10 lg:-top-30 max-w-screen-4xl z-30">
                     <div className="relative w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
                         <Image
-                            src="/insights-banner.svg"
+                            src={insightsPageData?.hero_section?.heroImage || "/insights-banner.svg"}
                             alt="Insights Banner"
                             fill
                             className="object-cover absolute inset-0"
@@ -101,7 +106,7 @@ const InsightInner = () => {
                         <div className="absolute inset-0 flex items-center left-10 lg:left-60 justify-start">
                             <div className="text-left px-4">
                                 <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-[#0F2043] uppercase">
-                                    {insightsPageData?.heroTitle || "Insights"}
+                                    {insightsPageData?.hero_section?.heroTitle || "Insights"}
                                 </h1>
                             </div>
                         </div>

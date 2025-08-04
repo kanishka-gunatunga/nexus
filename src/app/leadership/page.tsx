@@ -7,22 +7,27 @@ import Nav from "@/Components/Nav";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
 
-import { leadership } from "@/sanity/lib/leadership"; 
+import { leadership } from "@/sanity/lib/leadership";
 
-// --- Type Definitions for Sanity Data ---
+interface HeroSection {
+  heroTitle?: string;
+  heroImage?: string;
+}
+
+
 interface TeamMemberSanity {
   person_name?: string;
   person_designation?: string;
-  person_photo?: string; 
-  person_background_image?: string; 
+  person_photo?: string;
+  person_background_image?: string;
   imageAlt?: string;
-  link_text?: string; 
-  link?: string; 
-  description?: string; 
+  link_text?: string;
+  link?: string;
+  description?: string;
 }
 
 interface LeadershipPageData {
-  hero_title?: string;
+  hero_section?: HeroSection;
   Page_subtitle?: string;
   terms_member_1?: TeamMemberSanity;
   terms_member_2?: TeamMemberSanity;
@@ -60,7 +65,7 @@ const LeadershipPage = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await leadership(); 
+        const data = await leadership();
 
         if (data && data.length > 0) {
           const fetchedPageData = data[0];
@@ -68,22 +73,22 @@ const LeadershipPage = () => {
 
           // Transform the Sanity data into a unified array for easier mapping
           const membersArray: TeamMember[] = [];
-          for (let i = 1; i <= 9; i++) { 
+          for (let i = 1; i <= 9; i++) {
             const memberKey = `terms_member_${i}` as keyof LeadershipPageData;
             const san_member = fetchedPageData[memberKey] as TeamMemberSanity | undefined;
 
-            if (san_member && san_member.person_name) { 
-                membersArray.push({
-                    id: i, // Assign an ID for React keys
-                    name: san_member.person_name,
-                    title: san_member.person_designation || '',
-                    flipBg: san_member.person_background_image || '',
-                    descriptionMain: san_member.description || '', 
-                    linkText: san_member.link_text || '',
-                    linkUrl: san_member.link || '/contactUs', 
-                    image: san_member.person_photo || '',
-                    imageAlt: san_member.imageAlt || san_member.person_name,
-                });
+            if (san_member && san_member.person_name) {
+              membersArray.push({
+                id: i, // Assign an ID for React keys
+                name: san_member.person_name,
+                title: san_member.person_designation || '',
+                flipBg: san_member.person_background_image || '',
+                descriptionMain: san_member.description || '',
+                linkText: san_member.link_text || '',
+                linkUrl: san_member.link || '/contactUs',
+                image: san_member.person_photo || '',
+                imageAlt: san_member.imageAlt || san_member.person_name,
+              });
             }
           }
           setTeamMembers(membersArray);
@@ -101,7 +106,7 @@ const LeadershipPage = () => {
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   if (loading) {
     return (
@@ -132,10 +137,10 @@ const LeadershipPage = () => {
       <div className="relative mx-auto block">
         <Nav />
         <HeroSection
-          title={pageData.hero_title || "TEAM NEXUS"} // Use Sanity hero_title
-          desktopImage="/leadership.svg" // Consider adding a field for this in Sanity if dynamic
-          mobileImage="/hero_arrow.svg" // Consider adding a field for this in Sanity if dynamic
-          altText="Leadership hero section" // Consider adding a field for this in Sanity if dynamic
+          title={pageData.hero_section?.heroTitle || "TEAM NEXUS"}
+          desktopImage={pageData.hero_section?.heroImage || "/leadership.svg"}
+          mobileImage="/hero_arrow.svg"
+          altText="Leadership hero section"
         />
       </div>
       <div
@@ -155,7 +160,7 @@ const LeadershipPage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-7xl mx-auto">
               {teamMembers.map((member) => {
-               
+
                 return (
                   <div
                     key={member.id}

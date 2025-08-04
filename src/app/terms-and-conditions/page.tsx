@@ -5,9 +5,16 @@ import Nav from "@/Components/Nav";
 import HeroSection from "@/Components/HeroSection";
 import { termsAndConditions } from "@/sanity/lib/terms-and-conditions";
 import { PortableText, PortableTextBlock } from "@portabletext/react";
+
+
+
+interface HeroSection {
+    heroTitle?: string;
+    heroImage?: string;
+}
 interface TermsAndConditionsData {
-  hero_title?: string;
-  terms_and_conditions?: PortableTextBlock[]; 
+  hero_section?: HeroSection;
+  terms_and_conditions?: PortableTextBlock[];
 }
 
 const TermsAndConditions = () => {
@@ -84,10 +91,10 @@ const TermsAndConditions = () => {
                 </div> */}
 
         <HeroSection
-          title="Terms and Conditions"
-          desktopImage="/terms-heeader.svg"
+          title={pageData.hero_section?.heroTitle || "Terms and Conditions"}
+          desktopImage={pageData.hero_section?.heroImage || "/terms-heeader.svg"}
           mobileImage="/hero_arrow.svg"
-          altText="Track and trace hero section"
+          altText="Terms and Conditions hero section"
         />
       </div>
 
@@ -125,7 +132,7 @@ const TermsAndConditions = () => {
         <div className="">
           <div className="max-w-7xl mx-auto px-8 sm:px-8 lg:px-8">
             <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold mb-6">
-              {pageData.hero_title || "Terms and Conditions"}
+              {pageData.hero_section?.heroTitle || "Terms and Conditions"}
             </h1>
 
             {/* This is the other key fix! It correctly renders your Portable Text. */}

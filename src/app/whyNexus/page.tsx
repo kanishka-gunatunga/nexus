@@ -29,8 +29,15 @@ interface AccordianItem {
   accordian_title?: string;
   accordian_description?: string;
 }
+
+interface HeroSection {
+    heroTitle?: string;
+    heroImage?: string;
+}
+
+
 interface whyNexusData {
-  hero_title?: string;
+  hero_section?: HeroSection;
   heading_title?: string;
   heading_description?: string;
   heading_image?: string;
@@ -167,8 +174,8 @@ const WhyNexus = () => {
                 </div> */}
 
         <HeroSection
-          title="Why Nexus Logix"
-          desktopImage="/why-nexus/banner.svg"
+          title={pageData.hero_section?.heroTitle || "Why Nexus Logix"}
+          desktopImage={pageData.hero_section?.heroImage || "/why-nexus/banner.svg"}
           mobileImage="/hero_arrow.svg"
           altText="Why nexus hero section"
         />

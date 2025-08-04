@@ -9,8 +9,13 @@ import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
 import { insights } from "@/sanity/lib/insights";
 
+
+interface HeroSection {
+    heroTitle?: string;
+    heroImage?: string;
+}
 interface insightData {
-  heroTitle?: string;
+  hero_section?: HeroSection;
   Page_subtitle?: string;
   main_post?: {
     postTitle?: string;
@@ -212,8 +217,8 @@ const InsightsPage = () => {
                 </div> */}
 
         <HeroSection
-          title="INSIGHTS"
-          desktopImage="/insights-banner.svg"
+          title={pageData.hero_section?.heroTitle || "INSIGHTS"}
+          desktopImage={pageData.hero_section?.heroImage || "/insights-banner.svg"}
           mobileImage="/hero_arrow.svg"
           altText="Contact us hero section"
         />
@@ -222,7 +227,7 @@ const InsightsPage = () => {
       {/* Main Content */}
       <div className="container relative max-w-7xl -top-22 lg:-top-50 mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-16">
         <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold">
-          {pageData.heroTitle || "Insights"}
+          {pageData.hero_section?.heroTitle || "Insights"}
         </h1>
         {/* Subtitle */}
         <div className="mb-8 lg:mb-16">

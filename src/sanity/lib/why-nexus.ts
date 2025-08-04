@@ -4,7 +4,7 @@ import client from '../../../client';
 export const whyNexus = async () => {
     const query = `
 *[_type == "whyNexus"]{
-  heroSection{
+  hero_section{
     heroTitle,
     "heroImage": heroImage.asset->url,
     },
@@ -87,6 +87,18 @@ export const whyNexus = async () => {
     button_link,
     "image": image.asset->url,
     imageAlt
+  },
+
+  
+  seo{
+    page,
+    title,
+    description,
+    keywords [],
+    ogTitle,
+    ogDescription,
+    "ogImage": ogImage.asset->url,
+    canonicalUrl
   }
 }
   

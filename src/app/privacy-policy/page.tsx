@@ -6,8 +6,13 @@ import HeroSection from "@/Components/HeroSection";
 import { privacyPolicy } from "@/sanity/lib/privacy-policy";
 import { PortableText, PortableTextBlock } from "@portabletext/react";
 
+
+interface HeroSection {
+    heroTitle?: string;
+    heroImage?: string;
+}
 interface PrivacyPolicyData {
-  hero_title?: string;
+  hero_section?: HeroSection;
   privacy_policy?: PortableTextBlock[];
 }
 
@@ -57,8 +62,8 @@ const PrivacyPolicy = () => {
         <Nav />
 
         <HeroSection
-          title="Privacy Policy"
-          desktopImage="/privacy-policy-header.svg"
+          title={pageData.hero_section?.heroTitle || "Privacy Policy"}
+          desktopImage={pageData.hero_section?.heroImage || "/privacy-policy-header.svg"}
           mobileImage="/hero_arrow.svg"
           altText="Track and trace hero section"
         />
@@ -68,7 +73,7 @@ const PrivacyPolicy = () => {
           <div className="max-w-7xl mx-auto px-8 sm:px-8 lg:px-8">
             <section className="font-poppins whitespace-normal font-medium text-xs sm:text-sm lg:text-base text-[#676767] mb-4 leading-relaxed text-justify md:text-left space-y-4">
               <h1 className="text-[#162F65] text-3xl md:text-4xl lg:text-[50px] py-4 font-bold">
-                {pageData.hero_title || "Privacy Policy"}
+                {pageData.hero_section?.heroTitle || "Privacy Policy"}
               </h1>
 
                 <PortableText value={pageData.privacy_policy ?? []} />

@@ -4,10 +4,8 @@ import client from '../../../client';
 export const homePage = async () => {
   const query = `
   *[_type == "homepage"]{
-  heroSection{
-    heroTitle,
-    "heroImage": heroImage.asset->url,
-    },
+  
+  heroTitle,
   heroDescription,
   hero_button_text,
   hero_button_link,
@@ -124,6 +122,20 @@ export const homePage = async () => {
     person_designation,
     "person_image": person_image.asset->url,
    
+  }
+
+  ,
+
+  
+  seo{
+    page,
+    title,
+    description,
+    keywords [],
+    ogTitle,
+    ogDescription,
+    "ogImage": ogImage.asset->url,
+    canonicalUrl
   }
 }
   `

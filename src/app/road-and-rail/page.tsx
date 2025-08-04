@@ -11,8 +11,14 @@ import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
 import { roadAndRail } from "@/sanity/lib/road-and-rail";
 
+
+interface HeroSection {
+    heroTitle?: string;
+    heroImage?: string;
+}
+
 interface roadAndRailData {
-  hero_title?: string;
+  hero_section?: HeroSection;
   heading_title?: string;
   heading_description?: string;
   card_1_section?: {
@@ -117,8 +123,8 @@ const RoadAndRail = () => {
                 </div> */}
 
         <HeroSection
-          title="ROAD & RAIL TRANSPORT"
-          desktopImage="/roadAndRail_hero_banner.svg"
+          title={pageData.hero_section?.heroTitle || "ROAD & RAIL TRANSPORT"}
+          desktopImage={pageData.hero_section?.heroImage || "/roadAndRail_hero_banner.svg"}
           mobileImage="/hero_arrow.svg"
           altText="road and rail hero section"
         />

@@ -25,8 +25,13 @@ interface BottomBanner {
 }
 
 
+interface HeroSection {
+    heroTitle?: string;
+    heroImage?: string;
+}
+
 interface ServiceData {
-  heroTitle?: string;
+  hero_section?: HeroSection;
   section_1_title?: string;
   section_1_description?: string;
   heroImageAlt?: string;
@@ -135,8 +140,8 @@ const ServicesPage = () => {
         <Nav />
 
         <HeroSection
-          title="Services"
-          desktopImage="/services_hero_banner.svg"
+          title={pageData.hero_section?.heroTitle || "Services"}
+          desktopImage={pageData.hero_section?.heroImage || "/services_hero_banner.svg"}
           mobileImage="/hero_arrow.svg"
           altText="Service hero section"
         />

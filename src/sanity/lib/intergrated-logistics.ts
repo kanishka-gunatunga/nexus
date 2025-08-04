@@ -4,7 +4,7 @@ import client from '../../../client';
 export const integratedLogistics = async () => {
     const query = `
  *[_type == "integratedLogistics"]{
-  heroSection{
+  hero_section{
     heroTitle,
     "heroImage": heroImage.asset->url,
     },
@@ -45,6 +45,19 @@ export const integratedLogistics = async () => {
     card_4_button_text,
     card_4_button_link,
     "card_4_image": card_4_image.asset->url
+  },
+
+
+  
+  seo{
+    page,
+    title,
+    description,
+    keywords [],
+    ogTitle,
+    ogDescription,
+    "ogImage": ogImage.asset->url,
+    canonicalUrl
   }
 }
   

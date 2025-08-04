@@ -4,7 +4,7 @@ import client from '../../../client';
 export const contactUs = async () => {
     const query = `
  *[_type == "contactUs"]{
- heroSection{
+ hero_section{
     heroTitle,
     "heroImage": heroImage.asset->url,
     },
@@ -30,7 +30,19 @@ export const contactUs = async () => {
   linkedin_link,
   facebook_link,
   instagram_link,
-  map_link
+  map_link,
+
+  
+  seo{
+    page,
+    title,
+    description,
+    keywords [],
+    ogTitle,
+    ogDescription,
+    "ogImage": ogImage.asset->url,
+    canonicalUrl
+  }
 }
   
 `

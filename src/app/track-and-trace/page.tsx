@@ -15,8 +15,13 @@ interface IconCard {
   card_icon?: string;
 }
 
+interface HeroSection {
+    heroTitle?: string;
+    heroImage?: string;
+}
+
 interface traceAndTraceData {
-  heroTitle?: string;
+  hero_section?: HeroSection;
   section_1_title?: string;
   section_1?: {
     title?: string;
@@ -171,8 +176,8 @@ const TrackAndTrace = () => {
                 </div> */}
 
         <HeroSection
-          title="TRACK AND TRACE"
-          desktopImage="/trackAndTrace_hero_banner.svg"
+          title={pageData.hero_section?.heroTitle || "TRACK AND TRACE"}
+          desktopImage={pageData.hero_section?.heroImage || "/trackAndTrace_hero_banner.svg"}
           mobileImage="/hero_arrow.svg"
           altText="Track and trace hero section"
         />

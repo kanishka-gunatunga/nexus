@@ -27,8 +27,13 @@ interface AccordianItem {
   accordian_description?: string;
 }
 
+interface HeroSection {
+    heroTitle?: string;
+    heroImage?: string;
+}
+
 interface CustomsData {
-  hero_title?: string;
+  hero_section?: HeroSection;
   heading_title?: string;
   heading_description?: string;
   accordian_section_title?: string;
@@ -170,8 +175,8 @@ const CustomsPage = () => {
                 </div> */}
 
         <HeroSection
-          title={pageData.hero_title || "Customs Clearance & Compliance"}
-          desktopImage="/leadership.svg"
+          title={pageData.hero_section?.heroTitle || "Customs Clearance & Compliance"}
+          desktopImage={pageData.hero_section?.heroImage || "/customs_hero_banner.svg"}
           mobileImage="/hero_arrow.svg"
           altText="Customs Clearance hero section"
         />

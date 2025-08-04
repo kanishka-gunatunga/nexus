@@ -1,15 +1,16 @@
 "use client"
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React, { useEffect, useState } from "react"; // Import useEffect and useState
+import React, { useEffect, useState } from "react";
 import Nav from "@/Components/Nav";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
-import { airAndFreightService } from "@/sanity/lib/air-and-freight-service"; // Ensure this path is correct
-
+import { airAndFreightService } from "@/sanity/lib/air-and-freight-service";
+import { urlFor } from "../../../client";
+import { Metadata } from "next";
 
 interface CardSection {
     card_1_title?: string;
@@ -34,6 +35,17 @@ interface CardSection {
     card_3_image?: string;
 }
 
+interface SEOData {
+    page?: string;
+    title?: string;
+    description?: string;
+    keywords?: string[];
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: any; // Sanity image object
+    canonicalUrl?: string;
+}
+
 interface BottomBanner {
     banner_title?: string;
     button_text?: string;
@@ -42,16 +54,21 @@ interface BottomBanner {
     imageAlt?: string;
 }
 
+interface HeroSection {
+    heroTitle?: string;
+    heroImage?: string;
+}
+
 interface AirAndFreightData {
-    hero_title?: string;
+    hero_section?: HeroSection;
     heading_title?: string;
     heading_description?: string;
     card_1_section?: CardSection;
     card_2_section?: CardSection;
     card_3_section?: CardSection;
     bottom_banner?: BottomBanner;
+    seo?: SEOData; // Add SEO data to the interface
 }
-
 
 const AirAndSeaFreight = () => {
     // State to hold the fetched data
@@ -64,12 +81,11 @@ const AirAndSeaFreight = () => {
             try {
                 setLoading(true);
                 const data = await airAndFreightService();
-                
-              
+
                 if (data && data.length > 0) {
                     setPageData(data[0]);
                 } else {
-                    setPageData(null); 
+                    setPageData(null);
                 }
             } catch (err) {
                 console.error("Failed to fetch Air & Sea Freight data:", err);
@@ -80,10 +96,14 @@ const AirAndSeaFreight = () => {
         };
 
         fetchData();
-    }, []); 
+    }, []);
 
     if (loading) {
-        return ;
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="text-lg">Loading...</div>
+            </div>
+        );
     }
 
     if (error) {
@@ -99,10 +119,8 @@ const AirAndSeaFreight = () => {
             <div className="relative mx-auto block">
                 <Nav />
                 <HeroSection
-                    // Use data from Sanity for hero title
-                    title={pageData.hero_title || "Air & Sea Freight Services"}
-                    
-                    desktopImage="/hero-images/air&sea.svg"
+                    title={pageData.hero_section?.heroTitle || "Air & Sea Freight Services"}
+                    desktopImage={pageData.hero_section?.heroImage || "/hero-images/air&sea.svg"}
                     mobileImage="/hero_arrow.svg"
                     altText="Air and Sea Freight Hero Image"
                 />
@@ -110,10 +128,9 @@ const AirAndSeaFreight = () => {
 
             <div className="relative top-[-100px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <HeroTitleAndParagraph
-                    
                     title={pageData.heading_title || "Air & Sea Freight Services"}
                     paragraph1={pageData.heading_description || "Offering speed, cost-effectiveness, and reliability, our air and sea freight services are built to match your urgency, budget, and cargo complexity. Whether you're racing against a deadline or coordinating large-scale shipments, we deliver precision logistics, reliable tracking, and personal attention."}
-                    paragraph2="" 
+                    paragraph2=""
                 />
 
                 {/* Card 1 Section (Air Freight) */}
@@ -122,12 +139,11 @@ const AirAndSeaFreight = () => {
                         <PhotoDescriptionSection
                             title={pageData.card_1_section.card_1_title || ""}
                             paragraph1={pageData.card_1_section.card_1_description || ""}
-                            subtitle1={pageData.card_1_section.card_1_subtitle || ""} 
+                            subtitle1={pageData.card_1_section.card_1_subtitle || ""}
                             buttonText={pageData.card_1_section.card_1_button_text || ""}
                             buttonLink={pageData.card_1_section.card_1_button_link || ""}
                             imageSrc={pageData.card_1_section.card_1_image || ""}
                             reverse={false}
-                           
                             paragraph2=""
                             paragraph3=""
                             subtitle2=""
@@ -141,12 +157,11 @@ const AirAndSeaFreight = () => {
                         <PhotoDescriptionSection
                             title={pageData.card_2_section.card_2_title || ""}
                             paragraph1={pageData.card_2_section.card_2_description || ""}
-                            subtitle1={pageData.card_2_section.card_2_subtitle || ""} 
+                            subtitle1={pageData.card_2_section.card_2_subtitle || ""}
                             buttonText={pageData.card_2_section.card_2_button_text || ""}
                             buttonLink={pageData.card_2_section.card_2_button_link || ""}
                             imageSrc={pageData.card_2_section.card_2_image || ""}
                             reverse={true}
-                           
                             paragraph2=""
                             paragraph3=""
                             subtitle2=""
@@ -166,14 +181,13 @@ const AirAndSeaFreight = () => {
                             buttonText={pageData.card_3_section.card_3_button_text || ""}
                             buttonLink={pageData.card_3_section.card_3_button_link || ""}
                             imageSrc={pageData.card_3_section.card_3_image || ""}
-                            reverse={false} 
-                            paragraph3="" 
+                            reverse={false}
+                            paragraph3=""
                         />
                     </div>
                 )}
             </div>
 
-           
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ServiceCardRow />
             </div>
@@ -222,3 +236,42 @@ const AirAndSeaFreight = () => {
 }
 
 export default AirAndSeaFreight;
+
+export async function generateMetadata(): Promise<Metadata> {
+    try {
+        const pageData: AirAndFreightData[] = await airAndFreightService();
+        const seoData = pageData.length > 0 ? pageData[0].seo : null;
+
+        // Define fallback values for SEO in case Sanity data is missing
+        const defaultTitle = "Air & Sea Freight Services - Your Company Name";
+        const defaultDescription = "Our air and sea freight services offer speed, reliability, and cost-effectiveness for all your logistics needs. We handle cargo of any size with precision and care.";
+        const defaultKeywords = ["air freight", "sea freight", "ocean cargo", "freight forwarding", "logistics", "shipping", "international shipping", "cargo services"];
+        const defaultOgImage = "/path/to/your/default-og-image.jpg";
+        const defaultCanonicalUrl = "https://yourwebsite.com/air-and-sea-freight";
+
+        return {
+            title: seoData?.title || defaultTitle,
+            description: seoData?.description || defaultDescription,
+            keywords: seoData?.keywords || defaultKeywords,
+            openGraph: {
+                title: seoData?.ogTitle || seoData?.title || defaultTitle,
+                description: seoData?.ogDescription || seoData?.description || defaultDescription,
+                images: seoData?.ogImage ? [urlFor(seoData.ogImage).url()] : [defaultOgImage],
+                url: seoData?.canonicalUrl || defaultCanonicalUrl,
+                type: "website",
+            },
+            alternates: {
+                canonical: seoData?.canonicalUrl || defaultCanonicalUrl,
+            },
+        };
+    } catch (error) {
+        console.error("Error generating metadata:", error);
+        
+        // Return fallback metadata if there's an error
+        return {
+            title: "Air & Sea Freight Services - Your Company Name",
+            description: "Our air and sea freight services offer speed, reliability, and cost-effectiveness for all your logistics needs.",
+            keywords: ["air freight", "sea freight", "logistics", "shipping"],
+        };
+    }
+}
