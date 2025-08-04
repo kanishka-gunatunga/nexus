@@ -18,7 +18,7 @@ import {AnimatePresence, motion} from "framer-motion";
 
 export default function Home() {
     const images = [
-        "/plane1.png",
+        "/plane2.png",
         "/slid1.png",
         "/slid2.png",
         "/slid3.png",
