@@ -115,15 +115,19 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
     }
 
     if (!formData.phone.trim()) {
-        newErrors.phone = "Phone number is required.";
+      newErrors.phone = "Phone number is required.";
     } else if (!/^[\d\s()-]+$/.test(formData.phone.trim())) {
-        newErrors.phone = "Please enter a valid phone number (e.g., 0435231833).";
+      newErrors.phone = "Please enter a valid phone number (e.g., 0435231833).";
     } else if (/^[^0-9]/.test(formData.phone.trim())) {
-        newErrors.phone = "Phone number must start with a digit.";
+      newErrors.phone = "Phone number must start with a digit.";
     } else if (/\D\D/.test(formData.phone.trim())) {
-        newErrors.phone = "Phone number cannot have consecutive special characters.";
-    } else if (formData.phone.trim().length < 7 || formData.phone.trim().length > 20) {
-        newErrors.phone = "Phone number must be between 7 and 20 characters.";
+      newErrors.phone =
+        "Phone number cannot have consecutive special characters.";
+    } else if (
+      formData.phone.trim().length < 7 ||
+      formData.phone.trim().length > 20
+    ) {
+      newErrors.phone = "Phone number must be between 7 and 20 characters.";
     }
 
     if (formData.originPort.trim().length > 100) {
@@ -626,7 +630,16 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                     process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
                     "YOUR_SITE_KEY"
                   }
-                  onChange={(value: string | null) => setRecaptchaValue(value)}
+                  onChange={(value: string | null) => {
+                    setRecaptchaValue(value);
+                    if (value) {
+                      setErrors((prev) => {
+                        const newErrors = { ...prev };
+                        delete newErrors.recaptcha; // Remove reCAPTCHA error if it exists
+                        return newErrors;
+                      });
+                    }
+                  }}
                 />
                 {errors.recaptcha && (
                   <p className="text-red-600 text-sm mt-1">

@@ -471,7 +471,11 @@ export default function ContactPage() {
               </a>
 
               {/* Facebook */}
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://web.facebook.com/profile.php?id=61578771585271&sk=about"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   src="/facebook_icon.png"
                   alt="LinkedIn"
@@ -482,7 +486,11 @@ export default function ContactPage() {
               </a>
 
               {/* Instagram */}
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.instagram.com/nexus_logix/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   src="/instagram_icon.png"
                   alt="YouTube"
@@ -792,10 +800,10 @@ export default function ContactPage() {
                   </div>
 
                   {/* reCAPTCHA */}
-{/* reCAPTCHA */}
-<div className="w-full md:w-1/2 md:pl-6 lg:pl-0 xl:pl-0">
-  <div
-    className="
+                  {/* reCAPTCHA */}
+                  <div className="w-full md:w-1/2 md:pl-6 lg:pl-0 xl:pl-0">
+                    <div
+                      className="
       flex
       justify-center
       lg:justify-start
@@ -811,20 +819,31 @@ export default function ContactPage() {
       max-[480px]:scale-75
       origin-top
     "
-    style={{ minWidth: 180 }}
-  >
-    <ReCAPTCHA
-      sitekey={
-        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "YOUR_SITE_KEY"
-      }
-      onChange={(value: string | null) => setRecaptchaValue(value)}
-    />
-  </div>
-  {errors.recaptcha && (
-    <p className="text-red-600 text-sm mt-1">{errors.recaptcha}</p>
-  )}
-</div>
-
+                      style={{ minWidth: 180 }}
+                    >
+                      <ReCAPTCHA
+                        sitekey={
+                          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+                          "YOUR_SITE_KEY"
+                        }
+                        onChange={(value: string | null) => {
+                          setRecaptchaValue(value);
+                          if (value) {
+                            setErrors((prev) => {
+                              const newErrors = { ...prev };
+                              delete newErrors.recaptcha; // Remove reCAPTCHA error if it exists
+                              return newErrors;
+                            });
+                          }
+                        }}
+                      />
+                    </div>
+                    {errors.recaptcha && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.recaptcha}
+                      </p>
+                    )}
+                  </div>
 
                   {/* Privacy Policy */}
                   <div className="mb-8">
