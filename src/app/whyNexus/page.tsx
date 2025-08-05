@@ -1,11 +1,11 @@
-"use client";
+
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import Link from "next/link";
 import Nav from "@/Components/Nav";
 // import ServiceCardRow from "@/Components/ServiceCardRow";
-// import Quote from "@/Components/Quote";
+import Quote from "@/Components/Quote";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -14,7 +14,8 @@ import "swiper/css/navigation";
 import Accordian from "@/Components/Accordian";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
-import { whyNexus } from "@/sanity/lib/why-nexus";
+import { getWhyNexusData } from "@/sanity/lib/api";
+import WhyNexusTestimonialCarousel from "@/Components/WhyNexusTestimonialCarousel";
 
 interface cardSection {
   card_1_title?: string;
@@ -31,8 +32,8 @@ interface AccordianItem {
 }
 
 interface HeroSection {
-    heroTitle?: string;
-    heroImage?: string;
+  heroTitle?: string;
+  heroImage?: string;
 }
 
 
@@ -95,47 +96,55 @@ interface whyNexusData {
   };
 }
 
-const WhyNexus = () => {
+const WhyNexus = async () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const [pageData, setPageData] = useState<whyNexusData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // const [pageData, setPageData] = useState<whyNexusData | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await whyNexus();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await whyNexus();
 
-        if (data && data.length > 0) {
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch whyNexus data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  //       if (data && data.length > 0) {
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch whyNexus data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
+  const pageData = await getWhyNexusData();
 
+  // if (loading) {
+  //   return;
+  // }
 
-  if (loading) {
-    return;
-  }
+  // if (error) {
+  //   return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  // }
 
-  if (error) {
-    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
-  }
+  // if (!pageData) {
+  //   return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  // }
 
   if (!pageData) {
-    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-lg">No content available.</div>
+      </div>
+    );
   }
 
 
@@ -146,6 +155,8 @@ const WhyNexus = () => {
     pageData.accordian_4,
     pageData.accordian_5,
   ].filter(Boolean) as AccordianItem[];
+
+  // console.log("accordian",accordionItemsArray);
 
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
@@ -392,7 +403,7 @@ const WhyNexus = () => {
 
       <div className="max-w-7xl hidden lg:block mx-auto mt-[50px] lg:mt-[100px] px-4 sm:px-6 lg:px-8">
         <Image
-          src={pageData.section_3_image || "/nexus-core.svg"} 
+          src={pageData.section_3_image || "/nexus-core.svg"}
           alt="Nexus X Logo"
           width={1000}
           height={400}
@@ -441,7 +452,7 @@ const WhyNexus = () => {
           </p>
         </div>
 
-        <div className="w-full md:w-1/2 lg:mt-8 mt-0">
+        {/* <div className="w-full md:w-1/2 lg:mt-8 mt-0">
           <Swiper
             modules={[Navigation]}
             navigation={{
@@ -497,146 +508,11 @@ const WhyNexus = () => {
                 </div>
               </SwiperSlide>
             ))}
-            {/* <SwiperSlide>
-              <div className="bg-white p-8 rounded-lg shadow">
-                <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg leadi</div>ng-relaxed mb-4">
-                  Working with Nexus Logix has really eased the stress off of
-                  our supply chain. Their team handles everything and keeps us
-                  in the loop, which makes a huge difference
-                </p>
-                <div className="flex items-center gap-4">
-                  <Image
-                    src="/avatar2.png"
-                    alt="Amit Fernando"
-                    width={50}
-                    height={50}
-                    className="rounded-full"
-                  />
-                  <div>
-                    <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg">
-                      Amit Fernando
-                    </p>
-                    <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg">
-                      Founder &amp; CEO, NovaTech Solutions
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex justify-end gap-2 mt-4">
-                  <button className="prev-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M13.9806 6L15.3906 7.41L10.8106 12L15.3906 16.59L13.9806 18L7.98062 12L13.9806 6Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </button>
-                  <button className="next-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.0194 6L8.60938 7.41L13.1894 12L8.60938 16.59L10.0194 18L16.0194 12L10.0194 6Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className="bg-white p-8 rounded-lg shadow">
-                <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg leading-relaxed mb-4">
-                  &quot;Working with Nexus Logix has really eased the stress off
-                  of our supply chain. Their team handles everything and keeps
-                  us in the loop, which makes a huge difference&quot;
-                </p>
-                <div className="flex items-center gap-4">
-                  <Image
-                    src="/avatar2.png"
-                    alt="Amit Fernando"
-                    width={50}
-                    height={50}
-                    className="rounded-full"
-                  />
-                  <div>
-                    <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg">
-                      Amit Fernando
-                    </p>
-                    <p className="text-[#676767] font-normal text-sm xs:text-base sm:text-lg">
-                      Founder &amp; CEO, NovaTech Solutions
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex justify-end gap-2 mt-4">
-                  <button className="prev-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M13.9806 6L15.3906 7.41L10.8106 12L15.3906 16.59L13.9806 18L7.98062 12L13.9806 6Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </button>
-                  <button className="next-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.0194 6L8.60938 7.41L13.1894 12L8.60938 16.59L10.0194 18L16.0194 12L10.0194 6Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </SwiperSlide> */}
-
-            {/* <div className="flex justify-end gap-2 mt-4">
-                            <button
-                                className="prev-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M13.9806 6L15.3906 7.41L10.8106 12L15.3906 16.59L13.9806 18L7.98062 12L13.9806 6Z"
-                                        fill="white" />
-                                </svg>
-
-                            </button>
-                            <button
-                                className="next-btn w-8 h-8 rounded-full bg-[#162F65] text-white flex items-center justify-center">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10.0194 6L8.60938 7.41L13.1894 12L8.60938 16.59L10.0194 18L16.0194 12L10.0194 6Z"
-                                        fill="white" />
-                                </svg>
-
-                            </button>
-                        </div> */}
+            
           </Swiper>
-        </div>
+        </div> */}
+
+        <WhyNexusTestimonialCarousel testimonials={pageData.testimonial_details_section} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 mt-[50px] lg:mt-[100px]">
@@ -802,7 +678,7 @@ const WhyNexus = () => {
         {/*</div>*/}
       </div>
 
-      {/*<Quote/>*/}
+      <Quote/>
       <div className="py-6 lg:py-12">
         <LinkedinSection />
       </div>

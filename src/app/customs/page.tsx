@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect, useState } from "react";
+
+import React from "react";
 // import { ChevronUp, ChevronDown } from "lucide-react";
 import Nav from "@/Components/Nav";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
 import Link from "next/link";
 import Accordian from "@/Components/Accordian";
 import HeroSection from "@/Components/HeroSection";
-import { customs } from "@/sanity/lib/customs";
+import { getCustomsData } from "@/sanity/lib/api";
 
 
 
@@ -62,47 +62,56 @@ interface CustomsData {
   bottom_banner?: BottomBanner;
 }
 
-const CustomsPage = () => {
+const CustomsPage = async() => {
 
-  const [pageData, setPageData] = useState<CustomsData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await customs();
-
-        if (data && data.length > 0) {
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch Customs data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-
-  if (loading) {
-    return;
-  }
-
-  if (error) {
-    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
-  }
-
+  const pageData: CustomsData | null = await getCustomsData();
   if (!pageData) {
-    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
-  }
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="text-lg">No content available.</div>
+            </div>
+        );
+    }
+
+  // const [pageData, setPageData] = useState<CustomsData | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
+
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await customs();
+
+  //       if (data && data.length > 0) {
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch Customs data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+
+  // if (loading) {
+  //   return;
+  // }
+
+  // if (error) {
+  //   return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  // }
+
+  // if (!pageData) {
+  //   return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  // }
   // const [isExpanded, setIsExpanded] = useState(false);
   // const [activeService, setActiveService] = useState<string | null>(null);
 
@@ -219,7 +228,7 @@ const CustomsPage = () => {
           </div>
         </div>
 
-        <style jsx>{`
+        {/* <style jsx>{`
           @keyframes fadeIn {
             from {
               opacity: 0;
@@ -234,7 +243,7 @@ const CustomsPage = () => {
           .animate-fadeIn {
             animation: fadeIn 0.3s ease-out;
           }
-        `}</style>
+        `}</style> */}
       </section>
 
       {/* Supply Chain Consultancy Section */}

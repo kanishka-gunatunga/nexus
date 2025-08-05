@@ -1,12 +1,12 @@
-"use client";
+
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Nav from "@/Components/Nav";
 import Quote from "@/Components/Quote";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
-import { trackAndTrace } from "@/sanity/lib/track-and-trace";
+import { getTrackAndTraceData } from "@/sanity/lib/api";
 
 
 interface IconCard {
@@ -20,84 +20,91 @@ interface HeroSection {
     heroImage?: string;
 }
 
-interface traceAndTraceData {
-  hero_section?: HeroSection;
-  section_1_title?: string;
-  section_1?: {
-    title?: string;
-    paragraph1?: string;
-    paragraph2?: string;
-    buttonText?: string;
-    buttonLink?: string;
-    "image"?: string;
-    imageAlt?: string;
-    reverseOrder?: boolean;
-  },
-  section_2_title?: string;
-  section_2_description?: string;
-  section_2_image?: string;
-  IconCard_1?: IconCard;
-  IconCard_2?: IconCard;
-  IconCard_3?: IconCard;
-  IconCard_4?: IconCard;
-  IconCard_5?: IconCard;
-  IconCard_6?: IconCard;
-  contact_link?: string;
-  underline_text_2?: string;
-  contact_number?: string;
-  middle_text?: string;
-  alert_message?: string;
-  underline_text?: string;
-  contact_first_text?: string;
-  bottom_banner?: {
-    banner_title?: string;
-    button_text?: string;
-    button_link?: string;
-    image?: string;
-    imageAlt?: string;
-  }
-}
+// interface traceAndTraceData {
+//   hero_section?: HeroSection;
+//   section_1_title?: string;
+//   section_1?: {
+//     title?: string;
+//     paragraph1?: string;
+//     paragraph2?: string;
+//     buttonText?: string;
+//     buttonLink?: string;
+//     "image"?: string;
+//     imageAlt?: string;
+//     reverseOrder?: boolean;
+//   },
+//   section_2_title?: string;
+//   section_2_description?: string;
+//   section_2_image?: string;
+//   IconCard_1?: IconCard;
+//   IconCard_2?: IconCard;
+//   IconCard_3?: IconCard;
+//   IconCard_4?: IconCard;
+//   IconCard_5?: IconCard;
+//   IconCard_6?: IconCard;
+//   contact_link?: string;
+//   underline_text_2?: string;
+//   contact_number?: string;
+//   middle_text?: string;
+//   alert_message?: string;
+//   underline_text?: string;
+//   contact_first_text?: string;
+//   bottom_banner?: {
+//     banner_title?: string;
+//     button_text?: string;
+//     button_link?: string;
+//     image?: string;
+//     imageAlt?: string;
+//   }
+// }
 
-const TrackAndTrace = () => {
+const TrackAndTrace = async() => {
   //   const [activeTab, setActiveTab] = useState("track");
 
 
 
-  const [pageData, setPageData] = useState<traceAndTraceData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // const [pageData, setPageData] = useState<traceAndTraceData | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await trackAndTrace();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await trackAndTrace();
 
-        if (data && data.length > 0) {
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch Track and Trace data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  //       if (data && data.length > 0) {
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch Track and Trace data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
 
-  if (loading) {
-    return;
-  }
+  // if (loading) {
+  //   return;
+  // }
 
-  if (error) {
-    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
-  }
+  // if (error) {
+  //   return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  // }
+
+  // if (!pageData) {
+  //   return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  // }
+
+
+  const pageData = await getTrackAndTraceData();
 
   if (!pageData) {
     return <div className="min-h-screen flex items-center justify-center">No content available.</div>;

@@ -1,7 +1,7 @@
-"use client";
+
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import Link from "next/link";
 import Nav from "@/Components/Nav";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
@@ -9,7 +9,7 @@ import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
-import { integratedLogistics } from "@/sanity/lib/intergrated-logistics";
+import { getIntergratedLogistics } from "@/sanity/lib/api";
 
 
 
@@ -74,46 +74,56 @@ interface IntegratedLogisticsData {
 }
 
 
-const IntegratedLogistics = () => {
-  const [pageData, setPageData] = useState<IntegratedLogisticsData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+const IntegratedLogistics = async() => {
 
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await integratedLogistics();
-
-        if (data && data.length > 0) {
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch Customs data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-
-  if (loading) {
-    return;
-  }
-
-  if (error) {
-    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
-  }
+  const pageData: IntegratedLogisticsData | null = await getIntergratedLogistics();
 
   if (!pageData) {
-    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
-  }
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="text-lg">No content available.</div>
+            </div>
+        );
+    }
+  // const [pageData, setPageData] = useState<IntegratedLogisticsData | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
+
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await integratedLogistics();
+
+  //       if (data && data.length > 0) {
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch Customs data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+
+  // if (loading) {
+  //   return;
+  // }
+
+  // if (error) {
+  //   return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  // }
+
+  // if (!pageData) {
+  //   return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  // }
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (

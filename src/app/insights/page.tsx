@@ -1,10 +1,9 @@
-"use client";
-import { Search } from "lucide-react";
+
 import Image from "next/image";
 import Nav from "@/Components/Nav";
 import LinkedinSection from "@/Components/LinkedinSection";
 // import React from "react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
 import { insights } from "@/sanity/lib/insights";
@@ -59,52 +58,59 @@ interface insightData {
   }[];
 }
 
-const InsightsPage = () => {
+const InsightsPage = async() => {
 
-
-  const [pageData, setPageData] = useState<insightData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await insights();
-
-        // should be remove
-        console.log(pageData);
-        console.log("loading", loading);
-        console.log("error", error);
-
-        if (data && data.length > 0) {
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch insights data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return;
-  }
-
-  if (error) {
-    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
-  }
-
+  const pageData: insightData | null = await insights();
   if (!pageData) {
-    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
-  }
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="text-lg">No content available.</div>
+            </div>
+        );
+    }
+  // const [pageData, setPageData] = useState<insightData | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
+
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await insights();
+
+  //       // should be remove
+  //       console.log(pageData);
+  //       console.log("loading", loading);
+  //       console.log("error", error);
+
+  //       if (data && data.length > 0) {
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch insights data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+  // if (loading) {
+  //   return;
+  // }
+
+  // if (error) {
+  //   return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  // }
+
+  // if (!pageData) {
+  //   return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  // }
 
 
   type trendingInsight = {
@@ -429,11 +435,11 @@ const InsightsPage = () => {
                         Read More
                       </button>
                     </Link>
-                    <button className="text-[#0F2043] self-end text-sm cursor-pointer underline hover:text-[#162F65] transition-colors"
+                    {/* <button className="text-[#0F2043] self-end text-sm cursor-pointer underline hover:text-[#162F65] transition-colors"
                       onClick={() => console.log("Button clicked", insight.slug)}
                     >
                       hi
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               ))}

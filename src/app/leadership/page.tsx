@@ -1,13 +1,13 @@
-"use client";
+
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
 import Quote from "@/Components/Quote";
-import React, { useEffect, useState } from "react"; // Import useEffect and useState
+import React from "react"; // Import useEffect and useState
 import Nav from "@/Components/Nav";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
 
-import { leadership } from "@/sanity/lib/leadership";
+import { getLeadershipData } from "@/sanity/lib/api";
 
 interface HeroSection {
   heroTitle?: string;
@@ -19,13 +19,12 @@ interface TeamMemberSanity {
   person_name?: string;
   person_designation?: string;
   person_photo?: string;
-  person_background_image?: string;
+  person_background_image?: string; // Used for flipBg
   imageAlt?: string;
   link_text?: string;
   link?: string;
   description?: string;
 }
-
 interface LeadershipPageData {
   hero_section?: HeroSection;
   Page_subtitle?: string;
@@ -55,74 +54,10 @@ interface TeamMember {
 // --- End Type Definitions ---
 
 
-const LeadershipPage = () => {
-  const [pageData, setPageData] = useState<LeadershipPageData | null>(null);
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]); // State to hold transformed team members
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+const LeadershipPage = async () => {
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await leadership();
 
-        if (data && data.length > 0) {
-          const fetchedPageData = data[0];
-          setPageData(fetchedPageData);
-
-          // Transform the Sanity data into a unified array for easier mapping
-          const membersArray: TeamMember[] = [];
-          for (let i = 1; i <= 9; i++) {
-            const memberKey = `terms_member_${i}` as keyof LeadershipPageData;
-            const san_member = fetchedPageData[memberKey] as TeamMemberSanity | undefined;
-
-            if (san_member && san_member.person_name) {
-              membersArray.push({
-                id: i, // Assign an ID for React keys
-                name: san_member.person_name,
-                title: san_member.person_designation || '',
-                flipBg: san_member.person_background_image || '',
-                descriptionMain: san_member.description || '',
-                linkText: san_member.link_text || '',
-                linkUrl: san_member.link || '/contactUs',
-                image: san_member.person_photo || '',
-                imageAlt: san_member.imageAlt || san_member.person_name,
-              });
-            }
-          }
-          setTeamMembers(membersArray);
-
-        } else {
-          setPageData(null);
-          setTeamMembers([]); // Clear team members if no page data
-        }
-      } catch (err) {
-        console.error("Failed to fetch Leadership data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Loading leadership team...
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-red-600">
-        {error}
-      </div>
-    );
-  }
+  const pageData = await getLeadershipData();
 
   if (!pageData) {
     return (
@@ -131,6 +66,19 @@ const LeadershipPage = () => {
       </div>
     );
   }
+
+
+  const teamMembersArray: TeamMemberSanity[] = [
+    pageData.terms_member_1,
+    pageData.terms_member_2,
+    pageData.terms_member_3,
+    pageData.terms_member_4,
+    pageData.terms_member_5,
+    pageData.terms_member_6,
+    pageData.terms_member_7,
+    pageData.terms_member_8,
+    pageData.terms_member_9,
+  ].filter(Boolean) as TeamMemberSanity[];
 
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
@@ -159,20 +107,20 @@ const LeadershipPage = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-7xl mx-auto">
-              {teamMembers.map((member) => {
-
+              {/* Use teamMembersArray here */}
+              {teamMembersArray.map((member, index) => { // Added index for key if no unique ID from Sanity
                 return (
                   <div
-                    key={member.id}
+                    key={index} // Consider using a unique ID from Sanity if available (e.g., member._id)
                     className="relative w-full max-w-86 mx-auto sm:max-w-full h-80 sm:h-96 lg:h-[416px] flip-card-container"
                     style={{ boxSizing: "border-box" }}
                   >
                     <div className="flip-card-inner rounded-md shadow-lg w-full h-full">
                       <div className="flip-card-front bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden w-full h-full">
-                        {member.image && (
+                        {member.person_photo && (
                           <Image
-                            src={member.image}
-                            alt={member.imageAlt || member.name}
+                            src={member.person_photo}
+                            alt={member.imageAlt || member.person_name || "Team Member"}
                             layout="fill"
                             objectFit="cover"
                             quality={80}
@@ -181,29 +129,29 @@ const LeadershipPage = () => {
                         )}
                         <div className="absolute inset-0 text-start z-10 flex flex-col justify-end p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                           <h3 className="text-white text-lg sm:text-xl font-bold mb-0.5">
-                            {member.name}
+                            {member.person_name}
                           </h3>
                           <p className="text-gray-300 text-xs sm:text-sm font-medium">
-                            {member.title}
+                            {member.person_designation}
                           </p>
                         </div>
                       </div>
 
                       <div
                         className={`flip-card-back relative bg-[#D5D4CC] border border-[#ABABA5] overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 bg-no-repeat bg-cover bg-center w-full h-full`}
-                        style={{ backgroundImage: member.flipBg ? `url(${member.flipBg})` : 'none' }}
+                        style={{ backgroundImage: member.person_background_image ? `url(${member.person_background_image})` : 'none' }} // Corrected to use person_background_image
                       >
                         {/* Display the main description part */}
-                        {member.descriptionMain && (
+                        {member.description && ( // Changed to member.description
                           <p className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight text-left mb-3 whitespace-pre-line">
-                            {member.descriptionMain}
+                            {member.description}
                           </p>
                         )}
                         {/* Display the link text if available */}
-                        {member.linkText && (
-                          <Link href={member.linkUrl} passHref>
+                        {member.link_text && member.link && ( // Changed to member.link_text and member.link
+                          <Link href={member.link} passHref>
                             <p className="text-[#464646] text-xs sm:text-xs lg:text-sm leading-tight text-left underline mb-2 cursor-pointer">
-                              {member.linkText}
+                              {member.link_text}
                             </p>
                           </Link>
                         )}

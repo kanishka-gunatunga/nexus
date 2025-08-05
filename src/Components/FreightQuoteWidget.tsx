@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { freight_quote } from "@/sanity/lib/freight-quote";
-import { ServiceCardRowSection } from "@/sanity/lib/service-card-row";
+import { freight_quote } from "@/sanity/lib/queries";
+import { getServiceCardRowSectionData } from "@/sanity/lib/api";
 import client from "../../client";
 
 interface ServiceCardData {
@@ -62,30 +62,30 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [submissionStatus, setSubmissionStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await ServiceCardRowSection();
-        const freightData = await freight_quote();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await ServiceCardRowSection();
+  //       const freightData = await freight_quote();
 
-        if (data && data.length > 0) {
-          setSectionData(data[0]);
-          setFreightQuoteData(freightData[0]);
-        } else {
-          setSectionData(null);
-          setFreightQuoteData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch data:", err);
-        setError("Failed to load content.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  //       if (data && data.length > 0) {
+  //         setSectionData(data[0]);
+  //         setFreightQuoteData(freightData[0]);
+  //       } else {
+  //         setSectionData(null);
+  //         setFreightQuoteData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch data:", err);
+  //       setError("Failed to load content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const services = [
     {

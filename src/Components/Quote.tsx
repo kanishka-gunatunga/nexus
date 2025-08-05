@@ -1,3 +1,6 @@
+// C:\Developments\KodeTech\nexus-1\src\Components\Quote.tsx
+"use client"; // This line is essential for using useState
+
 import React, { useState } from "react";
 import FreightQuoteWidget from "./FreightQuoteWidget";
 
@@ -54,10 +57,10 @@ const Quote = () => {
                     </div>
                 </button>
             </div>
-            
-            <FreightQuoteWidget 
-                isOpen={isWidgetOpen} 
-                onClose={handleCloseWidget} 
+
+            <FreightQuoteWidget
+                isOpen={isWidgetOpen}
+                onClose={handleCloseWidget}
             />
         </>
     );

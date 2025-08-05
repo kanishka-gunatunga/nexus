@@ -1,9 +1,9 @@
-"use client"
+
 import LinkedinSection from "@/Components/LinkedinSection";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Nav from "@/Components/Nav";
 import HeroSection from "@/Components/HeroSection";
-import { termsAndConditions } from "@/sanity/lib/terms-and-conditions";
+import { getTermsAndConditionsData } from "@/sanity/lib/api";
 import { PortableText, PortableTextBlock } from "@portabletext/react";
 
 
@@ -17,50 +17,54 @@ interface TermsAndConditionsData {
   terms_and_conditions?: PortableTextBlock[];
 }
 
-const TermsAndConditions = () => {
+const TermsAndConditions = async() => {
 
-  const [pageData, setPageData] = useState<TermsAndConditionsData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // const [pageData, setPageData] = useState<TermsAndConditionsData | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await termsAndConditions();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await termsAndConditions();
 
-        if (data && data.length > 0) {
+  //       if (data && data.length > 0) {
          
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch Terms and Conditions data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch Terms and Conditions data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
 
-  if (loading) {
-    return;
-  }
+  // if (loading) {
+  //   return;
+  // }
 
-  if (error) {
-    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
-  }
+  // if (error) {
+  //   return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  // }
+
+  // if (!pageData) {
+  //   return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  // }
+
+  const pageData = await getTermsAndConditionsData();
 
   if (!pageData) {
     return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
   }
-
-
 
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">

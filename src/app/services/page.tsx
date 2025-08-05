@@ -1,12 +1,12 @@
-"use client";
-import React, { useEffect, useState } from "react";
+
+import React from "react";
 import Image from "next/image";
 import Nav from "@/Components/Nav";
 import LinkedinSection from "@/Components/LinkedinSection";
 import Quote from "@/Components/Quote";
 import Link from "next/link";
 import HeroSection from "@/Components/HeroSection";
-import { services } from "@/sanity/lib/services";
+import { getServicesData } from "@/sanity/lib/api";
 
 interface ServiceCard {
   card_label?: string;
@@ -26,8 +26,8 @@ interface BottomBanner {
 
 
 interface HeroSection {
-    heroTitle?: string;
-    heroImage?: string;
+  heroTitle?: string;
+  heroImage?: string;
 }
 
 interface ServiceData {
@@ -50,48 +50,55 @@ interface Service {
   link: string;
 }
 
-const ServicesPage = () => {
+const ServicesPage = async () => {
 
-  const [pageData, setPageData] = useState<ServiceData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await services();
-
-        if (data && data.length > 0) {
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch Services data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  // const [pageData, setPageData] = useState<ServiceData | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
 
 
-  if (loading) {
-    return;
-  }
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await services();
 
-  if (error) {
-    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
-  }
+  //       if (data && data.length > 0) {
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch Services data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
+  //   fetchData();
+  // }, []);
+
+  const pageData: ServiceData | null = await getServicesData();
+
+  // if (loading) {
+  //   return;
+  // }
+
+  // if (error) {
+  //   return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  // }
+
+  // if (!pageData) {
+  //   return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  // }
   if (!pageData) {
-    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-lg">No content available.</div>
+      </div>
+    );
   }
-
   // const servicescards:ServiceCard[] = [
   //   pageData.service_card_1,
   //   pageData.service_card_2,
@@ -111,7 +118,7 @@ const ServicesPage = () => {
     },
     {
       label: pageData.service_card_2?.card_label || "Customs Clearance & Compliance",
-      description:pageData.service_card_2?.card_description || "Customs and compliance doesn't have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits - ensuring your goods clear swiftly and cost-effectively.",
+      description: pageData.service_card_2?.card_description || "Customs and compliance doesn't have to be a bottleneck. We simplify international and domestic border processes by expertly handling HS classifications, duty optimisation, documentation, and other procedures, including audits - ensuring your goods clear swiftly and cost-effectively.",
       src: pageData.service_card_2?.card_image || "/Customs_Clearance.svg",
       alt: pageData.service_card_2?.card_image_alt || "Customs Clearance Services",
       link: pageData.service_card_2?.card_link || "/customs",

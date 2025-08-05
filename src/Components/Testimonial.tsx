@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { PropsWithChildren } from "react";
-import { homePage } from '../../src/sanity/lib/homePage';
+import { getHomePageData } from '../../src/sanity/lib/api';
 
 interface TestimonialProps {
     quote: string;
@@ -18,22 +18,22 @@ interface TranslateWrapperProps extends PropsWithChildren {
 }
 
 // Fetch testimonials from homepage data
-const getTestimonials = async (): Promise<any[]> => {
-    try {
-        const homePageData = await homePage();
+// const getTestimonials = async (): Promise<any[]> => {
+//     try {
+//         const homePageData = await homePage();
         
-        // Extract testimonials from homepage data
-        if (homePageData && homePageData.length > 0) {
-            const firstPage = homePageData[0];
-            return firstPage?.testimonial_details_section || [];
-        }
+//         // Extract testimonials from homepage data
+//         if (homePageData && homePageData.length > 0) {
+//             const firstPage = homePageData[0];
+//             return firstPage?.testimonial_details_section || [];
+//         }
         
-        return [];
-    } catch (error) {
-        console.error("Failed to fetch testimonials from Sanity:", error);
-        return [];
-    }
-};
+//         return [];
+//     } catch (error) {
+//         console.error("Failed to fetch testimonials from Sanity:", error);
+//         return [];
+//     }
+// };
 
 const TestimonialCard = ({ testimonial }: { testimonial: TestimonialProps }) => (
     <motion.div
@@ -136,49 +136,49 @@ const Testimonial = () => {
         },
     ];
 
-    useEffect(() => {
-        const fetchTestimonials = async () => {
-            try {
-                setLoading(true);
-                setError(null);
+    // useEffect(() => {
+    //     const fetchTestimonials = async () => {
+    //         try {
+    //             setLoading(true);
+    //             setError(null);
                 
-                const data = await getTestimonials();
+    //             const data = await getTestimonials();
                 
-                if (data && data.length > 0) {
-                    // Map Sanity data to your testimonial structure
-                    const mappedTestimonials = data.map((item: any) => ({
-                        quote: item?.testimonial_comment || item?.quote || "",
-                        name: item?.person_name || item?.name || "",
-                        title: item?.person_designation || item?.title || "",
-                        avatar: item?.person_image || item?.avatar || "/default-avatar.png",
-                    })).filter((testimonial: TestimonialProps) => 
-                        testimonial.quote && testimonial.name
-                    );
+    //             if (data && data.length > 0) {
+    //                 // Map Sanity data to your testimonial structure
+    //                 const mappedTestimonials = data.map((item: any) => ({
+    //                     quote: item?.testimonial_comment || item?.quote || "",
+    //                     name: item?.person_name || item?.name || "",
+    //                     title: item?.person_designation || item?.title || "",
+    //                     avatar: item?.person_image || item?.avatar || "/default-avatar.png",
+    //                 })).filter((testimonial: TestimonialProps) => 
+    //                     testimonial.quote && testimonial.name
+    //                 );
                     
-                    if (mappedTestimonials.length > 0) {
-                        setTestimonials(mappedTestimonials);
-                    } else {
-                        // Use fallback if no valid testimonials found
-                        console.warn("No valid testimonials found in Sanity, using fallback data");
-                        setTestimonials(fallbackTestimonials);
-                    }
-                } else {
-                    // Use fallback if no data from Sanity
-                    console.warn("No testimonials data from Sanity, using fallback data");
-                    setTestimonials(fallbackTestimonials);
-                }
-            } catch (err) {
-                console.error("Failed to fetch testimonials:", err);
-                setError("Failed to load testimonials");
-                // Use fallback data on error
-                setTestimonials(fallbackTestimonials);
-            } finally {
-                setLoading(false);
-            }
-        };
+    //                 if (mappedTestimonials.length > 0) {
+    //                     setTestimonials(mappedTestimonials);
+    //                 } else {
+    //                     // Use fallback if no valid testimonials found
+    //                     console.warn("No valid testimonials found in Sanity, using fallback data");
+    //                     setTestimonials(fallbackTestimonials);
+    //                 }
+    //             } else {
+    //                 // Use fallback if no data from Sanity
+    //                 console.warn("No testimonials data from Sanity, using fallback data");
+    //                 setTestimonials(fallbackTestimonials);
+    //             }
+    //         } catch (err) {
+    //             console.error("Failed to fetch testimonials:", err);
+    //             setError("Failed to load testimonials");
+    //             // Use fallback data on error
+    //             setTestimonials(fallbackTestimonials);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
 
-        fetchTestimonials();
-    }, []);
+    //     fetchTestimonials();
+    // }, []);
 
     // Show loading state
     if (loading) {

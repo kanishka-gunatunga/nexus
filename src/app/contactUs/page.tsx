@@ -6,7 +6,7 @@ import Image from "next/image";
 import Nav from "@/Components/Nav";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
-import { contactUs } from "@/sanity/lib/contact-us";
+import { getContactUsData } from "@/sanity/lib/api";
 // Import the Sanity client from your client file
 import client from "../../../client";
 import { Metadata } from "next";
@@ -118,40 +118,48 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await contactUs();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await contactUs();
 
-        if (data && data.length > 0) {
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch contactUs data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  //       if (data && data.length > 0) {
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch contactUs data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
-  if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  // }
 
-  if (error) {
-    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
-  }
+  // if (error) {
+  //   return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  // }
 
+  // if (!pageData) {
+  //   return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  // }
+
+  
   if (!pageData) {
-    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
-  }
-
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="text-lg">No content available.</div>
+            </div>
+        );
+    }
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
 

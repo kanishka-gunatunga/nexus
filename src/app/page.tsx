@@ -13,7 +13,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { homePage } from '../../src/sanity/lib/homePage'
+import { getHomePageData } from '../../src/sanity/lib/api'
+// import { home } from "@/sanity/lib/api";
 // import { p } from "framer-motion/client";
 
 
@@ -99,7 +100,7 @@ interface homePageData {
   }
 }
 
-export default function Home() {
+export const home = async function Home() {
   const images = [
     "/plane1.png",
     "/slid1.png",
@@ -121,34 +122,37 @@ export default function Home() {
   const [currentMobileImageIndex, setCurrentMobileImageIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
-  const [pageData, setPageData] = useState<homePageData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // const [pageData, setPageData] = useState<homePageData | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await homePage();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await homePage();
 
-        if (data && data.length > 0) {
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch homePage data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  //       if (data && data.length > 0) {
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch homePage data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
-
+  const pageData = await getHomePageData();
+  if (!pageData) {
+    return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {

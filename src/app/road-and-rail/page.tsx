@@ -1,7 +1,7 @@
-"use client";
+
 import Image from "next/image";
 import LinkedinSection from "@/Components/LinkedinSection";
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import Link from "next/link";
 import Nav from "@/Components/Nav";
 import PhotoDescriptionSection from "@/Components/PhotoDescriptionSection";
@@ -9,7 +9,7 @@ import HeroTitleAndParagraph from "@/Components/HeroTitleAndParagraph";
 import ServiceCardRow from "@/Components/ServiceCardRow";
 import Quote from "@/Components/Quote";
 import HeroSection from "@/Components/HeroSection";
-import { roadAndRail } from "@/sanity/lib/road-and-rail";
+import { getRoadAndRailData } from "@/sanity/lib/api";
 
 
 interface HeroSection {
@@ -52,49 +52,55 @@ interface roadAndRailData {
   }
 }
 
-const RoadAndRail = () => {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-
-  const [pageData, setPageData] = useState<roadAndRailData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await roadAndRail();
-
-        if (data && data.length > 0) {
-          setPageData(data[0]);
-        } else {
-          setPageData(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch RoadAndRail data:", err);
-        setError("Failed to load page content.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-
-  if (loading) {
-    return;
-  }
-
-  if (error) {
-    return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
-  }
+const RoadAndRail = async() => {
+  const pageData = await getRoadAndRailData();
 
   if (!pageData) {
     return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
   }
+
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
+  // const [pageData, setPageData] = useState<roadAndRailData | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
+
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await roadAndRail();
+
+  //       if (data && data.length > 0) {
+  //         setPageData(data[0]);
+  //       } else {
+  //         setPageData(null);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch RoadAndRail data:", err);
+  //       setError("Failed to load page content.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+
+  // if (loading) {
+  //   return;
+  // }
+
+  // if (error) {
+  //   return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
+  // }
+
+  // if (!pageData) {
+  //   return <div className="min-h-screen flex items-center justify-center">No content available.</div>;
+  // }
 
   return (
     <div className="min-h-screen bg-[#F6F6F6] poppins">
