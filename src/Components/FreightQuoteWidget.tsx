@@ -177,9 +177,12 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
       });
 
       if (response.ok) {
+        // Set success message at bottom
         setSuccessMessage(
-          "Your freight quote request has been sent successfully!"
+          "Thank you for your freight quote request! Our team will get in touch with you soon."
         );
+
+        // Reset form
         setFormData({
           firstName: "",
           lastName: "",
@@ -194,21 +197,26 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
         });
         setPrivacyAccepted(false);
         setRecaptchaValue(null);
-        setTimeout(() => {
-          if (
-            confirm(
-              "Your request was submitted. Would you like to close the form?"
-            )
-          ) {
-            onClose();
-          }
-        }, 2000);
+
+        // Auto-clear after 10 seconds
         setTimeout(() => {
           setSuccessMessage("");
-        }, 5000);
+        }, 10000);
+
+        // Scroll to bottom to ensure message is visible
+        setTimeout(() => {
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth",
+          });
+        }, 100);
       } else {
         const errorData = await response.json();
-        setErrorMessage(`Failed to send request: ${errorData.message}`);
+        setErrorMessage(
+          `Failed to send request: ${
+            errorData.message || "Please try again later."
+          }`
+        );
         setTimeout(() => {
           setErrorMessage("");
         }, 5000);
@@ -217,7 +225,7 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
       setErrorMessage(
         "An unexpected error occurred. Please try again or contact support."
       );
-      console.log(error);
+      console.error(error);
       setTimeout(() => {
         setErrorMessage("");
       }, 5000);
@@ -269,17 +277,6 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                 Commercial shipments only - no personal effects.
               </p>
             </div>
-
-            {successMessage && (
-              <div className="mb-6 p-4 bg-green-600 text-white rounded-md">
-                {successMessage}
-              </div>
-            )}
-            {errorMessage && (
-              <div className="mb-6 p-4 bg-red-600 text-white rounded-md">
-                {errorMessage}
-              </div>
-            )}
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-6 lg:mt-22">
@@ -647,6 +644,17 @@ const FreightQuoteWidget: React.FC<FreightQuoteWidgetProps> = ({
                   </p>
                 )}
               </div>
+
+              {successMessage && (
+                <div className="mb-6 p-4 bg-green-600 text-white rounded-md">
+                  {successMessage}
+                </div>
+              )}
+              {errorMessage && (
+                <div className="mb-6 p-4 bg-red-600 text-white rounded-md">
+                  {errorMessage}
+                </div>
+              )}
 
               {/* Submit Button */}
               <button
