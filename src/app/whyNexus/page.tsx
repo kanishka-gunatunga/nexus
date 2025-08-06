@@ -60,7 +60,7 @@ const airAndSeaFreight = () => {
             <div className="block lg:hidden flex flex-col items-center gap-4">
               {/* Title */}
               <h2 className="font-bold text-[24px] sm:text-[32px] text-[#162F65] font-poppins text-center">
-                History &amp; Inspiration
+                Who’s Nexus ?
               </h2>
 
               {/* Image */}
@@ -76,12 +76,20 @@ const airAndSeaFreight = () => {
               <p className="text-sm text-[#676767] font-poppins text-justify">
                 Nexus Logix is an Australian freight forwarder and logistics
                 provider, headquartered in Brisbane. Founded by a group of
-                seasoned industry professionals who recognised an opportunity to
-                blend deep regional knowledge with modern systems and global
-                networks, Nexus Logix strives to support customers as they seek
-                to achieve their goals. From day one, our mission has been
-                clear: to be the steadfast partner that understands your
-                business needs and moves your cargo with precision and care.
+                seasoned industry professionals with decades of experience
+                across Australia, Oceania, and Asia Pacific, we saw the
+                opportunity to bring grace and precision to an often chaotic
+                industry.
+              </p>
+
+              <p className="text-sm text-[#676767] font-poppins text-justify">
+                Much like a perfectly choreographed ballroom dance, our
+                operations rely on trust, timing, and seamless coordination.
+                Every partner, process, and piece of technology moves in step in
+                harmony to keep your business moving forward. From day one, our
+                mission has been clear: to be the reliable partner that
+                understands your rhythm and moves your cargo with care,
+                accuracy, and confidence.
               </p>
             </div>
           </AnimatedSection>
@@ -103,20 +111,25 @@ const airAndSeaFreight = () => {
               {/* Text Section */}
               <div className="w-full flex flex-col justify-start">
                 <h2 className="mb-4 font-bold text-[32px] sm:text-[40px] md:text-[60px] lg:text-[70px] leading-[1.1] text-[#162F65] font-poppins">
-                  History &amp;
-                  <br />
-                  Inspiration
+                  Who’s Nexus ?
                 </h2>
                 <p className="text-sm sm:text-base lg:text-[18px] text-[#676767] font-poppins text-justify">
                   Nexus Logix is an Australian freight forwarder and logistics
                   provider, headquartered in Brisbane. Founded by a group of
-                  seasoned industry professionals who recognised an opportunity
-                  to blend deep regional knowledge with modern systems and
-                  global networks, Nexus Logix operates akin to a finely tuned
-                  F1 pit crew supporting customers as they race ahead towards
-                  their goals. From day one, our mission has been clear: to be
-                  the steadfast partner that understands your business needs and
-                  moves your cargo with precision and care.
+                  seasoned industry professionals with decades of experience
+                  across Australia, Oceania, and Asia Pacific, we saw the
+                  opportunity to bring grace and precision to an often chaotic
+                  industry.
+                </p>
+
+                <p className="text-sm sm:text-base lg:text-[18px] text-[#676767] font-poppins text-justify mt-2">
+                  Much like a perfectly choreographed ballroom dance, our
+                  operations rely on trust, timing, and seamless coordination.
+                  Every partner, process, and piece of technology moves in step
+                  in harmony to keep your business moving forward. From day one,
+                  our mission has been clear: to be the reliable partner that
+                  understands your rhythm and moves your cargo with care,
+                  accuracy, and confidence.
                 </p>
               </div>
             </div>

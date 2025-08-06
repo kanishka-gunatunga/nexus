@@ -284,7 +284,7 @@ const TrackAndTrace = () => {
                         <h3 className="font-poppins text-lg sm:text-xl md:text-2xl font-semibold text-[#162F65] mb-3 sm:mb-4 leading-tight">
                           {feature.title.includes("CO₂") ? (
                             <>
-                              <span style={{ color: "#72942E" }}>CO₂</span>{" "}
+                              <span style={{ color: "#5DF706" }}>CO₂</span>{" "}
                               {feature.title.replace("CO₂", "").trim()}
                             </>
                           ) : (
