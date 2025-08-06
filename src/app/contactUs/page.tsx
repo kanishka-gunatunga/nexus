@@ -281,7 +281,12 @@ export default function ContactPage() {
       });
 
       if (response.ok) {
-        setSuccessMessage("Your contact request has been sent successfully!");
+        // Set success message at bottom
+        setSuccessMessage(
+          "Thank you for your submission! Our team will get in touch with you soon."
+        );
+
+        // Reset form
         setFormData({
           firstName: "",
           lastName: "",
@@ -298,24 +303,30 @@ export default function ContactPage() {
         setPrivacyAccepted(false);
         setRecaptchaValue(null);
         setErrors({});
+
+        // Auto-clear after 10 seconds
         setTimeout(() => {
           setSuccessMessage("");
-        }, 5000);
+        }, 10000);
+
+        // Scroll to bottom to ensure message is visible
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
       } else {
         const errorData = await response.json();
-        setErrorMessage(`Failed to send request: ${errorData.message}`);
-        setTimeout(() => {
-          setErrorMessage("");
-        }, 5000);
+        setErrorMessage(
+          `Failed to send request: ${
+            errorData.message || "Please try again later."
+          }`
+        );
       }
     } catch (error) {
       setErrorMessage(
         "An unexpected error occurred. Please try again or contact support."
       );
-      console.log(error);
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 5000);
+      console.error(error);
     } finally {
       setIsLoading(false);
     }
@@ -460,7 +471,7 @@ export default function ContactPage() {
               </a>
 
               {/* Google+ */}
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/nexus-logix-pvt-ltd" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/linkedin_icon.png"
                   alt="Instagram"
@@ -507,16 +518,7 @@ export default function ContactPage() {
             <AnimatedSection direction="right" delay={0.2}>
               <div className="max-w-2xl">
                 {/* Contact Information */}
-                {successMessage && (
-                  <div className="mb-6 p-4 bg-green-600 text-white rounded-md">
-                    {successMessage}
-                  </div>
-                )}
-                {errorMessage && (
-                  <div className="mb-6 p-4 bg-red-600 text-white rounded-md">
-                    {errorMessage}
-                  </div>
-                )}
+
                 <form onSubmit={handleSubmit} noValidate>
                   <div className="mb-8">
                     <h2
@@ -873,6 +875,17 @@ export default function ContactPage() {
                       </p>
                     )}
                   </div>
+
+                  {successMessage && (
+                    <div className="mb-6 p-4 bg-green-600 text-white rounded-md">
+                      {successMessage}
+                    </div>
+                  )}
+                  {errorMessage && (
+                    <div className="mb-6 p-4 bg-red-600 text-white rounded-md">
+                      {errorMessage}
+                    </div>
+                  )}
 
                   {/* Submit Button */}
                   <div className="text-right">
