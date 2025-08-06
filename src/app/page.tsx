@@ -484,7 +484,8 @@ export default function Home() {
                     Australia, Oceania, and Asia Pacific, Nexus Logix brings
                     together local expertise and global reach. Our strength lies
                     in creating seamless connections between people, processes,
-                    and technology, ensuring every move is in perfect sync.
+                    and technology, ensuring every move in perfect harmony with
+                    you.
                   </p>
                   <p>
                     We know that we aren&#39;t simply moving your cargo -
@@ -572,11 +573,11 @@ export default function Home() {
                   {/* CO₂ row */}
                   <div className="flex justify-start items-center gap-2">
                     <div className="w-16">
-                      <p className="text-xl font-semibold text-[#559000]">
+                      <p className="text-xl font-semibold text-[#5DF706]">
                         CO₂
                       </p>
                     </div>
-                    <p className="text-sm text-[#559000]">Track & Trace</p>
+                    <p className="text-sm text-[#5DF706]">Track & Trace</p>
                   </div>
                 </div>
               </AnimatedSection>
@@ -607,10 +608,10 @@ export default function Home() {
                   </div>
                 ))}
                 <div className="group text-left">
-                  <p className="text-2xl lg:text-6xl font-semibold text-[#559000] mb-2 group-hover:scale-105 transition-transform duration-300">
+                  <p className="text-2xl lg:text-6xl font-semibold text-[#5DF706] mb-2 group-hover:scale-105 transition-transform duration-300">
                     CO₂
                   </p>
-                  <p className="text-sm lg:text-xl text-[#559000]">
+                  <p className="text-sm lg:text-xl text-[#5DF706]">
                     Track & Trace
                   </p>
                 </div>

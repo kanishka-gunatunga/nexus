@@ -116,7 +116,7 @@ const integratedLogistics = () => {
             paragraph3=""
             buttonText="Book an Unusual Move"
             buttonLink="/contactUs"
-            imageSrc="/services/special-project.png"
+            imageSrc="/services/special-project1.png"
             reverse={true}
           />
         </div>
